@@ -1,0 +1,37 @@
+/*!
+ =========================================================
+ * Arcade Kit - v1.0.0
+ =========================================================
+ */
+
+@import 'arcade-kit/variables';
+@import 'arcade-kit/mixins';
+
+// Plugins CSS
+
+// Core CSS
+@import "arcade-kit/buttons";
+@import "arcade-kit/inputs";
+@import "arcade-kit/checkbox-radio";
+@import "arcade-kit/progress-bars";
+@import "arcade-kit/badges";
+@import "arcade-kit/pagination";
+@import "arcade-kit/typography";
+@import "arcade-kit/misc";
+@import "arcade-kit/labels";
+
+// components
+@import "arcade-kit/tabs-navs";
+@import "arcade-kit/navbars";
+@import "arcade-kit/dropdown";
+@import "arcade-kit/alerts";
+@import "arcade-kit/images";
+@import "arcade-kit/tooltips-and-popovers";
+@import "arcade-kit/modal";
+@import "arcade-kit/footers";
+
+// Cards
+@import "arcade-kit/cards";
+
+
+@import "arcade-kit/responsive";

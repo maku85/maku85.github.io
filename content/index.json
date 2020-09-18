@@ -1,0 +1,115 @@
+{
+  "socials": [{
+    "type": "linkedin",
+    "link": "https://it.linkedin.com/in/mauro-cunsolo"
+  }, {
+    "type": "github",
+    "link": "https://github.com/maku85"
+  }, {
+    "type": "codepen",
+    "link": "https://codepen.io/maku85/"
+  }],
+  "education": [
+    {
+      "title": "Bachelor degree in computer engineering",
+      "endDate": "2013",
+      "description": ""
+    },
+    {
+      "title": "Degree in surveyor",
+      "endDate": "2004",
+      "description": ""
+    }
+  ],
+  "experiences": [
+    {
+      "title": "NodeJS developer",
+      "startDate": "01-2019",
+      "company": "Artshell srl",
+      "description": ""
+    }, {
+      "title": "NodeJS developer",
+      "startDate": "08-2018",
+      "endDate": "12-2018",
+      "company": "LinkMe srl",
+      "description": ""
+    }, {
+      "title": "Full-stack developer",
+      "startDate": "04-2017",
+      "endDate": "07-2018",
+      "company": "SAEP ICT engineering srl",
+      "description": ""
+    }, {
+      "title": "Full-stack developer",
+      "startDate": "04-2016",
+      "endDate": "03-2017",
+      "company": "Open Style srl",
+      "description": ""
+    }, {
+      "title": "Java developer",
+      "startDate": "11-2014",
+      "endDate": "03-2016",
+      "company": "Reply spa",
+      "description": ""
+    }, {
+      "title": "Java developer",
+      "startDate": "07-2012",
+      "endDate": "11-2014",
+      "company": "Sydema srl",
+      "description": ""
+    }
+  ],
+  "expertises": [
+    {
+      "title": "Backend Skills",
+      "skills": [
+        { "title": "Java", "value": "60" },
+        { "title": "Node", "value": "80" },
+        { "title": "PHP", "value": "20" },
+        { "title": "Python", "value": "30" }
+      ]
+    }, {
+      "title": "Frontend Skills",
+      "skills": [
+        { "title": "Angular", "value": "50" },
+        { "title": "Vue", "value": "30" },
+        { "title": "Nuxt", "value": "10" },
+        { "title": "Wordpress", "value": "20" }
+      ]
+    }
+  ],
+  "works": [
+    {
+      "title": "Simple login page",
+      "category": "login page",
+      "description": "A simple login page in pure HTML/CSS",
+      "image": "projects/login/preview.webp",
+      "tags": ["html5", "CSS3"],
+      "url": "../projects/login"
+    },
+    {
+      "title": "Simple single page",
+      "category": "SPA",
+      "description": "A simple single pagin in HTML/CSS",
+      "image": "projects/psychologist/preview.webp",
+      "tags": ["html5", "CSS3", "jQuery", "Bootstrap 4"],
+      "url": "../projects/psychologist"
+    },
+    {
+      "title": "Simple portfolio",
+      "category": "Portfolio",
+      "description": "A simple single page portfolio in HTML/CSS with Bootstrap 4",
+      "image": "projects/artist/preview.webp",
+      "tags": ["html5", "CSS3", "jQuery", "Bootstrap 4"],
+      "url": "../projects/artist"
+    },
+    {
+      "title": "Rick & Morty world",
+      "category": "SPA",
+      "description": "A simple single page app in Angular 8",
+      "image": "projects/rem/preview.webp",
+      "tags": ["html5", "CSS3", "Angular"],
+      "url": "http://special-lizards.surge.sh/"
+    }
+  ]
+}
