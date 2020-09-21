@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-container">
     <Nuxt />
   </div>
 </template>
@@ -27,5 +27,8 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+.main-container {
+  overflow: hidden;
 }
 </style>

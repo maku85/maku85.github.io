@@ -311,11 +311,13 @@ $input-color-placeholder: #999 !default;
 :root {
   --color: #243746;
   --bg: #fff;
+  --title-bg: rgba(30, 37, 48, 0.07);
   --primary-color: #72b626;
 }
 
 .dark-mode {
   --color: #ebf4f1;
   --bg: #111;
+  --title-bg: rgba(255, 255, 255, 0.07);
   --primary-color: #fcb400;
 }

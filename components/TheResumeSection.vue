@@ -25,7 +25,7 @@
       </div>
 
       <h3 class="text-uppercase pb-5 mb-0 mt-5 text-left text-sm-center">Experience <span>&amp;</span> Education</h3>
-      <div class="row mt-4">
+      <div class="row mt-4 p-4">
         <div class="col-md-12 col-lg-6 m-15px-tb resume-box" v-for="experience of resume.experiences" :key="experience.id">
           <div class="icon">
             <fa icon="briefcase"></fa>

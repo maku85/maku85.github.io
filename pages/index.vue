@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-page sidebar-collapse">
+  <div class="sidebar-collapse">
     <nav id="nav" class="navbar navbar-expand-lg navbar-transparent fixed-top">
       <div class="container">
         <div class="navbar-translate">
@@ -142,6 +142,7 @@ export default {
 
 <style scoped>
 .navbar {
+  width: 100vw;
   background: var(--bg);
 }
 </style>

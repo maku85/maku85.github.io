@@ -10,7 +10,7 @@
       </div>
     </nav>
 
-    <section class="blog-detail section-dark">
+    <section class="blog-detail">
       <div
         class="blog-detail-banner wow fadeIn"
         style="visibility: visible; animation-name: fadeIn;"

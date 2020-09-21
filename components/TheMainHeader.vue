@@ -41,12 +41,5 @@
   &.page-header-xs {
     min-height: 40vh !important;
   }
-
-  &.section-dark {
-    .content-center,
-    .category-absolute {
-      z-index: 1;
-    }
-  }
 }
 </style>

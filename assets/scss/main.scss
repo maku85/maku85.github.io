@@ -82,7 +82,8 @@ body {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  color: rgba(30, 37, 48, 0.07);
+  color: var(--title-bg);
+  
 }
 
 // Sections
@@ -113,28 +114,6 @@ body {
   font-size: 20px;
   font-weight: 600;
   text-transform: uppercase;
-}
-.section-dark {
-  background: #d2d5dd;
-  position: relative;
-
-  .title,
-  .info-title,
-  .card-plain .card-title {
-    color: #fff !important;
-  }
-  .category,
-  .description,
-  .card-plain .card-description,
-  .card-plain .card-category {
-    color: rgba(#fff, 0.7);
-  }
-  .b-box {
-    background: #fff;
-  }
-  hr {
-    border-color: rgba(255, 255, 255, 0.19);
-  }
 }
 .section-head {
   position: relative;
