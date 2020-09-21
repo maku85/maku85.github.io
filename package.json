@@ -33,10 +33,12 @@
     "prism-themes": "1.4.0"
   },
   "devDependencies": {
+    "@nuxtjs/color-mode": "^1.1.1",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/stylelint-module": "4.0.0",
+    "@nuxtjs/svg": "^0.1.12",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",

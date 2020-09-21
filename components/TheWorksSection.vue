@@ -2,12 +2,12 @@
   <section
     v-if="works.length > 0"
     id="works"
-    class="section section-dark section-work"
+    class="section section-work"
   >
     <div class="container">
-      <div class="section-head">
-        <span>PORTFOLIO</span>
-        <h2>My Works</h2>
+      <div class="section-title text-sm-center">
+        <h1>MY <span>PORTFOLIO</span></h1>
+        <span class="title-bg">WORKS</span>
       </div>
 
       <div class="row mt-4">

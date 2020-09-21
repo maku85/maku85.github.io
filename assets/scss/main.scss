@@ -1,5 +1,11 @@
-// Base
+@import 'arcade';
 
+// Base
+body {
+  background-color: var(--bg);
+  color: var(--color);
+  transition: background-color 0.3s;
+}
 // Forms
 .form-control {
   padding: 15px 30px;
@@ -23,15 +29,10 @@
   box-shadow: none;
   text-transform: uppercase;
   outline: none !important;
-  background-color: #932e10;
+  background-color: var(--primary-color);
   box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   min-width: 140px;
-}
-
-// Badges
-.badge-dark {
-  background: #932e10 !important;
 }
 
 // Progress bar
@@ -54,23 +55,64 @@
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #007bff;
+  background-color: var(--primary-color);
   transition: width 0.6s ease;
 }
 
 .b-box {
-  background: #fff;
+  background: var(--bg);
   border-radius: 2px;
   overflow: hidden;
   border: 1px solid #eee;
   transition: all 0.3s ease-in-out 0s;
 }
 
+.title-bg {
+  font-size: 110px;
+  left: 0;
+  letter-spacing: 10px;
+  line-height: 0.7;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  text-transform: uppercase;
+  font-weight: 800;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: rgba(30, 37, 48, 0.07);
+}
+
 // Sections
 .section {
-  padding: 70px 0;
+  padding: 50px 0;
   position: relative;
-  background-color: #ffffff;
+  background-color: var(--bg);
+}
+.section-title {
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  padding: 80px 0;
+
+  h1 {
+    font-size: 56px;
+    font-weight: 900;
+    color: #666;
+    text-transform: uppercase;
+    margin: 0;
+
+    span {
+      color: var(--primary-color);
+    }
+  }
+}
+.section-subHead {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 .section-dark {
   background: #d2d5dd;
@@ -179,14 +221,9 @@
   background: url('/alien.webp');
   background-size: 100%;
   bottom: 20px;
-  border-radius: 2px;
-  color: #ffffff;
-  display: inline-block;
-  font-size: 18px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
   height: 60px;
-  line-height: 40px;
-  opacity: 1;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
   position: fixed;
   right: 30px;
   text-align: center;

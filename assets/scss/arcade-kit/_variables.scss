@@ -307,3 +307,15 @@ $zindex-select-dropdown: 1060 !default; // must be higher than a modal backgroun
 
 //** Placeholder text color
 $input-color-placeholder: #999 !default;
+
+:root {
+  --color: #243746;
+  --bg: #fff;
+  --primary-color: #72b626;
+}
+
+.dark-mode {
+  --color: #ebf4f1;
+  --bg: #111;
+  --primary-color: #fcb400;
+}

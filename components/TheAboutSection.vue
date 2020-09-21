@@ -6,7 +6,6 @@
           <div class="col-md-7">
             <div class="about-desc">
               <div class="about-desc-content">
-                <h2>About Me</h2>
                 <p class="mt-4 font-weight-light">
                   Passionate full-stack developer, I like to follow the whole
                   life cycle of a project development, from feasibility analysis
@@ -57,18 +56,22 @@ export default {
   color: #306fb2 !important;
 }
 .section-about {
+  margin-top: 120px;
+
   .section-about-wrap {
+    background: var(--bg);
     max-width: 950px;
-    margin: -200px auto 0 auto;
+    margin: -40vh auto 0 auto;
     border-radius: 4px;
+    color: var(--color);
 
     .section-about-inner {
       padding: 50px;
 
       .profile-picture {
         background-image: url('/img_avatar.webp');
-        max-width: 250px;
-        height: 250px;
+        max-width: 200px;
+        height: 200px;
         background-size: cover;
         background-position: 0px -10px;
       }
