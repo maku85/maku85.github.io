@@ -2,8 +2,14 @@
   <section id="blog" class="section section-blog">
     <div class="container">
       <div class="section-title text-center">
-        <h1>My <span>blog</span></h1>
-        <span class="title-bg">Posts</span>
+        <h1 v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }">
+          My <span>blog</span>
+        </h1>
+        <span
+          class="title-bg"
+          v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }"
+          >Posts</span
+        >
       </div>
 
       <div v-if="articles.length === 0" class="row mt-4">

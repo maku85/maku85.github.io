@@ -2,8 +2,14 @@
   <section id="resume" class="section section-resume">
     <div class="container">
       <div class="section-title text-center">
-        <h1>About <span>me</span></h1>
-        <span class="title-bg">Resume</span>
+        <h1 v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }">
+          About <span>me</span>
+        </h1>
+        <span
+          class="title-bg"
+          v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }"
+          >Resume</span
+        >
       </div>
 
       <div class="container">

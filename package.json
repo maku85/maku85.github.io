@@ -26,7 +26,8 @@
     "nuxt": "^2.14.1",
     "nuxt-fontawesome": "^0.4.0",
     "prism-themes": "^1.4.0",
-    "push-dir": "^0.4.1"
+    "push-dir": "^0.4.1",
+    "vue-resize-text": "^0.1.1"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^1.1.1",
