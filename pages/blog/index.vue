@@ -1,103 +1,134 @@
 <template>
-  <div class="m-8">
-    <nav id="nav" class="navbar navbar-expand-lg">
-      <div class="container">
-        <div class="navbar-translate">
-          <NuxtLink to="/" class="navbar-brand" title="Mauro Cunsolo">
-            Mauro
-          </NuxtLink>
-        </div>
+  <section id="blog-page" class="section">
+    <div class="container">
+      <div class="section-title text-center">
+        <h1>My <span>blog</span></h1>
+        <span class="title-bg">Posts</span>
       </div>
-    </nav>
 
-    <section id="blog-page" class="section">
-      <div class="container">
-        <div class="section-head">
-          <span>Blog</span>
-          <h2>My Articles</h2>
-        </div>
+      <AppSearchInput @searchResults="refreshData" />
 
-        <ul
-          class="list-items-container blog-wrapper images-loaded shuffle"
-          style="height: 2271.5px; transition: height 250ms ease-out 0s;"
+      <div v-if="filter" class="mt-2 mb-2">
+        <span class="filter">
+          {{ filter }}
+          <fa class="close-btn" icon="times" @click="reset"></fa>
+        </span>
+      </div>
+
+      <div v-if="!articles || articles.length === 0" class="row mt-4">
+        <div class="col-sm-12">No post found :(</div>
+      </div>
+
+      <div v-i="articles && articles.length > 0" class="row mt-4">
+        <div
+          v-for="article of articles"
+          :key="article.id"
+          class="col-sm-12 col-md-6 col-lg-4"
         >
-          <li
-            v-for="article of articles"
-            :key="article.slug"
-            class="list-item shuffle-item filtered"
-            style="float: left;"
-          >
-            <NuxtLink
-              :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-              class="blog-list"
-            >
-              <div class="blog-list--img">
-                <img :src="article.img" alt="Blog Image" class="img-fluid" />
-                <div
-                  class="blog-list--details d-flex justify-content-center align-items-center"
-                >
-                  <div class="blog-list--details-in">
-                    <p class="blog-by text-white">Alice Joseph</p>
-                    <span class="blog-duration text-white">2 Mins Read</span>
-                  </div>
-                </div>
-              </div>
-              <div class="blog-list--desc p-3">
-                <p>{{ article.title }}</p>
-                <span class="d-block text-center mt-3 font-weight-bold blog-cat"
-                  >Design</span
-                >
-              </div>
-            </NuxtLink>
-          </li>
-        </ul>
-        <!-- .projects-container -->
+          <post-preview :post="article"></post-preview>
+        </div>
       </div>
-      <!-- .contaier -->
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
-  async asyncData({ $content, params }) {
-    const articles = await $content('articles', params.slug)
-      .only(['title', 'description', 'img', 'slug', 'author'])
-      .sortBy('createdAt', 'desc')
-      .fetch()
+  fetch() {
+    const filters = {}
+    const query = this.$route.query
+    if (query.category) {
+      Object.assign(filters, { tags: { $containsAny: [query.category] } })
+      this.filter = query.category
+    }
+    this.retrieveData(filters)
+  },
+  data() {
+    return { filter: '', articles: [] }
+  },
+  methods: {
+    async retrieveData(filters) {
+      Object.assign(filters, { published: true })
+      this.articles = await this.$content('articles')
+        .only(['date', 'title', 'description', 'img', 'slug'])
+        .where(filters)
+        .sortBy('date', 'desc')
+        .fetch()
+    },
+    refreshData(data) {
+      this.articles = data
+    },
+    async reset() {
+      this.$router.push('/blog')
+      this.filter = ''
+      await this.retrieveData()
+    }
+  },
+  head() {
     return {
-      articles
+      title: 'Mauro Cunsolo - My blog'
     }
   }
 }
 </script>
 
 <style lang="scss">
-.list-items-container {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+.navbar.navbar-transparent .navbar-toggler .navbar-toggler-bar {
+  background-color: #66615b !important;
+}
+.navbar.navbar-transparent .navbar-nav .nav-item .nav-link {
+  color: #66615b !important;
+}
+.filter {
+  background-color: #f2f2f2;
+  padding: 12px 10px;
+  border-radius: 4px;
 
-  .list-item {
-    display: block;
-    list-style: outside none none;
-    margin-bottom: 30px;
-    padding: 0 15px;
-    width: 33.3%;
+  .close-btn {
+    margin-right: 2px;
+    cursor: pointer;
   }
 }
-.blog-list {
-  max-width: 350px;
-  display: block;
-  background: #f8fafb;
-  margin: 0 auto;
+.blog-post {
+  .card-body {
+    padding: 0;
+    background-color: #f2f2f2;
+  }
 
-  img {
-    height: 300px;
+  .post-thumbnail img {
+    height: 250px;
     object-fit: cover;
     width: 100%;
+    border-bottom: 5px solid $primary-color;
+  }
+
+  .post-content {
+    .post-content-inner {
+      padding: 0px 20px 15px 20px;
+
+      h3 {
+        font-weight: 500;
+        line-height: 26px;
+        margin-bottom: 12px;
+      }
+
+      p {
+        color: #666;
+        margin: 15px 0 5px;
+      }
+    }
+
+    .post-footer {
+      text-align: center;
+
+      .read-more-btn a {
+        color: #606060;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1px;
+        text-transform: uppercase;
+      }
+    }
   }
 }
 </style>

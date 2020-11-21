@@ -6,7 +6,7 @@
       { shadow: shadow },
       { [`shadow-${shadowSize}`]: shadowSize },
       { [`bg-gradient-${gradient}`]: gradient },
-      { [`bg-${type}`]: type }
+      { [`bg-${type}`]: type },
     ]"
   >
     <div v-if="$slots.header" class="card-header" :class="headerClasses">
@@ -25,46 +25,51 @@
 </template>
 <script>
 export default {
-  name: 'Card',
+  name: "Card",
   props: {
     type: {
       type: String,
-      description: 'Card type'
+      description: "Card type",
+      default: null,
     },
     gradient: {
       type: String,
-      description: 'Card background gradient type (warning,danger etc)'
+      description: "Card background gradient type (warning,danger etc)",
+      default: null,
     },
     hover: {
       type: Boolean,
-      description: 'Whether card should move on hover'
+      description: "Whether card should move on hover",
     },
     shadow: {
       type: Boolean,
-      description: 'Whether card has shadow'
+      description: "Whether card has shadow",
     },
     shadowSize: {
       type: String,
-      description: 'Card shadow size'
+      description: "Card shadow size",
+      default: null,
     },
     noBody: {
       type: Boolean,
       default: false,
-      description: 'Whether card should have wrapper body class'
+      description: "Whether card should have wrapper body class",
     },
     bodyClasses: {
       type: [String, Object, Array],
-      description: 'Card body css classes'
+      description: "Card body css classes",
+      default: null,
     },
     headerClasses: {
       type: [String, Object, Array],
-      description: 'Card header css classes'
+      description: "Card header css classes",
+      default: null,
     },
     footerClasses: {
       type: [String, Object, Array],
-      description: 'Card footer css classes'
-    }
-  }
-}
+      description: "Card footer css classes",
+      default: null,
+    },
+  },
+};
 </script>
-<style></style>

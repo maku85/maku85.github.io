@@ -20,20 +20,21 @@
 </template>
 
 <script>
-import AppLinks from '~/components/AppLinks'
+import AppLinks from "~/components/AppLinks";
+
 export default {
   components: { AppLinks },
   computed: {
     isSidebar() {
-      return this.$store.getters['nav/toggleSidebar']
-    }
+      return this.$store.getters["nav/toggleSidebar"];
+    },
   },
   methods: {
     hideSidebar() {
-      this.$store.dispatch('nav/toggleSidebar')
-    }
-  }
-}
+      this.$store.dispatch("nav/toggleSidebar");
+    },
+  },
+};
 </script>
 
 <style scoped>

@@ -1,14 +1,18 @@
 {
-  "socials": [{
-    "type": "linkedin",
-    "link": "https://it.linkedin.com/in/mauro-cunsolo"
-  }, {
-    "type": "github",
-    "link": "https://github.com/maku85"
-  }, {
-    "type": "codepen",
-    "link": "https://codepen.io/maku85/"
-  }],
+  "socials": [
+    {
+      "type": "linkedin",
+      "link": "https://it.linkedin.com/in/mauro-cunsolo"
+    },
+    {
+      "type": "github",
+      "link": "https://github.com/maku85"
+    },
+    {
+      "type": "codepen",
+      "link": "https://codepen.io/maku85/"
+    }
+  ],
   "education": [
     {
       "title": "Bachelor degree in computer engineering",
@@ -27,31 +31,36 @@
       "startDate": "01-2019",
       "company": "Artshell srl",
       "description": ""
-    }, {
+    },
+    {
       "title": "NodeJS developer",
       "startDate": "08-2018",
       "endDate": "12-2018",
       "company": "LinkMe srl",
       "description": ""
-    }, {
+    },
+    {
       "title": "Full-stack developer",
       "startDate": "04-2017",
       "endDate": "07-2018",
       "company": "SAEP ICT engineering srl",
       "description": ""
-    }, {
+    },
+    {
       "title": "Full-stack developer",
       "startDate": "04-2016",
       "endDate": "03-2017",
       "company": "Open Style srl",
       "description": ""
-    }, {
+    },
+    {
       "title": "Java developer",
       "startDate": "11-2014",
       "endDate": "03-2016",
       "company": "Reply spa",
       "description": ""
-    }, {
+    },
+    {
       "title": "Java developer",
       "startDate": "07-2012",
       "endDate": "11-2014",
@@ -68,7 +77,8 @@
         { "title": "PHP", "value": "20" },
         { "title": "Python", "value": "30" }
       ]
-    }, {
+    },
+    {
       "title": "Frontend Skills",
       "skills": [
         { "title": "Angular", "value": "50" },

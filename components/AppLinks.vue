@@ -1,28 +1,22 @@
 <template>
   <ul class="nav-list">
-    <li class="nav-item"><a href="#home">Home</a></li>
+    <li class="nav-item"><a href="/">Home</a></li>
     <li class="nav-item">
-      <nuxt-link class="nav-link" :to="{ path: '/', hash: '#about' }"
-        >About</nuxt-link
-      >
+      <nuxt-link class="nav-link" :to="{ path: '/#about' }">About</nuxt-link>
     </li>
     <li class="nav-item">
-      <nuxt-link class="nav-link" :to="{ path: '/', hash: '#works' }"
-        >Works</nuxt-link
-      >
+      <nuxt-link class="nav-link" :to="{ path: '/#works' }">Works</nuxt-link>
     </li>
     <li class="nav-item">
-      <nuxt-link class="nav-link" :to="{ path: '/', hash: '#resume' }"
+      <nuxt-link class="nav-link" :to="{ path: '/#resume' }"
         >Expertises</nuxt-link
       >
     </li>
     <li class="nav-item">
-      <nuxt-link class="nav-link" :to="{ path: '/', hash: '#blog' }"
-        >Blog</nuxt-link
-      >
+      <nuxt-link class="nav-link" :to="{ path: '/blog' }">Blog</nuxt-link>
     </li>
     <li class="nav-item">
-      <nuxt-link class="nav-link" :to="{ path: '/', hash: '#contact' }"
+      <nuxt-link class="nav-link" :to="{ path: '/#contact' }"
         >Contact</nuxt-link
       >
     </li>
@@ -33,10 +27,10 @@
 export default {
   watch: {
     $route() {
-      this.$store.dispatch('nav/toggleSidebar')
-    }
-  }
-}
+      this.$store.dispatch("nav/toggleSidebar");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -53,7 +47,7 @@ export default {
   border-bottom: 1px solid #dddddd;
   color: #aaaaaa;
   display: block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 12px;
   font-weight: 500;
   padding: 13px 0;

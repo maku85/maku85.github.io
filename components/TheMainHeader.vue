@@ -2,7 +2,7 @@
   <div
     class="page-header page-header-small"
     data-parallax="true"
-    style="background-image: url('header.jpg');"
+    style="background-image: url('header.jpg')"
   >
     <div class="filter"></div>
   </div>
@@ -25,7 +25,7 @@
 
   .filter::after {
     background-color: rgba(0, 0, 0, 0.2);
-    content: '';
+    content: "";
     display: block;
     height: 100%;
     left: 0;

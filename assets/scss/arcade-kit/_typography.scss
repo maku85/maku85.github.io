@@ -140,7 +140,7 @@ blockquote small {
 }
 .text-primary,
 .text-primary:hover {
-  color: $primary-color !important;
+  color: var(--primary-color) !important;
 }
 .text-info,
 .text-info:hover {

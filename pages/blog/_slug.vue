@@ -1,92 +1,66 @@
 <template>
-  <div>
-    <nav id="nav" class="navbar navbar-expand-lg">
+  <div class="blog-post">
+    <div
+      class="blog-post-header"
+      :style="{
+        ['background-image']: `url(${
+          article.img || 'https://source.unsplash.com/random'
+        })`
+      }"
+    >
+      <div class="container blog-post-header-inner">
+        <div class="categories">
+          <NuxtLink
+            v-for="tag of article.tags.split(',')"
+            :key="tag"
+            :to="`/blog?category=${tag.trim()}`"
+            >#{{ tag.trim() }}</NuxtLink
+          >
+        </div>
+        <h1>{{ article.title }}</h1>
+      </div>
+    </div>
+
+    <section class="section">
       <div class="container">
-        <div class="navbar-translate">
-          <NuxtLink to="/" class="navbar-brand" title="Mauro Cunsolo">
-            Mauro
-          </NuxtLink>
-        </div>
-      </div>
-    </nav>
+        <article>
+          <div class="meta open-sans-font">
+            <span class="date">
+              <fa class="icon" icon="calendar"></fa>
+              {{ formatDate(article.date || article.createdAt) }}
+            </span>
+          </div>
 
-    <section class="blog-detail">
-      <div
-        class="blog-detail-banner wow fadeIn"
-        style="visibility: visible; animation-name: fadeIn;"
-      >
-        <img :src="article.img" alt="Blog Desc" />
-      </div>
-      <div
-        class="blog-detail-contents wow fadeInUp"
-        style="visibility: visible; animation-name: fadeInUp;"
-      >
-        <h2>{{ article.title }}</h2>
-        <div class="blog-detail-about clearfix">
-          <div class="media float-left align-items-center">
-            <div class="media-left mr-3">
-              <img
-                src="assets/images/avatar.jpg"
-                class="media-object"
-                alt="avatar"
-              />
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">{{ article.author.name }}</h4>
-              <p>{{ formatDate(article.updatedAt) }}</p>
-            </div>
-          </div>
-          <div class="blog-detail-category float-right">
-            tavel
-          </div>
-        </div>
-        <div class="blog-detail-content">
-          <nav class="pb-6">
-            <ul>
-              <li
-                v-for="link of article.toc"
-                :key="link.id"
-                :class="{
-                  'font-semibold': link.depth === 2
-                }"
-              >
-                <nuxtLink
-                  :to="`#${link.id}`"
-                  class="hover:underline"
+          <div class="blog-post-content">
+            <nav class="blog-post-toc">
+              <ul>
+                <li
+                  v-for="link of article.toc"
+                  :key="link.id"
                   :class="{
-                    'py-2': link.depth === 2,
-                    'ml-2 pb-2': link.depth === 3
+                    'font-semibold': link.depth === 2
                   }"
-                  >{{ link.text }}</nuxtLink
                 >
-              </li>
-            </ul>
-          </nav>
+                  <nuxtLink
+                    :to="`#${link.id}`"
+                    class="hover:underline"
+                    :class="{
+                      'py-2': link.depth === 2,
+                      'ml-2 pb-2': link.depth === 3
+                    }"
+                    >{{ link.text }}</nuxtLink
+                  >
+                </li>
+              </ul>
+            </nav>
 
-          <!-- content from markdown -->
-          <nuxt-content :document="article" />
-        </div>
-        <div class="blog-detail-footer">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="blog-detail-tags">
-                <ul>
-                  Tags:
-                  <li>
-                    <a class="tags" href="#">web design</a>
-                  </li>
-
-                  <li>
-                    <a class="tags" href="#">blogging</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <nuxt-content :document="article" />
           </div>
 
-          <!-- prevNext component -->
-          <PrevNext :prev="prev" :next="next" class="mt-8" />
-        </div>
+          <div class="blog-post-footer">
+            <PrevNext :prev="prev" :next="next" class="mt-8" />
+          </div>
+        </article>
       </div>
     </section>
   </div>
@@ -98,7 +72,8 @@ export default {
     const article = await $content('articles', params.slug).fetch()
     const [prev, next] = await $content('articles')
       .only(['title', 'slug'])
-      .sortBy('createdAt', 'asc')
+      .where({ published: true })
+      .sortBy('date', 'asc')
       .surround(params.slug)
       .fetch()
     return {
@@ -112,81 +87,159 @@ export default {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('en', options)
     }
+  },
+  head() {
+    return {
+      title: `My blog - ${this.article.title}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.article.description
+        },
+        { hid: 'og:title', property: 'og:title', content: this.article.title },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.article.description
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.article.title
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.article.description
+        }
+      ]
+    }
   }
 }
 </script>
 
 <style lang="scss">
-.blog-detail {
-  padding-bottom: 50px;
-}
+.blog-post {
+  .blog-post-header {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    max-height: 400px;
+    align-self: flex-start;
+    background-size: cover;
+    background-position: center;
 
-.blog-detail-banner img {
-  height: 450px;
-  width: 100%;
-  object-fit: cover;
-}
+    &::after {
+      background: rgba(0, 0, 0, 0.3);
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
 
-.blog-detail-contents {
-  max-width: 800px;
-  margin: -100px auto 0px;
-  background: #fff;
-  display: block;
-  padding: 30px;
-  z-index: 11;
-  position: relative;
-  border-radius: 10px;
+    .blog-post-header-inner {
+      margin-top: auto;
+      transition: 0.5s;
+      z-index: 2;
+      color: #fff;
 
-  h2 {
-    font-weight: 500;
+      .categories {
+        text-transform: uppercase;
+        font-size: 16px;
+
+        a {
+          color: #fff;
+          padding: 6px 8px;
+
+          &:hover {
+            background-color: $primary-color;
+          }
+        }
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        padding-bottom: 4rem;
+        margin-top: 1.25rem;
+      }
+    }
   }
-}
 
-.blog-detail-about .media {
-  margin-bottom: 20px;
-}
+  article {
+    .meta {
+      color: #888;
 
-.blog-detail-category {
-  padding: 3px 15px;
-  color: #fff;
-  text-transform: capitalize;
-  background: #fd735a;
-  border-radius: 2px;
-  margin: 15px 0;
-}
+      .icon {
+        padding-right: 3px;
+        color: $primary-color;
+      }
 
-.nuxt-content p {
-  margin: 15px 0;
-}
-.nuxt-content h2 {
-  font-weight: bold;
-  font-size: 28px;
-}
-.nuxt-content h3 {
-  font-weight: bold;
-  font-size: 22px;
-}
-.nuxt-content img {
-  width: 100%;
-  margin: 15px 0;
-  height: 350px;
-  object-fit: cover;
-}
-.blog-detail-tags ul {
-  margin: 0;
-  padding: 0;
-}
-.blog-detail-tags ul li {
-  display: inline-block;
-}
-.tags {
-  display: inline-block;
-  padding: 4px 10px;
-  background-color: #f7f7f7;
-  color: #333;
-  margin-right: 5px;
-  text-transform: capitalize;
-  margin-bottom: 10px;
-  font-size: 14px;
+      span {
+        padding-right: 15px;
+      }
+    }
+
+    .blog-post-toc {
+      background: #f8f9fa;
+      border-radius: 4px;
+      padding: 1rem;
+      margin: 2rem 0;
+
+      ul {
+        padding-left: 1rem;
+      }
+    }
+
+    .post-image {
+      width: 100%;
+      min-height: 400px;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    h1 {
+      margin: 13px 0 20px;
+    }
+
+    h3 {
+      margin-top: 2em;
+    }
+
+    img {
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 0;
+      margin-top: 2em;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    blockquote {
+      background: #f9f9f9;
+      border-left: 10px solid #ccc;
+      margin: 1.5em 10px;
+      padding: 1em 10px;
+      quotes: '\201C''\201D''\2018''\2019';
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .nuxt-content-highlight {
+      margin-top: 2em;
+    }
+  }
 }
 </style>

@@ -1,13 +1,9 @@
 <template>
-  <section
-    v-if="works.length > 0"
-    id="works"
-    class="section section-work"
-  >
+  <section v-if="works.length > 0" id="works" class="section section-work">
     <div class="container">
-      <div class="section-title text-sm-center">
-        <h1>MY <span>PORTFOLIO</span></h1>
-        <span class="title-bg">WORKS</span>
+      <div class="section-title text-center">
+        <h1>My <span>Portfolio</span></h1>
+        <span class="title-bg">Works</span>
       </div>
 
       <div class="row mt-4">
@@ -45,8 +41,8 @@
 
 <script>
 export default {
-  props: { works: { type: Array, default: () => [] } }
-}
+  props: { works: { type: Array, default: () => [] } },
+};
 </script>
 
 <style lang="scss">
@@ -76,22 +72,22 @@ export default {
   width: 100%;
 }
 .works-list-1 {
-  background-image: url('https://www.beingeorge.com/justin/assets/images/services1.jpg');
+  background-image: url("https://www.beingeorge.com/justin/assets/images/services1.jpg");
 }
 .works-list-2 {
-  background-image: url('https://www.beingeorge.com/justin/assets/images/services2.jpg');
+  background-image: url("https://www.beingeorge.com/justin/assets/images/services2.jpg");
 }
 .works-list-3 {
-  background-image: url('https://www.beingeorge.com/justin/assets/images/services3.jpg');
+  background-image: url("https://www.beingeorge.com/justin/assets/images/services3.jpg");
 }
 .works-list-4 {
-  background-image: url('https://www.beingeorge.com/justin/assets/images/services4.jpg');
+  background-image: url("https://www.beingeorge.com/justin/assets/images/services4.jpg");
 }
 .works-list-5 {
-  background-image: url('https://www.beingeorge.com/justin/assets/images/services5.jpg');
+  background-image: url("https://www.beingeorge.com/justin/assets/images/services5.jpg");
 }
 .works-list-6 {
-  background-image: url('https://www.beingeorge.com/justin/assets/images/services6.jpg');
+  background-image: url("https://www.beingeorge.com/justin/assets/images/services6.jpg");
 }
 .works-list-front {
   align-items: center;
@@ -108,7 +104,7 @@ export default {
 
   &:before {
     background: #000;
-    content: '';
+    content: "";
     height: 100%;
     left: 0;
     opacity: 0.2;
@@ -119,7 +115,7 @@ export default {
   h5 {
     background: #fff;
     border-radius: 2px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     padding: 11px 20px;
     z-index: 1;

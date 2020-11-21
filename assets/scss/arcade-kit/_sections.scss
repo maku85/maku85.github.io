@@ -1,31 +1,8 @@
 .section {
   padding: 70px 0;
   position: relative;
-  background-color: #ffffff;
 }
-.section-with-space {
-  padding: 60px 0;
-}
-.section-gray {
-  background-color: #eeeeee;
-}
-.section-nude {
-  background-color: $bg-nude;
-}
-.section-gold {
-  background-color: #caac90;
-  color: $white-color;
-}
-.section-brown {
-  background-color: #a59e94;
-  color: $white-color;
-}
-.section-light-blue {
-  background-color: $primary-color;
-  color: $white-color;
-}
-.section-image,
-.section-gold {
+.section-image {
   position: relative;
 
   .title,
@@ -43,8 +20,7 @@
     border-color: rgba(255, 255, 255, 0.19);
   }
 }
-.page-header,
-.carousel-caption {
+.page-header {
   .title,
   .info-title {
     color: $white-color;

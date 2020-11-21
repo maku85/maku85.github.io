@@ -46,9 +46,9 @@
 <script>
 export default {
   props: {
-    socials: { type: Array, default: () => [] }
-  }
-}
+    socials: { type: Array, default: () => [] },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -69,7 +69,7 @@ export default {
       padding: 50px;
 
       .profile-picture {
-        background-image: url('/img_avatar.webp');
+        background-image: url("/img_avatar.webp");
         max-width: 200px;
         height: 200px;
         background-size: cover;

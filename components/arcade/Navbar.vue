@@ -6,7 +6,7 @@
       { [`navbar-${effect}`]: effect },
       { 'navbar-transparent': transparent },
       { [`bg-${type}`]: type },
-      { rounded: round }
+      { rounded: round },
     ]"
   >
     <div class="container">
@@ -41,64 +41,63 @@
 </template>
 <script>
 // import { FadeTransition } from 'vue2-transitions'
-import NavbarToggleButton from './NavbarToggleButton'
+import NavbarToggleButton from "./NavbarToggleButton";
 export default {
-  name: 'BaseNav',
+  name: "BaseNav",
   components: {
     // FadeTransition,
-    NavbarToggleButton
+    NavbarToggleButton,
   },
   props: {
     type: {
       type: String,
-      default: 'primary',
-      description: 'Navbar type (e.g default, primary etc)'
+      default: "primary",
+      description: "Navbar type (e.g default, primary etc)",
     },
     title: {
       type: String,
-      default: '',
-      description: 'Title of navbar'
+      default: "",
+      description: "Title of navbar",
     },
     contentId: {
       type: [String, Number],
       default: Math.random().toString(),
       description:
-        "Explicit id for the menu. By default it's a generated random number"
+        "Explicit id for the menu. By default it's a generated random number",
     },
     effect: {
       type: String,
-      default: 'dark',
-      description: 'Effect of the navbar (light|dark)'
+      default: "dark",
+      description: "Effect of the navbar (light|dark)",
     },
     round: {
       type: Boolean,
       default: false,
-      description: 'Whether nav has rounded corners'
+      description: "Whether nav has rounded corners",
     },
     transparent: {
       type: Boolean,
       default: false,
-      description: 'Whether navbar is transparent'
+      description: "Whether navbar is transparent",
     },
     expand: {
       type: Boolean,
       default: false,
-      description: 'Whether navbar should contain `navbar-expand-lg` class'
-    }
+      description: "Whether navbar should contain `navbar-expand-lg` class",
+    },
   },
   data() {
     return {
-      toggled: false
-    }
+      toggled: false,
+    };
   },
   methods: {
     onTitleClick(evt) {
-      this.$emit('title-click', evt)
+      this.$emit("title-click", evt);
     },
     closeMenu() {
-      this.toggled = false
-    }
-  }
-}
+      this.toggled = false;
+    },
+  },
+};
 </script>
-<style></style>

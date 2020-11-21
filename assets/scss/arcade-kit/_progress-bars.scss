@@ -8,10 +8,10 @@
   height: 4px;
 }
 .progress-bar {
-  background-color: $primary-color;
+  background-color: var(--primary-color);
 }
 .progress-bar-primary {
-  background-color: $primary-color;
+  background-color: var(--primary-color);
 }
 .progress-bar-info {
   background-color: $info-color;

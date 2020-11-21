@@ -6,6 +6,23 @@ body {
   color: var(--color);
   transition: background-color 0.3s;
 }
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 // Forms
 .form-control {
   padding: 15px 30px;
@@ -60,54 +77,72 @@ body {
 }
 
 .b-box {
-  background: var(--bg);
+  background: $bg;
   border-radius: 2px;
   overflow: hidden;
   border: 1px solid #eee;
   transition: all 0.3s ease-in-out 0s;
 }
 
-.title-bg {
-  font-size: 110px;
-  left: 0;
-  letter-spacing: 10px;
-  line-height: 0.7;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  text-transform: uppercase;
-  font-weight: 800;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  color: var(--title-bg);
-  
-}
-
 // Sections
 .section {
   padding: 50px 0;
   position: relative;
-  background-color: var(--bg);
-}
-.section-title {
-  margin: 0 auto;
-  width: 100%;
-  position: relative;
-  padding: 80px 0;
 
-  h1 {
-    font-size: 56px;
-    font-weight: 900;
-    color: #666;
-    text-transform: uppercase;
-    margin: 0;
+  .section-title {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 80px 0;
+
+    h1 {
+      font-size: 56px;
+      font-weight: 900;
+      color: #666;
+      text-transform: uppercase;
+      margin: 0;
+    }
 
     span {
       color: var(--primary-color);
     }
+
+    .title-bg {
+      font-size: 110px;
+      left: 0;
+      letter-spacing: 10px;
+      line-height: 0.7;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      text-transform: uppercase;
+      font-weight: 800;
+      transform: translateY(-50%);
+      color: rgba(30, 37, 48, 0.07);
+      color: $title-bg;
+    }
+  }
+}
+.section-dark {
+  background: #d2d5dd;
+  position: relative;
+
+  .title,
+  .info-title,
+  .card-plain .card-title {
+    color: #fff !important;
+  }
+  .category,
+  .description,
+  .card-plain .card-description,
+  .card-plain .card-category {
+    color: rgba(#fff, 0.7);
+  }
+  .b-box {
+    background: #fff;
+  }
+  hr {
+    border-color: rgba(255, 255, 255, 0.19);
   }
 }
 .section-subHead {
@@ -200,9 +235,13 @@ body {
   background: url('/alien.webp');
   background-size: 100%;
   bottom: 20px;
-  border-radius: 50%;
-  background-color: var(--primary-color);
+  border-radius: 2px;
+  color: var(--primary-color);
+  display: inline-block;
+  font-size: 18px;
   height: 60px;
+  line-height: 40px;
+  opacity: 1;
   position: fixed;
   right: 30px;
   text-align: center;

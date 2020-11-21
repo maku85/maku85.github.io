@@ -14,18 +14,17 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    title: 'Mauro Cunsolo',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Global CSS
@@ -34,10 +33,10 @@ export default {
     '@/assets/css/bootstrap.min.css',
     '@/assets/scss/arcade.scss',
     '@/assets/scss/main.scss',
-    '@/assets/transitions.css'
+    '@/assets/transitions.css',
   ],
   scss: {
-    indentedSyntax: true
+    indentedSyntax: true,
   },
   /*
    ** Plugins to load before mounting the App
@@ -65,7 +64,7 @@ export default {
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
     '@nuxtjs/style-resources',
-    'nuxt-fontawesome'
+    'nuxt-fontawesome',
   ],
   /*
    ** Content module configuration
@@ -74,35 +73,38 @@ export default {
   content: {
     markdown: {
       prism: {
-        theme: 'prism-themes/themes/prism-material-oceanic.css'
-      }
+        theme: 'prism-themes/themes/prism-material-oceanic.css',
+      },
     },
-    nestedProperties: ['author.name']
+    nestedProperties: ['author.name'],
   },
   fontawesome: {
     component: 'fa',
     imports: [
       {
         set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas']
+        icons: ['fas'],
       },
       {
         set: '@fortawesome/free-brands-svg-icons',
-        icons: ['fab']
-      }
-    ]
+        icons: ['fab'],
+      },
+    ],
   },
   styleResources: {
     scss: [
       '~/assets/scss/global/variables.scss',
-      '~/assets/scss/global/mixins.scss'
-    ]
+      '~/assets/scss/global/mixins.scss',
+    ],
   },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    publicPath: '/assets/'
-  }
+    publicPath: '/assets/',
+  },
+  generate: {
+    routes: ['404'],
+  },
 }

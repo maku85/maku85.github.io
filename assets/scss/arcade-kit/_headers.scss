@@ -8,6 +8,9 @@
   position: relative;
   width: 100%;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &.page-header-small {
     min-height: 65vh !important;
@@ -48,7 +51,7 @@
 
   .filter {
     &::after {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.2);
       content: '';
       display: block;
       height: 100%;

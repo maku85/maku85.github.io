@@ -1,28 +1,30 @@
 <template>
-  <section id="blog" class="section section-light section-blog">
+  <section id="blog" class="section section-blog">
     <div class="container">
-      <div class="section-head">
-        <span>Blog</span>
-        <h2>My Latest Articles</h2>
+      <div class="section-title text-center">
+        <h1>My <span>blog</span></h1>
+        <span class="title-bg">Posts</span>
       </div>
 
       <div v-if="articles.length === 0" class="row mt-4">
-        <div class="col-sm-12">
-          No post here
-        </div>
+        <div class="col-sm-12 text-center">No post yet here :(</div>
       </div>
 
       <div v-if="articles.length > 0" class="row mt-4">
         <div
           v-for="article of articles"
           :key="article.id"
-          class="col-sm-12 col-md-4"
+          class="col-sm-12 col-md-6 col-lg-4"
         >
           <card class="blog-post">
             <div class="row blog-post-inner">
               <div class="col-sm-6 col-md-12 post-thumbnail">
                 <NuxtLink :to="'blog/' + article.slug">
-                  <img class="img-responsive" :src="article.img" alt="" />
+                  <img
+                    class="img-responsive"
+                    :src="article.img || 'https://source.unsplash.com/random'"
+                    alt=""
+                  />
                 </NuxtLink>
               </div>
               <div class="col-sm-6 col-md-12 post-content">
@@ -34,22 +36,17 @@
                   </h3>
                   <p>{{ article.description }}</p>
                 </div>
-                <div class="post-footer">
-                  <div class="read-more-btn">
-                    <NuxtLink :to="'blog/' + article.slug">
-                      read more
-                    </NuxtLink>
-                  </div>
-                </div>
               </div>
             </div>
           </card>
         </div>
 
         <div class="col-sm-12 text-center">
-          <NuxtLink to="blog">
-            go to blog
-          </NuxtLink>
+          <div class="btn blog-button">
+            <NuxtLink to="blog">
+              go to blog <fa icon="chevron-right"></fa
+            ></NuxtLink>
+          </div>
         </div>
       </div>
     </div>
@@ -58,35 +55,37 @@
 
 <script>
 export default {
-  props: { articles: { type: Array, default: () => [] } }
-}
+  props: { articles: { type: Array, default: () => [] } },
+};
 </script>
 
 <style lang="scss">
 .blog-post {
-  .card .card-body {
+  .card-body {
     padding: 0;
+    background-color: #f2f2f2;
   }
 
   .post-thumbnail img {
     height: 250px;
     object-fit: cover;
     width: 100%;
+    border-bottom: 5px solid var(--primary-color);
   }
 
   .post-content {
-    padding: 25px 30px;
+    padding: 20px 25px 25px 25px;
 
     .post-content-inner {
       h3 {
-        font-weight: 600;
-        line-height: 28px;
-        margin-bottom: 22px;
+        font-weight: 500;
+        line-height: 26px;
+        margin-bottom: 12px;
       }
 
       p {
-        margin-bottom: 40px;
-        color: #606060;
+        color: #666;
+        margin: 15px 0 5px;
       }
     }
 
@@ -101,6 +100,14 @@ export default {
         text-transform: uppercase;
       }
     }
+  }
+}
+.blog-button {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+
+  a {
+    color: #fff;
   }
 }
 </style>

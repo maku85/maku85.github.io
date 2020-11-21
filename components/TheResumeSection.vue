@@ -1,55 +1,75 @@
 <template>
   <section id="resume" class="section section-resume">
     <div class="container">
-      <div class="section-title text-sm-center">
-        <h1>
-          ABOUT
-          <span>ME</span>
-        </h1>
+      <div class="section-title text-center">
+        <h1>About <span>me</span></h1>
         <span class="title-bg">Resume</span>
       </div>
 
-      <h3 class="text-uppercase pb-3 mb-0 text-left text-sm-center">My skills</h3>
+      <h3 class="text-uppercase pb-3 text-center">My Skills</h3>
       <div class="row mt-4">
-        <div v-for="expertise of resume.expertises" :key="expertise.id" class="col-sm-6 col-lg-6">
-          <!-- <h3 class="section-subHead">{{ expertise.title }}</h3> -->
-          <div class="resume-panel b-box hover-state p-4">
-            <div v-for="skill of expertise.skills" :key="skill.id" class="mb-4 pb-2">
+        <div
+          v-for="expertise of resume.expertises"
+          :key="expertise.id"
+          class="col-sm-6 col-lg-6"
+        >
+          <div class="resume-panel b-box hover-state p-4 mt-3">
+            <div
+              v-for="skill of expertise.skills"
+              :key="skill.id"
+              class="mb-4 pb-2"
+            >
               <h6>{{ skill.title }}</h6>
-              <div class="progress mt-2" style="height: 7px;">
-                <div class="progress-bar" role="progressbar" :style="{ width: skill.value + '%' }"></div>
+              <div class="progress mt-2">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  :style="{ width: skill.value + '%' }"
+                ></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <h3 class="text-uppercase pb-5 mb-0 mt-5 text-left text-sm-center">Experience <span>&amp;</span> Education</h3>
-      <div class="row mt-4 p-4">
-        <div class="col-md-12 col-lg-6 m-15px-tb resume-box" v-for="experience of resume.experiences" :key="experience.id">
+      <h3 class="text-uppercase pb-5 text-center">Experience & Education</h3>
+      <div class="row mt-4">
+        <div
+          v-for="experience of resume.experiences"
+          :key="experience.id"
+          class="col-md-12 col-lg-6 m-15px-tb resume-box"
+        >
           <div class="icon">
             <fa icon="briefcase"></fa>
           </div>
           <div class="resume-box-content">
-            <span
-              class="time text-uppercase"
-            >{{ experience.startDate }} - {{ experience.endDate || 'Present' }}</span>
+            <span class="time text-uppercase"
+              >{{ experience.startDate ? experience.startDate + " - " : "" }}
+              {{ experience.endDate || "Present" }}</span
+            >
             <h5 class="text-uppercase">
               {{ experience.title }}
-              <span class="place">{{ experience.company }}</span>
+              <span v-if="experience.company" class="place"
+                >- {{ experience.company }}</span
+              >
             </h5>
             <p>{{ experience.description }}</p>
           </div>
         </div>
 
-        <div class="col-md-12 col-lg-6 m-15px-tb resume-box" v-for="education of resume.education" :key="education.id">
+        <div
+          class="col-md-12 col-lg-6 m-15px-tb resume-box"
+          v-for="education of resume.education"
+          :key="education.id"
+        >
           <div class="icon">
             <fa icon="graduation-cap"></fa>
           </div>
           <div class="resume-box-content">
-            <span
-              class="time text-uppercase"
-            >{{ education.startDate ? education.startDate + ' - ' : '' }}{{ education.endDate }}</span>
+            <span class="time text-uppercase"
+              >{{ education.startDate ? education.startDate + " - " : ""
+              }}{{ education.endDate }}</span
+            >
             <h5 class="text-uppercase">{{ education.title }}</h5>
             <p>{{ education.description }}</p>
           </div>
@@ -71,6 +91,9 @@ export default {
 </script>
 
 <style lang="scss">
+.resume-panel {
+  background: var(--bg);
+}
 .resume-box {
   &:after {
     content: "";
@@ -92,7 +115,7 @@ export default {
     z-index: 1;
     border-radius: 50%;
     color: #fff;
-    background-color: var(--primary-color)
+    background-color: var(--primary-color);
   }
 
   .resume-box-content {

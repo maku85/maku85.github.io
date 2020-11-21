@@ -1,40 +1,5 @@
 <template>
-  <div class="sidebar-collapse">
-    <nav id="nav" class="navbar navbar-expand-lg navbar-transparent fixed-top">
-      <div class="container">
-        <div class="navbar-translate">
-          <TheColorModePicker class="navbar-brand" />
-          <button
-            class="navbar-toggler navbar-toggler"
-            type="button"
-            @click="$store.dispatch('nav/toggleSidebar')"
-          >
-            <span class="navbar-toggler-bar bar1"></span>
-            <span class="navbar-toggler-bar bar2"></span>
-            <span class="navbar-toggler-bar bar3"></span>
-          </button>
-        </div>
-        <div id="navigation" class="collapse navbar-collapse justify-content-end">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <nuxt-link class="nav-link" :to="{ path: '/', hash: '#resume' }">Expertises</nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link class="nav-link" :to="{ path: '/', hash: '#works' }">Works</nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link class="nav-link" :to="{ path: '/', hash: '#blog' }">Blog</nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link class="nav-link" :to="{ path: '/', hash: '#contact' }">Contact</nuxt-link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <TheSideNav />
-
+  <div class="profile-page sidebar-collapse">
     <TheMainHeader />
 
     <TheAboutSection :socials="socials" />
@@ -49,46 +14,39 @@
           <div class="col-lg-12">
             <div class="section-head">
               <h2>"Experience is the name everyone gives to their mistakes"</h2>
-              <div style="color: #fff;">- Oscar Wilde</div>
+              <div>- Oscar Wilde</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- <TheBlogSection :articles="articles" /> -->
+    <TheBlogSection :articles="articles" />
 
     <TheContactSection />
 
-    <a id="back-top" href="#top" class="d-none" @click="scrollToTop()">
-      <i class="ti-angle-up">^</i>
-    </a>
+    <a id="back-top" href="#top" class="d-none" @click="scrollToTop()"></a>
 
     <TheFooter />
   </div>
 </template>
 
 <script>
-import TheColorModePicker from "~/components/TheColorModePicker";
-import TheSideNav from "~/components/TheSideNav";
 import TheMainHeader from "~/components/TheMainHeader";
 import TheAboutSection from "~/components/TheAboutSection";
 import TheResumeSection from "~/components/TheResumeSection";
 import TheWorksSection from "~/components/TheWorksSection";
-// import TheBlogSection from '~/components/TheBlogSection'
+import TheBlogSection from "~/components/TheBlogSection";
 import TheContactSection from "~/components/TheContactSection";
 import TheFooter from "~/components/TheFooter";
 
 export default {
-  layout: "default",
   components: {
-    TheColorModePicker,
-    TheSideNav,
     TheMainHeader,
     TheAboutSection,
     TheResumeSection,
     TheWorksSection,
-    // TheBlogSection,
+    TheBlogSection,
     TheContactSection,
     TheFooter,
   },
@@ -103,7 +61,7 @@ export default {
     const articles = await $content("articles", params.slug)
       .only(["title", "description", "img", "slug"])
       .limit(6)
-      .sortBy("createdAt", "desc")
+      .sortBy("date", "desc")
       .fetch();
     return { socials, education, experiences, expertises, works, articles };
   },

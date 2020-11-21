@@ -1,19 +1,15 @@
 <template>
   <section id="contact" class="section section-contact">
     <div class="container">
-      <div class="section-title text-sm-center">
-        <h1>
-          GET IN
-          <span>TOUCH</span>
-        </h1>
-        <span class="title-bg">CONTACT</span>
+      <div class="section-title text-center">
+        <h1>Get in <span>touch</span></h1>
+        <span class="title-bg">Contacts</span>
       </div>
-    </div>
 
-    <div class="container">
-      <p
-        class="text-center"
-      >Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities.</p>
+      <p class="text-center">
+        Feel free to get in touch with me. I am always open to discussing new
+        projects, creative ideas or opportunities.
+      </p>
 
       <card class="mt-5">
         <form id="contactForm" method="post" action="php/contact.php">
@@ -31,9 +27,7 @@
               </div>
             </div>
             <div class="col-md-5 col-sm-6">
-              <div class="text-stamp">
-                <h1>Priority</h1>
-              </div>
+              <div class="text-stamp"><h1>Priority</h1></div>
               <div class="stamp">
                 <img src="//picsum.photos/320" />
               </div>
@@ -65,29 +59,19 @@
                   placeholder="Your Subject"
                 />
               </div>
-              <!-- <button disabled="true" type="submit" class="btn hover-state">
+              <button disabled="true" type="submit" class="btn hover-state">
                 Send
-              </button>-->
+              </button>
             </div>
           </div>
         </form>
       </card>
-      <p class="mt-3 text-center">
-        or send my an
-        <fa icon="envelope"></fa>to
-        <a href="mailto:info@maurocunsolo.com">info@maurocunsolo.com</a>
-      </p>
     </div>
   </section>
 </template>
 
 <style lang="scss">
 .section-contact {
-  .fa-envelope {
-    font-size: 1.5em;
-    margin-right: 8px;
-    color: var(--primary-color)
-  }
   .card {
     border-radius: 2px;
     margin: 0 auto;
