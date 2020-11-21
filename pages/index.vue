@@ -60,6 +60,7 @@ export default {
     } = await $content("index").fetch();
     const articles = await $content("articles", params.slug)
       .only(["title", "description", "img", "slug"])
+      .where({ published: true })
       .limit(6)
       .sortBy("date", "desc")
       .fetch();

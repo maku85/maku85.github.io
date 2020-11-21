@@ -866,6 +866,9 @@
   }
 }
 @media (max-width: 500px) {
+  .title-bg {
+    font-size: 90px !important;
+  }
   .presentation-page .section-header .card {
     min-height: 230px;
   }
@@ -974,6 +977,9 @@
 }
 
 @media screen and (max-width: 374px) {
+  .title-bg {
+    font-size: 50px !important;
+  }
   .footer.footer-big {
     .copyright {
       .pull-left,
