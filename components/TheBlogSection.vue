@@ -1,16 +1,9 @@
 <template>
   <section id="blog" class="section section-blog">
     <div class="container">
-      <div class="section-title text-center">
-        <h1 v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }">
-          My <span>blog</span>
-        </h1>
-        <span
-          class="title-bg"
-          v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }"
-          >Posts</span
-        >
-      </div>
+      <the-section-title subtitle="Posts">
+        My <span>blog</span>
+      </the-section-title>
 
       <div v-if="articles.length === 0" class="row mt-4">
         <div class="col-sm-12 text-center">No post yet here :(</div>
@@ -22,34 +15,29 @@
           :key="article.id"
           class="col-sm-12 col-md-6 col-lg-4"
         >
-          <card class="blog-post">
-            <div class="row blog-post-inner">
-              <div class="col-sm-6 col-md-12 post-thumbnail">
-                <NuxtLink :to="'blog/' + article.slug">
+          <NuxtLink :to="'blog/' + article.slug">
+            <card class="blog-post">
+              <div class="row blog-post-inner">
+                <div class="col-sm-6 col-md-12 post-thumbnail">
                   <img
                     class="img-responsive"
                     :src="article.img || 'https://source.unsplash.com/random'"
-                    alt=""
                   />
-                </NuxtLink>
-              </div>
-              <div class="col-sm-6 col-md-12 post-content">
-                <div class="post-content-inner text-center">
-                  <h3>
-                    <NuxtLink :to="'blog/' + article.slug">
-                      {{ article.title }}
-                    </NuxtLink>
-                  </h3>
-                  <p>{{ article.description }}</p>
+                </div>
+                <div class="col-sm-6 col-md-12 post-content">
+                  <div class="post-content-inner text-center">
+                    <h3>{{ article.title }}</h3>
+                    <p>{{ article.description }}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </card>
+            </card>
+          </NuxtLink>
         </div>
 
         <div class="col-sm-12 text-center">
           <div class="btn blog-button">
-            <NuxtLink to="blog">
+            <NuxtLink :to="'/blog'">
               go to blog <fa icon="chevron-right"></fa
             ></NuxtLink>
           </div>

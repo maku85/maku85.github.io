@@ -1,16 +1,9 @@
 <template>
   <section v-if="works.length > 0" id="works" class="section section-work">
     <div class="container">
-      <div class="section-title text-center">
-        <h1 v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }">
-          My <span>Portfolio</span>
-        </h1>
-        <span
-          class="title-bg"
-          v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }"
-          >Works</span
-        >
-      </div>
+      <the-section-title subtitle="Works">
+        My <span>Portfolio</span>
+      </the-section-title>
 
       <div class="row mt-4">
         <div v-for="work of works" :key="work.id" class="col-sm-6 col-md-4">

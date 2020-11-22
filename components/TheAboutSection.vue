@@ -7,11 +7,10 @@
             <div class="about-desc">
               <div class="about-desc-content">
                 <p class="mt-4 font-weight-light">
-                  Passionate full-stack developer, I like to follow the whole
-                  life cycle of a project development, from feasibility analysis
-                  to final release. Fast learner, hard worker and team player
-                  who is proficient in an array of scripting languages and
-                  multimedia Web tools. I love challenges but I hate monotony.
+                  Experienced back-end developer specialized in building Java
+                  and Javascript web application but deeply passionate about all
+                  the latest back-end, front-end and mobile technologies.<br /><br />I'm
+                  curious, love challenges but I hate monotony.
                 </p>
               </div>
               <ul

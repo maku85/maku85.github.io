@@ -76,7 +76,6 @@ export default {
         theme: 'prism-themes/themes/prism-material-oceanic.css',
       },
     },
-    nestedProperties: ['author.name'],
   },
   fontawesome: {
     component: 'fa',

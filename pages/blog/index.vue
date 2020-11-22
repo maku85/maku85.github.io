@@ -1,10 +1,9 @@
 <template>
   <section id="blog-page" class="section">
     <div class="container">
-      <div class="section-title text-center">
-        <h1>My <span>blog</span></h1>
-        <span class="title-bg">Posts</span>
-      </div>
+      <the-section-title subtitle="Posts">
+        My <span>blog</span>
+      </the-section-title>
 
       <AppSearchInput @searchResults="refreshData" />
 
@@ -35,41 +34,41 @@
 <script>
 export default {
   fetch() {
-    const filters = {}
-    const query = this.$route.query
+    const filters = {};
+    const query = this.$route.query;
     if (query.category) {
-      Object.assign(filters, { tags: { $containsAny: [query.category] } })
-      this.filter = query.category
+      Object.assign(filters, { tags: { $containsAny: [query.category] } });
+      this.filter = query.category;
     }
-    this.retrieveData(filters)
+    this.retrieveData(filters);
   },
   data() {
-    return { filter: '', articles: [] }
+    return { filter: "", articles: [] };
   },
   methods: {
     async retrieveData(filters) {
-      Object.assign(filters, { published: true })
-      this.articles = await this.$content('articles')
-        .only(['date', 'title', 'description', 'img', 'slug'])
+      Object.assign(filters, { published: true });
+      this.articles = await this.$content("articles")
+        .only(["date", "title", "description", "img", "slug"])
         .where(filters)
-        .sortBy('date', 'desc')
-        .fetch()
+        .sortBy("date", "desc")
+        .fetch();
     },
     refreshData(data) {
-      this.articles = data
+      this.articles = data;
     },
     async reset() {
-      this.$router.push('/blog')
-      this.filter = ''
-      await this.retrieveData()
-    }
+      this.$router.push("/blog");
+      this.filter = "";
+      await this.retrieveData();
+    },
   },
   head() {
     return {
-      title: 'Mauro Cunsolo - My blog'
-    }
-  }
-}
+      title: "Mauro Cunsolo - My blog",
+    };
+  },
+};
 </script>
 
 <style lang="scss">

@@ -2,7 +2,7 @@
 date: 2020-11-21T09:00:00.000Z
 title: Design pattern - Singleton
 description: Singleton design pattern implemented in Node.js
-img: https://images.unsplash.com/photo-1533032968297-a47e51cbdc93?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8dW5pcXVlfGVufDB8fDB8&auto=format&fit=crop&w=900&q=60
+img: /articles/images/design-pattern-singleton.jpeg
 tags: javascript, design-pattern, nodejs
 published: true
 ---

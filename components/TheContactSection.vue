@@ -1,16 +1,9 @@
 <template>
   <section id="contact" class="section section-contact">
     <div class="container">
-      <div class="section-title text-center">
-        <h1 v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }">
-          Get in <span>touch</span>
-        </h1>
-        <span
-          class="title-bg"
-          v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }"
-          >Contacts</span
-        >
-      </div>
+      <the-section-title subtitle="Contacts">
+        Get in <span>touch</span>
+      </the-section-title>
 
       <p class="text-center">
         Feel free to get in touch with me. I am always open to discussing new

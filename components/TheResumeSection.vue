@@ -1,16 +1,9 @@
 <template>
   <section id="resume" class="section section-resume">
     <div class="container">
-      <div class="section-title text-center">
-        <h1 v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }">
-          About <span>me</span>
-        </h1>
-        <span
-          class="title-bg"
-          v-resize-text="{ minFontSize: '30px', maxFontSize: '110px' }"
-          >Resume</span
-        >
-      </div>
+      <the-section-title subtitle="Resume">
+        About <span>me</span>
+      </the-section-title>
 
       <div class="container">
         <h3 class="text-uppercase pb-3 text-center">My Skills</h3>
