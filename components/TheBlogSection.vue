@@ -1,46 +1,21 @@
 <template>
   <section id="blog" class="section section-blog">
     <div class="container">
-      <the-section-title subtitle="Posts">
-        My <span>blog</span>
-      </the-section-title>
+      <div class="section-blog__title">{{ $t("Latest posts") }}</div>
 
-      <div v-if="articles.length === 0" class="row mt-4">
-        <div class="col-sm-12 text-center">No post yet here :(</div>
+      <div v-if="articles.length === 0" class="mt-4">
+        <div class="text-center font-weight-light">{{ $t("no-posts") }}</div>
       </div>
 
-      <div v-if="articles.length > 0" class="row mt-4">
-        <div
-          v-for="article of articles"
-          :key="article.id"
-          class="col-sm-12 col-md-6 col-lg-4"
-        >
-          <NuxtLink :to="'blog/' + article.slug">
-            <card class="blog-post">
-              <div class="row blog-post-inner">
-                <div class="col-sm-6 col-md-12 post-thumbnail">
-                  <img
-                    class="img-responsive"
-                    :src="article.img || 'https://source.unsplash.com/random'"
-                  />
-                </div>
-                <div class="col-sm-6 col-md-12 post-content">
-                  <div class="post-content-inner text-center">
-                    <h3>{{ article.title }}</h3>
-                    <p>{{ article.description }}</p>
-                  </div>
-                </div>
-              </div>
-            </card>
-          </NuxtLink>
+      <div v-if="articles.length > 0" class="mt-4">
+        <div v-for="article of articles" :key="article.id">
+          <BlogHPostPreview :post="article" />
         </div>
 
-        <div class="col-sm-12 text-center">
-          <div class="btn blog-button">
-            <NuxtLink :to="'/blog'">
-              go to blog <fa icon="chevron-right"></fa
-            ></NuxtLink>
-          </div>
+        <div class="text-center">
+          <NuxtLink class="btn" :to="localePath('/blog')">
+            go to blog <fa icon="chevron-right"></fa
+          ></NuxtLink>
         </div>
       </div>
     </div>
@@ -54,54 +29,21 @@ export default {
 </script>
 
 <style lang="scss">
-.blog-post {
-  .card-body {
-    padding: 0;
-    background-color: #f2f2f2;
-  }
+.section-blog__title {
+  color: $title-color;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  position: relative;
+  margin-bottom: 30px;
 
-  .post-thumbnail img {
-    height: 250px;
-    object-fit: cover;
-    width: 100%;
-    border-bottom: 5px solid var(--primary-color);
-  }
-
-  .post-content {
-    padding: 20px 25px 25px 25px;
-
-    .post-content-inner {
-      h3 {
-        font-weight: 500;
-        line-height: 26px;
-        margin-bottom: 12px;
-      }
-
-      p {
-        color: #666;
-        margin: 15px 0 5px;
-      }
-    }
-
-    .post-footer {
-      text-align: center;
-
-      .read-more-btn a {
-        color: #606060;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 1px;
-        text-transform: uppercase;
-      }
-    }
-  }
-}
-.blog-button {
-  background: var(--primary-color);
-  border-color: var(--primary-color);
-
-  a {
-    color: #fff;
+  &:after {
+    content: "";
+    width: 68px;
+    height: 1px;
+    background: $title-color;
+    display: block;
+    margin-top: 8px;
   }
 }
 </style>

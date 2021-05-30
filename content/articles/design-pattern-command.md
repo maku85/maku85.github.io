@@ -1,11 +1,18 @@
 ---
-title: Design pattern - Command
-description: Command design pattern implemented in Node.js
+language: en
+date: 2021-04-02T09:00:00.000Z
+title: Behavioral pattern - Command
+description: Command pattern turns a request into a stand-alone object that contains all information about the request. This transformation lets you pass requests as a method arguments, delay or queue a request’s execution, and support undoable operations.
 img: https://images.unsplash.com/photo-1524741978410-350ba91a70d7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Y29tbWFuZHxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60
-tags: Javascript, Design pattern, Node.js
+tags: javascript, design-pattern, structural-pattern
+published: false
 ---
 
 ### Description
+
+Behavioral design patterns are concerned with algorithms and the assignment of responsibilities between objects.
+
+Command pattern turns a request into a stand-alone object that contains all information about the request. This transformation lets you pass requests as a method arguments, delay or queue a request’s execution, and support undoable operations.
 
 A Command is any object that encapsulates all the information necessary to perform an action at a later time. So, instead of invoking a function directly, we create an object representing the intention to perform such an invocation.
 

@@ -1,43 +1,37 @@
 <template>
-  <section id="about" class="section section-about">
-    <div class="container">
-      <card class="section-about-wrap">
-        <div class="section-about-inner row align-items-center">
-          <div class="col-md-7">
-            <div class="about-desc">
-              <div class="about-desc-content">
-                <p class="mt-4 font-weight-light">
-                  Experienced back-end developer specialized in building Java
-                  and Javascript web application but deeply passionate about all
-                  the latest back-end, front-end and mobile technologies.<br /><br />I'm
-                  curious, love challenges but I hate monotony.
-                </p>
-              </div>
-              <ul
-                class="about-desc-social mt-4 list-unstyled list-inline text-center"
-              >
-                <li
-                  v-for="social of socials"
-                  :key="social.id"
-                  class="list-inline-item"
-                >
-                  <a
-                    :href="social.link"
-                    :class="{ ['social-' + social.type]: true }"
-                    class="mr-3 h3"
-                    target="_blank"
-                    ><fa :icon="['fab', social.type]"></fa
-                  ></a>
-                </li>
-              </ul>
-            </div>
-          </div>
+  <section id="about" class="section-about">
+    <div class="section-about-wrap">
+      <div class="section-about-inner align-items-center d-flex">
+        <div
+          sm="3"
+          class="d-none d-md-block profile-picture img-circle mr-5"
+        ></div>
 
-          <div
-            class="col-md-5 d-none d-md-block profile-picture img-circle"
-          ></div>
+        <div class="about-desc flex-grow-1">
+          <div class="about-desc-content">
+            <h1>{{ $t("about-title") }} <b>Mauro</b></h1>
+            <p
+              class="mt-4 font-weight-light"
+              v-html="$t('about-description')"
+            ></p>
+          </div>
+          <ul class="mt-4">
+            <li
+              v-for="social of socials"
+              :key="social.id"
+              class="list-inline-item"
+            >
+              <a :href="social.link" class="mr-1" target="_blank">
+                <v-icon
+                  class="social-icon"
+                  :class="{ ['social-' + social.type]: true }"
+                  >mdi-{{ social.type }}</v-icon
+                >
+              </a>
+            </li>
+          </ul>
         </div>
-      </card>
+      </div>
     </div>
   </section>
 </template>
@@ -51,29 +45,26 @@ export default {
 </script>
 
 <style lang="scss">
-.social-linkedin {
-  color: #306fb2 !important;
-}
 .section-about {
-  margin-top: 120px;
+  padding-top: 120px;
+  padding-bottom: 20px;
 
-  .section-about-wrap {
-    background: var(--bg);
-    max-width: 950px;
-    margin: -40vh auto 0 auto;
-    border-radius: 4px;
-    color: var(--color);
+  .section-about-inner {
+    padding: 50px;
 
-    .section-about-inner {
-      padding: 50px;
+    h1 {
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
 
-      .profile-picture {
-        background-image: url("/img_avatar.webp");
-        max-width: 200px;
-        height: 200px;
-        background-size: cover;
-        background-position: 0px -10px;
-      }
+    .profile-picture {
+      background-image: url("/img_avatar.webp");
+      min-width: 200px;
+      min-height: 200px;
+      background-size: cover;
+      background-position: 0px -10px;
+      box-shadow: $shadow;
     }
   }
 }

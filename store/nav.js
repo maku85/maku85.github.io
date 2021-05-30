@@ -5,6 +5,12 @@ export const state = () => ({
 
 // mutations
 export const mutations = {
+  OPEN_SIDEBAR(state) {
+    state.toggleSidebar = true
+  },
+  CLOSE_SIDEBAR(state) {
+    state.toggleSidebar = false
+  },
   TOGGLE_SIDEBAR(state) {
     state.toggleSidebar = !state.toggleSidebar
   },
@@ -12,6 +18,12 @@ export const mutations = {
 
 // actions
 export const actions = {
+  openSidebar({ commit }) {
+    commit('OPEN_SIDEBAR')
+  },
+  closeSidebar({ commit }) {
+    commit('CLOSE_SIDEBAR')
+  },
   toggleSidebar({ commit }) {
     commit('TOGGLE_SIDEBAR')
   },

@@ -31,8 +31,7 @@ export default {
    */
   css: [
     '@/assets/css/bootstrap.min.css',
-    '@/assets/scss/arcade.scss',
-    '@/assets/scss/main.scss',
+    '@/assets/scss/theme.scss',
     '@/assets/transitions.css',
   ],
   scss: {
@@ -53,23 +52,62 @@ export default {
    */
   buildModules: [
     '@nuxtjs/color-mode',
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
+    '@nuxtjs/vuetify',
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
+    'nuxt-i18n',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
     '@nuxtjs/style-resources',
     'nuxt-fontawesome',
+    'vue-social-sharing/nuxt',
   ],
-  /*
-   ** Content module configuration
-   ** See https://content.nuxtjs.org/configuration
-   */
+  i18n: {
+    locales: ['en', 'it'],
+    defaultLocale: 'it',
+    vueI18n: {
+      fallbackLocale: 'en',
+      detectBrowserLanguage: {
+        useCookie: true,
+        cookieKey: 'i18n_redirected',
+        onlyOnRoot: true, // recommended
+      },
+      messages: {
+        en: {
+          'about-title': 'Hey! I’m',
+          'about-description':
+            "Experienced Node.js back-end developer but deeply passionate about all the latest back-end, front-end and mobile technologies.<br /><br />I'm curious, love challenges but I hate monotony.",
+          'contact-description':
+            'Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities.',
+          'no-posts': 'No post found :(',
+        },
+        it: {
+          About: 'Chi sono',
+          'about-title': 'Ciao! Sono',
+          'about-description':
+            'Sviluppatore back-end Node.js ma profondamente appassionato di tutte le ultime tecnologie back-end, front-end e mobile.<br /><br />Sono curioso, amo le sfide ma odio la monotonia.',
+          'About me': 'Chi sono',
+          Contact: 'Contatti',
+          'contact-description':
+            'Sentiti libero di metterti in contatto con me. Sono sempre disponibile a discutere di nuovi progetti, idee creative o opportunità.',
+          'Contact me': 'Teniamoci in contatto',
+          'Latest posts': 'Articoli recenti',
+          'My blog': 'Il mio blog',
+          'My skills': 'Le mie competenze',
+          'My works': 'I miei lavori',
+          'no-posts': 'Non ci sono post qui :(',
+          'Search posts': 'Cerca tra gli articoli',
+          Works: 'Lavori',
+          'Work & Education': 'Esperienze ed educazione',
+        },
+      },
+    },
+  },
   content: {
     markdown: {
       prism: {
@@ -91,10 +129,7 @@ export default {
     ],
   },
   styleResources: {
-    scss: [
-      '~/assets/scss/global/variables.scss',
-      '~/assets/scss/global/mixins.scss',
-    ],
+    scss: ['~/assets/scss/theme.scss'],
   },
   /*
    ** Build configuration

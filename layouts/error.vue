@@ -7,7 +7,7 @@
       <div v-if="error.statusCode !== 404" class="message">
         {{ error.message }}
       </div>
-      <NuxtLink class="mt-4 btn" to="/">go back home</NuxtLink>
+      <NuxtLink class="mt-4 btn" :to="localePath('/')">go back home</NuxtLink>
     </div>
 
     <div class="objects">
@@ -31,28 +31,28 @@
 
 <script>
 export default {
-  layout: 'empty',
+  layout: "empty",
   props: {
     error: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
-      pageNotFound: 'Looks like you are lost in space',
-      otherError: 'Houston, we have a problem',
-      errorTitle: ''
-    }
+      pageNotFound: "Looks like you are lost in space",
+      otherError: "Houston, we have a problem",
+      errorTitle: "",
+    };
   },
   head() {
     this.errorTitle =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
+      this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
     return {
-      title: this.errorTitle
-    }
-  }
-}
+      title: this.errorTitle,
+    };
+  },
+};
 </script>
 
 <style lang="scss">
@@ -72,7 +72,7 @@ export default {
     width: 100%;
     height: 100%;
     display: block;
-    background: url('/stars.png') repeat top center;
+    background: url("/stars.png") repeat top center;
     z-index: 0;
   }
 

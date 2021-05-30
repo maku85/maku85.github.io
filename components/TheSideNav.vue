@@ -1,72 +1,65 @@
 <template>
-  <div class="sidenav-container">
-    <div v-if="isSidebar" class="backdrop" @click="hideSidebar"></div>
+  <v-navigation-drawer
+    app
+    enable-resize-watcher
+    :value="$store.state.nav.toggleSidebar"
+    class="sidenav"
+    temporary
+    @input="updateDrawerState"
+  >
+    <div class="pt-3 pr-3 text-right close-menu" @click="hideSidebar">
+      <v-icon>mdi-close</v-icon>
+    </div>
 
-    <transition name="slide-side">
-      <div v-if="isSidebar" class="sidenav">
-        <div class="close-menu" @click="hideSidebar">
-          <i class="fa fa-close"></i>
-        </div>
-
-        <div class="menu-logo">
-          <a href="index.html">Mauro</a>
-        </div>
-        <nav class="mt-5">
-          <app-links></app-links>
-        </nav>
-      </div>
-    </transition>
-  </div>
+    <ul class="nav-list">
+      <li class="nav-item">
+        <nuxt-link class="nav-link" :to="localePath('/about')">
+          {{ $t("About") }}
+        </nuxt-link>
+      </li>
+      <li class="nav-item">
+        <nuxt-link class="nav-link" :to="localePath('/works')">
+          {{ $t("Works") }}
+        </nuxt-link>
+      </li>
+      <li class="nav-item">
+        <nuxt-link class="nav-link" :to="localePath('/blog')">
+          {{ $t("Blog") }}
+        </nuxt-link>
+      </li>
+      <li class="nav-item">
+        <nuxt-link class="nav-link" :to="localePath('/contact')">
+          {{ $t("Contact") }}
+        </nuxt-link>
+      </li>
+    </ul>
+  </v-navigation-drawer>
 </template>
 
 <script>
-import AppLinks from "~/components/AppLinks";
-
 export default {
-  components: { AppLinks },
-  computed: {
-    isSidebar() {
-      return this.$store.getters["nav/toggleSidebar"];
+  watch: {
+    $route() {
+      this.$store.dispatch("nav/closeSidebar");
     },
   },
   methods: {
     hideSidebar() {
-      this.$store.dispatch("nav/toggleSidebar");
+      this.$store.dispatch("nav/closeSidebar");
+    },
+    updateDrawerState(event) {
+      if (!event) this.hideSidebar();
     },
   },
 };
 </script>
 
-<style scoped>
-.sidenav-container {
-  height: 100%;
-  width: 100%;
-}
+<style lang="scss" scoped>
 .sidenav {
-  height: 100%;
-  width: 300px;
   z-index: 10000;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
-  padding: 30px 0;
-  position: fixed;
+  background-color: var(--bg);
   text-align: center;
-  -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
-}
-.sidenav span {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-}
-.backdrop {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 .slide-side-enter-active,
 .slide-side-leave-active {
@@ -75,5 +68,33 @@ export default {
 .slide-side-enter,
 .slide-side-leave-to {
   transform: translateX(-100%);
+}
+.close-menu {
+  cursor: pointer;
+}
+.nav-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+
+  .nav-item {
+    text-align: center;
+
+    a {
+      border-bottom: 1px solid #dddddd;
+      color: #aaaaaa;
+      display: block;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 13px 0;
+      text-transform: uppercase;
+
+      &:hover,
+      &:active {
+        color: $font-color;
+      }
+    }
+  }
 }
 </style>

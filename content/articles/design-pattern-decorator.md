@@ -1,39 +1,62 @@
 ---
-title: Design pattern - Decorator
-description: Decorator design pattern implemented in Node.js
+date: 2021-02-05T09:00:00.000Z
+title: Structural pattern - Decorator
+description: Decorator design pattern implemented in JS
 img: https://images.unsplash.com/photo-1512542194577-1db2e4eef915?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGVjb3JhdGlvbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60
-tags: Javascript, Design pattern, Node.js
+tags: javascript, design-pattern, structural-pattern
+published: false
 ---
 
 ### Description
 
-Decorator pattern augments with new functionalities. The difference with inheritance is that decorator doesn’t add the behavior to all the objects of the same class, only to the instances that are decorated. Like in the proxy patterns, composition and object augmentation are the main techniques.
+Structural patterns explain how to assemble objects and classes into larger structures while keeping these structures flexible and efficient.
+
+Decorator pattern consists of dynamically augmenting the behavior of an existing object. The difference with inheritance is that decorator doesn’t add the behavior to all the objects of the same class, only to the instances that are decorated.
 
 ### Implementation
 
+Like in the proxy patterns, composition and object augmentation are the main techniques.
+
+#### Composition
+
+Using composition, the decorated component is wrapped around a new object
+that usually inherits from it. The Decorator in this case simply needs to define
+the new methods while delegating the existing ones to the original component:
+
 ```javascript
-const User = function(name) {
-  this.name = name;
-  this.say = fucntion() {
-    console.log(`User: ${this.name}`);
+function decorate(component) {
+  var proto = Object.getPrototypeOf(component)
+
+  function Decorator(component) {
+    this.component = component
   }
-}
+  Decorator.prototype = Object.create(proto)
 
-const DecoratedUser = function(user, address, city) {
-  this.user = user;
-  this.name = user.name; // ensures interface stays the same
-  this.address = address;
-  this.city = city;
-
-  this.say = function() {
-    console.log(`Decorated User: ${this.name}, ${this.address}, ${this.city}`)
+  //new method
+  Decorator.prototype.greetings = function () {
+    //...
   }
-}
 
-const user = new User('Eli Manning');
-user.say(); // User: Eli Manning
-const decorated = new DecoratedUser(user, 'Metlife Stadium', 'New Jersey');
-decorated.say(); // Decorated User: Eli Manning, Metlife Stafium, New Jersey
+  //delegated method
+  Decorator.prototype.hello = function () {
+    this.component.hello.apply(this.component, arguments)
+  }
+
+  return new Decorator(component)
+}
 ```
 
-The DecoratedUser receives two arguments that help to modify the say function. The structure is pretty similar but the method behavior has changed.
+#### Object augmentation
+
+Object decoration can also be achieved by simply attaching new methods directly
+to the decorated object, as follows:
+
+```javascript
+function decorate(component) {
+  //new method
+  component.greetings = function () {
+    //...
+  }
+  return component
+}
+```

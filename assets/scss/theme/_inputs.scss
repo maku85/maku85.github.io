@@ -1,0 +1,40 @@
+.form-control:focus + .input-group-text {
+  border: 1px solid black;
+}
+.form-control {
+  padding: 15px 30px;
+  height: auto;
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+}
+.form-control {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: $font-color;
+  font-size: $font-size;
+  transition: background-color 0.3s ease 0s;
+  padding-right: 0 !important;
+  @include transition(300ms, linear);
+  @include input-size(7px, 12px, 40px);
+  @include box-shadow(none);
+
+  &:focus {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    @include box-shadow(none);
+    outline: 0 !important;
+  }
+}
+
+textarea.form-control {
+  padding: 10px 18px;
+  height: auto;
+}
+.form-group {
+  position: relative;
+}

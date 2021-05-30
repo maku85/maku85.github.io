@@ -1,32 +1,36 @@
 <template>
-  <section id="blog-page" class="section">
-    <div class="container">
-      <the-section-title subtitle="Posts">
-        My <span>blog</span>
-      </the-section-title>
+  <section class="mt-5">
+    <div class="mt-5 mb-4 text-center">
+      <h2>{{ $t("My blog") }}</h2>
+    </div>
 
-      <AppSearchInput @searchResults="refreshData" />
+    <div class="pb-4">
+      <BlogSearch @searchResults="refreshData" />
 
-      <div v-if="filter" class="mt-2 mb-2">
+      <div v-if="filter" class="mt-2">
         <span class="filter">
-          {{ filter }}
-          <fa class="close-btn" icon="times" @click="reset"></fa>
+          <v-chip label close @click:close="reset">{{ filter }}</v-chip>
         </span>
       </div>
+    </div>
 
-      <div v-if="!articles || articles.length === 0" class="row mt-4">
-        <div class="col-sm-12">No post found :(</div>
-      </div>
+    <div class="mt-5">
+      <v-row v-if="!articles || articles.length === 0" class="text-center">
+        <v-col>{{ $t("no-posts") }}</v-col>
+      </v-row>
 
-      <div v-i="articles && articles.length > 0" class="row mt-4">
-        <div
+      <v-row v-i="articles && articles.length > 0">
+        <v-col
+          cols="12"
+          xs="12"
+          sm="6"
+          md="4"
           v-for="article of articles"
           :key="article.id"
-          class="col-sm-12 col-md-6 col-lg-4"
         >
-          <post-preview :post="article"></post-preview>
-        </div>
-      </div>
+          <BlogVPostPreview :post="article" />
+        </v-col>
+      </v-row>
     </div>
   </section>
 </template>
@@ -47,9 +51,9 @@ export default {
   },
   methods: {
     async retrieveData(filters) {
-      Object.assign(filters, { published: true });
+      Object.assign(filters, { published: true, language: this.$i18n.locale });
       this.articles = await this.$content("articles")
-        .only(["date", "title", "description", "img", "slug"])
+        .only(["date", "title", "description", "img", "tags", "slug"])
         .where(filters)
         .sortBy("date", "desc")
         .fetch();
@@ -58,26 +62,20 @@ export default {
       this.articles = data;
     },
     async reset() {
-      this.$router.push("/blog");
+      this.$router.push(this.localePath({ name: "blog" }));
       this.filter = "";
       await this.retrieveData();
     },
   },
   head() {
     return {
-      title: "Mauro Cunsolo - My blog",
+      title: "Mauro Cunsolo | Blog",
     };
   },
 };
 </script>
 
 <style lang="scss">
-.navbar.navbar-transparent .navbar-toggler .navbar-toggler-bar {
-  background-color: #66615b !important;
-}
-.navbar.navbar-transparent .navbar-nav .nav-item .nav-link {
-  color: #66615b !important;
-}
 .filter {
   background-color: #f2f2f2;
   padding: 12px 10px;
@@ -86,48 +84,6 @@ export default {
   .close-btn {
     margin-right: 2px;
     cursor: pointer;
-  }
-}
-.blog-post {
-  .card-body {
-    padding: 0;
-    background-color: #f2f2f2;
-  }
-
-  .post-thumbnail img {
-    height: 250px;
-    object-fit: cover;
-    width: 100%;
-    border-bottom: 5px solid $primary-color;
-  }
-
-  .post-content {
-    .post-content-inner {
-      padding: 0px 20px 15px 20px;
-
-      h3 {
-        font-weight: 500;
-        line-height: 26px;
-        margin-bottom: 12px;
-      }
-
-      p {
-        color: #666;
-        margin: 15px 0 5px;
-      }
-    }
-
-    .post-footer {
-      text-align: center;
-
-      .read-more-btn a {
-        color: #606060;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 1px;
-        text-transform: uppercase;
-      }
-    }
   }
 }
 </style>

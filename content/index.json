@@ -72,10 +72,10 @@
     {
       "title": "Backend Skills",
       "skills": [
-        { "title": "Java", "value": "60" },
         { "title": "Node", "value": "80" },
+        { "title": "Python", "value": "30" },
         { "title": "PHP", "value": "20" },
-        { "title": "Python", "value": "30" }
+        { "title": "Dart", "value": "10" }
       ]
     },
     {
@@ -83,42 +83,18 @@
       "skills": [
         { "title": "Angular", "value": "50" },
         { "title": "Vue", "value": "30" },
-        { "title": "Nuxt", "value": "10" },
-        { "title": "Wordpress", "value": "20" }
+        { "title": "Nuxt", "value": "20" },
+        { "title": "Flutter", "value": "10" }
       ]
     }
   ],
   "works": [
     {
-      "title": "Simple login page",
-      "category": "login page",
-      "description": "A simple login page in pure HTML/CSS",
-      "image": "projects/login/preview.webp",
-      "tags": ["html5", "CSS3"],
-      "url": "../projects/login"
-    },
-    {
-      "title": "Simple single page",
-      "category": "SPA",
-      "description": "A simple single pagin in HTML/CSS",
-      "image": "projects/psychologist/preview.webp",
-      "tags": ["html5", "CSS3", "jQuery", "Bootstrap 4"],
-      "url": "../projects/psychologist"
-    },
-    {
-      "title": "Simple portfolio",
-      "category": "Portfolio",
-      "description": "A simple single page portfolio in HTML/CSS with Bootstrap 4",
-      "image": "projects/artist/preview.webp",
-      "tags": ["html5", "CSS3", "jQuery", "Bootstrap 4"],
-      "url": "../projects/artist"
-    },
-    {
       "title": "Rick & Morty world",
       "category": "SPA",
-      "description": "A simple single page app in Angular 8",
-      "image": "projects/rem/preview.webp",
-      "tags": ["html5", "CSS3", "Angular"],
+      "description": "A simple single page app in Vue.js",
+      "image": "https://github.com/maku85/rick-and-morty-vue-app/raw/master/preview.webp",
+      "tags": ["HTML5", "CSS3", "Javascript", "Web app", "Vue.js"],
       "url": "https://www.maurocunsolo.com/rick-and-morty-vue-app/"
     }
   ]
