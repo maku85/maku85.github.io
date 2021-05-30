@@ -14,8 +14,9 @@
             v-for="tag of (post.tags || '').split(',')"
             :key="tag"
             :to="localePath(`/blog?category=${tag.trim()}`)"
-            >#{{ tag.trim() }}</NuxtLink
           >
+            #{{ tag.trim() }}
+          </NuxtLink>
         </div>
         <div class="post-content-inner">
           <h2>{{ post.title }}</h2>

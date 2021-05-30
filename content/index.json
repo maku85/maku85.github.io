@@ -90,6 +90,14 @@
   ],
   "works": [
     {
+      "title": "Flutter calculator",
+      "category": "Mobile app",
+      "description": "A simple calculator made with Flutter",
+      "image": "https://github.com/maku85/my-flutter-calculator/blob/main/screenshots/screenshot_ios.jpg?raw=true",
+      "tags": ["Dart", "Fluter", "Mobile app"],
+      "url": "https://github.com/maku85/my-flutter-calculator"
+    },
+    {
       "title": "Rick & Morty world",
       "category": "SPA",
       "description": "A simple single page app in Vue.js",
