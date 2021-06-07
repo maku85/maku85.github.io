@@ -88,7 +88,7 @@ export default {
   },
 
   googleAnalytics: {
-    id: 'G-6Z5CZPBQCV',
+    id: 'UA-198866487-1',
   },
 
   i18n: {
