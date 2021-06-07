@@ -1,13 +1,12 @@
 ---
+language: en
 date: 2021-01-08T09:00:00.000Z
 title: Creational patterns - Singleton
-description: Singleton design pattern implemented in JS
+description: The singleton pattern allows you to instantiate an object once and then use that one every time you need it, instead of creating a new one without having to keep track of a reference to it, either globally or just passing it as a dependency everywhere.
 img: /articles/images/design-pattern-singleton.jpeg
 tags: javascript, design-pattern, creational-pattern
 published: false
 ---
-
-### Description
 
 A creational patterns provide various object creation mechanisms, which increase flexibility and reuse of existing code.
 
