@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container">
+  <v-main class="main-container">
     <TheNavbar />
 
     <v-container>
@@ -8,5 +8,9 @@
 
     <TheFooter />
     <TheBackToTop />
-  </div>
+
+    <client-only>
+      <TheCookie />
+    </client-only>
+  </v-main>
 </template>

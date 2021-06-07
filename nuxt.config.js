@@ -17,7 +17,13 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  plugins: [{ src: '~/plugins/vue-resize-text.js', ssr: false }],
+  plugins: [
+    {
+      src: '~/plugins/vue-google-analytics',
+      mode: 'client',
+    },
+    { src: '~/plugins/vue-resize-text.js', ssr: false },
+  ],
 
   build: {
     publicPath: '/assets/',
@@ -60,7 +66,6 @@ export default {
    */
   buildModules: [
     '@nuxtjs/color-mode',
-    '@nuxtjs/google-analytics',
     // '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
   ],
@@ -85,10 +90,6 @@ export default {
         icons: ['fab'],
       },
     ],
-  },
-
-  googleAnalytics: {
-    id: 'UA-198866487-1',
   },
 
   i18n: {
