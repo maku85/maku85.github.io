@@ -12,6 +12,7 @@
           <strong><span>Mauro</span> Cunsolo</strong>
         </v-toolbar-title>
       </router-link>
+      <TheThemeSwitch class="ml-2" />
       <v-spacer></v-spacer>
 
       <v-toolbar-items class="d-none d-md-flex">
@@ -80,8 +81,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v-icon {
+  color: var(--font-color) !important;
+}
+
 .navbar {
   transition: all 0.4s;
+  background-color: var(--bg) !important;
   padding: 0;
 
   &.navbar-w-shadow {
@@ -97,9 +103,13 @@ export default {
     }
   }
 
-  .nav-item.v-btn--active {
-    color: var(--primary-color);
-    font-weight: 600;
+  .nav-item {
+    color: var(--font-color);
+
+    &.nav-item.v-btn--active {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
   }
 }
 </style>

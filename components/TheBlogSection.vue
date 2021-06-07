@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss">
 .section-blog__title {
-  color: $title-color;
+  color: var(--title-color);
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.17em;
@@ -41,7 +41,7 @@ export default {
     content: "";
     width: 68px;
     height: 1px;
-    background: $title-color;
+    background: var(--primary-color);
     display: block;
     margin-top: 8px;
   }

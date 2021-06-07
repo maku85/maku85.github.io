@@ -9,7 +9,7 @@
 
         <div class="about-desc flex-grow-1">
           <div class="about-desc-content">
-            <h1>{{ $t("about-title") }} <b>Mauro</b></h1>
+            <h1>{{ $t("about-title") }} <b class="primary-color">Mauro</b></h1>
             <p
               class="mt-4 font-weight-light"
               v-html="$t('about-description')"

@@ -71,6 +71,10 @@ export default {
 }
 .close-menu {
   cursor: pointer;
+
+  .v-icon {
+    color: var(--font-color) !important;
+  }
 }
 .nav-list {
   list-style: none;
@@ -81,8 +85,6 @@ export default {
     text-align: center;
 
     a {
-      border-bottom: 1px solid #dddddd;
-      color: #aaaaaa;
       display: block;
       font-family: "Montserrat", sans-serif;
       font-size: 12px;

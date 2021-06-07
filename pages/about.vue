@@ -48,7 +48,7 @@
               :key="experience.id"
             >
               <div class="icon">
-                <fa icon="briefcase"></fa>
+                <v-icon>mdi-briefcase</v-icon>
               </div>
               <div class="resume-box-content">
                 <h5>{{ experience.title }}</h5>
@@ -75,7 +75,7 @@
               :key="education.id"
             >
               <div class="icon">
-                <fa icon="graduation-cap"></fa>
+                <v-icon>mdi-school</v-icon>
               </div>
               <div class="resume-box-content">
                 <h5>{{ education.title }}</h5>
@@ -131,7 +131,7 @@ export default {
     height: 14px;
     bottom: -10px;
     border-radius: 50%;
-    background-color: #f21e4e;
+    background-color: var(--primary-color);
     right: 0;
     margin: auto;
     z-index: 2;
@@ -145,7 +145,7 @@ export default {
     width: 100%;
     height: 1px;
     bottom: -4px;
-    background-color: #f21e4e;
+    background-color: var(--primary-color);
     z-index: -1;
   }
 }
@@ -168,12 +168,13 @@ export default {
     content: "";
     position: absolute;
     top: 0;
-    left: 20px;
-    bottom: 0;
+    left: 15px;
+    bottom: -10px;
     border-left: 1px solid #ddd;
   }
 
-  .icon {
+  .v-icon {
+    font-size: 15px;
     width: 30px;
     height: 30px;
     position: absolute;
@@ -203,7 +204,6 @@ export default {
 
     h5 {
       font-size: 18px;
-      margin: 7px 0 0px;
     }
 
     .place {
@@ -211,6 +211,7 @@ export default {
       font-weight: 100;
       font-size: 15px;
       position: relative;
+      margin-top: -8px;
     }
 
     p {

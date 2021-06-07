@@ -105,3 +105,7 @@ input[type='file'] > input[type='button']::-moz-focus-inner {
     margin-bottom: 2em;
   }
 }
+
+.primary-color {
+  color: var(--primary-color);
+}
