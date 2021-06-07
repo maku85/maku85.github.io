@@ -10,9 +10,9 @@
 export default {
   async asyncData({ $content, params, i18n }) {
     const { socials } = await $content("index").fetch();
-    const articles = await $content("articles", params.slug)
+    const articles = await $content(`${i18n.locale}/articles`, params.slug)
       .only(["title", "description", "img", "tags", "slug"])
-      .where({ published: true, language: i18n.locale })
+      .where({ published: true })
       .limit(6)
       .sortBy("date", "desc")
       .fetch();

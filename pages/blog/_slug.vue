@@ -42,16 +42,19 @@
 <script>
 export default {
   async asyncData({ $content, params, i18n }) {
-    const article = await $content("articles", params.slug).fetch();
-    const [prev, next] = await $content("articles")
+    const article = await $content(
+      `${i18n.locale}/articles`,
+      params.slug
+    ).fetch();
+    const [prev, next] = await $content(`${i18n.locale}/articles`)
       .only(["title", "slug"])
-      .where({ published: true, language: i18n.locale })
+      .where({ published: true })
       .sortBy("date", "asc")
       .surround(params.slug)
       .fetch();
-    const articles = await $content("articles")
+    const articles = await $content(`${i18n.locale}/articles`)
       .only(["title", "date", "img", "slug"])
-      .where({ published: true, language: i18n.locale })
+      .where({ published: true })
       .sortBy("date", "asc")
       .fetch();
     const recentArticles = articles.filter(
@@ -109,62 +112,6 @@ export default {
 
   .post-content {
     padding: 30px 10px;
-
-    article {
-      h1 {
-        margin: 13px 0 20px;
-      }
-
-      h3 {
-        margin-top: 2em;
-      }
-
-      img {
-        border-radius: 5px;
-        margin-bottom: 20px;
-      }
-
-      p {
-        margin-bottom: 0;
-        margin-top: 2em;
-      }
-
-      strong {
-        font-weight: bold;
-      }
-
-      blockquote {
-        background: #f9f9f9;
-        border-left: 10px solid #ccc;
-        margin: 1.5em 10px;
-        padding: 1em 10px;
-        quotes: "\201C""\201D""\2018""\2019";
-
-        p {
-          margin: 0;
-        }
-      }
-    }
-
-    .post-content-inner {
-      h2 {
-        font-size: 19px;
-        margin-top: 0;
-        margin-bottom: 12px;
-        color: rgb(41, 41, 41);
-        font-weight: 700;
-        line-height: 1.53;
-
-        a {
-          color: rgb(41, 41, 41);
-        }
-      }
-
-      p {
-        color: #666;
-        margin: 15px 0 5px;
-      }
-    }
   }
 }
 

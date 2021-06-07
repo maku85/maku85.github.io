@@ -6,6 +6,7 @@
         v-for="tag of tags.split(',')"
         :key="tag"
         :to="localePath(`/blog?category=${tag.trim()}`)"
+        class="tag"
         >#{{ tag.trim() }}</NuxtLink
       >
     </div>
@@ -42,11 +43,13 @@ export default {
     margin-bottom: 5px;
     margin-right: 5px;
     border-radius: 5px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     font-size: 14px;
+    transition: all 1s;
 
     &:hover {
       background-color: $primary-color;
+      color: #fff;
     }
   }
 }

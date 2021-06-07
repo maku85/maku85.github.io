@@ -1,18 +1,8 @@
 export default {
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
   mode: 'spa',
-  /*
-   ** Nuxt target
-   ** See https://nuxtjs.org/api/configuration-target
-   */
   target: 'static',
-  /*
-   ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
-   */
+  components: true,
+
   head: {
     title: 'Mauro Cunsolo',
     meta: [
@@ -26,6 +16,17 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+
+  plugins: [{ src: '~/plugins/vue-resize-text.js', ssr: false }],
+
+  build: {
+    publicPath: '/assets/',
+  },
+
+  generate: {
+    routes: ['404'],
+  },
+
   /*
    ** Global CSS
    */
@@ -37,36 +38,59 @@ export default {
   scss: {
     indentedSyntax: true,
   },
-  /*
-   ** Plugins to load before mounting the App
-   ** https://nuxtjs.org/guide/plugins
-   */
-  plugins: [{ src: '~/plugins/vue-resize-text.js', ssr: false }],
-  /*
-   ** Auto import components
-   ** See https://nuxtjs.org/api/configuration-components
-   */
-  components: true,
-  /*
-   ** Nuxt.js dev-modules
-   */
-  buildModules: [
-    '@nuxtjs/color-mode',
-    // '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify',
-  ],
+
+  styleResources: {
+    scss: ['~/assets/scss/theme.scss'],
+  },
+
   /*
    ** Nuxt.js modules
    */
   modules: [
     'nuxt-i18n',
     '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt/content
     '@nuxt/content',
     '@nuxtjs/style-resources',
     'nuxt-fontawesome',
     'vue-social-sharing/nuxt',
   ],
+
+  /*
+   ** Nuxt.js dev-modules
+   */
+  buildModules: [
+    '@nuxtjs/color-mode',
+    '@nuxtjs/google-analytics',
+    // '@nuxtjs/eslint-module',
+    '@nuxtjs/vuetify',
+  ],
+
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-material-oceanic.css',
+      },
+    },
+  },
+
+  fontawesome: {
+    component: 'fa',
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas'],
+      },
+      {
+        set: '@fortawesome/free-brands-svg-icons',
+        icons: ['fab'],
+      },
+    ],
+  },
+
+  googleAnalytics: {
+    id: 'G-6Z5CZPBQCV',
+  },
+
   i18n: {
     locales: ['en', 'it'],
     defaultLocale: 'it',
@@ -110,38 +134,5 @@ export default {
         },
       },
     },
-  },
-  content: {
-    markdown: {
-      prism: {
-        theme: 'prism-themes/themes/prism-material-oceanic.css',
-      },
-    },
-  },
-  fontawesome: {
-    component: 'fa',
-    imports: [
-      {
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas'],
-      },
-      {
-        set: '@fortawesome/free-brands-svg-icons',
-        icons: ['fab'],
-      },
-    ],
-  },
-  styleResources: {
-    scss: ['~/assets/scss/theme.scss'],
-  },
-  /*
-   ** Build configuration
-   ** See https://nuxtjs.org/api/configuration-build/
-   */
-  build: {
-    publicPath: '/assets/',
-  },
-  generate: {
-    routes: ['404'],
   },
 }

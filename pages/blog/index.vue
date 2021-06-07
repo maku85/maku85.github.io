@@ -51,8 +51,8 @@ export default {
   },
   methods: {
     async retrieveData(filters) {
-      Object.assign(filters, { published: true, language: this.$i18n.locale });
-      this.articles = await this.$content("articles")
+      Object.assign(filters, { published: true });
+      this.articles = await this.$content(`${this.$i18n.locale}/articles`)
         .only(["date", "title", "description", "img", "tags", "slug"])
         .where(filters)
         .sortBy("date", "desc")

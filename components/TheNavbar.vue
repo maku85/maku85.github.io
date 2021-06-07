@@ -26,9 +26,16 @@
         </v-btn>
       </v-toolbar-items>
 
-      <v-btn plain v-for="locale in oppositeLocales" :key="locale">
-        <nuxt-link :to="switchLocalePath(locale)">{{ locale }}</nuxt-link>
-      </v-btn>
+      <nuxt-link
+        v-for="locale in oppositeLocales"
+        :key="locale"
+        :to="switchLocalePath(locale)"
+        class="locale"
+      >
+        <v-btn plain>
+          {{ locale }}
+        </v-btn>
+      </nuxt-link>
     </v-app-bar>
 
     <TheSideNav />
