@@ -42,6 +42,8 @@ export default {
   margin-bottom: 30px;
   position: relative;
   transition: all 0.5s ease;
+  background: var(--light-bg-color);
+  color: var(--font-color);
 
   &:hover {
     -webkit-transform: translateY(-10px);
@@ -83,7 +85,7 @@ export default {
         font-size: 19px;
         margin-top: 0;
         margin-bottom: 12px;
-        color: $title-color;
+        color: var(--title-color);
         font-weight: 700;
         line-height: 1.53;
       }

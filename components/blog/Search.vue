@@ -40,7 +40,8 @@ input {
 input[type="search"] {
   outline: 0;
   width: 100%;
-  background: #fff;
+  border-color: var(--bg);
+  background-color: var(--light-bg-color);
   padding: 0 1.6rem;
   border-radius: 0.7rem;
   appearance: none;

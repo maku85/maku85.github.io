@@ -77,7 +77,7 @@ export default {
 
 <style lang="scss">
 .filter {
-  background-color: #f2f2f2;
+  background-color: var(--light-bg-color);
   padding: 12px 10px;
   border-radius: 4px;
 

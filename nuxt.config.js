@@ -104,7 +104,7 @@ export default {
       },
       messages: {
         en: {
-          'about-title': 'Hey! I’m',
+          'about-title': 'Hey! It’s-a me,',
           'about-description':
             "Experienced Node.js back-end developer but deeply passionate about all the latest back-end, front-end and mobile technologies.<br /><br />I'm curious, love challenges but I hate monotony.",
           'contact-description':
@@ -113,7 +113,7 @@ export default {
         },
         it: {
           About: 'Chi sono',
-          'about-title': 'Ciao! Sono',
+          'about-title': 'Hey! It’s-a me,',
           'about-description':
             'Sviluppatore back-end Node.js ma profondamente appassionato di tutte le ultime tecnologie back-end, front-end e mobile.<br /><br />Sono curioso, amo le sfide ma odio la monotonia.',
           'About me': 'Chi sono',

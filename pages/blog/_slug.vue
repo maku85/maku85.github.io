@@ -13,6 +13,7 @@
           ></v-img>
 
           <article class="post-content">
+            <p>{{ article.description }}</p>
             <nuxt-content :document="article" />
 
             <div class="post-footer d-flex flex-wrap">
@@ -32,8 +33,11 @@
       </v-col>
 
       <v-col cols="12" sm="12" md="4">
-        <BlogTagsCard :tags="article.tags" />
-        <BlogRecentPosts :articles="recentArticles" />
+        <BlogTagsCard v-if="article.tags.length" :tags="article.tags" />
+        <BlogRecentPosts
+          v-if="recentArticles.length"
+          :articles="recentArticles"
+        />
       </v-col>
     </v-row>
   </v-container>

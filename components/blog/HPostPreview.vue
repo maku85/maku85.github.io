@@ -43,6 +43,8 @@ export default {
 .blog-post {
   margin-bottom: 30px;
   position: relative;
+  background: var(--light-bg-color);
+  color: var(--font-color);
 
   .post-thumbnail {
     position: relative;
@@ -76,7 +78,7 @@ export default {
         font-size: 19px;
         margin-top: 0;
         margin-bottom: 12px;
-        color: $title-color;
+        color: var(--title-color);
         font-weight: 700;
         line-height: 1.53;
       }

@@ -1,7 +1,9 @@
 <template>
-  <v-banner single-line app v-if="isOpen" class="cookie">
-    <span class="pl-3">{{ message }}</span>
-    (<nuxt-link to="/cookie-policy">policy page</nuxt-link>)
+  <v-banner single-line v-if="isOpen" class="cookie">
+    <div class="banner-text">
+      {{ message }}
+      (<nuxt-link to="/cookie-policy">policy page</nuxt-link>)
+    </div>
 
     <template v-slot:actions>
       <v-btn text color="primary" @click="accept">
@@ -70,8 +72,13 @@ export default {
 .cookie {
   z-index: 1;
   width: 100%;
-  position: fixed;
+  position: fixed !important;
   background-color: #fff !important;
   bottom: 0;
+
+  .banner-text {
+    padding-left: 1rem !important;
+    white-space: pre-line;
+  }
 }
 </style>

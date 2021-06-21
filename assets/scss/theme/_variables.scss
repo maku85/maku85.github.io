@@ -21,6 +21,7 @@ $social-whatsapp: #25d366;
 :root {
   --color: #243746;
   --bg: #f5f5f5;
+  --light-bg-color: #fff;
   --font-color: #666;
   --title-color: rgb(41, 41, 41);
   --primary-color: #cd382f;
@@ -31,6 +32,7 @@ $social-whatsapp: #25d366;
 .dark-mode {
   --color: #ebf4f1;
   --bg: #111;
+  --light-bg-color: #222;
   --font-color: #ebf4f1;
   --title-color: #ebf4f1;
   --primary-color: #ffb400;
