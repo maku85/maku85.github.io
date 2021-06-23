@@ -26,7 +26,7 @@ export default {
   ],
 
   env: {
-    hostname: process.env.HOSTNAME || 'http://localhost:3000',
+    hostname: process.env.HOSTNAME || 'https://www.maurocunsolo.com',
   },
 
   build: {
