@@ -59,7 +59,7 @@ export default {
   },
   computed: {
     getArticleUrl() {
-      return `${process.env.HOSTNAME}${this.$route.fullPath}`;
+      return `${process.env.hostname}${this.$route.fullPath}`;
     },
   },
 };

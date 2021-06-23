@@ -25,6 +25,10 @@ export default {
     { src: '~/plugins/vue-resize-text.js', ssr: false },
   ],
 
+  env: {
+    hostname: process.env.HOSTNAME || 'http://localhost:3000',
+  },
+
   build: {
     publicPath: '/assets/',
   },
