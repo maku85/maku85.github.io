@@ -5,11 +5,10 @@
       <li>
         <ShareNetwork
           network="facebook"
-          url="https://news.vuejs.org/issues/180"
-          title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-          description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
-          quote="The hot reload is so fast it\'s near instant. - Evan You"
-          hashtags="vuejs,vite"
+          :url="getArticleUrl"
+          :title="article.title"
+          :description="article.description"
+          :hashtags="article.tags"
         >
           <v-icon>mdi-facebook</v-icon>
         </ShareNetwork>
@@ -17,28 +16,24 @@
       <li>
         <ShareNetwork
           network="twitter"
-          url="https://news.vuejs.org/issues/180"
-          title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-          quote="The hot reload is so fast it\'s near instant. - Evan You"
-          hashtags="vuejs,vite"
+          :url="getArticleUrl"
+          :title="article.title"
+          :hashtags="article.tags"
         >
           <v-icon>mdi-twitter</v-icon>
         </ShareNetwork>
       </li>
       <li>
-        <ShareNetwork
-          network="linkedin"
-          url="https://news.vuejs.org/issues/180"
-        >
+        <ShareNetwork network="linkedin" :url="getArticleUrl">
           <v-icon>mdi-linkedin</v-icon>
         </ShareNetwork>
       </li>
       <li>
         <ShareNetwork
           network="telegram"
-          url="https://news.vuejs.org/issues/180"
-          title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-          description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
+          :url="getArticleUrl"
+          :title="article.title"
+          :description="article.description"
         >
           <v-icon>mdi-telegram</v-icon>
         </ShareNetwork>
@@ -46,9 +41,9 @@
       <li>
         <ShareNetwork
           network="whatsapp"
-          url="https://news.vuejs.org/issues/180"
-          title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-          description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
+          :url="getArticleUrl"
+          :title="article.title"
+          :description="article.description"
         >
           <v-icon>mdi-whatsapp</v-icon>
         </ShareNetwork>
@@ -56,6 +51,19 @@
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    article: { type: Object, default: () => {} },
+  },
+  computed: {
+    getArticleUrl() {
+      return this.$route.fullPath;
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .social-links {

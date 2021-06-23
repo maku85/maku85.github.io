@@ -22,7 +22,7 @@
                 {{ formatDate(article.date || article.createdAt) }}
               </div>
 
-              <BlogShareLinks class="mt-2" />
+              <BlogShareLinks class="mt-2" :article="article" />
             </div>
           </article>
         </div>
@@ -79,7 +79,7 @@ export default {
   },
   head() {
     return {
-      title: `My blog - ${this.article.title}`,
+      title: `Mauro Cunsolo | ${this.article.title}`,
       meta: [
         {
           hid: "description",
@@ -114,8 +114,13 @@ export default {
   margin-bottom: 30px;
   position: relative;
 
-  .post-content {
-    padding: 30px 10px;
+  .card {
+    background: var(--light-bg-color);
+
+    .post-content {
+      padding: 30px 10px;
+      color: var(--font-color);
+    }
   }
 }
 
