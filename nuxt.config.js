@@ -1,5 +1,5 @@
 export default {
-  mode: 'spa',
+  mode: 'universal',
   target: 'static',
   components: true,
 
@@ -34,6 +34,7 @@ export default {
   },
 
   generate: {
+    // fallback: 'index.html',
     routes: ['404'],
   },
 
