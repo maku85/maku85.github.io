@@ -1,4 +1,5 @@
 ---
+language: en
 date: 2021-01-11T09:00:00.000Z
 title: Creational design patterns - Factory
 description: The Factory is a creational design pattern that provides an interface to create objects while letting the subclasses decide which type of object to instantiate.
