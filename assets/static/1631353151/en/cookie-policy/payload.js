@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/en/cookie-policy", {data:[{}],fetch:{},mutations:[]});
