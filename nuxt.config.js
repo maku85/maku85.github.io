@@ -1,7 +1,6 @@
 export default {
-  mode: 'universal',
+  ssr: false,
   target: 'static',
-  components: true,
 
   head: {
     title: 'Mauro Cunsolo',
@@ -11,7 +10,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
+        content: process.env.npm_package_description || 'My personal site',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -24,6 +23,8 @@ export default {
     },
     { src: '~/plugins/vue-resize-text.js', ssr: false },
   ],
+
+  components: true,
 
   env: {
     hostname: process.env.HOSTNAME || 'https://www.maurocunsolo.com',
@@ -141,4 +142,4 @@ export default {
       },
     },
   },
-}
+};
