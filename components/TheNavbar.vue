@@ -50,7 +50,7 @@ export default {
       menuItems: [
         { title: "About", path: "/about" },
         { title: "Works", path: "/works" },
-        { title: "Blog", path: "/blog" },
+        { title: "Notes", path: "/notes" },
         { title: "Contact", path: "/contact" },
       ],
     };

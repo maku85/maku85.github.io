@@ -1,12 +1,12 @@
 <template>
   <div class="card">
-    <h5>{{ $t("Recent posts") }}</h5>
+    <h5>{{ $t("Recent notes") }}</h5>
     <div class="recent-posts mt-3">
       <NuxtLink
         class="d-flex flex-row mb-3"
         v-for="article of articles"
         :key="article.id"
-        :to="localePath(`/blog/${article.slug}`)"
+        :to="localePath(`/notes/${article.slug}`)"
       >
         <div>
           <v-img

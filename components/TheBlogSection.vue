@@ -1,10 +1,10 @@
 <template>
   <section id="blog" class="section section-blog">
     <div class="container">
-      <div class="section-blog__title">{{ $t("Latest posts") }}</div>
+      <div class="section-blog__title">{{ $t("Latest notes") }}</div>
 
       <div v-if="articles.length === 0" class="mt-4">
-        <div class="text-center font-weight-light">{{ $t("no-posts") }}</div>
+        <div class="text-center font-weight-light">{{ $t("no-notes") }}</div>
       </div>
 
       <div v-if="articles.length > 0" class="mt-4">
@@ -13,8 +13,8 @@
         </div>
 
         <div class="text-center">
-          <NuxtLink class="btn" :to="localePath('/blog')">
-            go to blog <fa icon="chevron-right"></fa
+          <NuxtLink class="btn" :to="localePath('/notes')">
+            go to notes <fa icon="chevron-right"></fa
           ></NuxtLink>
         </div>
       </div>

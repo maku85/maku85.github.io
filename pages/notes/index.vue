@@ -1,7 +1,7 @@
 <template>
   <section class="mt-5">
     <div class="mt-5 mb-4 text-center">
-      <h2>{{ $t("My blog") }}</h2>
+      <h2>{{ $t("My notes") }}</h2>
     </div>
 
     <div class="pb-4">
@@ -16,7 +16,7 @@
 
     <div class="mt-5">
       <v-row v-if="!articles || articles.length === 0" class="text-center">
-        <v-col>{{ $t("no-posts") }}</v-col>
+        <v-col>{{ $t("no-notes") }}</v-col>
       </v-row>
 
       <v-row v-i="articles && articles.length > 0">
@@ -62,14 +62,14 @@ export default {
       this.articles = data;
     },
     async reset() {
-      this.$router.push(this.localePath({ name: "blog" }));
+      this.$router.push(this.localePath({ name: "notes" }));
       this.filter = "";
       await this.retrieveData();
     },
   },
   head() {
     return {
-      title: "Mauro Cunsolo | Blog",
+      title: "Mauro Cunsolo | Notes",
     };
   },
 };

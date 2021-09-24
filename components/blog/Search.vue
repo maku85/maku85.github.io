@@ -4,7 +4,7 @@
       v-model="searchQuery"
       type="search"
       autocomplete="off"
-      :placeholder="$t('Search posts')"
+      :placeholder="$t('Search notes')"
     />
   </div>
 </template>

@@ -23,8 +23,8 @@
         </nuxt-link>
       </li>
       <li class="nav-item">
-        <nuxt-link class="nav-link" :to="localePath('/blog')">
-          {{ $t("Blog") }}
+        <nuxt-link class="nav-link" :to="localePath('/notes')">
+          {{ $t("Notes") }}
         </nuxt-link>
       </li>
       <li class="nav-item">

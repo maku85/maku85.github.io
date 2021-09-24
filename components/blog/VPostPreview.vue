@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="localePath('/blog/' + post.slug)" class="card blog-post">
+  <NuxtLink :to="localePath('/notes/' + post.slug)" class="card blog-post">
     <div class="blog-post-inner">
       <div class="post-thumbnail">
         <v-img
@@ -12,7 +12,7 @@
           <NuxtLink
             v-for="tag of (post.tags || '').split(',')"
             :key="tag"
-            :to="localePath(`/blog?category=${tag.trim()}`)"
+            :to="localePath(`/notes?category=${tag.trim()}`)"
             >#{{ tag.trim() }}</NuxtLink
           >
         </div>

@@ -5,7 +5,7 @@
       <NuxtLink
         v-for="tag of tags.split(',')"
         :key="tag"
-        :to="localePath(`/blog?category=${tag.trim()}`)"
+        :to="localePath(`/notes?category=${tag.trim()}`)"
         class="tag"
         >#{{ tag.trim() }}</NuxtLink
       >
