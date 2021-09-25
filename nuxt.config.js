@@ -115,7 +115,12 @@ export default {
             "Experienced Node.js back-end developer but deeply passionate about all the latest back-end, front-end and mobile technologies.<br />I'm curious, love challenges but I hate monotony.",
           'contact-description':
             'Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities.',
-          'no-posts': 'No post found :(',
+          'contact-priority': 'Priority',
+          'contact-name': "What's your name?",
+          'contact-email': 'Where can I contact you?',
+          'contact-message': 'What is your message?',
+          'contact-send': 'Send message',
+          'no-notes': 'No notes found :(',
         },
         it: {
           About: 'Chi sono',
@@ -126,8 +131,13 @@ export default {
           Contact: 'Contatti',
           'contact-description':
             'Sentiti libero di metterti in contatto con me. Sono sempre disponibile a discutere di nuovi progetti, idee creative o opportunità.',
+          'contact-priority': 'Prioritaria',
+          'contact-email': 'Dove ti posso ricontattare?',
+          'contact-name': 'Come ti chiami?',
+          'contact-message': "Qual'è il tuo messaggio?",
           'Contact me': 'Teniamoci in contatto',
-          'Latest posts': 'Articoli recenti',
+          'contact-send': 'Invia messaggio',
+          'Latest notes': 'Articoli recenti',
           'My notes': 'I miei appunti',
           'My skills': 'Le mie competenze',
           'My works': 'I miei lavori',
