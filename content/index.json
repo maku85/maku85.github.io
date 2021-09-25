@@ -104,6 +104,14 @@
       "image": "https://github.com/maku85/rick-and-morty-vue-app/raw/master/preview.webp",
       "tags": ["HTML5", "CSS3", "Javascript", "Web app", "Vue.js"],
       "url": "https://www.maurocunsolo.com/rick-and-morty-vue-app/"
+    },
+    {
+      "title": "Verba",
+      "category": "SPA",
+      "description": "A simple single page app in Nuxt.js",
+      "image": "https://github.com/maku85/verba/raw/main/preview.png",
+      "tags": ["Javascript", "Web app", "Nuxt.js"],
+      "url": "https://www.maurocunsolo.com/verba/"
     }
   ]
 }
