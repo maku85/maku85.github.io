@@ -1,11 +1,11 @@
 <template>
-  <v-banner single-line v-if="isOpen" class="cookie">
+  <v-banner v-if="isOpen" single-line class="cookie">
     <div class="banner-text">
       {{ message }}
       (<nuxt-link to="/cookie-policy">policy page</nuxt-link>)
     </div>
 
-    <template v-slot:actions>
+    <template #actions>
       <v-btn text color="primary" @click="accept">
         {{ buttonTextAccept }}
       </v-btn>
@@ -21,16 +21,16 @@ export default {
   props: {
     buttonTextAccept: {
       type: String,
-      default: "Accept",
+      default: 'Accept',
     },
     buttonTextDeny: {
       type: String,
-      default: "Deny",
+      default: 'Deny',
     },
     message: {
       type: String,
       default:
-        "This site use 🍪 (cookies) to offer a better browsing experience and analyze site traffic.",
+        'This site use 🍪 (cookies) to offer a better browsing experience and analyze site traffic.',
     },
   },
   data() {
@@ -46,13 +46,13 @@ export default {
   methods: {
     getGDPR() {
       if (process.browser) {
-        return localStorage.getItem("GDPR:accepted");
+        return localStorage.getItem('GDPR:accepted');
       }
     },
     accept() {
       if (process.browser) {
         this.isOpen = false;
-        localStorage.setItem("GDPR:accepted", "yes");
+        localStorage.setItem('GDPR:accepted', 'yes');
         this.$ga.enable();
         this.$ga.page(this.$route.fullPath);
       }
@@ -60,7 +60,7 @@ export default {
     deny() {
       if (process.browser) {
         this.isOpen = false;
-        localStorage.setItem("GDPR:accepted", "no");
+        localStorage.setItem('GDPR:accepted', 'no');
         this.$ga.disable();
       }
     },
@@ -78,7 +78,7 @@ export default {
 
   .banner-text {
     padding-left: 1rem !important;
-    white-space: pre-line;
+    white-space: initial;
   }
 }
 </style>
