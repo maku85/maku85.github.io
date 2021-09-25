@@ -81,7 +81,7 @@
 
               <input type="text" name="honeypot" style="display:none">
               <input type="hidden" name="accessKey" value="7609172f-47de-439f-a2eb-813fa687acc8">
-              <input name="redirectTo" :value="`${hostname}${$nuxt.$route.path}`">
+              <input type="hidden" name="redirectTo" :value="`${hostname}${$nuxt.$route.path}`">
             </v-form>
           </v-card>
         </div>
