@@ -1,6 +1,6 @@
 ---
 date: 2021-02-01T09:00:00.000Z
-title: URL shotener with Node.js, Express and MongoDB
+title: URL shortener with Node.js, Express and MongoDB
 description: Given the large amount of links that are disseminated on the net, there is often the need to generate much shorter links and this is where URL shorteners come into play.
 img: /articles/images/node-custom-url-shortener.jpeg
 tags: javascript, Node.js, Express, MongoDB
