@@ -6,12 +6,13 @@ export default (ctx) => {
     id: 'UA-198866487-1',
     disabled: () => {
       const getGDPR = window.localStorage.getItem('GDPR:accepted');
-      return getGDPR === 'no';
+      return getGDPR !== 'yes';
     },
     router: ctx.app.router,
     debug: {
       enabled: false,
-      sendHitTask: false,
+      trace: false,
+      sendHitTask: true,
     },
   });
 };
