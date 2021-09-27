@@ -6,7 +6,7 @@ tags: javascript, design-pattern, structural-patterns
 published: true
 ---
 
-Il pattern è simile alla classica ereditarietà ma a differenza di quest'ultima le nuove funzionalità non sono aggiunte a tutti gli oggetti della stessa classe ma sono a quelle istanze che sono state esplicitamente "decorate".
+Il pattern è simile alla classica ereditarietà ma a differenza di quest'ultima le nuove funzionalità non sono aggiunte a tutti gli oggetti della stessa classe ma solo a quelle istanze che sono state esplicitamente "decorate".
 
 Per implementare tale pattern è sufficiente creare una funzione "decoratrice" che riceve in ingresso un oggetto e ne restiruisce la versione "decorata".
 

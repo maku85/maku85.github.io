@@ -6,7 +6,7 @@ tags: javascript, design-pattern, structural-patterns
 published: true
 ---
 
-The pattern is similar to the classic inheritance but unlike the latter the new features are not added to all objects of the same class but are to those instances that have been explicitly "decorated".
+The pattern is similar to the classic inheritance but unlike the latter the new features are not added to all objects of the same class but only to those instances that have been explicitly "decorated".
 
 To implement this pattern it is sufficient to create a "decorator" function which receives an object as input and returns the "decorated" version.
 
