@@ -29,6 +29,6 @@ function decorate(target) {
 const simpleObject = new SimpleObject();
 myObject.describe(); // Hi, I'm a simple object
 
-const decoratedObject = decorate(simpleObject);top of it
+const decoratedObject = decorate(simpleObject);
 decoratedObject.describe(); // Hi, I'm a decorated object
 ```
