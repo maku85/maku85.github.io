@@ -5,6 +5,7 @@
         <v-img
           height="170"
           width="170"
+          :lazy-src="post.img || 'https://source.unsplash.com/random'"
           :src="post.img || 'https://source.unsplash.com/random'"
         ></v-img>
       </div>
@@ -32,7 +33,7 @@ export default {
   props: {
     post: {
       type: Object,
-      description: "Post data",
+      description: 'Post data',
       default: null,
     },
   },

@@ -9,6 +9,7 @@
       <v-col cols="12" sm="12" md="8">
         <div class="card mb-4">
           <v-img
+            :lazy-src="article.img || 'https://source.unsplash.com/random'"
             :src="article.img || 'https://source.unsplash.com/random'"
           ></v-img>
 
@@ -18,7 +19,7 @@
 
             <div class="post-footer d-flex flex-wrap">
               <div class="date flex-grow-1 mt-2">
-                <v-icon>mdi-calendar</v-icon>
+                <strong>{{ $t('Last update') }}:</strong>
                 {{ formatDate(article.date || article.createdAt) }}
               </div>
 
@@ -51,15 +52,15 @@ export default {
       params.slug
     ).fetch();
     const [prev, next] = await $content(`${i18n.locale}/articles`)
-      .only(["title", "slug"])
+      .only(['title', 'slug'])
       .where({ published: true })
-      .sortBy("date", "asc")
+      .sortBy('date', 'asc')
       .surround(params.slug)
       .fetch();
     const articles = await $content(`${i18n.locale}/articles`)
-      .only(["title", "date", "img", "slug"])
+      .only(['title', 'date', 'img', 'slug'])
       .where({ published: true })
-      .sortBy("date", "asc")
+      .sortBy('date', 'asc')
       .fetch();
     const recentArticles = articles.filter(
       (item) => item.title !== article.title
@@ -71,39 +72,39 @@ export default {
       next,
     };
   },
-  methods: {
-    formatDate(date) {
-      const options = { year: "numeric", month: "long", day: "numeric" };
-      return new Date(date).toLocaleDateString(this.$i18n.locale, options);
-    },
-  },
   head() {
     return {
       title: `Mauro Cunsolo | ${this.article.title}`,
       meta: [
         {
-          hid: "description",
-          name: "description",
+          hid: 'description',
+          name: 'description',
           content: this.article.description,
         },
-        { hid: "og:title", property: "og:title", content: this.article.title },
+        { hid: 'og:title', property: 'og:title', content: this.article.title },
         {
-          hid: "og:description",
-          property: "og:description",
+          hid: 'og:description',
+          property: 'og:description',
           content: this.article.description,
         },
         {
-          hid: "twitter:title",
-          name: "twitter:title",
+          hid: 'twitter:title',
+          name: 'twitter:title',
           content: this.article.title,
         },
         {
-          hid: "twitter:description",
-          name: "twitter:description",
+          hid: 'twitter:description',
+          name: 'twitter:description',
           content: this.article.description,
         },
       ],
     };
+  },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(date).toLocaleDateString(this.$i18n.locale, options);
+    },
   },
 };
 </script>

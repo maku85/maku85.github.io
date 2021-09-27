@@ -1,15 +1,16 @@
 <template>
   <div class="profile-page sidebar-collapse">
     <div class="mt-5 mb-4 text-center">
-      <h2>{{ $t("My works") }}</h2>
+      <h2>{{ $t('My works') }}</h2>
     </div>
 
     <section id="works" class="section section-work">
       <v-row>
-        <v-col cols="12" sm="6" md="4" v-for="work of works" :key="work.id">
+        <v-col v-for="work of works" :key="work.id" cols="12" sm="6" md="4">
           <div class="work-item">
             <v-img
               class="work-image"
+              :lazy-src="work.image || 'https://source.unsplash.com/random'"
               :src="work.image || 'https://source.unsplash.com/random'"
             ></v-img>
 
@@ -36,12 +37,12 @@
 <script>
 export default {
   async asyncData({ $content }) {
-    const { works } = await $content("index").fetch();
+    const { works } = await $content('index').fetch();
     return { works };
   },
   head() {
     return {
-      title: "Mauro Cunsolo | Works",
+      title: 'Mauro Cunsolo | Works',
     };
   },
 };

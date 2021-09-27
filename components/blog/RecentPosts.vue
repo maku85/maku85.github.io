@@ -1,24 +1,16 @@
 <template>
   <div class="card">
-    <h5>{{ $t("Recent notes") }}</h5>
+    <h5>{{ $t('Recent notes') }}</h5>
     <div class="recent-posts mt-3">
       <NuxtLink
-        class="d-flex flex-row mb-3"
         v-for="article of articles"
         :key="article.id"
+        class="d-flex flex-row mb-3"
         :to="localePath(`/notes/${article.slug}`)"
       >
         <div>
-          <v-img
-            height="60"
-            width="60"
-            class="article-image-preview"
-            :src="article.img || 'https://source.unsplash.com/random'"
-          ></v-img>
-        </div>
-        <div class="ml-2">
           <h6>{{ article.title }}</h6>
-          <p>{{ formatDate(article.date) }}</p>
+          <p><v-icon>mdi-calendar</v-icon> {{ formatDate(article.date) }}</p>
         </div>
       </NuxtLink>
     </div>
@@ -35,7 +27,7 @@ export default {
   },
   methods: {
     formatDate(date) {
-      const options = { year: "numeric", month: "long", day: "numeric" };
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
       return new Date(date).toLocaleDateString(this.$i18n.locale, options);
     },
   },
