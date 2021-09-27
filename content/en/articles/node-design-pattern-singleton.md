@@ -1,8 +1,6 @@
 ---
-language: en
-date: 2021-01-04T09:00:00.000Z
 title: Creational Design Patterns - Singleton
-description: The Singleton is a creational design pattern that allows you to ensure that a class has only one instance, while providing a global access point to it.
+description: Creational design pattern that allows you to ensure that an object is instantiated only once and then reused whenever needed.
 img: /articles/images/design-pattern-singleton.jpeg
 tags: javascript, design-pattern, creational-pattern
 published: true
@@ -39,49 +37,14 @@ exports default instance;
 At this point we can call the class like this:
 
 ```javascript
-const obj1 = Singleton()
-const obj2 = Singleton()
+const obj1 = Singleton();
+const obj2 = Singleton();
 
-obj1.doSomething()
-obj2.doSomething()
+obj1.doSomething();
+obj2.doSomething();
 
-console.log('Equals:: ', obj1 === obj2)
+console.log('Equals:: ', obj1 === obj2);
 // Equals::  true
-```
-
-### Use cases
-
-An example of the use of this pattern is the sharing of the connection to the database to ensure that the connection remains active and accessible in various points of the application.
-
-```javascript
-class DBClass {
-  constructor(props) {
-    if (!DBClass.instance) {
-      DBClass.instance = this;
-    }
-
-    this.properties = props;
-    this._conn = null;
-  }
-
-  get conn() {
-    return this._conn;
-  }
-
-  set properties(props) {
-    return this.properties = props;
-  }
-
-  connect() {
-    this._conn = ...;
-  }
-}
-
-const defaultProps = { ... };
-const instance = new DBClass(defaultProps);
-Object.freeze(instance);
-
-exports default instance;
 ```
 
 ### Cached Singleton
@@ -91,17 +54,17 @@ A possible alternative is to take advantage of the [Node.js caching mechanism](h
 ```javascript
 class Singleton {
   constructor() {
-    this.message = 'I am an instance'
+    this.message = 'I am an instance';
   }
 }
-module.exports = new Singleton()
+module.exports = new Singleton();
 ```
 
 Simply usable in this way:
 
 ```javascript
-const Singleton = require('./Singleton')
-const instance = Singleton
+const Singleton = require('./Singleton');
+const instance = Singleton;
 ```
 
 The only note to keep in mind is that since Node.js is case-sensitive, resolving modules with different file names will produce different instances.

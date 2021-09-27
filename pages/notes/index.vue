@@ -1,7 +1,7 @@
 <template>
   <section class="mt-5">
     <div class="mt-5 mb-4 text-center">
-      <h2>{{ $t("My notes") }}</h2>
+      <h2>{{ $t('My notes') }}</h2>
     </div>
 
     <div class="pb-4">
@@ -16,17 +16,17 @@
 
     <div class="mt-5">
       <v-row v-if="!articles || articles.length === 0" class="text-center">
-        <v-col>{{ $t("no-notes") }}</v-col>
+        <v-col>{{ $t('no-notes') }}</v-col>
       </v-row>
 
       <v-row v-i="articles && articles.length > 0">
         <v-col
+          v-for="article of articles"
+          :key="article.id"
           cols="12"
           xs="12"
           sm="6"
           md="4"
-          v-for="article of articles"
-          :key="article.id"
         >
           <BlogVPostPreview :post="article" />
         </v-col>
@@ -37,6 +37,9 @@
 
 <script>
 export default {
+  data() {
+    return { filter: '', articles: [] };
+  },
   fetch() {
     const filters = {};
     const query = this.$route.query;
@@ -46,31 +49,29 @@ export default {
     }
     this.retrieveData(filters);
   },
-  data() {
-    return { filter: "", articles: [] };
+
+  head() {
+    return {
+      title: 'Mauro Cunsolo | Notes',
+    };
   },
   methods: {
     async retrieveData(filters) {
       Object.assign(filters, { published: true });
       this.articles = await this.$content(`${this.$i18n.locale}/articles`)
-        .only(["date", "title", "description", "img", "tags", "slug"])
+        .only(['date', 'title', 'description', 'img', 'tags', 'slug'])
         .where(filters)
-        .sortBy("date", "desc")
+        .sortBy('createdAt', 'desc')
         .fetch();
     },
     refreshData(data) {
       this.articles = data;
     },
     async reset() {
-      this.$router.push(this.localePath({ name: "notes" }));
-      this.filter = "";
+      this.$router.push(this.localePath({ name: 'notes' }));
+      this.filter = '';
       await this.retrieveData();
     },
-  },
-  head() {
-    return {
-      title: "Mauro Cunsolo | Notes",
-    };
   },
 };
 </script>

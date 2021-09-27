@@ -1,7 +1,7 @@
 <template>
   <v-container class="blog-detail">
     <v-row>
-      <v-col class="mb-4 text-center">
+      <v-col class="mt-3 text-center">
         <h2>{{ article.title }}</h2>
       </v-col>
     </v-row>
@@ -20,7 +20,7 @@
             <div class="post-footer d-flex flex-wrap">
               <div class="date flex-grow-1 mt-2">
                 <strong>{{ $t('Last update') }}:</strong>
-                {{ formatDate(article.date || article.createdAt) }}
+                {{ formatDate(article.updatedAt) }}
               </div>
 
               <BlogShareLinks class="mt-2" :article="article" />

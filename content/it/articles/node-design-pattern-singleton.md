@@ -1,8 +1,6 @@
 ---
-language: it
-date: 2021-01-04T09:00:00.000Z
 title: Design Pattern Creazionali - Singleton
-description: Il Singleton è un design pattern creazionale che consente di garantire che una classe abbia una sola istanza, fornendo al contempo un punto di accesso globale ad essa.
+description: Design pattern creazionale che consente di garantire che un oggetto venga istanziato una sola volta per poi riusarlo ogni volta che ce n'è bisogno.
 img: /articles/images/design-pattern-singleton.jpeg
 tags: javascript, design-pattern, creational-pattern
 published: true
@@ -39,49 +37,14 @@ exports default instance;
 A questo punto si può richiamare la classe in questo modo:
 
 ```javascript
-const obj1 = Singleton()
-const obj2 = Singleton()
+const obj1 = Singleton();
+const obj2 = Singleton();
 
-obj1.doSomething()
-obj2.doSomething()
+obj1.doSomething();
+obj2.doSomething();
 
-console.log('Equals:: ', obj1 === obj2)
+console.log('Equals:: ', obj1 === obj2);
 // Equals::  true
-```
-
-### Casi d'uso
-
-Un esempio di uso di tale pattern è la condivisione della connessione al database per far si che la connessione rimanga attiva e accessibile in vari punti dell'applicazione.
-
-```javascript
-class DBClass {
-  constructor(props) {
-    if (!DBClass.instance) {
-      DBClass.instance = this;
-    }
-
-    this.properties = props;
-    this._conn = null;
-  }
-
-  get conn() {
-    return this._conn;
-  }
-
-  set properties(props) {
-    return this.properties = props;
-  }
-
-  connect() {
-    this._conn = ...;
-  }
-}
-
-const defaultProps = { ... };
-const instance = new DBClass(defaultProps);
-Object.freeze(instance);
-
-exports default instance;
 ```
 
 ### Cached Singleton
@@ -91,17 +54,17 @@ Una possibile alternativa consiste nello sfruttare il [meccanismo di caching di 
 ```javascript
 class Singleton {
   constructor() {
-    this.message = 'I am an instance'
+    this.message = 'I am an instance';
   }
 }
-module.exports = new Singleton()
+module.exports = new Singleton();
 ```
 
 Utilizzabile semplicemente in questo modo:
 
 ```javascript
-const Singleton = require('./Singleton')
-const instance = Singleton
+const Singleton = require('./Singleton');
+const instance = Singleton;
 ```
 
 Unica nota da tenere in considerazione è che essendo Node.js case-sensitive risolvere moduli con nome file diversi produrrà istanze diverse.

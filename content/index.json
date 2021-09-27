@@ -73,8 +73,8 @@
       "title": "Backend Skills",
       "skills": [
         { "title": "Node", "value": "80" },
+        { "title": "Java", "value": "50" },
         { "title": "Python", "value": "30" },
-        { "title": "PHP", "value": "20" },
         { "title": "Dart", "value": "10" }
       ]
     },

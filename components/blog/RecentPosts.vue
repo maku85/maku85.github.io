@@ -39,7 +39,7 @@ export default {
   h6 {
     font-size: 16px;
     font-weight: 700;
-    color: $title-color;
+    color: var(--font-color);
   }
   p {
     margin-top: 5px;
