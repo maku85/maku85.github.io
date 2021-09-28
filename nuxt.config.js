@@ -37,6 +37,7 @@ export default {
   generate: {
     // fallback: 'index.html',
     routes: ['404'],
+    fallback: '404.html',
   },
 
   /*

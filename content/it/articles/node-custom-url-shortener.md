@@ -1,5 +1,4 @@
 ---
-date: 2021-02-01T09:00:00.000Z
 title: URL shortener con Node.js, Express e MongoDB
 description: Visto la grande quantità di link che vengono diffusi in rete si sente spesso l'esigenza di generare dei link molto più brevi ed è qui che entrano in gioco gli URL shortener.
 img: /articles/images/node-custom-url-shortener.jpeg
