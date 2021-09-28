@@ -1,6 +1,4 @@
 ---
-language: en
-date: 2021-01-18T09:00:00.000Z
 title: Structural Design Pattern - Proxy
 description: The proxy is a structural design pattern that allows you to provide a substitute in place of another object, acting as a filter and offering the possibility to perform operations before or after the request arrives at the original object.
 img: /articles/images/design-pattern-proxy.jpeg
@@ -49,7 +47,7 @@ class Proxy {
 Using these APIs allows you to have an object proxy passed as a parameter.
 
 ```javascript
-const p = new Proxy(target, handler)
+const p = new Proxy(target, handler);
 ```
 
 where the `target` is the original object and the` handler` is an object that defines which operations will be intercepted and how they will be handled.
@@ -58,19 +56,19 @@ where the `target` is the original object and the` handler` is an object that de
 const target = {
   message1: 'hello',
   message2: 'everyone',
-}
+};
 
 const handler = {
   get: function (target, prop, receiver) {
     if (prop === 'message2') {
-      return 'world'
+      return 'world';
     }
-    return Reflect.get(...arguments)
+    return Reflect.get(...arguments);
   },
-}
+};
 
-const proxy = new Proxy(target, handler)
+const proxy = new Proxy(target, handler);
 
-console.log(proxy.message1) // hello
-console.log(proxy.message2) // world
+console.log(proxy.message1); // hello
+console.log(proxy.message2); // world
 ```

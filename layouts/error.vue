@@ -11,11 +11,11 @@
     </div>
 
     <div class="objects">
-      <img class="rocket" src="rocket.svg" width="40px" />
-      <img class="earth" src="earth.svg" width="100px" />
-      <img class="moon" src="moon.svg" width="80px" />
+      <img class="rocket" src="/rocket.svg" width="40px" />
+      <img class="earth" src="/earth.svg" width="100px" />
+      <img class="moon" src="/moon.svg" width="80px" />
       <div class="astronaut-box">
-        <img class="astronaut" src="astronaut.svg" width="140px" />
+        <img class="astronaut" src="/astronaut.svg" width="140px" />
       </div>
 
       <div class="glowing-stars">
@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  layout: "empty",
+  layout: 'empty',
   props: {
     error: {
       type: Object,
@@ -40,9 +40,9 @@ export default {
   },
   data() {
     return {
-      pageNotFound: "Looks like you are lost in space",
-      otherError: "Houston, we have a problem",
-      errorTitle: "",
+      pageNotFound: 'Looks like you are lost in space',
+      otherError: 'Houston, we have a problem',
+      errorTitle: '',
     };
   },
   head() {
@@ -72,7 +72,7 @@ export default {
     width: 100%;
     height: 100%;
     display: block;
-    background: url("/stars.png") repeat top center;
+    background: url('/stars.png') repeat top center;
     z-index: 0;
   }
 

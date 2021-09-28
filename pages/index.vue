@@ -13,7 +13,7 @@ export default {
     const articles = await $content(`${i18n.locale}/articles`, params.slug)
       .only(['title', 'description', 'img', 'tags', 'slug'])
       .where({ published: true })
-      .limit(6)
+      .limit(5)
       .sortBy('createdAt', 'desc')
       .fetch();
     return { socials, articles };

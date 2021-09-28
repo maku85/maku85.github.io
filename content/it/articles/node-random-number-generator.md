@@ -1,5 +1,4 @@
 ---
-date: 2021-01-25T09:00:00.000Z
 title: Generatore di numeri casuali con Node.js
 description: Esistono vari casi in cui si ha la necessità di generare dei numeri casuali ma bisogna fare attenzione perchè la casualità a volte non è poi realmente così "casuale".
 img: /articles/images/random-number-generator.jpeg

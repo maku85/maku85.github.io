@@ -1,5 +1,4 @@
 ---
-date: 2021-02-08T09:00:00.000Z
 title: Node.js serverless
 description: Il serverless computing è un modello di sviluppo molto apprezzato soprattutto perchè consente di creare applicazioni più velocemente eliminando la necessità di gestire l'infrastruttura, è infatti il provider di servizi cloud che fornisce, ridimensiona e gestisce automaticamente l'infrastruttura necessaria per eseguire il codice.
 img: /articles/images/node-serverless.jpeg

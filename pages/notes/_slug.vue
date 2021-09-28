@@ -73,29 +73,31 @@ export default {
     };
   },
   head() {
+    const article = this.article;
+
     return {
-      title: `Mauro Cunsolo | ${this.article.title}`,
+      title: `Mauro Cunsolo | ${article.title}`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.article.description,
+          content: article.description,
         },
-        { hid: 'og:title', property: 'og:title', content: this.article.title },
+        { hid: 'og:title', property: 'og:title', content: article.title },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.article.description,
+          content: article.description,
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: this.article.title,
+          content: article.title,
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: this.article.description,
+          content: article.description,
         },
       ],
     };

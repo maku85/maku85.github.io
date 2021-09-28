@@ -1,5 +1,4 @@
 ---
-date: 2021-02-08T09:00:00.000Z
 title: Creare un logger con Node.js
 description: Esistono varie libreria che forniscono servizi di logging per le nostre applicazioni ma può essere un buon esercizio creare la prioria libreria personale ed avere magari la possibilità di aggiungere features aggiuntive.
 img: https://images.unsplash.com/photo-1608742213509-815b97c30b36?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80
