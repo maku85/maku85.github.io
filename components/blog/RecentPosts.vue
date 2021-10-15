@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <v-card class="card">
     <h5>{{ $t('Recent notes') }}</h5>
     <div class="recent-posts mt-3">
       <NuxtLink
@@ -10,11 +10,13 @@
       >
         <div>
           <h6>{{ article.title }}</h6>
-          <p><v-icon>mdi-calendar</v-icon> {{ formatDate(article.date) }}</p>
+          <p>
+            <v-icon>mdi-calendar</v-icon> {{ formatDate(article.updatedAt) }}
+          </p>
         </div>
       </NuxtLink>
     </div>
-  </div>
+  </v-card>
 </template>
 
 <script>
@@ -43,7 +45,6 @@ export default {
   }
   p {
     margin-top: 5px;
-    font-size: 14px;
     color: $font-color;
     opacity: 0.8;
   }

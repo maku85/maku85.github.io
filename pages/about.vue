@@ -1,20 +1,20 @@
 <template>
   <div class="profile-page sidebar-collapse">
     <div class="mt-5 mb-4 text-center">
-      <h2>{{ $t("About me") }}</h2>
+      <h2>{{ $t('About me') }}</h2>
     </div>
 
     <section id="resume" class="section section-resume">
       <div class="section-sub-heading">
-        <h4 class="section-sub-title">{{ $t("My skills") }}</h4>
+        <h4 class="section-sub-title">{{ $t('My skills') }}</h4>
       </div>
       <v-row>
         <v-col
+          v-for="expertise of expertises"
+          :key="expertise.id"
           cols="12"
           xs="12"
           sm="6"
-          v-for="expertise of expertises"
-          :key="expertise.id"
         >
           <div class="resume-panel">
             <div
@@ -37,15 +37,15 @@
       </v-row>
 
       <div class="section-sub-heading mt-5">
-        <h4 class="section-sub-title">{{ $t("Work & Education") }}</h4>
+        <h4 class="section-sub-title">{{ $t('Work & Education') }}</h4>
       </div>
       <v-row>
         <v-col cols="12" xs="12" sm="6">
           <div class="resume-box-wrapper">
             <div
-              class="resume-box"
               v-for="experience of experiences"
               :key="experience.id"
+              class="resume-box"
             >
               <div class="icon">
                 <v-icon>mdi-briefcase</v-icon>
@@ -57,9 +57,9 @@
                 </h6>
                 <small class="time"
                   >{{
-                    experience.startDate ? experience.startDate + " - " : ""
+                    experience.startDate ? experience.startDate + ' - ' : ''
                   }}
-                  {{ experience.endDate || "Present" }}</small
+                  {{ experience.endDate || 'Present' }}</small
                 >
                 <p>{{ experience.description }}</p>
               </div>
@@ -70,9 +70,9 @@
         <v-col cols="12" xs="12" sm="6">
           <div class="resume-box-wrapper">
             <div
-              class="resume-box"
               v-for="education of education"
               :key="education.id"
+              class="resume-box"
             >
               <div class="icon">
                 <v-icon>mdi-school</v-icon>
@@ -80,7 +80,7 @@
               <div class="resume-box-content">
                 <h5>{{ education.title }}</h5>
                 <small class="time"
-                  >{{ education.startDate ? education.startDate + " - " : "" }}
+                  >{{ education.startDate ? education.startDate + ' - ' : '' }}
                   {{ education.endDate }}</small
                 >
                 <p>{{ education.description }}</p>
@@ -97,13 +97,13 @@
 export default {
   async asyncData({ $content }) {
     const { education, experiences, expertises } = await $content(
-      "index"
+      'index'
     ).fetch();
     return { education, experiences, expertises };
   },
   head() {
     return {
-      title: "Mauro Cunsolo | About",
+      title: 'Mauro Cunsolo | About',
     };
   },
 };
@@ -124,7 +124,7 @@ export default {
 
   &:before {
     position: absolute;
-    content: "";
+    content: '';
     left: 0;
     top: auto;
     width: 14px;
@@ -139,7 +139,7 @@ export default {
   }
   &:after {
     position: absolute;
-    content: "";
+    content: '';
     left: 0px;
     top: auto;
     width: 100%;
@@ -165,7 +165,7 @@ export default {
   position: relative;
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 15px;
@@ -217,7 +217,6 @@ export default {
     p {
       margin: 0;
       color: #666;
-      font-size: 14px;
     }
   }
 }

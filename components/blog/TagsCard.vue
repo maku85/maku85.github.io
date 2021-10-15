@@ -1,5 +1,5 @@
 <template>
-  <div class="card mb-3">
+  <v-card class="card mb-3">
     <h5>Tags</h5>
     <div class="tags mt-3">
       <NuxtLink
@@ -10,7 +10,7 @@
         >#{{ tag.trim() }}</NuxtLink
       >
     </div>
-  </div>
+  </v-card>
 </template>
 
 <script>
@@ -44,7 +44,6 @@ export default {
     margin-right: 5px;
     border-radius: 5px;
     text-transform: uppercase;
-    font-size: 14px;
     transition: all 1s;
 
     &:hover {

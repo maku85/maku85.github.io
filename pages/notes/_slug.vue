@@ -2,18 +2,18 @@
   <v-container class="blog-detail">
     <v-row>
       <v-col class="mt-3 text-center">
-        <h2>{{ article.title }}</h2>
+        <h1>{{ article.title }}</h1>
       </v-col>
     </v-row>
     <v-row>
       <v-col cols="12" sm="12" md="8">
-        <div class="card mb-4">
+        <v-card class="card mb-4">
           <v-img
             :lazy-src="article.img || 'https://source.unsplash.com/random'"
             :src="article.img || 'https://source.unsplash.com/random'"
           ></v-img>
 
-          <article class="post-content">
+          <v-card-text class="post-content">
             <p>{{ article.description }}</p>
             <nuxt-content :document="article" />
 
@@ -25,12 +25,12 @@
 
               <BlogShareLinks class="mt-2" :article="article" />
             </div>
-          </article>
-        </div>
+          </v-card-text>
+        </v-card>
 
-        <div v-if="prev || next" class="card blog-post-footer">
+        <v-card v-if="prev || next" class="card blog-post-footer">
           <BlogPrevNext :prev="prev" :next="next" class="mt-8" />
-        </div>
+        </v-card>
       </v-col>
 
       <v-col cols="12" sm="12" md="4">
@@ -54,13 +54,13 @@ export default {
     const [prev, next] = await $content(`${i18n.locale}/articles`)
       .only(['title', 'slug'])
       .where({ published: true })
-      .sortBy('date', 'asc')
+      .sortBy('createdAt', 'asc')
       .surround(params.slug)
       .fetch();
     const articles = await $content(`${i18n.locale}/articles`)
-      .only(['title', 'date', 'img', 'slug'])
+      .only(['title', 'updatedAt', 'img', 'slug'])
       .where({ published: true })
-      .sortBy('date', 'asc')
+      .sortBy('updatedAt', 'desc')
       .fetch();
     const recentArticles = articles.filter(
       (item) => item.title !== article.title

@@ -3,20 +3,20 @@
     <div class="col-md-6">
       <NuxtLink
         v-if="prev"
-        :to="localePath({ name: 'blog-slug', params: { slug: prev.slug } })"
+        :to="localePath({ name: 'notes-slug', params: { slug: prev.slug } })"
         class="blog-nav"
       >
-        <span>{{ $t("Previous") }}</span>
+        <span>{{ $t('Previous') }}</span>
         <p>{{ prev.title }}</p>
       </NuxtLink>
     </div>
     <div class="col-md-6">
       <NuxtLink
         v-if="next"
-        :to="localePath({ name: 'blog-slug', params: { slug: next.slug } })"
+        :to="localePath({ name: 'notes-slug', params: { slug: next.slug } })"
         class="blog-nav text-right"
       >
-        <span>{{ $t("Next") }}</span>
+        <span>{{ $t('Next') }}</span>
         <p>{{ next.title }}</p>
       </NuxtLink>
     </div>
@@ -48,7 +48,6 @@ export default {
   span {
     display: block;
     color: $font-color;
-    font-size: 14px;
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.17em;
@@ -58,7 +57,7 @@ export default {
     font-size: 16px;
     color: $title-color;
     margin: 0;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 600;
   }
 }

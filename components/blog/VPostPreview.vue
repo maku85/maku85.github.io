@@ -58,6 +58,7 @@ export default {
     .v-image {
       border-radius: 20px;
       box-shadow: 0px 5px 20px 0px rgb(69 67 96 / 10%);
+      border: 1px solid rgba(0, 0, 0, 0.125);
     }
   }
 

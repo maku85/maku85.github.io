@@ -52,6 +52,7 @@ export default {
     left: -55px;
 
     .v-image {
+      border: 1px solid rgba(0, 0, 0, 0.125);
       border-radius: $border-radius;
       box-shadow: $shadow;
     }
