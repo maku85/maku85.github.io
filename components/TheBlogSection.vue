@@ -1,10 +1,10 @@
 <template>
   <section id="blog" class="section section-blog">
     <div class="container">
-      <div class="section-blog__title">{{ $t("Latest notes") }}</div>
+      <div class="section-blog__title">{{ $t('Latest notes') }}</div>
 
       <div v-if="articles.length === 0" class="mt-4">
-        <div class="text-center font-weight-light">{{ $t("no-notes") }}</div>
+        <div class="text-center font-weight-light">{{ $t('no-notes') }}</div>
       </div>
 
       <div v-if="articles.length > 0" class="mt-4">
@@ -14,7 +14,7 @@
 
         <div class="text-center">
           <NuxtLink class="btn" :to="localePath('/notes')">
-            go to notes <fa icon="chevron-right"></fa
+            {{ $t('Go to notes') }} <fa icon="chevron-right"></fa
           ></NuxtLink>
         </div>
       </div>
@@ -38,7 +38,7 @@ export default {
   margin-bottom: 30px;
 
   &:after {
-    content: "";
+    content: '';
     width: 68px;
     height: 1px;
     background: var(--primary-color);

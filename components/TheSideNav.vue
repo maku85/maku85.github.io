@@ -7,32 +7,48 @@
     temporary
     @input="updateDrawerState"
   >
-    <div class="pt-3 pr-3 text-right close-menu" @click="hideSidebar">
+    <div class="pt-2 pr-2 text-right close-menu" @click="hideSidebar">
       <v-icon>mdi-close</v-icon>
     </div>
 
-    <ul class="nav-list">
-      <li class="nav-item">
-        <nuxt-link class="nav-link" :to="localePath('/about')">
-          {{ $t("About") }}
-        </nuxt-link>
-      </li>
-      <li class="nav-item">
-        <nuxt-link class="nav-link" :to="localePath('/works')">
-          {{ $t("Works") }}
-        </nuxt-link>
-      </li>
-      <li class="nav-item">
-        <nuxt-link class="nav-link" :to="localePath('/notes')">
-          {{ $t("Notes") }}
-        </nuxt-link>
-      </li>
-      <li class="nav-item">
-        <nuxt-link class="nav-link" :to="localePath('/contact')">
-          {{ $t("Contact") }}
-        </nuxt-link>
-      </li>
-    </ul>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title class="nav-header">
+          <strong><span>Mauro</span> Cunsolo</strong>
+        </v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-divider></v-divider>
+    <v-list dense nav>
+      <v-list-item link :to="localePath('/about')">
+        <v-list-item-content>
+          <v-list-item-title class="nav-link">
+            {{ $t('About') }}
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item link :to="localePath('/works')">
+        <v-list-item-content>
+          <v-list-item-title class="nav-link">
+            {{ $t('Works') }}
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item link :to="localePath('/notes')">
+        <v-list-item-content>
+          <v-list-item-title class="nav-link">
+            {{ $t('Notes') }}
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item link :to="localePath('/contact')">
+        <v-list-item-content>
+          <v-list-item-title class="nav-link">
+            {{ $t('Contact') }}
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
   </v-navigation-drawer>
 </template>
 
@@ -40,12 +56,12 @@
 export default {
   watch: {
     $route() {
-      this.$store.dispatch("nav/closeSidebar");
+      this.$store.dispatch('nav/closeSidebar');
     },
   },
   methods: {
     hideSidebar() {
-      this.$store.dispatch("nav/closeSidebar");
+      this.$store.dispatch('nav/closeSidebar');
     },
     updateDrawerState(event) {
       if (!event) this.hideSidebar();
@@ -55,6 +71,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nav-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+
+  span {
+    color: $font-color;
+  }
+}
+.nav-link {
+  color: var(--primary-color);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  &:hover,
+  &:active {
+    color: $font-color;
+  }
+}
 .sidenav {
   z-index: 10000;
   background-color: var(--bg);
@@ -74,29 +111,6 @@ export default {
 
   .v-icon {
     color: var(--font-color) !important;
-  }
-}
-.nav-list {
-  list-style: none;
-  padding: 0;
-  width: 100%;
-
-  .nav-item {
-    text-align: center;
-
-    a {
-      display: block;
-      font-family: "Montserrat", sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      padding: 13px 0;
-      text-transform: uppercase;
-
-      &:hover,
-      &:active {
-        color: $font-color;
-      }
-    }
   }
 }
 </style>

@@ -138,6 +138,7 @@ export default {
           'contact-message': "Qual'è il tuo messaggio?",
           'Contact me': 'Teniamoci in contatto',
           'contact-send': 'Invia messaggio',
+          'Go to notes': 'Vai agli appunti',
           'Latest notes': 'Appunti recenti',
           'Last update': 'Ultimo aggiornamento',
           'My notes': 'I miei appunti',

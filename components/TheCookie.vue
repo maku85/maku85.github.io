@@ -75,6 +75,12 @@ export default {
   position: fixed !important;
   background-color: #fff !important;
   bottom: 0;
+  padding: 10px 20px 0 20px;
+  box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 20%), 0px 0px 0px 0px rgb(0 0 0 / 14%),
+    0px 0px 0px 0px rgb(0 0 0 / 12%);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 
   .banner-text {
     padding-left: 1rem !important;

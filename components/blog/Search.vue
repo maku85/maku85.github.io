@@ -13,19 +13,18 @@
 export default {
   data() {
     return {
-      searchQuery: "",
+      searchQuery: '',
     };
   },
   watch: {
     async searchQuery(searchQuery) {
-      if (!searchQuery || searchQuery.length < 3) return;
-
-      const articles = await this.$content("articles")
+      const articles = await this.$content(`${this.$i18n.locale}/articles`)
         .limit(10)
-        .where({ published: true, language: this.$i18n.locale })
+        .where({ published: true })
         .search(searchQuery)
+        .sortBy('createdAt', 'desc')
         .fetch();
-      this.$emit("searchResults", articles);
+      this.$emit('searchResults', articles);
     },
   },
 };
@@ -37,13 +36,14 @@ input {
   border: 0;
   border: 1px solid #eee;
 }
-input[type="search"] {
+input[type='search'] {
   outline: 0;
   width: 100%;
+  height: 50px;
   border-color: var(--bg);
   background-color: var(--light-bg-color);
   padding: 0 1.6rem;
-  border-radius: 0.7rem;
+  border-radius: 0.2rem;
   appearance: none;
   transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
   transition-property: width, border-radius;

@@ -1,96 +1,123 @@
 <template>
-  <div class="profile-page sidebar-collapse">
+  <v-container class="profile-page sidebar-collapse">
     <div class="mt-5 mb-4 text-center">
-      <h2>{{ $t('About me') }}</h2>
+      <div class="h1">{{ $t('About me') }}</div>
     </div>
 
     <section id="resume" class="section section-resume">
-      <div class="section-sub-heading">
-        <h4 class="section-sub-title">{{ $t('My skills') }}</h4>
-      </div>
       <v-row>
-        <v-col
-          v-for="expertise of expertises"
-          :key="expertise.id"
-          cols="12"
-          xs="12"
-          sm="6"
-        >
-          <div class="resume-panel">
-            <div
-              v-for="skill of expertise.skills"
-              :key="skill.id"
-              class="mb-2 p-2"
-            >
-              <h6>{{ skill.title }}</h6>
+        <v-col>
+          <v-card class="card">
+            <v-card-text>
+              <v-row>
+                <v-col>
+                  <div class="h4 text-center">{{ $t('My skills') }}</div>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col
+                  v-for="expertise of expertises"
+                  :key="expertise.id"
+                  cols="12"
+                  xs="12"
+                  sm="6"
+                >
+                  <div class="resume-panel">
+                    <div
+                      v-for="skill of expertise.skills"
+                      :key="skill.id"
+                      class="mb-2 p-2"
+                    >
+                      <h6>{{ skill.title }}</h6>
 
-              <div class="progress mt-2">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  :style="{ width: skill.value + '%' }"
-                ></div>
-              </div>
-            </div>
-          </div>
+                      <div class="progress mt-2">
+                        <div
+                          class="progress-bar"
+                          role="progressbar"
+                          :style="{ width: skill.value + '%' }"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
         </v-col>
       </v-row>
 
-      <div class="section-sub-heading mt-5">
-        <h4 class="section-sub-title">{{ $t('Work & Education') }}</h4>
-      </div>
       <v-row>
-        <v-col cols="12" xs="12" sm="6">
-          <div class="resume-box-wrapper">
-            <div
-              v-for="experience of experiences"
-              :key="experience.id"
-              class="resume-box"
-            >
-              <div class="icon">
-                <v-icon>mdi-briefcase</v-icon>
-              </div>
-              <div class="resume-box-content">
-                <h5>{{ experience.title }}</h5>
-                <h6 v-if="experience.company" class="place">
-                  {{ experience.company }}
-                </h6>
-                <small class="time"
-                  >{{
-                    experience.startDate ? experience.startDate + ' - ' : ''
-                  }}
-                  {{ experience.endDate || 'Present' }}</small
-                >
-                <p>{{ experience.description }}</p>
-              </div>
-            </div>
-          </div>
-        </v-col>
+        <v-col>
+          <v-card class="card">
+            <v-card-text>
+              <v-row>
+                <v-col>
+                  <div class="h4 text-center">{{ $t('Work & Education') }}</div>
+                </v-col>
+              </v-row>
 
-        <v-col cols="12" xs="12" sm="6">
-          <div class="resume-box-wrapper">
-            <div
-              v-for="education of education"
-              :key="education.id"
-              class="resume-box"
-            >
-              <div class="icon">
-                <v-icon>mdi-school</v-icon>
-              </div>
-              <div class="resume-box-content">
-                <h5>{{ education.title }}</h5>
-                <small class="time"
-                  >{{ education.startDate ? education.startDate + ' - ' : '' }}
-                  {{ education.endDate }}</small
-                >
-                <p>{{ education.description }}</p>
-              </div>
-            </div>
-          </div>
+              <v-row>
+                <v-col cols="12" xs="12" sm="6">
+                  <div class="resume-box-wrapper">
+                    <div
+                      v-for="experience of experiences"
+                      :key="experience.id"
+                      class="resume-box"
+                    >
+                      <div class="icon">
+                        <v-icon>mdi-briefcase</v-icon>
+                      </div>
+                      <div class="resume-box-content">
+                        <h5>{{ experience.title }}</h5>
+                        <h6 v-if="experience.company" class="place">
+                          {{ experience.company }}
+                        </h6>
+                        <small class="time"
+                          >{{
+                            experience.startDate
+                              ? experience.startDate + ' - '
+                              : ''
+                          }}
+                          {{ experience.endDate || 'Present' }}</small
+                        >
+                        <p>{{ experience.description }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </v-col>
+
+                <v-col cols="12" xs="12" sm="6">
+                  <div class="resume-box-wrapper">
+                    <div
+                      v-for="education of education"
+                      :key="education.id"
+                      class="resume-box"
+                    >
+                      <div class="icon">
+                        <v-icon>mdi-school</v-icon>
+                      </div>
+                      <div class="resume-box-content">
+                        <h5>{{ education.title }}</h5>
+                        <small class="time"
+                          >{{
+                            education.startDate
+                              ? education.startDate + ' - '
+                              : ''
+                          }}
+                          {{ education.endDate }}</small
+                        >
+                        <p>{{ education.description }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
         </v-col>
       </v-row>
     </section>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -110,56 +137,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section-sub-heading {
-  margin: auto;
-  text-align: center;
-  margin-bottom: 40px;
-}
-.section-sub-title {
-  font-weight: 800;
-  position: relative;
-  margin: auto;
-  text-align: center;
-  display: inline-block;
+.card {
+  background: var(--light-bg-color);
+  border: 1px solid rgba(0, 0, 0, 0.125);
 
-  &:before {
-    position: absolute;
-    content: '';
-    left: 0;
-    top: auto;
-    width: 14px;
-    height: 14px;
-    bottom: -10px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    right: 0;
-    margin: auto;
-    z-index: 2;
-    border: 4px solid #f9f9ff;
+  .v-card__text {
+    color: var(--title-color);
   }
-  &:after {
-    position: absolute;
-    content: '';
-    left: 0px;
-    top: auto;
-    width: 100%;
-    height: 1px;
-    bottom: -4px;
-    background-color: var(--primary-color);
-    z-index: -1;
-  }
-}
-.progress {
-  background-color: #ddd;
-  border-radius: 4px;
-  height: 8px;
-}
-
-.resume-panel {
-  background: var(--bg);
-}
-.resume-box-wrapper {
-  margin-right: 5px;
 }
 .resume-box {
   position: relative;
