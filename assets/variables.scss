@@ -1,0 +1,41 @@
+$primary-color: #cd382f;
+$secondary-color: #cd382f;
+
+$title-color: rgb(41, 41, 41) !default;
+$font-color: #666 !default;
+$font-family: 'Montserrat', 'Helvetica', Arial, sans-serif;
+$font-weight: 300 !default;
+$font-size: 16px !default;
+$muted-color: #a49e93 !default;
+$shadow: -11.31px 11.31px 17px 0px rgba(138, 131, 124, 0.23);
+$border-radius: 5px;
+
+$social-facebook: #1877f2;
+$social-twitter: #1da1f2;
+$social-linkedin: #0a66c2;
+$social-github: var(--social-github);
+$social-codepen: var(--social-codepen);
+$social-telegram: #26a5e4;
+$social-whatsapp: #25d366;
+
+:root {
+  --color: #243746;
+  --bg: #f5f5f5;
+  --light-bg-color: #fff;
+  --font-color: #666;
+  --title-color: rgb(41, 41, 41);
+  --primary-color: #cd382f;
+  --social-codepen: #000;
+  --social-github: #181717;
+}
+
+.dark-mode {
+  --color: #ebf4f1;
+  --bg: #111;
+  --light-bg-color: #222;
+  --font-color: #ebf4f1;
+  --title-color: #ebf4f1;
+  --primary-color: #ffb400;
+  --social-codepen: #fff;
+  --social-github: #fff;
+}

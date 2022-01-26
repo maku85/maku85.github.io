@@ -1,42 +1,41 @@
 <template>
-  <section class="mt-5">
-    <div class="mt-5 mb-4 text-center">
-      <h2>{{ $t('My notes') }}</h2>
-    </div>
+  <v-container class="notes-page">
+    <v-row class="mt-4 mb-4">
+      <v-col>
+        <blog-search @searchResults="refreshData" />
+      </v-col>
+    </v-row>
 
-    <div class="pb-4">
-      <BlogSearch @searchResults="refreshData" />
-
-      <div v-if="filter" class="mt-2">
+    <v-row v-if="filter" class="mt-2 mb-10">
+      <v-col>
         <span class="filter">
           <v-chip label close @click:close="reset">{{ filter }}</v-chip>
         </span>
-      </div>
-    </div>
+      </v-col>
+    </v-row>
 
-    <div class="mt-5">
-      <v-row v-if="!articles || articles.length === 0" class="text-center">
-        <v-col>{{ $t('no-notes') }}</v-col>
-      </v-row>
+    <v-row v-if="!articles || articles.length === 0" class="text-center">
+      <v-col>{{ $t('no-notes') }}</v-col>
+    </v-row>
 
-      <v-row v-i="articles && articles.length > 0">
-        <v-col
-          v-for="article of articles"
-          :key="article.id"
-          cols="12"
-          xs="12"
-          sm="6"
-          md="4"
-        >
-          <BlogVPostPreview :post="article" />
-        </v-col>
-      </v-row>
-    </div>
-  </section>
+    <v-row class="mt-8" v-if="articles && articles.length > 0">
+      <v-col
+        v-for="article of articles"
+        :key="article.id"
+        cols="12"
+        xs="12"
+        sm="6"
+        md="4"
+      >
+        <BlogVPostPreview :post="article" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 export default {
+  name: 'NotesPage',
   data() {
     return { filter: '', articles: [] };
   },
@@ -77,14 +76,14 @@ export default {
 </script>
 
 <style lang="scss">
-.filter {
-  background-color: var(--light-bg-color);
-  padding: 12px 10px;
-  border-radius: 4px;
+.notes-page {
+  margin-top: 40px;
 
-  .close-btn {
-    margin-right: 2px;
-    cursor: pointer;
+  .filter {
+    .close-btn {
+      margin-right: 2px;
+      cursor: pointer;
+    }
   }
 }
 </style>

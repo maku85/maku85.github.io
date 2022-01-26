@@ -1,15 +1,17 @@
 <template>
-  <v-card class="card mb-3">
-    <h5>Tags</h5>
-    <div class="tags mt-3">
-      <NuxtLink
+  <v-card class="mb-8">
+    <v-card-title> Tags </v-card-title>
+
+    <v-card-text class="tags">
+      <v-btn
+        text
         v-for="tag of tags.split(',')"
         :key="tag"
         :to="localePath(`/notes?category=${tag.trim()}`)"
         class="tag"
-        >#{{ tag.trim() }}</NuxtLink
+        >#{{ tag.trim() }}</v-btn
       >
-    </div>
+    </v-card-text>
   </v-card>
 </template>
 

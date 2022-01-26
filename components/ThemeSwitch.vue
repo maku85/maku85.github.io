@@ -1,16 +1,15 @@
 <template>
-  <div>
+  <v-btn icon>
     <v-icon
-      ripple="false"
       @click="
         $colorMode.preference = $colorMode.value === 'light' ? 'dark' : 'light'
       "
       :class="$colorMode.value"
       >{{
-        $colorMode.value === "light" ? "mdi-weather-sunny" : "mdi-weather-night"
+        $colorMode.value === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'
       }}</v-icon
     >
-  </div>
+  </v-btn>
 </template>
 
 <style lang="scss" scoped>

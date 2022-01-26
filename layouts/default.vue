@@ -1,16 +1,24 @@
 <template>
-  <v-main class="main-container">
-    <TheNavbar />
+  <v-app>
+    <app-navbar />
 
     <v-container>
-      <Nuxt />
+      <v-main class="main-container">
+        <Nuxt />
+      </v-main>
     </v-container>
 
-    <TheFooter />
-    <TheBackToTop />
+    <app-footer />
+    <back-to-top />
 
     <client-only>
       <TheCookie />
     </client-only>
-  </v-main>
+  </v-app>
 </template>
+
+<script>
+export default {
+  name: 'DefaultLayout',
+};
+</script>

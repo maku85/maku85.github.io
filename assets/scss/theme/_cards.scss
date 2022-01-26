@@ -1,6 +1,6 @@
-.card {
-  padding: 25px 30px;
-  background-color: #fff;
-  box-shadow: $shadow;
-  border-radius: $border-radius;
+.v-card {
+  box-shadow: $shadow !important;
+  border-radius: $border-radius !important;
+  background: var(--light-bg-color) !important;
+  color: var(--font-color) !important;
 }

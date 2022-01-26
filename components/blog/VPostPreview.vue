@@ -1,6 +1,6 @@
 <template>
-  <NuxtLink :to="localePath('/notes/' + post.slug)" class="card blog-post">
-    <div class="blog-post-inner">
+  <v-card :to="localePath('/notes/' + post.slug)" class="card blog-post">
+    <v-card-text class="blog-post-inner">
       <div class="post-thumbnail">
         <v-img
           height="200"
@@ -8,22 +8,15 @@
           :src="post.img || 'https://source.unsplash.com/random'"
         ></v-img>
       </div>
+
       <div class="post-content text-center">
-        <div class="post-tags">
-          <NuxtLink
-            v-for="tag of (post.tags || '').split(',')"
-            :key="tag"
-            :to="localePath(`/notes?category=${tag.trim()}`)"
-            >#{{ tag.trim() }}</NuxtLink
-          >
-        </div>
         <div class="post-content-inner">
           <h2>{{ post.title }}</h2>
           <p>{{ post.description }}</p>
         </div>
       </div>
-    </div>
-  </NuxtLink>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
@@ -40,7 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 .blog-post {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   position: relative;
   transition: all 0.5s ease;
   background: var(--light-bg-color);
@@ -64,23 +57,6 @@ export default {
 
   .post-content {
     margin-top: -30px;
-
-    .post-tags {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 10px;
-      place-content: center;
-
-      a {
-        display: block;
-        margin-right: 20px;
-        text-transform: uppercase;
-        font-size: 12px;
-        font-weight: 400;
-        color: var(--primary-color);
-      }
-    }
 
     .post-content-inner {
       h2 {

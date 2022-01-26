@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-app-bar flat fixed id="nav" class="navbar">
+  <div id="navbar">
+    <v-app-bar flat fixed class="navbar">
       <span class="d-md-none">
         <v-app-bar-nav-icon
           @click="$store.dispatch('nav/toggleSidebar')"
@@ -12,7 +12,9 @@
           <strong><span>Mauro</span> Cunsolo</strong>
         </v-toolbar-title>
       </router-link>
-      <TheThemeSwitch class="ml-2" />
+
+      <!-- <theme-switch /> -->
+
       <v-spacer></v-spacer>
 
       <v-toolbar-items class="d-none d-md-flex">
@@ -27,19 +29,16 @@
         </v-btn>
       </v-toolbar-items>
 
-      <nuxt-link
+      <v-btn
+        plain
         v-for="locale in oppositeLocales"
         :key="locale"
         :to="switchLocalePath(locale)"
-        class="locale"
+        >{{ locale }}</v-btn
       >
-        <v-btn plain>
-          {{ locale }}
-        </v-btn>
-      </nuxt-link>
     </v-app-bar>
 
-    <TheSideNav />
+    <app-sidebar />
   </div>
 </template>
 
@@ -48,10 +47,10 @@ export default {
   data() {
     return {
       menuItems: [
-        { title: "About", path: "/about" },
-        { title: "Works", path: "/works" },
-        { title: "Notes", path: "/notes" },
-        { title: "Contact", path: "/contact" },
+        { title: 'Resume', path: '/resume' },
+        { title: 'Works', path: '/works' },
+        { title: 'Notes', path: '/notes' },
+        { title: 'Contact', path: '/contact' },
       ],
     };
   },
@@ -64,15 +63,15 @@ export default {
   },
   mounted() {
     this.$nextTick(function () {
-      window.addEventListener("scroll", function () {
-        const navbar = document.getElementById("nav");
+      window.addEventListener('scroll', function () {
+        const navbar = document.getElementById('nav');
         const navClasses = navbar.classList;
         if (document.documentElement.scrollTop >= 100) {
-          if (!navClasses.contains("navbar-w-shadow")) {
-            navClasses.add("navbar-w-shadow");
+          if (!navClasses.contains('navbar-w-shadow')) {
+            navClasses.add('navbar-w-shadow');
           }
-        } else if (navClasses.contains("navbar-w-shadow")) {
-          navClasses.remove("navbar-w-shadow");
+        } else if (navClasses.contains('navbar-w-shadow')) {
+          navClasses.remove('navbar-w-shadow');
         }
       });
     });
@@ -81,19 +80,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-icon {
-  color: var(--font-color) !important;
-}
-
 .navbar {
   transition: all 0.4s;
   background-color: var(--bg) !important;
-  padding: 0;
 
   &.navbar-w-shadow {
     opacity: 0.8;
     box-shadow: $shadow !important;
   }
+
   .navbar-title {
     font-weight: 600;
     color: var(--primary-color);
@@ -104,8 +99,6 @@ export default {
   }
 
   .nav-item {
-    color: var(--font-color);
-
     &.nav-item.v-btn--active {
       color: var(--primary-color);
       font-weight: 600;

@@ -1,9 +1,12 @@
+import colors from 'vuetify/es5/util/colors';
+
 export default {
   ssr: false,
   target: 'static',
 
   head: {
     title: 'Mauro Cunsolo',
+    htmlAttrs: { lang: 'it' },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -12,6 +15,7 @@ export default {
         name: 'description',
         content: process.env.npm_package_description || 'My personal site',
       },
+      { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -35,7 +39,6 @@ export default {
   },
 
   generate: {
-    // fallback: 'index.html',
     routes: ['404'],
     fallback: '404.html',
   },
@@ -43,17 +46,9 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    '@/assets/css/bootstrap.min.css',
-    '@/assets/scss/theme.scss',
-    '@/assets/transitions.css',
-  ],
+  css: ['~/assets/scss/main.scss'],
   scss: {
     indentedSyntax: true,
-  },
-
-  styleResources: {
-    scss: ['~/assets/scss/theme.scss'],
   },
 
   /*
@@ -63,7 +58,6 @@ export default {
     'nuxt-i18n',
     '@nuxtjs/pwa',
     '@nuxt/content',
-    '@nuxtjs/style-resources',
     'nuxt-fontawesome',
     'vue-social-sharing/nuxt',
   ],
@@ -73,7 +67,7 @@ export default {
    */
   buildModules: [
     '@nuxtjs/color-mode',
-    // '@nuxtjs/eslint-module',
+    '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
   ],
 
@@ -83,20 +77,6 @@ export default {
         theme: 'prism-themes/themes/prism-material-oceanic.css',
       },
     },
-  },
-
-  fontawesome: {
-    component: 'fa',
-    imports: [
-      {
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas'],
-      },
-      {
-        set: '@fortawesome/free-brands-svg-icons',
-        icons: ['fab'],
-      },
-    ],
   },
 
   i18n: {
@@ -124,7 +104,6 @@ export default {
           'no-notes': 'No notes found :(',
         },
         it: {
-          About: 'Chi sono',
           'about-title': 'Hey! It’s-a me,',
           'about-description':
             'Sviluppatore back-end Node.js ma profondamente appassionato di tutte le ultime tecnologie back-end, front-end e mobile.<br />Sono curioso, amo le sfide ma odio la monotonia.',
@@ -138,6 +117,8 @@ export default {
           'contact-message': "Qual'è il tuo messaggio?",
           'Contact me': 'Teniamoci in contatto',
           'contact-send': 'Invia messaggio',
+          Experiences: 'Esperienze',
+          Education: 'Educazione',
           'Go to notes': 'Vai agli appunti',
           'Latest notes': 'Appunti recenti',
           'Last update': 'Ultimo aggiornamento',
@@ -145,14 +126,18 @@ export default {
           'My skills': 'Le mie competenze',
           'My works': 'I miei lavori',
           Next: 'Successivo',
-          Previous: 'Precedente',
           'no-notes': 'Non ci sono appunti qui :(',
+          Previous: 'Precedente',
           'Recent notes': 'Appunti recenti',
+          Resume: 'CV',
           'Search notes': 'Cerca tra gli appunti',
           Works: 'Lavori',
-          'Work & Education': 'Esperienze ed educazione',
         },
       },
     },
+  },
+
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
   },
 };

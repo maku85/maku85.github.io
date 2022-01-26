@@ -32,6 +32,7 @@
 <script>
 export default {
   layout: 'empty',
+  name: 'ErrorLayout',
   props: {
     error: {
       type: Object,

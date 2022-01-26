@@ -5,9 +5,10 @@
         <h1>{{ article.title }}</h1>
       </v-col>
     </v-row>
+
     <v-row>
       <v-col cols="12" sm="12" md="8">
-        <v-card class="card mb-4">
+        <v-card class="mb-4">
           <v-img
             :lazy-src="article.img || 'https://source.unsplash.com/random'"
             :src="article.img || 'https://source.unsplash.com/random'"
@@ -23,7 +24,7 @@
                 {{ formatDate(article.updatedAt) }}
               </div>
 
-              <BlogShareLinks class="mt-2" :article="article" />
+              <!-- <BlogShareLinks class="mt-2" :article="article" /> -->
             </div>
           </v-card-text>
         </v-card>
@@ -58,7 +59,7 @@ export default {
       .surround(params.slug)
       .fetch();
     const articles = await $content(`${i18n.locale}/articles`)
-      .only(['title', 'updatedAt', 'img', 'slug'])
+      .only(['title', 'description', 'updatedAt', 'img', 'slug'])
       .where({ published: true })
       .sortBy('updatedAt', 'desc')
       .fetch();
@@ -115,19 +116,9 @@ export default {
 .blog-detail {
   margin-top: 50px;
   margin-bottom: 30px;
-  position: relative;
 
-  .card {
-    background: var(--light-bg-color);
-
-    .post-content {
-      padding: 30px 10px;
-      color: var(--font-color);
-    }
+  .post-content {
+    color: var(--font-color);
   }
-}
-
-.post-footer {
-  margin-top: 35px;
 }
 </style>

@@ -20,10 +20,10 @@
     </v-list-item>
     <v-divider></v-divider>
     <v-list dense nav>
-      <v-list-item link :to="localePath('/about')">
+      <v-list-item link :to="localePath('/resume')">
         <v-list-item-content>
           <v-list-item-title class="nav-link">
-            {{ $t('About') }}
+            {{ $t('Resume') }}
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>

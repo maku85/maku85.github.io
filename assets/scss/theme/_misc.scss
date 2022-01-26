@@ -1,13 +1,13 @@
 /*     General overwrite     */
 body {
-  background-color: var(--bg);
+  background-color: var(--bg) !important;
   color: var(--font-color);
   font-size: $font-size;
   transition: background-color 0.3s;
 }
 
-.v-main {
-  height: 100vh;
+.v-application {
+  background-color: var(--bg) !important;
 }
 
 a {
