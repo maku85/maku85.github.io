@@ -41,6 +41,10 @@ export default {
   }
 }
 
+.post-content {
+  width: 100%;
+}
+
 .blog-btn {
   background-color: var(--primary-color) !important;
   color: #fff !important;

@@ -11,9 +11,9 @@
       </div>
 
       <div class="post-content">
-        <div class="post-content-inner">
-          <h2>{{ post.title }}</h2>
-          <p>{{ post.description }}</p>
+        <div class="post-content-inner d-flex flex-column py-6">
+          <h2 class="mb-4">{{ post.title }}</h2>
+          <p class="flex-grow-1">{{ post.description }}</p>
 
           <div class="post-tags text-right">
             <v-chip
@@ -69,18 +69,16 @@ export default {
     }
 
     .post-content-inner {
+      height: 100%;
+
       h2 {
         font-size: 19px;
-        margin-top: 0;
-        margin-bottom: 12px;
         color: var(--title-color);
         font-weight: 700;
-        line-height: 1.53;
       }
 
       p {
         color: $font-color;
-        margin: 15px 0 5px;
       }
     }
   }
