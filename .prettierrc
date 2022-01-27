@@ -10,7 +10,6 @@
   "arrowParens": "always",
   "requirePragma": false,
   "proseWrap": "preserve",
-  "endOfLine":"auto",
 
   "overrides": [
     {
