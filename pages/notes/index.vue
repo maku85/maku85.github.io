@@ -18,15 +18,8 @@
       <v-col>{{ $t('no-notes') }}</v-col>
     </v-row>
 
-    <v-row class="mt-8" v-if="articles && articles.length > 0">
-      <v-col
-        v-for="article of articles"
-        :key="article.id"
-        cols="12"
-        xs="12"
-        sm="6"
-        md="4"
-      >
+    <v-row v-if="articles && articles.length > 0" class="mt-8">
+      <v-col v-for="article of articles" :key="article.id" cols="12" xs="12" sm="6" md="4">
         <BlogVPostPreview :post="article" />
       </v-col>
     </v-row>

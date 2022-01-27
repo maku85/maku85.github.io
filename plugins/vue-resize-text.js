@@ -1,4 +1,4 @@
-import Vue from 'vue'
-import VueResizeText from 'vue-resize-text'
+import Vue from 'vue';
+import VueResizeText from 'vue-resize-text';
 
-Vue.directive('resize-text', VueResizeText)
+Vue.directive('resize-text', VueResizeText);

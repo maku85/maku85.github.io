@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <section id="about" class="section-about">
     <div class="section-about-wrap">
@@ -9,18 +10,16 @@
 
           <v-card-actions class="card-actions justify-center text-center">
             <v-btn
+              v-for="social of socials"
+              :key="social.id"
               icon
               fab
               small
-              v-for="social of socials"
-              :key="social.id"
               :href="social.link"
               class="mr-1"
               target="_blank"
             >
-              <v-icon
-                class="social-icon"
-                :class="{ ['social-' + social.type]: true }"
+              <v-icon class="social-icon" :class="{ ['social-' + social.type]: true }"
                 >mdi-{{ social.type }}</v-icon
               >
             </v-btn>
@@ -30,24 +29,19 @@
         <div class="about-desc d-flex align-center flex-grow-1">
           <div class="about-desc-content mx-8 my-10">
             <h1>{{ $t('about-title') }} <b class="primary-color">Mauro</b>!</h1>
-            <p
-              class="mt-4 font-weight-light"
-              v-html="$t('about-description')"
-            ></p>
+            <p class="mt-4 font-weight-light" v-html="$t('about-description')"></p>
             <div class="justify-center text-center d-flex d-md-none">
               <v-btn
+                v-for="social of socials"
+                :key="social.id"
                 icon
                 fab
                 small
-                v-for="social of socials"
-                :key="social.id"
                 :href="social.link"
                 class="mr-1"
                 target="_blank"
               >
-                <v-icon
-                  class="social-icon"
-                  :class="{ ['social-' + social.type]: true }"
+                <v-icon class="social-icon" :class="{ ['social-' + social.type]: true }"
                   >mdi-{{ social.type }}</v-icon
                 >
               </v-btn>

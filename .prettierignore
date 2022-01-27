@@ -1,0 +1,7 @@
+/.git
+/.github
+/.nuxt
+/.vscode
+/static
+**/node_modules
+jsconfig.json

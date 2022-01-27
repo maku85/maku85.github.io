@@ -8,25 +8,13 @@
           </v-card-title>
           <v-card-text>
             <v-row>
-              <v-col
-                v-for="expertise of expertises"
-                :key="expertise.id"
-                cols="12"
-                xs="12"
-                sm="6"
-              >
+              <v-col v-for="expertise of expertises" :key="expertise.id" cols="12" xs="12" sm="6">
                 <div class="resume-panel">
-                  <div
-                    v-for="skill of expertise.skills"
-                    :key="skill.id"
-                    class="mb-2 p-2"
-                  >
+                  <div v-for="skill of expertise.skills" :key="skill.id" class="mb-2 p-2">
                     <h6>{{ skill.title }}</h6>
 
                     <div class="progress mt-2">
-                      <v-progress-linear
-                        :value="skill.value"
-                      ></v-progress-linear>
+                      <v-progress-linear :value="skill.value"></v-progress-linear>
                     </div>
                   </div>
                 </div>
@@ -45,9 +33,9 @@
           </v-card-title>
           <v-card-text>
             <v-list-item
-              three-line
               v-for="experience of experiences"
               :key="experience.id"
+              three-line
               class="resume-box"
             >
               <v-list-item-icon>
@@ -60,9 +48,7 @@
                 </v-list-item-subtitle>
                 <v-list-item-subtitle>
                   <small class="time"
-                    >{{
-                      experience.startDate ? experience.startDate + ' - ' : ''
-                    }}
+                    >{{ experience.startDate ? experience.startDate + ' - ' : '' }}
                     {{ experience.endDate || 'Present' }}</small
                   >
                 </v-list-item-subtitle>
@@ -79,9 +65,9 @@
           </v-card-title>
           <v-card-text>
             <v-list-item
-              two-line
-              v-for="education of education"
+              v-for="education of educations"
               :key="education.id"
+              two-line
               class="resume-box"
             >
               <v-list-item-icon>
@@ -108,10 +94,8 @@
 export default {
   name: 'AboutPage',
   async asyncData({ $content }) {
-    const { education, experiences, expertises } = await $content(
-      'index'
-    ).fetch();
-    return { education, experiences, expertises };
+    const { educations, experiences, expertises } = await $content('index').fetch();
+    return { educations, experiences, expertises };
   },
   head() {
     return {

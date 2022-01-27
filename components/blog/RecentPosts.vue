@@ -26,8 +26,8 @@
 export default {
   props: {
     articles: {
-      type: [],
-      default: () => [],
+      type: [Object],
+      default: () => {},
     },
   },
   methods: {

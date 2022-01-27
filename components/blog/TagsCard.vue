@@ -4,9 +4,9 @@
 
     <v-card-text class="tags">
       <v-btn
-        text
         v-for="tag of tags.split(',')"
         :key="tag"
+        text
         :to="localePath(`/notes?category=${tag.trim()}`)"
         class="tag"
         >#{{ tag.trim() }}</v-btn
@@ -19,8 +19,8 @@
 export default {
   props: {
     tags: {
-      type: [],
-      default: () => [],
+      type: [String],
+      default: () => '',
     },
   },
 };

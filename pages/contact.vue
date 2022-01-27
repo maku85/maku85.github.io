@@ -7,18 +7,16 @@
 
       <div class="text-center">
         <v-btn
+          v-for="social of socials"
+          :key="social.id"
           icon
           fab
           small
-          v-for="social of socials"
-          :key="social.id"
           :href="social.link"
           class="mr-1"
           target="_blank"
         >
-          <v-icon
-            class="social-icon"
-            :class="{ ['social-' + social.type]: true }"
+          <v-icon class="social-icon" :class="{ ['social-' + social.type]: true }"
             >mdi-{{ social.type }}</v-icon
           >
         </v-btn>
@@ -79,29 +77,17 @@
 
                 <v-row>
                   <v-col class="d-flex flex-column align-end">
-                    <v-btn
-                      :disabled="!valid"
-                      depressed
-                      type="submit"
-                      @click="submitForm"
-                      >{{ $t('contact-send') }}</v-btn
-                    >
+                    <v-btn :disabled="!valid" depressed type="submit" @click="submitForm">{{
+                      $t('contact-send')
+                    }}</v-btn>
                   </v-col>
                 </v-row>
               </v-col>
             </v-row>
 
             <input type="text" name="honeypot" style="display: none" />
-            <input
-              type="hidden"
-              name="accessKey"
-              value="7609172f-47de-439f-a2eb-813fa687acc8"
-            />
-            <input
-              type="hidden"
-              name="redirectTo"
-              :value="`${hostname}${$nuxt.$route.path}`"
-            />
+            <input type="hidden" name="accessKey" value="7609172f-47de-439f-a2eb-813fa687acc8" />
+            <input type="hidden" name="redirectTo" :value="`${hostname}${$nuxt.$route.path}`" />
           </v-form>
         </v-card>
       </div>

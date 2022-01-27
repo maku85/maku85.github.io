@@ -16,34 +16,34 @@ JavaScript offers different ways of aborting an asynchronous task, one of this i
 Let’s imagine that we have an asynchronous function that takes a long time to process, `the generateReport` function that takes twenty seconds to finish. If you want, you can terminate the execution anytime, calling the `AbortController.abort()` method.
 
 ```javascript
-let acontroller = new AbortController()
-let signal = acontroller.signal
+let acontroller = new AbortController();
+let signal = acontroller.signal;
 
 function generateReport(signal) {
   return new Promise((resolve, reject) => {
-    const error = new DOMException('aborted!', 'AbortError')
+    const error = new DOMException('aborted!', 'AbortError');
     if (signal.aborted) {
-      return reject(error)
+      return reject(error);
     }
 
     const timeout = setTimeout(() => {
-      resolve('you report!')
-    }, 20000)
+      resolve('you report!');
+    }, 20000);
 
     signal.addEventListener('abort', () => {
-      clearTimeout(timeout)
-      reject(error)
-    })
-  })
+      clearTimeout(timeout);
+      reject(error);
+    });
+  });
 }
 
 generateReport(signal)
   .then((report) => {
-    console.log(report)
+    console.log(report);
   })
-  .catch((e) => console.log(e))
+  .catch((e) => console.log(e));
 
-acontroller.abort()
+acontroller.abort();
 ```
 
 When a `controller.abort()` is called the `generateReport()` function rejects the promise with an appropriate error without doing anything further.
@@ -53,17 +53,17 @@ When a `controller.abort()` is called the `generateReport()` function rejects th
 We can use AbortController to abort the Fetch request because Fetch has built-in integration with AbortController:
 
 ```javascript
-const url = 'https://server/api/d1'
+const url = 'https://server/api/d1';
 
-let aController = new AbortController()
+let aController = new AbortController();
 
-let signal = aController.signal
+let signal = aController.signal;
 
-const response = await fetch(url, { signal })
+const response = await fetch(url, { signal });
 
-const data = await response.json()
+const data = await response.json();
 
-aController.abort()
+aController.abort();
 ```
 
 AbortController allows too canceling multiple Fetch petitions at once:

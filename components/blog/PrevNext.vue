@@ -5,9 +5,7 @@
         <v-col cols="12" sm="6">
           <v-list-item
             v-if="prev"
-            :to="
-              localePath({ name: 'notes-slug', params: { slug: prev.slug } })
-            "
+            :to="localePath({ name: 'notes-slug', params: { slug: prev.slug } })"
             class="blog-nav"
           >
             <span>{{ $t('Previous') }}</span>
@@ -18,9 +16,7 @@
         <v-col cols="12" sm="6">
           <v-list-item
             v-if="next"
-            :to="
-              localePath({ name: 'notes-slug', params: { slug: next.slug } })
-            "
+            :to="localePath({ name: 'notes-slug', params: { slug: next.slug } })"
             class="blog-nav text-right"
           >
             <span>{{ $t('Next') }}</span>

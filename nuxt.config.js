@@ -1,5 +1,3 @@
-import colors from 'vuetify/es5/util/colors';
-
 export default {
   ssr: false,
   target: 'static',
@@ -65,11 +63,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    '@nuxtjs/color-mode',
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify',
-  ],
+  buildModules: ['@nuxtjs/color-mode', '@nuxtjs/eslint-module', '@nuxtjs/vuetify'],
 
   content: {
     markdown: {

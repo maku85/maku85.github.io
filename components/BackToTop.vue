@@ -4,12 +4,12 @@
       id="back-top"
       href="#top"
       class="d-none"
-      @click="scrollToTop()"
       fab
       small
       dark
       bottom
       right
+      @click="scrollToTop()"
     >
       <v-icon>mdi-chevron-up</v-icon>
     </v-btn>

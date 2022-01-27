@@ -2,9 +2,7 @@
   <div id="navbar">
     <v-app-bar flat fixed class="navbar">
       <span class="d-md-none">
-        <v-app-bar-nav-icon
-          @click="$store.dispatch('nav/toggleSidebar')"
-        ></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click="$store.dispatch('nav/toggleSidebar')"></v-app-bar-nav-icon>
       </span>
 
       <router-link :to="localePath('/')" tag="span" style="cursor: pointer">
@@ -19,9 +17,9 @@
 
       <v-toolbar-items class="d-none d-md-flex">
         <v-btn
-          plain
           v-for="item in menuItems"
           :key="item.title"
+          plain
           :to="localePath(item.path)"
           class="nav-item"
         >
@@ -29,13 +27,9 @@
         </v-btn>
       </v-toolbar-items>
 
-      <v-btn
-        plain
-        v-for="locale in oppositeLocales"
-        :key="locale"
-        :to="switchLocalePath(locale)"
-        >{{ locale }}</v-btn
-      >
+      <v-btn v-for="locale in oppositeLocales" :key="locale" plain :to="switchLocalePath(locale)">{{
+        locale
+      }}</v-btn>
     </v-app-bar>
 
     <app-sidebar />
@@ -56,9 +50,7 @@ export default {
   },
   computed: {
     oppositeLocales() {
-      return this.$i18n.locales.filter(
-        (locale) => locale !== this.$i18n.locale
-      );
+      return this.$i18n.locales.filter((locale) => locale !== this.$i18n.locale);
     },
   },
   mounted() {

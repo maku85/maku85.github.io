@@ -36,10 +36,7 @@
 
       <v-col cols="12" sm="12" md="4">
         <BlogTagsCard v-if="article.tags.length" :tags="article.tags" />
-        <BlogRecentPosts
-          v-if="recentArticles.length"
-          :articles="recentArticles"
-        />
+        <BlogRecentPosts v-if="recentArticles.length" :articles="recentArticles" />
       </v-col>
     </v-row>
   </v-container>
@@ -48,10 +45,7 @@
 <script>
 export default {
   async asyncData({ $content, params, i18n }) {
-    const article = await $content(
-      `${i18n.locale}/articles`,
-      params.slug
-    ).fetch();
+    const article = await $content(`${i18n.locale}/articles`, params.slug).fetch();
     const [prev, next] = await $content(`${i18n.locale}/articles`)
       .only(['title', 'slug'])
       .where({ published: true })
@@ -63,9 +57,7 @@ export default {
       .where({ published: true })
       .sortBy('updatedAt', 'desc')
       .fetch();
-    const recentArticles = articles.filter(
-      (item) => item.title !== article.title
-    );
+    const recentArticles = articles.filter((item) => item.title !== article.title);
     return {
       article,
       recentArticles,

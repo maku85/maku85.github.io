@@ -17,9 +17,9 @@
 
           <div class="post-tags text-right">
             <v-chip
-              class="tag"
               v-for="tag of (post.tags || '').split(',')"
               :key="tag"
+              class="tag"
               :to="localePath(`/notes?category=${tag.trim()}`)"
               label
             >

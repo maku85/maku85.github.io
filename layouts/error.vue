@@ -31,8 +31,8 @@
 
 <script>
 export default {
-  layout: 'empty',
   name: 'ErrorLayout',
+  layout: 'empty',
   props: {
     error: {
       type: Object,
@@ -47,8 +47,7 @@ export default {
     };
   },
   head() {
-    this.errorTitle =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
+    this.errorTitle = this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
     return {
       title: this.errorTitle,
     };

@@ -1,13 +1,9 @@
 <template>
   <v-btn icon>
     <v-icon
-      @click="
-        $colorMode.preference = $colorMode.value === 'light' ? 'dark' : 'light'
-      "
       :class="$colorMode.value"
-      >{{
-        $colorMode.value === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'
-      }}</v-icon
+      @click="$colorMode.preference = $colorMode.value === 'light' ? 'dark' : 'light'"
+      >{{ $colorMode.value === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night' }}</v-icon
     >
   </v-btn>
 </template>
