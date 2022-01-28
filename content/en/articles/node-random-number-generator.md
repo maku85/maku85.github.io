@@ -1,7 +1,7 @@
 ---
 title: Random number generator with Node.js
 description: There are various cases in which you need to generate random numbers but you have to be careful because sometimes randomness is not really so "random".
-img: /articles/images/random-number-generator.jpeg
+img: /articles/images/random-number-generator.webp
 tags: javascript
 published: true
 ---

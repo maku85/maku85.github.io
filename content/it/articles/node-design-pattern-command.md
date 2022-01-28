@@ -1,7 +1,7 @@
 ---
 title: Design Pattern Comportamentali - Command
 description: Design pattern comportamentale che permette di trasformare una richiesta sottoforma di oggetto contenente tutte le informazioni necessarie ad eseguire la richiesta in futuro.
-img: /articles/images/design-pattern-command.jpeg
+img: /articles/images/design-pattern-command.webp
 tags: javascript, design-pattern, structural-patterns
 published: true
 ---

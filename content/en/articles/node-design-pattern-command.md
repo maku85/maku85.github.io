@@ -1,7 +1,7 @@
 ---
 title: Behavioral Design Patterns - Command
 description: Behavioral design pattern that allows you to transform a request in the form of an object containing all the information necessary to execute the request in the future.
-img: /articles/images/design-pattern-command.jpeg
+img: /articles/images/design-pattern-command.webp
 tags: javascript, design-pattern, structural-patterns
 published: true
 ---

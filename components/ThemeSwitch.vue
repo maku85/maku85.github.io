@@ -1,5 +1,5 @@
 <template>
-  <v-btn icon>
+  <v-btn icon aria-label="Switch theme">
     <v-icon
       :class="$colorMode.value"
       @click="$colorMode.preference = $colorMode.value === 'light' ? 'dark' : 'light'"

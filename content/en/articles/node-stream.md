@@ -1,7 +1,7 @@
 ---
 title: Node.js Stream
 description: Streams are data collected from one source and made available in another location in sequence.
-img: /articles/images/node-stream.jpeg
+img: /articles/images/node-stream.webp
 tags: nodejs
 published: true
 ---

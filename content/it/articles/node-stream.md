@@ -1,7 +1,7 @@
 ---
 title: Node.js Stream
 description: Gli stream sono flussi di dati raccolti da una fonte e rese disponibili in un'altra posizione in sequenza.
-img: /articles/images/node-stream.jpeg
+img: /articles/images/node-stream.webp
 tags: nodejs
 published: true
 ---

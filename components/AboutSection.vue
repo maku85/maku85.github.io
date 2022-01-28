@@ -2,7 +2,7 @@
 <template>
   <section id="about" class="section-about">
     <div class="section-about-wrap">
-      <div class="section-about-inner align-items-center d-flex">
+      <div class="section-about-inner ma-xs-1 ma-md-8 align-items-center d-flex">
         <v-card sm="3" class="card d-none d-md-block">
           <v-card-text class="text-center">
             <div class="profile-picture img-circle my-10 mx-8"></div>
@@ -16,8 +16,10 @@
               fab
               small
               :href="social.link"
+              rel="noreferrer"
               class="mr-1"
               target="_blank"
+              :aria-label="social.type"
             >
               <v-icon class="social-icon" :class="{ ['social-' + social.type]: true }"
                 >mdi-{{ social.type }}</v-icon
@@ -40,6 +42,7 @@
                 :href="social.link"
                 class="mr-1"
                 target="_blank"
+                :aria-label="social.type"
               >
                 <v-icon class="social-icon" :class="{ ['social-' + social.type]: true }"
                   >mdi-{{ social.type }}</v-icon
@@ -80,7 +83,6 @@ export default {
 
   .section-about-inner {
     color: var(--font-color);
-    padding: 50px;
 
     h1 {
       font-size: 30px;

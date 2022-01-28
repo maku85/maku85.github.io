@@ -9,6 +9,7 @@
         text
         :to="localePath(`/notes?category=${tag.trim()}`)"
         class="tag mr-2 mb-2"
+        :aria-label="tag"
         >#{{ tag.trim() }}</v-btn
       >
     </v-card-text>

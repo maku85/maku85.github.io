@@ -82,7 +82,6 @@ export default {
 }
 .nav-link {
   color: var(--primary-color);
-  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;

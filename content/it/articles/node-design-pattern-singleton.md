@@ -1,7 +1,7 @@
 ---
 title: Design Pattern Creazionali - Singleton
 description: Design pattern creazionale che consente di garantire che un oggetto venga istanziato una sola volta per poi riusarlo ogni volta che ce n'è bisogno.
-img: /articles/images/design-pattern-singleton.jpeg
+img: /articles/images/design-pattern-singleton.webp
 tags: javascript, design-pattern, creational-pattern
 published: true
 ---

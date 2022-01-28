@@ -1,7 +1,7 @@
 ---
 title: Design Pattern Strutturali - Decorator
 description: Design pattern strutturale che permette di "decorare" un oggetto estendendone le funzionalità in modo dinamico.
-img: /articles/images/design-pattern-decorator.jpeg
+img: /articles/images/design-pattern-decorator.webp
 tags: javascript, design-pattern, structural-patterns
 published: true
 ---

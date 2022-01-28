@@ -9,6 +9,7 @@
       dark
       bottom
       right
+      aria-label="Back to top"
       @click="scrollToTop()"
     >
       <v-icon>mdi-chevron-up</v-icon>

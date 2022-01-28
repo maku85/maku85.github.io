@@ -12,7 +12,7 @@
     <back-to-top />
 
     <client-only>
-      <TheCookie />
+      <cookie-banner />
     </client-only>
   </v-app>
 </template>

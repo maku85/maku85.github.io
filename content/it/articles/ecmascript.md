@@ -1,7 +1,7 @@
 ---
 title: ECMAScript
 description: Elenco delle nuove funzionalità introdotte con le varie edizioni dello standard JavaScript.
-img: /articles/images/ecmascript.jpg
+img: /articles/images/ecmascript.webp
 tags: JavaScript, ECMAScript
 published: true
 ---

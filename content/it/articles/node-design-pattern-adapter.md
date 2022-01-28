@@ -1,7 +1,7 @@
 ---
 title: Design Pattern Strutturali - Adapter
 description: Design pattern strutturale che permette la collaborazione tra oggetti con interfacce incompatibili.
-img: /articles/images/design-pattern-adapter.jpeg
+img: /articles/images/design-pattern-adapter.webp
 tags: javascript, design-pattern, structural-patterns
 published: true
 ---

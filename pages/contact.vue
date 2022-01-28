@@ -13,8 +13,10 @@
           fab
           small
           :href="social.link"
+          rel="noreferrer"
           class="mr-1"
           target="_blank"
+          :aria-label="social.type"
         >
           <v-icon class="social-icon" :class="{ ['social-' + social.type]: true }"
             >mdi-{{ social.type }}</v-icon
@@ -77,9 +79,14 @@
 
                 <v-row>
                   <v-col class="d-flex flex-column align-end">
-                    <v-btn :disabled="!valid" depressed type="submit" @click="submitForm">{{
-                      $t('contact-send')
-                    }}</v-btn>
+                    <v-btn
+                      :disabled="!valid"
+                      depressed
+                      type="submit"
+                      aria-label="Submit"
+                      @click="submitForm"
+                      >{{ $t('contact-send') }}</v-btn
+                    >
                   </v-col>
                 </v-row>
               </v-col>

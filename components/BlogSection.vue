@@ -12,7 +12,7 @@
       </div>
 
       <div class="text-center">
-        <v-btn class="blog-btn" :to="localePath('/notes')">
+        <v-btn class="blog-btn" :to="localePath('/notes')" aria-label="Notes">
           {{ $t('Go to notes') }}
           <v-icon>mdi-chevron-right</v-icon>
         </v-btn>

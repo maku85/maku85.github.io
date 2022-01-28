@@ -1,19 +1,20 @@
 <template>
-  <v-banner v-if="isOpen" single-line class="cookie">
-    <div class="banner-text">
+  <v-card v-if="isOpen" single-line class="cookie ma-4" transition="slide-y-transition">
+    <v-card-text class="banner-text">
       {{ message }}
       (<nuxt-link to="/cookie-policy">policy page</nuxt-link>)
-    </div>
+    </v-card-text>
 
-    <template #actions>
-      <v-btn text color="primary" @click="accept">
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <v-btn text color="primary" aria-label="Accept" @click="accept">
         {{ buttonTextAccept }}
       </v-btn>
-      <v-btn text color="primary" @click="deny">
+      <v-btn text color="primary" aria-label="Deny" @click="deny">
         {{ buttonTextDeny }}
       </v-btn>
-    </template>
-  </v-banner>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
@@ -70,20 +71,11 @@ export default {
 
 <style lang="scss" scoped>
 .cookie {
-  z-index: 1;
-  width: 100%;
+  max-width: 300px;
   position: fixed !important;
-  background-color: #fff !important;
   bottom: 0;
-  padding: 10px 20px 0 20px;
-  box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 20%), 0px 0px 0px 0px rgb(0 0 0 / 14%),
-    0px 0px 0px 0px rgb(0 0 0 / 12%);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.125);
 
   .banner-text {
-    padding-left: 1rem !important;
     white-space: initial;
   }
 }

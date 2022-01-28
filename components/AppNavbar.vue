@@ -2,7 +2,10 @@
   <div id="navbar">
     <v-app-bar flat fixed class="navbar">
       <span class="d-md-none">
-        <v-app-bar-nav-icon @click="$store.dispatch('nav/toggleSidebar')"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon
+          :aria-label="Menu"
+          @click="$store.dispatch('nav/toggleSidebar')"
+        ></v-app-bar-nav-icon>
       </span>
 
       <router-link :to="localePath('/')" tag="span" style="cursor: pointer">
@@ -22,14 +25,21 @@
           plain
           :to="localePath(item.path)"
           class="nav-item"
+          :aria-label="item.title"
         >
           {{ item.title }}
         </v-btn>
       </v-toolbar-items>
 
-      <v-btn v-for="locale in oppositeLocales" :key="locale" plain :to="switchLocalePath(locale)">{{
-        locale
-      }}</v-btn>
+      <v-btn
+        v-for="locale in oppositeLocales"
+        :key="locale"
+        plain
+        color="black"
+        :to="switchLocalePath(locale)"
+        :aria-label="locale"
+        >{{ locale }}</v-btn
+      >
     </v-app-bar>
 
     <app-sidebar />

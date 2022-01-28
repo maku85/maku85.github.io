@@ -1,7 +1,7 @@
 ---
 title: Design Pattern Creazionali - Factory
 description: Design pattern creazionale che permette di centralizzare la logica di creazione degli oggetti in un unico punto.
-img: /articles/images/design-pattern-factory.jpeg
+img: /articles/images/design-pattern-factory.webp
 tags: javascript, design-pattern, creational-patterns
 published: true
 ---
