@@ -6,7 +6,7 @@ tags: JavaScript, ECMAScript
 published: true
 ---
 
-## ECMAScript 2020 aka ES11
+## ECMAScript 2020 alias ES11
 
 ### BigInt
 
@@ -82,7 +82,7 @@ I campi statici privati vengono aggiunti al costruttore della classe al momento 
 
 I metodi di istanza privata sono metodi disponibili su istanze di classe il cui accesso è limitato allo stesso modo dei campi di istanza privata.
 
-## ECMAScript 2019 aka ES10
+## ECMAScript 2019 alias ES10
 
 ### Array.prototype.flat && Array.prototype.flatMap
 
@@ -140,3 +140,55 @@ E' stata aggiunta una nuova proprietà `Symbol.prototype.description` per recupe
 const symbol1 = Symbol('my symbol');
 console.log(symbol1.description); // 'my symbol'
 ```
+
+## ECMAScript 2018 alias ES9
+
+### Generatori asincroni
+
+I generatori asincroni possono essere resi asincroni usando la parola chiave `async`.
+
+```javascript
+async function* generator_name() {
+  //statements
+}
+```
+
+### Iteratori asincroni
+
+E'stato aggiunto il supporto per l'iterazione asincrona con `await of loop`.
+
+```javascript
+for await (variable of iterable) {
+  statement;
+}
+```
+
+### Rest/spread operator (...)
+
+L'operatore rest inserisce il resto di alcuni valori specifici forniti dall'utente in un array JavaScript.
+
+```javascript
+const student = {
+  age: 10,
+  height: 5,
+  weight: 50,
+};
+const { age, ...other } = student;
+console.log(age); // 10
+console.log(other); // { height: 5, weight: 50 }
+```
+
+L'operatore spread può essere utilizzato per combinare più oggetti o clonare oggetti.
+
+```javascript
+const obj1 = { a: 10, b: 20 };
+const obj2 = { c: 30 };
+const clone_obj = { ...obj1 };
+const obj3 = { ...obj1, ...obj2 };
+console.log(clone_obj); // {a: 10, b: 20}
+console.log(obj3); // {a: 10, b: 20, c: 30}
+```
+
+### Promise.prototype.finally
+
+Il `finally()` viene eseguito ogni volta che una promise viene risolta, indipendentemente dal suo risultato e restituisce una promise.

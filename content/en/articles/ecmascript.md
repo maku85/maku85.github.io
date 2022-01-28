@@ -140,3 +140,55 @@ A new `Symbol.prototype.description` property has been added to retrieve the des
 const symbol1 = Symbol('my symbol');
 console.log(symbol1.description); // 'my symbol'
 ```
+
+## ECMAScript 2018 aka ES9
+
+### Asynchronous generators
+
+Asynchronous generators can be made asynchronous by using the `async` keyword.
+
+```javascript
+async function* generator_name() {
+  //statements
+}
+```
+
+### Asynchronous iterators
+
+Added support to asynchronous iteration with the `await of loop`.
+
+```javascript
+for await (variable of iterable) {
+  statement;
+}
+```
+
+### Object Rest/spread operator
+
+The rest operator puts the rest of some specific user-supplied values into a JavaScript array.
+
+```javascript
+const student = {
+  age: 10,
+  height: 5,
+  weight: 50,
+};
+const { age, ...other } = student;
+console.log(age); // 10
+console.log(other); // { height: 5, weight: 50 }
+```
+
+The spread operator can be used to combine multiple objects or cloning objects.
+
+```javascript
+const obj1 = { a: 10, b: 20 };
+const obj2 = { c: 30 };
+const clone_obj = { ...obj1 };
+const obj3 = { ...obj1, ...obj2 };
+console.log(clone_obj); // {a: 10, b: 20}
+console.log(obj3); // {a: 10, b: 20, c: 30}
+```
+
+### Promise.prototype.finally
+
+The `finally()` is executed whenever a promise is settled, regardless of its outcome. This function returns a promise. It can be used to avoid code duplication in both the promise's `then()` and `catch()` handlers.
