@@ -30,13 +30,16 @@
         </v-card>
 
         <v-card v-if="prev || next" class="card blog-post-footer">
-          <BlogPrevNext :prev="prev" :next="next" class="mt-8" />
+          <BlogPrevNext :prev="prev" :next="next" class="mt-4" />
         </v-card>
       </v-col>
 
       <v-col cols="12" sm="12" md="4">
-        <BlogTagsCard v-if="article.tags.length" :tags="article.tags" />
-        <BlogRecentPosts v-if="recentArticles.length" :articles="recentArticles" />
+        <aside>
+          <BlogToc v-if="article.toc.length" class="mb-4" :links="article.toc" />
+          <BlogTagsCard v-if="article.tags.length" class="mb-4" :tags="article.tags" />
+          <BlogRecentPosts v-if="recentArticles.length" :articles="recentArticles" />
+        </aside>
       </v-col>
     </v-row>
   </v-container>
@@ -108,6 +111,10 @@ export default {
 .blog-detail {
   margin-top: 50px;
   margin-bottom: 30px;
+
+  p {
+    font-size: 16px;
+  }
 
   .post-content {
     color: var(--font-color);

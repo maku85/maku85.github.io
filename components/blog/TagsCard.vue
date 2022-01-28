@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mb-8">
+  <v-card>
     <v-card-title> Tags </v-card-title>
 
     <v-card-text class="tags">
@@ -8,7 +8,7 @@
         :key="tag"
         text
         :to="localePath(`/notes?category=${tag.trim()}`)"
-        class="tag"
+        class="tag mr-2 mb-2"
         >#{{ tag.trim() }}</v-btn
       >
     </v-card-text>
@@ -28,25 +28,11 @@ export default {
 
 <style lang="scss" scoped>
 .tags {
-  display: flex;
-  flex-wrap: wrap;
-
-  h5 {
-    font-weight: 700;
-    line-height: 1.618;
-    color: #35404e;
-    margin: 0;
-  }
-
   a {
     background-color: #eee;
     color: #515c6a;
-    padding: 5px 10px;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    border-radius: 5px;
     text-transform: uppercase;
-    transition: all 1s;
+    transition: all 0.5s;
 
     &:hover {
       background-color: $primary-color;
