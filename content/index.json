@@ -83,7 +83,25 @@
       ]
     }
   ],
-  "knowledges": ["JavaScript", "TypeScript", "Node.js", "Express.js", "NestJs", "Vue.js", "Nuxt.js", "Flutter", "GraphQL", "MongoDB", "Elasticsearch", "Docker", "AWS", "Heroku", "Git", "NPM", "Visual Studio Code"],
+  "knowledges": [
+    "JavaScript",
+    "TypeScript",
+    "Node.js",
+    "Express.js",
+    "NestJs",
+    "Vue.js",
+    "Nuxt.js",
+    "Flutter",
+    "GraphQL",
+    "MongoDB",
+    "Elasticsearch",
+    "Docker",
+    "AWS",
+    "Heroku",
+    "Git",
+    "NPM",
+    "Visual Studio Code"
+  ],
   "works": [
     {
       "title": "Flutter calculator",
