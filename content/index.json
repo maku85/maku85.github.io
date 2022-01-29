@@ -17,55 +17,50 @@
     {
       "title": "Bachelor degree in computer engineering",
       "endDate": "2013",
+      "location": "Politecnico di Milano",
       "description": ""
     },
     {
       "title": "Degree in surveyor",
       "endDate": "2004",
+      "location": "ITG Malafarina",
       "description": ""
     }
   ],
   "experiences": [
     {
-      "title": "NodeJS developer",
+      "title": "Node.js back-end developer",
       "startDate": "01-2019",
       "company": "Artshell srl",
-      "description": ""
+      "description": "Artshell is a software for the complete management of collections of works of art, designed for gallery owners, collectors and artists.<br /><br />As a back-end developer I take care of the maintenance, design and implementation of the new API functionalities of the application and of the releases on the cloud platform.<br /><br /><strong>Technologies and tools used:</strong> NodeJS, Express, GraphQL, Elasticsearch, AWS Visual Studio Code, Git, npm, Docker."
     },
     {
-      "title": "NodeJS developer",
+      "title": "Node.js back-end developer",
       "startDate": "08-2018",
       "endDate": "12-2018",
       "company": "LinkMe srl",
-      "description": ""
+      "description": "echnologies and tools used: NodeJS, Express, GraphQL, Elasticsearch, AWS Visual Studio Code, Git, npm, Docker."
     },
     {
       "title": "Full-stack developer",
       "startDate": "04-2017",
       "endDate": "07-2018",
       "company": "SAEP ICT engineering srl",
-      "description": ""
+      "description": "SAEP ICT Engineering is a consulting and development company for WEB, Mobile and IoT applications.<br /><br />As a full-stack developer I have participated in several projects:<ul><li>web + mobile application: Symfony + MySQL + Apache CouchDB + Android</li><li>mobile application: Android</li><li>web application: Spring Boot REST + MySQL + Redis</li><li>web application: Spring Boot REST + Vaadin + PostgreSQL + Elasticsearch</li><li>web application: Django + PostgreSQL + CouchBase</li></ul><br/><strong>Other technologies and tools used:</strong> IntelliJ IDEA, Android Studio, Git, Docker, Amazon AWS, Jenkins, Visual Studio Code, Pycharm."
     },
     {
-      "title": "Full-stack developer",
-      "startDate": "04-2016",
-      "endDate": "03-2017",
-      "company": "Open Style srl",
-      "description": ""
-    },
-    {
-      "title": "Java developer",
+      "title": "Java EE developer",
       "startDate": "11-2014",
       "endDate": "03-2016",
       "company": "Reply spa",
-      "description": ""
+      "description": "Reply is a consulting company specializing in the design, implementation and maintenance of Internet and social network based solutions.<br /><br />As a Java programmer I dealt with the development of the evolution and the maintenance of a back office portal in the banking sector, both front-end and back-end side, the maintenance of ETLs for loading flows and the Web Service used for interaction with other suppliers.<br /><br /><strong>Technologies and tools used:</strong> Java EE, EJB3, JSF, XHTML, CSS, SQL (Oracle), SVN."
     },
     {
-      "title": "Java developer",
+      "title": "Java EE/COBOL developer",
       "startDate": "07-2012",
       "endDate": "11-2014",
       "company": "Sydema srl",
-      "description": ""
+      "description": "Sydema is a software house of IT products able to support the business of the banking sector.<br /><br />As a Java developer I have been involved in the development of the evolution and maintenance of the software for credit management installed at the customer.<br /><br /><strong>Technologies and tools used:</strong> Java EE, JSP, AJAX, Javascript, HTML, CSS, SQL (DB2), COBOL, Tomcat, SVN."
     }
   ],
   "expertises": [
@@ -88,6 +83,7 @@
       ]
     }
   ],
+  "knowledges": ["JavaScript", "TypeScript", "Node.js", "Express.js", "NestJs", "Vue.js", "Nuxt.js", "Flutter", "GraphQL", "MongoDB", "Elasticsearch", "Docker", "AWS", "Heroku", "Git", "NPM", "Visual Studio Code"],
   "works": [
     {
       "title": "Flutter calculator",

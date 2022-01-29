@@ -1,90 +1,129 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <v-container id="resume" class="about-page section section-resume">
     <v-row>
-      <v-col>
-        <v-card class="card">
-          <v-card-title>
-            {{ $t('My skills') }}
-          </v-card-title>
-          <v-card-text>
-            <v-row>
-              <v-col v-for="expertise of expertises" :key="expertise.id" cols="12" xs="12" sm="6">
-                <div class="resume-panel">
-                  <div v-for="skill of expertise.skills" :key="skill.id" class="mb-2 p-2">
-                    <h6>{{ skill.title }}</h6>
-
-                    <div class="progress mt-2">
-                      <v-progress-linear :value="skill.value"></v-progress-linear>
-                    </div>
-                  </div>
-                </div>
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-
-    <v-row>
-      <v-col cols="12" xs="12" sm="6">
-        <v-card class="card">
-          <v-card-title>
-            {{ $t('Experiences') }}
-          </v-card-title>
-          <v-card-text>
-            <v-list-item
-              v-for="experience of experiences"
-              :key="experience.id"
-              three-line
-              class="resume-box"
-            >
-              <v-list-item-icon>
-                <v-icon>mdi-briefcase</v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title>{{ experience.title }}</v-list-item-title>
-                <v-list-item-subtitle>
-                  {{ experience.company }}
-                </v-list-item-subtitle>
-                <v-list-item-subtitle>
-                  <small class="time"
-                    >{{ experience.startDate ? experience.startDate + ' - ' : '' }}
-                    {{ experience.endDate || 'Present' }}</small
+      <v-col cols="12" sm="12" md="6">
+        <v-row>
+          <v-col>
+            <v-card>
+              <v-card-title>
+                <div class="headline font-weight-bold mb-3">{{ $t('Experiences') }}</div>
+              </v-card-title>
+              <v-card-text>
+                <v-timeline dense align-top>
+                  <v-timeline-item
+                    v-for="(experience, i) in experiences"
+                    :key="i"
+                    small
+                    right
+                    color="red darken-3"
                   >
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card-text>
-        </v-card>
+                    <div class="title font-weight-bold">{{ experience.title }}</div>
+                    <span class="subtitle-1 font-weight-bold">
+                      <small class="time"
+                        >{{ experience.startDate ? experience.startDate + ' - ' : '' }}
+                        {{ experience.endDate || 'Present' }}</small
+                      >
+                      - <span class="text-caption mb-2">{{ experience.company }}</span>
+                    </span>
+                    <div class="" v-html="experience.description"></div>
+                  </v-timeline-item>
+                </v-timeline>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <v-card>
+              <v-card-title>
+                <div class="headline font-weight-bold mb-3">{{ $t('Education') }}</div>
+              </v-card-title>
+              <v-card-text>
+                <v-timeline dense align-top>
+                  <v-timeline-item
+                    v-for="(education, i) in educations"
+                    :key="i"
+                    color="red darken-3"
+                    small
+                    right
+                  >
+                    <div class="h2 font-weight-bold">{{ education.title }}</div>
+                    <span class="subtitle-1 font-weight-bold">
+                      <small class="time"
+                        >{{ education.startDate ? education.startDate + ' - ' : '' }}
+                        {{ education.endDate || 'Present' }}</small
+                      >
+                      - <span class="text-caption mb-2">{{ education.location }}</span>
+                    </span>
+                  </v-timeline-item>
+                </v-timeline>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-col>
 
-      <v-col cols="12" xs="12" sm="6">
-        <v-card class="card">
-          <v-card-title>
-            {{ $t('Education') }}
-          </v-card-title>
-          <v-card-text>
-            <v-list-item
-              v-for="education of educations"
-              :key="education.id"
-              two-line
-              class="resume-box"
-            >
-              <v-list-item-icon>
-                <v-icon>mdi-school</v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title>{{ education.title }}</v-list-item-title>
-                <v-list-item-subtitle>
-                  <small class="time">
-                    {{ education.startDate ? education.startDate + ' - ' : '' }}
-                    {{ education.endDate }}
-                  </small>
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card-text>
-        </v-card>
+      <v-col cols="12" sm="12" md="6">
+        <v-row>
+          <v-col>
+            <v-card>
+              <v-card-title>
+                <div class="headline font-weight-bold mb-3">{{ $t('Skills') }}</div>
+              </v-card-title>
+
+              <v-card-text>
+                <v-row>
+                  <v-col cols="12" xs="12" sm="6" md="12">
+                    <div v-for="(skill, index) of expertises[0].skills" :key="index">
+                      <div class="subtitle">{{ skill.title }}</div>
+
+                      <v-progress-linear color="red darken-3" height="5" :value="skill.value">
+                      </v-progress-linear>
+                    </div>
+                  </v-col>
+                  <v-col cols="12" xs="12" sm="6" md="12">
+                    <div
+                      v-for="(skill, index) of expertises[1].skills"
+                      :key="index"
+                      class="resume-panel"
+                    >
+                      <div class="subtitle">{{ skill.title }}</div>
+
+                      <v-progress-linear color="red darken-3" height="5" :value="skill.value">
+                      </v-progress-linear>
+                    </div>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <v-card>
+              <v-card-title>
+                <div class="headline font-weight-bold mb-3">{{ $t('Knowledges') }}</div>
+              </v-card-title>
+              <v-card-text>
+                <v-row>
+                  <v-col>
+                    <v-chip
+                      v-for="(knowledge, index) of knowledges"
+                      :key="index"
+                      class="ml-1 mb-1"
+                      label
+                    >
+                      {{ knowledge }}
+                    </v-chip>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
@@ -94,8 +133,8 @@
 export default {
   name: 'AboutPage',
   async asyncData({ $content }) {
-    const { educations, experiences, expertises } = await $content('index').fetch();
-    return { educations, experiences, expertises };
+    const { educations, experiences, expertises, knowledges } = await $content('index').fetch();
+    return { educations, experiences, expertises, knowledges };
   },
   head() {
     return {
@@ -109,48 +148,14 @@ export default {
 .about-page {
   margin-top: 40px;
 
-  .resume-box {
-    position: relative;
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 20px;
-      left: 25px;
-      border-left: 1px solid #ddd;
-    }
-
-    .v-icon {
-      font-size: 18px;
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      left: 10px;
-      z-index: 1;
-      border-radius: 20%;
-      color: #fff;
-      background-color: var(--primary-color);
-    }
-
-    .time {
-      color: #ffffff;
-      padding: 6px 8px;
-      margin-bottom: 20px;
-      border-radius: 10%;
-      font-size: 11px;
-      background-color: var(--primary-color);
-      opacity: 0.8;
-    }
-
-    .resume-box-content {
-      padding: 0 20px 30px 60px;
-
-      .place {
-        opacity: 0.6;
-        font-weight: 100;
-        position: relative;
-      }
-    }
+  .time {
+    color: #ffffff;
+    padding: 4px 8px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 11px;
+    background-color: var(--primary-color);
+    opacity: 0.8;
   }
 }
 </style>
