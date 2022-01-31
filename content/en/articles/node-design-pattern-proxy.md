@@ -2,7 +2,10 @@
 title: Structural Design Pattern - Proxy
 description: The proxy is a structural design pattern that allows you to provide a substitute in place of another object, acting as a filter and offering the possibility to perform operations before or after the request arrives at the original object.
 img: /articles/images/design-pattern-proxy.webp
-tags: javascript, design-pattern, structural-pattern
+tags:
+  - javascript
+  - design-pattern
+  - structural-pattern
 published: true
 ---
 

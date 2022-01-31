@@ -2,7 +2,10 @@
 title: Structural Pattern Design - Adapter
 description: Structural design pattern that allows collaboration between objects with incompatible interfaces.
 img: /articles/images/design-pattern-adapter.webp
-tags: javascript, design-pattern, structural-patterns
+tags:
+  - javascript
+  - design-pattern
+  - structural-patterns
 published: true
 ---
 

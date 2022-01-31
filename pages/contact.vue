@@ -6,22 +6,7 @@
       </p>
 
       <div class="text-center">
-        <v-btn
-          v-for="social of socials"
-          :key="social.id"
-          icon
-          fab
-          small
-          :href="social.link"
-          rel="noreferrer"
-          class="mr-1"
-          target="_blank"
-          :aria-label="social.type"
-        >
-          <v-icon class="social-icon" :class="{ ['social-' + social.type]: true }"
-            >mdi-{{ social.type }}</v-icon
-          >
-        </v-btn>
+        <social-links :links="socials"> </social-links>
       </div>
 
       <div class="contact-wrapper mt-5">
@@ -31,7 +16,6 @@
             v-model="valid"
             method="post"
             action="https://api.staticforms.xyz/submit"
-            lazy-validation
           >
             <v-row class="px-4 py-2">
               <v-col cols="12" sm="6" md="7">
@@ -109,16 +93,16 @@ export default {
     return await $content('index').fetch();
   },
   data: () => ({
-    valid: false,
+    valid: true,
     name: '',
-    nameRules: [(v) => !!v || 'Name is required'],
+    nameRules: [(v) => (v && v.length) || 'Name is required'],
     email: '',
     emailRules: [
-      (v) => !!v || 'E-mail is required',
+      (v) => (v && v.length) || 'E-mail is required',
       (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
     message: '',
-    messageRules: [(v) => !!v || 'Message is required'],
+    messageRules: [(v) => (v && v.length) || 'Message is required'],
   }),
   head() {
     return {

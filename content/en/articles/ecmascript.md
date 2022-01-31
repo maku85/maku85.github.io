@@ -2,7 +2,10 @@
 title: ECMAScript
 description: List of new features introduced with the various editions of the JavaScript standard.
 img: /articles/images/ecmascript.webp
-tags: JavaScript, ECMAScript
+credits: Photo by <a href="https://unsplash.com/photos/cvBBO4PzWPg" target="_blank">Markus Spiske</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+tags:
+  - javascript
+  - ECMAScript
 published: true
 ---
 

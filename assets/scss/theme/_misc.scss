@@ -70,46 +70,11 @@ input[type='file'] > input[type='button']::-moz-focus-inner {
   color: $social-codepen !important;
 }
 
-.nuxt-content {
-  h1 {
-    margin: 13px 0 20px;
-  }
-
-  h3 {
-    margin-top: 1.5em;
-    margin-bottom: 0.8em;
-  }
-
-  img {
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-
-  strong {
-    font-weight: bold;
-  }
-
-  ul {
-    margin-left: 1em;
-  }
-
-  blockquote {
-    background: #f9f9f9;
-    border-left: 10px solid #ccc;
-    margin: 1.5em 10px;
-    padding: 1em 10px;
-    quotes: '\201C''\201D''\2018''\2019';
-
-    p {
-      margin: 0;
-    }
-  }
-
-  .nuxt-content-highlight {
-    margin-bottom: 2em;
-  }
-}
-
 .primary-color {
   color: var(--primary-color);
+}
+
+.section {
+  margin-top: 50px;
+  margin-bottom: 30px;
 }

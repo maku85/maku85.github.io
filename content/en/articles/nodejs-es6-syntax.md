@@ -2,7 +2,9 @@
 title: How to enable ES6 syntax with Node.js
 description: The latest features introduced to JavaScript in ES2019.
 img: https://images.unsplash.com/photo-1577563682708-4f022ec774fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1267&q=80
-tags: nodejs, ECMAScript
+tags:
+  - nodejs
+  - ECMAScript
 published: false
 ---
 

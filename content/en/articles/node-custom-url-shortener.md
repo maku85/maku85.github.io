@@ -2,7 +2,11 @@
 title: URL shortener with Node.js, Express and MongoDB
 description: Given the large amount of links that are disseminated on the net, there is often the need to generate much shorter links and this is where URL shorteners come into play.
 img: /articles/images/node-custom-url-shortener.webp
-tags: javascript, Node.js, Express, MongoDB
+tags:
+  - javascript
+  - nodejs
+  - express
+  - mongoDB
 published: true
 ---
 

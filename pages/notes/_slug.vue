@@ -1,30 +1,34 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
-  <v-container class="blog-detail">
-    <v-row>
-      <v-col class="mt-3 text-center">
-        <h1>{{ article.title }}</h1>
-      </v-col>
-    </v-row>
-
+  <v-container class="section">
     <v-row>
       <v-col cols="12" sm="12" md="8">
         <v-card class="mb-4">
           <v-img
+            class="article-image-container"
             :lazy-src="article.img || 'https://source.unsplash.com/random'"
             :src="article.img || 'https://source.unsplash.com/random'"
-          ></v-img>
+          >
+            <div class="image-overlay">
+              <div class="d-flex flex-column article-image-caption white--text px-6 py-4">
+                <v-spacer></v-spacer>
+                <div class="article-title display-1 pb-4">{{ article.title }}</div>
+                <p class="article-preview">{{ article.description }}</p>
+              </div>
+            </div>
+          </v-img>
+          <div
+            v-if="article.credits"
+            class="text-center caption pt-2 text--secondary"
+            v-html="article.credits"
+          ></div>
 
-          <v-card-text class="post-content">
-            <p>{{ article.description }}</p>
+          <v-card-text class="article-content">
             <nuxt-content :document="article" />
 
-            <div class="post-footer d-flex flex-wrap">
-              <div class="date flex-grow-1 mt-2">
-                <strong>{{ $t('Last update') }}:</strong>
-                {{ formatDate(article.updatedAt) }}
-              </div>
-
-              <!-- <BlogShareLinks class="mt-2" :article="article" /> -->
+            <div class="article-footer text-center">
+              <strong>{{ $t('Last update') }}:</strong>
+              {{ formatDate(article.updatedAt) }}
             </div>
           </v-card-text>
         </v-card>
@@ -79,16 +83,34 @@ export default {
           name: 'description',
           content: article.description,
         },
+        // Open Graph
         { hid: 'og:title', property: 'og:title', content: article.title },
+        { hid: 'og:type', property: 'og:type', content: 'article' },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://www.maurocunsolo.com' + article.img,
+        },
         {
           hid: 'og:description',
           property: 'og:description',
           content: article.description,
         },
+        // Twitter Card
         {
           hid: 'twitter:title',
           name: 'twitter:title',
           content: article.title,
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: 'https://www.maurocunsolo.com' + article.img,
         },
         {
           hid: 'twitter:description',
@@ -106,18 +128,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.blog-detail {
-  margin-top: 50px;
-  margin-bottom: 30px;
-
-  p {
-    font-size: 16px;
-  }
-
-  .post-content {
-    color: var(--font-color);
-  }
-}
-</style>

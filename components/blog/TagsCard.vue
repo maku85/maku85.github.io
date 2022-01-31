@@ -1,14 +1,14 @@
 <template>
   <v-card>
     <v-card-title> Tags </v-card-title>
-
-    <v-card-text class="tags">
+    <v-card-text class="tags mt-2">
       <v-btn
-        v-for="tag of tags.split(',')"
+        v-for="tag of tags"
         :key="tag"
         text
         :to="localePath(`/notes?category=${tag.trim()}`)"
         class="tag mr-2 mb-2"
+        small
         :aria-label="tag"
         >#{{ tag.trim() }}</v-btn
       >

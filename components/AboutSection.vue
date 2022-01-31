@@ -9,22 +9,7 @@
           </v-card-text>
 
           <v-card-actions class="card-actions justify-center text-center">
-            <v-btn
-              v-for="social of socials"
-              :key="social.id"
-              icon
-              fab
-              small
-              :href="social.link"
-              rel="noreferrer"
-              class="mr-1"
-              target="_blank"
-              :aria-label="social.type"
-            >
-              <v-icon class="social-icon" :class="{ ['social-' + social.type]: true }"
-                >mdi-{{ social.type }}</v-icon
-              >
-            </v-btn>
+            <social-links :links="socials"> </social-links>
           </v-card-actions>
         </v-card>
 
@@ -33,21 +18,7 @@
             <h1>{{ $t('about-title') }} <b class="primary-color">Mauro</b>!</h1>
             <p class="mt-4 font-weight-light" v-html="$t('about-description')"></p>
             <div class="justify-center text-center d-flex d-md-none">
-              <v-btn
-                v-for="social of socials"
-                :key="social.id"
-                icon
-                fab
-                small
-                :href="social.link"
-                class="mr-1"
-                target="_blank"
-                :aria-label="social.type"
-              >
-                <v-icon class="social-icon" :class="{ ['social-' + social.type]: true }"
-                  >mdi-{{ social.type }}</v-icon
-                >
-              </v-btn>
+              <social-links :links="socials"> </social-links>
             </div>
           </div>
         </div>

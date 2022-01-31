@@ -2,7 +2,8 @@
 title: Solidity
 description: Solidity is an object-oriented, high-level language for implementing smart contracts. Influenced by C++, Python and JavaScript, is a curly-bracket language and is designed to target the Ethereum Virtual Machine (EVM).
 img: /articles/images/solidity.webp
-tags: Solidity
+tags:
+  - solidity
 published: false
 ---
 

@@ -31,6 +31,7 @@
         </v-btn>
       </v-toolbar-items>
 
+      <!--
       <v-btn
         v-for="locale in oppositeLocales"
         :key="locale"
@@ -40,6 +41,7 @@
         :aria-label="locale"
         >{{ locale }}</v-btn
       >
+      -->
     </v-app-bar>
 
     <app-sidebar />

@@ -75,7 +75,7 @@ export default {
 
   i18n: {
     locales: ['en', 'it'],
-    defaultLocale: 'it',
+    defaultLocale: 'en',
     vueI18n: {
       fallbackLocale: 'en',
       detectBrowserLanguage: {
