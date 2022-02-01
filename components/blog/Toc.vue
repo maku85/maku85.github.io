@@ -32,8 +32,8 @@ export default {
   name: 'TocComponent',
   props: {
     links: {
-      type: [Object],
-      default: () => {},
+      type: Array,
+      default: () => [],
     },
   },
   data() {

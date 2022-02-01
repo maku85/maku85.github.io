@@ -20,8 +20,8 @@
 export default {
   props: {
     tags: {
-      type: [String],
-      default: () => '',
+      type: Array,
+      default: () => [],
     },
   },
 };

@@ -3,16 +3,16 @@
     <v-app-bar flat fixed class="navbar">
       <span class="d-md-none">
         <v-app-bar-nav-icon
-          :aria-label="Menu"
+          aria-label="Menu"
           @click="$store.dispatch('nav/toggleSidebar')"
         ></v-app-bar-nav-icon>
       </span>
 
-      <router-link :to="localePath('/')" tag="span" style="cursor: pointer">
-        <v-toolbar-title class="navbar-title">
+      <v-toolbar-title class="navbar-title" tag="span">
+        <router-link :to="localePath('/')" custom>
           <strong><span>Mauro</span> Cunsolo</strong>
-        </v-toolbar-title>
-      </router-link>
+        </router-link>
+      </v-toolbar-title>
 
       <!-- <theme-switch /> -->
 
@@ -94,8 +94,11 @@ export default {
   }
 
   .navbar-title {
-    font-weight: 600;
-    color: var(--primary-color);
+    a {
+      font-weight: 600;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
 
     span {
       color: $font-color;
