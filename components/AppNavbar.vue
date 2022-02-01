@@ -68,7 +68,7 @@ export default {
   mounted() {
     this.$nextTick(function () {
       window.addEventListener('scroll', function () {
-        const navbar = document.getElementById('nav');
+        const navbar = document.getElementById('navbar');
         const navClasses = navbar.classList;
         if (document.documentElement.scrollTop >= 100) {
           if (!navClasses.contains('navbar-w-shadow')) {
