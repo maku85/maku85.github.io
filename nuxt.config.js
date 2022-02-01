@@ -23,7 +23,6 @@ export default {
       src: '~/plugins/vue-google-analytics',
       mode: 'client',
     },
-    { src: '~/plugins/vue-resize-text.js', ssr: false },
   ],
 
   components: true,
@@ -54,9 +53,8 @@ export default {
    */
   modules: [
     'nuxt-i18n',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     '@nuxt/content',
-    'nuxt-fontawesome',
     'vue-social-sharing/nuxt',
   ],
 

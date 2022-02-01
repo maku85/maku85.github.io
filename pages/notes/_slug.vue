@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-  <v-container class="section">
+  <v-container id="article-details" class="section">
     <v-row>
       <v-col cols="12" sm="12" md="8">
         <v-card class="mb-4">
@@ -129,105 +129,103 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.article-image-container {
-  position: relative;
+<style lang="scss" scoped>
+#article-details {
+  .article-image-container {
+    position: relative;
 
-  .image-overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 29%,
-      rgba(0, 0, 0, 0.55) 100%
-    );
+    .image-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 29%,
+        rgba(0, 0, 0, 0.55) 100%
+      );
 
-    .article-image-caption {
-      height: 100%;
+      .article-image-caption {
+        height: 100%;
+      }
     }
   }
-}
 
-.article-content {
-  color: $font-color;
-}
+  .article-content {
+    color: $font-color;
 
-.nuxt-content-container {
-  overflow: hidden;
+    ::v-deep .nuxt-content {
+      h1 {
+        margin-top: -1.5rem;
+        margin-bottom: 1rem;
+      }
 
-  .nuxt-content {
-    h1 {
-      margin-top: -1.5rem;
-      margin-bottom: 1rem;
-    }
+      h2 {
+        padding-bottom: 0.3rem;
+        margin-top: -3.5rem;
+        padding-top: 5rem;
+      }
 
-    h2 {
-      padding-bottom: 0.3rem;
-      margin-top: -3.5rem;
-      padding-top: 5rem;
-    }
+      h3 {
+        margin-top: -3.5rem;
+        padding-top: 5rem;
+        margin-bottom: 0;
+      }
 
-    h3 {
-      margin-top: -3.5rem;
-      padding-top: 5rem;
-      margin-bottom: 0;
-    }
+      h4 {
+        margin-top: -3.5rem;
+        padding-top: 5rem;
+        margin-bottom: 0;
+      }
 
-    h4 {
-      margin-top: -3.5rem;
-      padding-top: 5rem;
-      margin-bottom: 0;
-    }
-
-    h5 {
-      margin-top: -3.5rem;
-      padding-top: 5rem;
-      margin-bottom: 0;
-    }
-
-    p {
-      margin-top: 1em;
-      margin-bottom: 1em;
-      font-size: $font-size;
-    }
-
-    ul {
-      list-style: disc !important;
-    }
-
-    img {
-      border-radius: 5px;
-      margin-bottom: 20px;
-    }
-
-    strong {
-      font-weight: bold;
-    }
-
-    blockquote {
-      background: #f9f9f9;
-      border-left: 10px solid #ccc;
-      margin: 1.5em 10px;
-      padding: 1em 10px;
-      quotes: '\201C''\201D''\2018''\2019';
+      h5 {
+        margin-top: -3.5rem;
+        padding-top: 5rem;
+        margin-bottom: 0;
+      }
 
       p {
-        margin: 0;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: $font-size;
+      }
+
+      ul {
+        list-style: disc !important;
+      }
+
+      img {
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      strong {
+        font-weight: bold;
+      }
+
+      blockquote {
+        background: #f9f9f9;
+        border-left: 10px solid #ccc;
+        margin: 1.5em 10px;
+        padding: 1em 10px;
+        quotes: '\201C''\201D''\2018''\2019';
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .nuxt-content-highlight {
+        margin-bottom: 2em;
+        margin-top: 2em;
       }
     }
 
-    .nuxt-content-highlight {
-      margin-bottom: 2em;
-      margin-top: 2em;
+    .article-footer {
+      opacity: 0.8;
     }
   }
-}
-
-.article-footer {
-  opacity: 0.8;
 }
 </style>
