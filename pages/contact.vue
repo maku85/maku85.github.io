@@ -1,15 +1,16 @@
 <template>
-  <v-container id="contact" class="contact-page section section-contact">
-    <div>
-      <p class="text-center">
-        {{ $t('contact-description') }}
-      </p>
+  <v-container id="contact" class="section">
+    <v-row>
+      <v-col>
+        <p class="text-center">{{ $t('contact-description') }}</p>
+        <div class="text-center">
+          <social-links :links="socials"> </social-links>
+        </div>
+      </v-col>
+    </v-row>
 
-      <div class="text-center">
-        <social-links :links="socials"> </social-links>
-      </div>
-
-      <div class="contact-wrapper mt-5">
+    <v-row>
+      <v-col class="contact-wrapper">
         <v-card class="contact-content">
           <v-form
             ref="form"
@@ -81,8 +82,8 @@
             <input type="hidden" name="redirectTo" :value="`${hostname}${$nuxt.$route.path}`" />
           </v-form>
         </v-card>
-      </div>
-    </div>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -123,15 +124,15 @@ export default {
 </script>
 
 <style lang="scss">
-.contact-page {
-  margin-top: 40px;
-
+#contact {
   .contact-wrapper {
     background-image: url('/robot.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
 
     .v-text-field {
       input {

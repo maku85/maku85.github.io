@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fill-height>
     <about-section :socials="socials" />
 
     <blog-section :articles="articles" />

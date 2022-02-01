@@ -13,7 +13,7 @@
               <div class="d-flex flex-column article-image-caption white--text px-6 py-4">
                 <v-spacer></v-spacer>
                 <div class="article-title display-1 pb-4">{{ article.title }}</div>
-                <p class="article-preview">{{ article.description }}</p>
+                <p class="article-preview headline">{{ article.description }}</p>
               </div>
             </div>
           </v-img>
@@ -155,6 +155,10 @@ export default {
 
   .article-content {
     color: $font-color;
+
+    .nuxt-content-container {
+      overflow: hidden;
+    }
 
     ::v-deep .nuxt-content {
       h1 {

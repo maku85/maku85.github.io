@@ -1,5 +1,5 @@
 <template>
-  <div id="navbar">
+  <div id="nav">
     <v-app-bar flat fixed class="navbar">
       <span class="d-md-none">
         <v-app-bar-nav-icon
@@ -68,31 +68,15 @@ export default {
       return this.$i18n.locales.filter((locale) => locale !== this.$i18n.locale);
     },
   },
-  mounted() {
-    this.$nextTick(function () {
-      window.addEventListener('scroll', function () {
-        const navbar = document.getElementById('navbar');
-        const navClasses = navbar.classList;
-        if (document.documentElement.scrollTop >= 100) {
-          if (!navClasses.contains('navbar-w-shadow')) {
-            navClasses.add('navbar-w-shadow');
-          }
-        } else if (navClasses.contains('navbar-w-shadow')) {
-          navClasses.remove('navbar-w-shadow');
-        }
-      });
-    });
-  },
 };
 </script>
 
 <style lang="scss" scoped>
-.navbar {
+#nav {
   transition: all 0.4s;
   background-color: var(--bg) !important;
 
-  &.navbar-w-shadow {
-    opacity: 0.8;
+  .v-app-bar--is-scrolled {
     box-shadow: $shadow !important;
   }
 

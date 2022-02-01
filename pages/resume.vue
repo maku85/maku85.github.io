@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-  <v-container id="resume" class="about-page section section-resume">
+  <v-container id="resume" class="section">
     <v-row>
       <v-col cols="12" sm="12" md="6">
         <v-row>
@@ -145,9 +145,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about-page {
-  margin-top: 40px;
-
+#resume {
   .time {
     color: #ffffff;
     padding: 4px 8px;

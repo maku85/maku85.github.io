@@ -2,7 +2,7 @@
   <v-app>
     <app-navbar />
 
-    <v-container>
+    <v-container fill-height>
       <v-main class="main-container">
         <Nuxt />
       </v-main>

@@ -1,5 +1,5 @@
 <template>
-  <v-container id="works" class="works-page section section-work">
+  <v-container id="works" class="section">
     <v-row>
       <v-col v-for="work of works" :key="work.id" cols="12" sm="6" md="4">
         <v-card :href="work.url" target="_blank">
@@ -30,9 +30,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.works-page {
-  margin-top: 40px;
-}
-</style>
