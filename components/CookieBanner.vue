@@ -31,7 +31,7 @@ export default {
     message: {
       type: String,
       default:
-        'This site use 🍪 (cookies) to offer a better browsing experience and analyze site traffic.',
+        'This site use cookies to offer a better browsing experience and analyze site traffic.',
     },
   },
   data() {
@@ -74,9 +74,14 @@ export default {
   max-width: 300px;
   position: fixed !important;
   bottom: 0;
+  z-index: 9;
 
   .banner-text {
     white-space: initial;
+
+    a {
+      text-decoration: none;
+    }
   }
 }
 </style>

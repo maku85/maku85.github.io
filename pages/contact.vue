@@ -95,14 +95,14 @@ export default {
   data: () => ({
     valid: true,
     name: '',
-    nameRules: [(v) => (v && v.length) || 'Name is required'],
+    nameRules: [(v) => (v && v.length > 0) || 'Name is required'],
     email: '',
     emailRules: [
-      (v) => (v && v.length) || 'E-mail is required',
+      (v) => (v && v.length > 0) || 'E-mail is required',
       (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
     message: '',
-    messageRules: [(v) => (v && v.length) || 'Message is required'],
+    messageRules: [(v) => (v && v.length > 0) || 'Message is required'],
   }),
   head() {
     return {
@@ -133,16 +133,33 @@ export default {
     background-repeat: no-repeat;
     padding: 30px;
 
-    input {
-      border: none;
-      border-bottom: 3px dotted #eee;
+    .v-text-field {
+      input {
+        border: none;
+        border-bottom: 3px dotted #eee;
+      }
+
+      .v-input__slot::after,
+      .v-input__slot::before {
+        border: none;
+      }
     }
-    textarea {
-      border: none;
-      border-right: 4px solid #eee;
-      border-radius: 2px;
-      border: 3px dotted #eee;
-      resize: none;
+
+    .v-textarea {
+      .v-label {
+        padding: 20px;
+      }
+      textarea {
+        border-radius: 4px;
+        border: 3px dashed #eee;
+        resize: none;
+        padding: 20px;
+      }
+
+      .v-input__slot::after,
+      .v-input__slot::before {
+        border: none;
+      }
     }
     .btn {
       float: right;

@@ -19,16 +19,19 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items class="d-none d-md-flex">
-        <v-btn
-          v-for="item in menuItems"
-          :key="item.title"
-          plain
-          :to="localePath(item.path)"
-          class="nav-item"
-          :aria-label="item.title"
-        >
-          {{ item.title }}
-        </v-btn>
+        <div class="d-flex align-center">
+          <v-btn
+            v-for="item in menuItems"
+            :key="item.title"
+            plain
+            :to="localePath(item.path)"
+            class="nav-item py-6"
+            :aria-label="item.title"
+            small
+          >
+            {{ item.title }}
+          </v-btn>
+        </div>
       </v-toolbar-items>
 
       <!--
