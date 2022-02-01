@@ -1,5 +1,5 @@
 <template>
-  <v-container id="blog" class="section section-blog">
+  <v-container id="blog" class="section">
     <div class="section-blog__title">{{ $t('Latest notes') }}</div>
 
     <div v-if="articles.length === 0" class="mt-4">
@@ -28,25 +28,29 @@ export default {
 </script>
 
 <style lang="scss">
-.section-blog__title {
-  color: var(--title-color);
+#blog {
+  max-width: 1200px;
 
-  &:after {
-    content: '';
-    width: 120px;
-    height: 1px;
-    background: var(--primary-color);
-    display: block;
-    margin-top: 8px;
+  .section-blog__title {
+    color: var(--title-color);
+
+    &:after {
+      content: '';
+      width: 120px;
+      height: 1px;
+      background: var(--primary-color);
+      display: block;
+      margin-top: 8px;
+    }
   }
-}
 
-.post-content {
-  width: 100%;
-}
+  .post-content {
+    width: 100%;
+  }
 
-.blog-btn {
-  background-color: var(--primary-color) !important;
-  color: #fff !important;
+  .blog-btn {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+  }
 }
 </style>

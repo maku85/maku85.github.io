@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-  <section id="about" class="section-about">
+  <section id="about" class="section">
     <div class="section-about-wrap">
       <div class="section-about-inner ma-xs-1 ma-md-8 align-items-center d-flex">
         <v-card sm="3" class="card d-none d-md-block">
@@ -36,11 +36,12 @@ export default {
 </script>
 
 <style lang="scss">
-.section-about {
+#about {
   padding-top: 60px;
   padding-bottom: 20px;
   max-width: 90%;
   margin: auto;
+  max-width: 1000px;
 
   .card-title {
     line-height: 1.2em;
