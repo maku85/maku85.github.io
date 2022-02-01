@@ -129,7 +129,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .article-image-container {
   position: relative;
 

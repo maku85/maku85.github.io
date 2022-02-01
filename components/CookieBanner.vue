@@ -7,10 +7,10 @@
 
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn text color="primary" aria-label="Accept" @click="accept">
+      <v-btn text color="red darken-3" aria-label="Accept" @click="accept">
         {{ buttonTextAccept }}
       </v-btn>
-      <v-btn text color="primary" aria-label="Deny" @click="deny">
+      <v-btn text color="red darken-3" aria-label="Deny" @click="deny">
         {{ buttonTextDeny }}
       </v-btn>
     </v-card-actions>
