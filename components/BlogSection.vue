@@ -13,8 +13,7 @@
 
       <div class="text-center">
         <v-btn class="blog-btn" :to="localePath('/notes')" aria-label="Notes">
-          {{ $t('Go to notes') }}
-          <v-icon>mdi-chevron-right</v-icon>
+          <span>{{ $t('Go to notes') }} <v-icon>mdi-chevron-right</v-icon></span>
         </v-btn>
       </div>
     </div>
@@ -49,8 +48,16 @@ export default {
   }
 
   .blog-btn {
-    background-color: var(--primary-color) !important;
+    background: var(--primary-color) !important;
     color: #fff !important;
+    transition: all 0.7s ease;
+
+    &:hover {
+      background: none !important;
+      background-color: transparent !important;
+      color: var(--primary-color) !important;
+      box-shadow: $shadow;
+    }
   }
 }
 </style>

@@ -52,6 +52,11 @@ export default {
   cursor: pointer;
   background-color: var(--primary-color);
   box-shadow: $shadow;
-  transition: 1s;
+  transition: all 0.5s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $hover-shadow;
+  }
 }
 </style>

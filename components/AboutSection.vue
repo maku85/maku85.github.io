@@ -69,6 +69,12 @@ export default {
       background-size: cover;
       background-position: 0px -10px;
       box-shadow: $shadow;
+      transition: all 0.5s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: $hover-shadow;
+      }
     }
   }
 

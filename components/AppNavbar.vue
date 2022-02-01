@@ -93,6 +93,7 @@ export default {
   }
 
   .nav-item {
+    &:hover,
     &.nav-item.v-btn--active {
       color: var(--primary-color);
       font-weight: 600;
