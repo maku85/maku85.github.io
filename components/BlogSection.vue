@@ -35,11 +35,11 @@ export default {
 
     &:after {
       content: '';
-      width: 120px;
-      height: 1px;
+      width: 100px;
+      height: 2px;
       background: var(--primary-color);
       display: block;
-      margin-top: 8px;
+      margin-top: 4px;
     }
   }
 

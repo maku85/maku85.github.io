@@ -7,7 +7,7 @@
         :key="tag"
         text
         :to="localePath(`/notes?category=${tag.trim()}`)"
-        class="tag mr-2 mb-2"
+        class="tag mr-1 mb-1"
         small
         :aria-label="tag"
         >#{{ tag.trim() }}</v-btn

@@ -19,7 +19,7 @@
             <v-chip
               v-for="tag of post.tags"
               :key="tag"
-              class="tag"
+              class="tag mb-1 mr-1"
               :to="localePath(`/notes?category=${tag.trim()}`)"
               label
             >
@@ -64,7 +64,6 @@ export default {
 
   .post-content {
     .tag {
-      margin-right: 10px;
       text-transform: uppercase;
     }
 

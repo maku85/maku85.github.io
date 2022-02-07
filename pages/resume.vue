@@ -26,7 +26,7 @@
                       >
                       - <span class="text-caption mb-2">{{ experience.company }}</span>
                     </span>
-                    <div class="" v-html="experience.description"></div>
+                    <div class="mt-2" v-html="experience.description"></div>
                   </v-timeline-item>
                 </v-timeline>
               </v-card-text>
@@ -79,7 +79,7 @@
                     <div v-for="(skill, index) of expertises[0].skills" :key="index">
                       <div class="subtitle">{{ skill.title }}</div>
 
-                      <v-progress-linear color="red darken-3" height="5" :value="skill.value">
+                      <v-progress-linear color="red darken-3" height="8" :value="skill.value">
                       </v-progress-linear>
                     </div>
                   </v-col>
@@ -91,7 +91,7 @@
                     >
                       <div class="subtitle">{{ skill.title }}</div>
 
-                      <v-progress-linear color="red darken-3" height="5" :value="skill.value">
+                      <v-progress-linear color="red darken-3" height="8" :value="skill.value">
                       </v-progress-linear>
                     </div>
                   </v-col>
@@ -155,5 +155,8 @@ export default {
     background-color: var(--primary-color);
     opacity: 0.8;
   }
+}
+.v-progress-linear {
+  border-radius: 8px;
 }
 </style>

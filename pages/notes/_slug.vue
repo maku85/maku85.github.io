@@ -12,8 +12,10 @@
             <div class="image-overlay">
               <div class="d-flex flex-column article-image-caption white--text px-6 py-4">
                 <v-spacer></v-spacer>
-                <div class="article-title display-1 pb-4">{{ article.title }}</div>
-                <p class="article-preview headline">{{ article.description }}</p>
+                <div class="article-title text-h6 text-sm-h4 pb-4">
+                  {{ article.title }}
+                </div>
+                <p class="article-preview text-subtitle-2">{{ article.description }}</p>
               </div>
             </div>
           </v-img>
@@ -161,39 +163,45 @@ export default {
     }
 
     ::v-deep .nuxt-content {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
       h1 {
-        margin-top: -1.5rem;
-        margin-bottom: 1rem;
+        font-size: calc(1.375rem + 1.5vw);
       }
 
       h2 {
-        padding-bottom: 0.3rem;
-        margin-top: -3.5rem;
-        padding-top: 5rem;
+        font-size: calc(1.325rem + 0.9vw);
       }
 
       h3 {
-        margin-top: -3.5rem;
-        padding-top: 5rem;
-        margin-bottom: 0;
+        font-size: calc(1.3rem + 0.6vw);
       }
 
       h4 {
-        margin-top: -3.5rem;
-        padding-top: 5rem;
-        margin-bottom: 0;
+        font-size: calc(1.275rem + 0.3vw);
       }
 
       h5 {
-        margin-top: -3.5rem;
-        padding-top: 5rem;
-        margin-bottom: 0;
+        font-size: 1.25rem;
+      }
+
+      h6 {
+        font-size: 1rem;
       }
 
       p {
-        margin-top: 1em;
-        margin-bottom: 1em;
-        font-size: $font-size;
+        margin-top: 0;
+        margin-bottom: 1rem;
       }
 
       ul {
