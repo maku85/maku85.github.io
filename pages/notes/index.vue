@@ -1,84 +1,125 @@
-<template>
-  <v-container id="notes" class="section">
-    <v-row>
-      <v-col>
-        <blog-search @searchResults="refreshData" />
-      </v-col>
-    </v-row>
+<script setup lang="ts">
+import { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
 
-    <v-row v-if="filter">
-      <v-col>
-        <span class="filter">
-          <v-chip label close @click:close="reset">{{ filter }}</v-chip>
-        </span>
-      </v-col>
-    </v-row>
+const route = useRoute();
+const category = route.query.category
 
-    <v-row v-if="!articles || articles.length === 0" class="text-center">
-      <v-col>{{ $t('no-notes') }}</v-col>
-    </v-row>
+let page = 0;
+const limit = 5;
+const query = { published: true };
+if (category) Object.assign(query, { tags: category })
+console.log({query})
+const total = (await queryContent('en/articles').only([]).where(query).find()).length
+const { data: articles, refresh } = await useAsyncData('posts', () =>
+  queryContent('en/articles').where(query).sort({date: -1}).skip(page).limit(limit).find())
 
-    <v-row v-if="articles && articles.length > 0" class="articles-container">
-      <v-col v-for="article of articles" :key="article.id" cols="12" xs="12" sm="6" md="4">
-        <BlogVPostPreview :post="article" />
-      </v-col>
-    </v-row>
-  </v-container>
-</template>
+const recentPosts: QueryBuilderParams = { path: '/en/articles', where: [query], limit: 15, sort: [{ date: -1 }] }
 
-<script>
-export default {
-  name: 'NotesPage',
-  data() {
-    return { filter: '', articles: [] };
-  },
-  fetch() {
-    const filters = {};
-    const query = this.$route.query;
-    if (query.category) {
-      Object.assign(filters, { tags: { $containsAny: [query.category] } });
-      this.filter = query.category;
-    }
-    this.retrieveData(filters);
-  },
+const { data: settings } = await useAsyncData('/', () => queryContent('/').findOne());
 
-  head() {
-    return {
-      title: 'Mauro Cunsolo | Notes',
-    };
-  },
-  methods: {
-    async retrieveData(filters) {
-      Object.assign(filters, { published: true });
-      this.articles = await this.$content(`${this.$i18n.locale}/articles`)
-        .only(['date', 'title', 'description', 'img', 'tags', 'slug'])
-        .where(filters)
-        .sortBy('createdAt', 'desc')
-        .fetch();
-    },
-    refreshData(data) {
-      this.articles = data;
-    },
-    async reset() {
-      this.$router.push(this.localePath({ name: 'notes' }));
-      this.filter = '';
-      await this.retrieveData();
-    },
-  },
-};
+// methods
+function refetch(pageNumber: number) {
+  page += pageNumber;
+  refresh()
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 </script>
 
-<style lang="scss">
-#notes {
-  .filter {
-    .close-btn {
-      margin-right: 2px;
-      cursor: pointer;
-    }
-  }
+<template>
+  <PageSection id="notes">
+    <PageTitle text="Notes" subtitle=" Articles and Advice" />
 
-  .articles-container {
-    margin-top: 50px;
+    <v-container>
+      <v-row cols="12" class="articles-list mt-4 mb-8">
+        <v-col md="12" lg="8">
+          <v-row v-for="article in articles" :key="article.id" class="articles-list mt-4 mb-8" >
+            <v-col>
+              <blog-list-post-item :post="article" />
+            </v-col>
+          </v-row>
+
+          <div class="pager d-flex justify-center" align-center>
+            <v-btn v-if="page > 0" color="#29a587" @click="refetch(-5)" variant="flat" theme="dark">prev</v-btn>
+            <v-span class="ml-5"></v-span>
+            <v-btn v-if="page + limit < total" color="#29a587" @click="refetch(5)" variant="flat" theme="dark">next</v-btn>
+          </div>
+        </v-col>
+
+        <v-col md="12" lg="4">
+          <div class="sidebar">
+            <aside>
+              <section>
+                <h2 class="heading">Recent Posts</h2>
+                <ul class="wp-block-latest-posts__list wp-block-latest-posts">
+                  <ContentList :query="recentPosts" v-slot="{ list }">
+                    <li v-for="article of list" :key="article._path">
+                      <NuxtLink :to="'/notes' + article._path">
+                        {{article.title}}
+                      </NuxtLink>
+                    </li>
+                  </ContentList>
+                </ul>
+              </section>
+              <section>
+                <h2 class="heading">Categories</h2>
+                <ul class="wp-block-latest-posts__list wp-block-latest-posts">
+                  <li v-for="category of settings.notes.categories" :key="category.path">
+                    <NuxtLink :to="'/notes/categories/' + category.path">
+                      {{ category.title }}
+                    </NuxtLink>
+                  </li>
+                </ul>
+              </section>
+            </aside>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+  </PageSection>
+</template>
+
+<style lang="scss" scoped>
+@import '../assets/sass/variables';
+
+.sidebar {
+  border-left: 1px solid #999;
+
+  section {
+    margin-bottom: 0;
+    padding: 25px 0 25px 50px;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 50px;
+      padding: 0;
+      position: relative;
+      font-family: 'Jost';
+      font-size: 18px;
+      text-transform: uppercase;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -20px;
+        width: 30px;
+        height: 4px;
+        background: #29a587;
+      }
+    }
+
+    ul {
+      padding-left: 0;
+
+      li {
+        margin-bottom: 15px;
+        color: #000;
+
+        a {
+          font-weight: 400;
+        }
+      }
+    }
   }
 }
 </style>

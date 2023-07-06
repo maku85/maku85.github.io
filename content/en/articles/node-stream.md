@@ -1,11 +1,14 @@
 ---
 title: Node.js Stream
-description: Streams are data collected from one source and made available in another location in sequence.
-img: /articles/images/node-stream.webp
+img: /img/articles/node-stream.webp
 tags:
   - nodejs
 published: true
 ---
+
+Dive into the world of Node.js Streams with this comprehensive article. Explore the power and versatility of streams for efficient data processing, I/O operations, and building scalable applications. Learn about different types of streams, data transformation, and best practices to leverage the full potential of Node.js Streams.
+
+<!--more-->
 
 One of the reasons why they are one of the most appreciated features of Node is the possibility they give to work with large amounts of data in environments with limited resources.
 

@@ -1,13 +1,16 @@
 ---
 title: Structural Design Pattern - Bridge
-description: The Bridge design pattern is a pattern used to separate a class's interface from its implementation.
-img: /articles/images/design-pattern-bridge.jpg
+img: /img/articles/design-pattern-bridge.jpg
 tags:
   - javascript
   - design-pattern
-  - structural-patterns
+  - structural-pattern
 published: true
 ---
+
+Unleash the flexibility of the Bridge design pattern in Node.js with this insightful article. Explore how to decouple abstraction from implementation, manage complex hierarchies, and enable future scalability. Learn practical techniques and examples to apply the Bridge pattern effectively in your Node.js projects, enhancing code organization and extensibility.
+
+<!--more-->
 
 This pattern allows implementations to change independently of the classes that use them, making the code more flexible and modular.
 

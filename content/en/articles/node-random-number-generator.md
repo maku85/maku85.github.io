@@ -1,11 +1,14 @@
 ---
 title: Random number generator with Node.js
-description: There are various cases in which you need to generate random numbers but you have to be careful because sometimes randomness is not really so "random".
-img: /articles/images/random-number-generator.webp
+img: /img/articles/random-number-generator.webp
 tags:
   - javascript
 published: true
 ---
+
+Learn how to create a Random Number Generator in Node.js with this practical article. Explore different methods and libraries available, from generating random integers to floating-point numbers. Gain insights into ensuring randomness and security, and implement the RNG functionality in your Node.js applications effectively.
+
+<!--more-->
 
 In general, there are three types of "random":
 

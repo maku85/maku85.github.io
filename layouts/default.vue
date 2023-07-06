@@ -1,24 +1,19 @@
 <template>
-  <v-app>
-    <app-navbar />
+  <v-app full-height>
+    <slot name="header">
+      <app-navbar />
+    </slot>
 
-    <v-container fill-height>
-      <v-main class="main-container">
-        <Nuxt />
+    <v-container fluid>
+      <v-main>
+        <slot />
       </v-main>
     </v-container>
 
-    <app-footer />
-    <back-to-top />
+    <slot name="footer">
+      <app-footer />
+    </slot>
 
-    <client-only>
-      <cookie-banner />
-    </client-only>
+    <back-to-top />
   </v-app>
 </template>
-
-<script>
-export default {
-  name: 'DefaultLayout',
-};
-</script>

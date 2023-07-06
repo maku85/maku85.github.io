@@ -2,6 +2,7 @@
 /.github
 /.nuxt
 /.vscode
+/dist
 /static
 **/node_modules
 jsconfig.json

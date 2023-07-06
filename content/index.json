@@ -64,24 +64,14 @@
     }
   ],
   "expertises": [
-    {
-      "title": "Backend Skills",
-      "skills": [
-        { "title": "Node", "value": "80" },
-        { "title": "Java", "value": "50" },
-        { "title": "Python", "value": "30" },
-        { "title": "Dart", "value": "10" }
-      ]
-    },
-    {
-      "title": "Frontend Skills",
-      "skills": [
-        { "title": "Angular", "value": "50" },
-        { "title": "Vue", "value": "30" },
-        { "title": "Nuxt", "value": "20" },
-        { "title": "Flutter", "value": "10" }
-      ]
-    }
+    { "title": "Node", "value": "80" },
+    { "title": "Java", "value": "50" },
+    { "title": "Python", "value": "30" },
+    { "title": "Dart", "value": "10" },
+    { "title": "Angular", "value": "50" },
+    { "title": "Vue", "value": "30" },
+    { "title": "Nuxt", "value": "20" },
+    { "title": "Flutter", "value": "10" }
   ],
   "knowledges": [
     "JavaScript",
@@ -106,7 +96,7 @@
     {
       "title": "Flutter calculator",
       "category": "Mobile app",
-      "description": "A simple calculator made with Flutter",
+      "description": "Experience the convenience of a mobile calculator app built with Flutter. This sleek and user-friendly application provides essential mathematical operations and a smooth interface for effortless calculations on the go.",
       "image": "https://github.com/maku85/my-flutter-calculator/blob/main/screenshots/screenshot_ios.jpg?raw=true",
       "tags": ["Dart", "Fluter", "Mobile app"],
       "url": "https://github.com/maku85/my-flutter-calculator"
@@ -114,7 +104,7 @@
     {
       "title": "Rick & Morty world",
       "category": "SPA",
-      "description": "A simple single page app in Vue.js",
+      "description": "Immerse yourself in the world of Rick and Morty with this captivating web app built in Vue.js.",
       "image": "https://github.com/maku85/rick-and-morty-vue-app/raw/master/preview.webp",
       "tags": ["HTML5", "CSS3", "Javascript", "Web app", "Vue.js"],
       "url": "https://www.maurocunsolo.com/rick-and-morty-vue-app/"
@@ -127,5 +117,17 @@
       "tags": ["Javascript", "Web app", "Nuxt.js"],
       "url": "https://www.maurocunsolo.com/verba/"
     }
-  ]
+  ],
+  "notes": {
+    "categories": [
+      { "path": "creational-pattern", "title": "Creational pattern" },
+      { "path": "design-pattern", "title": "Design pattern" },
+      { "path": "ecmascript", "title": "ECMAScript" },
+      { "path": "expressjs", "title": "Express.js" },
+      { "path": "javascript", "title": "Javascript" },
+      { "path": "mongodb", "title": "Mongo DB" },
+      { "path": "nodejs", "title": "Node.js" },
+      { "path": "structural-pattern", "title": "Structural patterns" }
+    ]
+  }
 }

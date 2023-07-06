@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="space">
     <div class="stars"></div>
     <div class="central-body">
@@ -246,4 +246,4 @@ export default {
     border-radius: 999999px;
   }
 }
-</style>
+</style> -->

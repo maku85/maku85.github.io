@@ -1,13 +1,16 @@
 ---
 title: Node.js serverless
-description: Serverless computing is a very popular development model especially because it allows you to create faster and reduces the need to manage the infrastructure, it is in fact the cloud service provider that provides, reduces and manages the infrastructure necessary to execute the code.
-img: /articles/images/node-serverless.webp
+img: /img/articles/node-serverless.webp
 tags:
   - javascript
   - nodejs
   - serverless
 published: true
 ---
+
+Unleash the potential of the Serverless Framework in Node.js with this insightful article. Explore how to build, deploy, and manage serverless applications effortlessly. Learn about the framework's key features, deployment options, and integration with popular cloud providers. Streamline your development workflow and harness the power of serverless architecture in Node.js.
+
+<!--more-->
 
 In this example we will use the [Serverless framework](https://www.serverless.com), a multiprovider framework that simplifies the construction and deployment process, and in particular we will use the [Lambda](https: // aws. amazon.com/lambda) service from AWS.
 
