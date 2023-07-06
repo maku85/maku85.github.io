@@ -1,85 +1,141 @@
-<!-- eslint-disable vue/no-v-html -->
 <template>
-  <section id="about" class="section">
-    <div class="section-about-wrap">
-      <div class="section-about-inner ma-xs-1 ma-md-8 align-items-center d-flex">
-        <v-card sm="3" class="card d-none d-md-block">
-          <v-card-text class="text-center">
-            <div class="profile-picture img-circle my-10 mx-8"></div>
-          </v-card-text>
+  <PageSection id="about">
+    <div class="card align-items-center d-flex">
+      <v-row cols="12" class="content">
+        <v-col sm="8" class="titles">
+          <div class="subtitle">
+            <span>Hello, <b>my name is</b></span>
+          </div>
+          <h1 class="d-xs-none title"><b>Mauro</b> Cunsolo</h1>
+          <div class="subtitle">I am <strong>Backend Developer</strong></div>
 
-          <v-card-actions class="card-actions justify-center text-center">
-            <social-links :links="socials"> </social-links>
-          </v-card-actions>
-        </v-card>
+          <div class="description">
+            <p>
+              From France, Paris. I have rich experience in web design, also I am good at wordpress.
+              I love to talk with you about our unique.
+            </p>
 
-        <div class="about-desc d-flex align-center flex-grow-1">
-          <div class="about-desc-content mx-8 my-10">
-            <h1>{{ $t('about-title') }} <b class="primary-color">Mauro</b>!</h1>
-            <p class="mt-4 font-weight-light" v-html="$t('about-description')"></p>
-            <div class="justify-center text-center d-flex d-md-none">
-              <social-links :links="socials"> </social-links>
+            <div class="d-flex flex-column">
+              <social-links class="social-links" />
             </div>
           </div>
-        </div>
-      </div>
+        </v-col>
+
+        <v-col sm="4" class="d-none d-sm-flex flex-row align-center image-container">
+          <v-img
+            height="300"
+            width="300"
+            src="https://www.maurocunsolo.com/img_avatar.webp"
+            class="profile-picture"
+            cover
+          ></v-img>
+        </v-col>
+      </v-row>
     </div>
-  </section>
+
+    <div class="bgtitle"><span>Backend Developer</span></div>
+  </PageSection>
 </template>
 
-<script>
-export default {
-  props: {
-    socials: { type: Array, default: () => [] },
-  },
-};
-</script>
-
 <style lang="scss">
+@import '../assets/sass/variables';
+
 #about {
-  padding-top: 60px;
-  padding-bottom: 20px;
-  max-width: 90%;
-  margin: auto;
   max-width: 1000px;
 
-  .card-title {
-    line-height: 1.2em;
-    font-size: 27px;
-    color: var(--font-color);
-  }
+  .content {
+    position: relative;
+    z-index: 1;
 
-  .about-desc {
-    background: var(--light-bg-color);
-  }
+    .title {
+      font-family: '"Jost",sans-serif';
+      font-size: 90px;
+      line-height: 1.2;
+      color: #fff;
+      font-weight: 700;
+      margin: 15px 0 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-shadow: 2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000,
+        5px 5px 0px rgba(0, 0, 0, 0.2);
 
-  .section-about-inner {
-    color: var(--font-color);
+        b {
+        color: #29a587;
+      }
+    }
 
-    h1 {
-      font-size: 30px;
-      font-weight: 400;
-      margin-bottom: 20px;
+    .subtitle {
+      font-size: 15px;
+      font-weight: 700;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+
+      b {
+        color: #29a587;
+      }
+
+      strong {
+        font-family: 'Caveat';
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: none;
+        margin-left: 2px;
+        color: #000;
+      }
+    }
+
+    .description {
+      padding: 40px 0;
+      font-size: 18px;
+      max-width: 520px;
+
+      .social-links {
+        position: relative;
+        margin-top: 30px;
+        line-height: 1;
+      }
     }
 
     .profile-picture {
-      background-image: url('/img_avatar.webp');
-      min-width: 180px;
-      min-height: 180px;
+      border-radius: 50%;
       background-size: cover;
       background-position: 0px -10px;
-      box-shadow: $shadow;
-      transition: all 0.5s ease;
-
-      &:hover {
-        transform: translateY(-10px);
-        box-shadow: $hover-shadow;
-      }
     }
   }
 
-  .card-actions {
-    background: var(--light-bg-color) !important;
+  .bgtitle {
+    position: relative;
+    top: -50px;
+    left: -50%;
+    width: 200%;
+    font-size: 180px;
+    font-family: "Caveat";
+    color: rgba(0,0,0,.02);
+    font-weight: 700;
+    line-height: 1px;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #about {
+    .content {
+      .titles {
+        text-align: center;
+
+        .title {
+          font-size: 50px;
+        }
+      }
+    }
+
+    .bgtitle {
+      font-size: 60px;
+    }
   }
 }
 </style>

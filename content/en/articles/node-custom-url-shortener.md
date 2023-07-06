@@ -1,14 +1,17 @@
 ---
 title: URL shortener with Node.js, Express and MongoDB
-description: Given the large amount of links that are disseminated on the net, there is often the need to generate much shorter links and this is where URL shorteners come into play.
-img: /articles/images/node-custom-url-shortener.webp
+img: /img/articles/node-custom-url-shortener.webp
 tags:
   - javascript
   - nodejs
-  - express
-  - mongoDB
+  - expressjs
+  - mongodb
 published: true
 ---
+
+Learn how to build a URL shortener using Node.js, Express, and MongoDB with this step-by-step technical article. Explore the process of generating short URLs, handling redirects, and storing data in MongoDB. Gain practical knowledge to create your own custom URL shortening service efficiently.
+
+<!--more-->
 
 The operation of the shortner is quite simple:
 

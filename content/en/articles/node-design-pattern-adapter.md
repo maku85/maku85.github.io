@@ -1,13 +1,16 @@
 ---
 title: Structural Pattern Design - Adapter
-description: Structural design pattern that allows collaboration between objects with incompatible interfaces.
-img: /articles/images/design-pattern-adapter.webp
+img: /img/articles/design-pattern-adapter.webp
 tags:
   - javascript
   - design-pattern
-  - structural-patterns
+  - structural-pattern
 published: true
 ---
+
+Discover the power of the Adapter design pattern in Node.js with this informative article. Learn how to seamlessly integrate incompatible interfaces, adapt third-party libraries, and improve code maintainability. Explore practical examples and implementation strategies to leverage the Adapter pattern effectively in your Node.js applications.
+
+<!--more-->
 
 To implement this pattern it is sufficient to create an adapter that wraps the incompatible object and make it capable of "communicating" with the other object.
 

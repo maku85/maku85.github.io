@@ -1,13 +1,16 @@
 ---
 title: Structural Design Pattern - Proxy
-description: The proxy is a structural design pattern that allows you to provide a substitute in place of another object, acting as a filter and offering the possibility to perform operations before or after the request arrives at the original object.
-img: /articles/images/design-pattern-proxy.webp
+img: /img/articles/design-pattern-proxy.webp
 tags:
   - javascript
   - design-pattern
   - structural-pattern
 published: true
 ---
+
+Unleash the power of the Proxy design pattern in Node.js with this informative article. Discover how to control access to objects, add additional functionality, and implement caching and logging mechanisms. Learn practical examples and implementation techniques to leverage the Proxy pattern in your Node.js applications for enhanced security and performance.
+
+<!--more-->
 
 The proxy and the original object, defined as "subject", have the same interface and this therefore allows them to exchange transparently with each other. The proxy, as mentioned, intercepts all or only some operations that are intended to be performed on the subject, modifying or enriching their behavior.
 

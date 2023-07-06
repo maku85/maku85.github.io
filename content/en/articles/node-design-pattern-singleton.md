@@ -1,13 +1,16 @@
 ---
 title: Creational Design Patterns - Singleton
-description: Creational design pattern that allows you to ensure that an object is instantiated only once and then reused whenever needed.
-img: /articles/images/design-pattern-singleton.webp
+img: /img/articles/design-pattern-singleton.webp
 tags:
   - javascript
   - design-pattern
   - creational-pattern
 published: true
 ---
+
+Unlock the potential of the Singleton design pattern in Node.js with this informative article. Explore how to ensure a single instance of a class, share resources, and maintain global state. Learn practical examples and implementation strategies to leverage the Singleton pattern in your Node.js applications for efficient resource management.
+
+<!--more-->
 
 In general, two main operations are required to implement this pattern:
 

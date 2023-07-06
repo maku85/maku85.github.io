@@ -1,62 +1,55 @@
-<template>
-  <v-fab-transition>
-    <v-btn
-      id="back-top"
-      href="#top"
-      class="d-none"
-      fab
-      small
-      dark
-      bottom
-      right
-      aria-label="Back to top"
-      @click="scrollToTop()"
-    >
-      <v-icon>mdi-chevron-up</v-icon>
-    </v-btn>
-  </v-fab-transition>
-</template>
+<script setup>
+import { onMounted } from 'vue';
 
-<script>
-export default {
-  name: 'App',
-  mounted() {
-    this.$nextTick(function () {
-      window.addEventListener('scroll', function () {
-        const backTop = document.getElementById('back-top');
-        const backTopClasses = backTop.classList;
-        if (document.documentElement.scrollTop >= 400) {
-          if (backTopClasses.contains('d-none')) {
-            backTopClasses.remove('d-none');
-          }
-        } else if (!backTopClasses.contains('d-none')) {
-          backTopClasses.add('d-none');
-        }
-      });
-    });
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    },
-  },
+const showBackToTop = () => {
+  const backTop = document.getElementById('back-top');
+  const backTopClasses = backTop.classList;
+  if (document.documentElement.scrollTop >= 400) {
+    if (backTopClasses.contains('d-none')) {
+      backTopClasses.remove('d-none');
+    }
+  } else if (!backTopClasses.contains('d-none')) {
+    backTopClasses.add('d-none');
+  }
 };
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+onMounted(() => {
+  showBackToTop();
+
+  window.onscroll = () => {
+    showBackToTop();
+  };
+});
 </script>
 
+<template>
+  <span id="back-top" class="d-none" @click="scrollToTop()">
+    <v-icon>mdi-chevron-up</v-icon>
+  </span>
+</template>
+
 <style lang="scss" scoped>
+@import '../assets/sass/variables';
+
 #back-top {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 16px;
+  bottom: 40px;
+  right: 20px;
+  height: 50px;
+  width: 50px;
+  line-height: 45px;
   cursor: pointer;
-  background-color: var(--primary-color);
-  box-shadow: $shadow;
+  border-radius: 50%;
+  background: #ff014f;
+  text-align: center;
+  color: #fff;
   transition: all 0.5s ease;
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: $hover-shadow;
+    background: #29a587;
   }
 }
 </style>

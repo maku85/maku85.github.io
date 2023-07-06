@@ -1,15 +1,16 @@
 ---
-title: ECMAScript
-description: List of new features introduced with the various editions of the JavaScript standard.
-img: /articles/images/ecmascript.webp
+title: ECMAScript 2020 aka ES11
+img: /img/articles/ecmascript.webp
 credits: Photo by <a href="https://unsplash.com/photos/cvBBO4PzWPg" target="_blank">Markus Spiske</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a>
 tags:
   - javascript
-  - ECMAScript
+  - ecmascript
 published: true
 ---
 
-## ECMAScript 2020 aka ES11
+Discover new features like the Nullish Coalescing Operator, Optional Chaining, and the BigInt data type, along with improvements in regular expressions. Learn how these additions enhance JavaScript development and empower developers to write cleaner and more efficient code.
+
+<!--more-->
 
 ### BigInt
 

@@ -1,13 +1,16 @@
 ---
 title: Creational design patterns - Factory
-description: Creational design pattern that allows you to centralize the logic of creating objects in a single point.
-img: /articles/images/design-pattern-factory.webp
+img: /img/articles/design-pattern-factory.webp
 tags:
   - javascript
   - design-pattern
-  - creational-patterns
+  - creational-pattern
 published: true
 ---
+
+Explore the Factory design pattern in Node.js with this insightful article. Learn how to encapsulate object creation, abstract the creation process, and enhance code flexibility. Discover practical examples and implementation strategies to leverage the Factory pattern in your Node.js applications for efficient and scalable object creation.
+
+<!--more-->
 
 The advantage of this approach consists in letting the factory decide how to instantiate the object (using closures, prototype, the new operator or other), thus not binding the creation to a specific technique and guaranteeing greater flexibility. (especially useful in the refactor phase).
 

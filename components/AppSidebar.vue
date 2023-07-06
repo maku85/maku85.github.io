@@ -1,115 +1,127 @@
+<script setup>
+// state
+const showDrawer = useState('navbar.showDrawer', () => false);
+
+// methods
+const closeSidebar = () => (showDrawer.value = !showDrawer.value);
+</script>
+
 <template>
-  <v-navigation-drawer
-    app
-    enable-resize-watcher
-    :value="$store.state.nav.toggleSidebar"
-    class="sidenav"
-    temporary
-    @input="updateDrawerState"
-  >
-    <div class="pt-2 pr-2 text-right close-menu" @click="hideSidebar">
+  <v-navigation-drawer v-model="showDrawer" temporary location="bottom" class="d-flex">
+    <div class="pt-2 pr-2 text-right close-menu" @click="closeSidebar()">
       <v-icon>mdi-close</v-icon>
     </div>
 
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title class="nav-header">
-          <strong><span>Mauro</span> Cunsolo</strong>
-        </v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
-    <v-divider></v-divider>
-    <v-list dense nav>
-      <v-list-item link :to="localePath('/resume')">
-        <v-list-item-content>
-          <v-list-item-title class="nav-link">
-            {{ $t('Resume') }}
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item link :to="localePath('/works')">
-        <v-list-item-content>
-          <v-list-item-title class="nav-link">
-            {{ $t('Works') }}
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item link :to="localePath('/notes')">
-        <v-list-item-content>
-          <v-list-item-title class="nav-link">
-            {{ $t('Notes') }}
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item link :to="localePath('/contact')">
-        <v-list-item-content>
-          <v-list-item-title class="nav-link">
-            {{ $t('Contact') }}
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
+    <v-container class="container">
+      <div class="menu">
+        <ul>
+          <li v-for="item in menuItems" :key="item.title" :to="item.path" class="nav-item">
+            <NuxtLink :to="item.path">{{ item.title }}</NuxtLink>
+          </li>
+        </ul>
+      </div>
+
+      <div class="line-block"><span></span></div>
+    </v-container>
   </v-navigation-drawer>
 </template>
 
 <script>
 export default {
-  watch: {
-    $route() {
-      this.$store.dispatch('nav/closeSidebar');
-    },
-  },
-  methods: {
-    hideSidebar() {
-      this.$store.dispatch('nav/closeSidebar');
-    },
-    updateDrawerState(event) {
-      if (!event) this.hideSidebar();
-    },
+  data() {
+    return {
+      menuItems: [
+        { title: 'About', path: '/about' },
+        { title: 'Projects', path: '/projects' },
+        { title: 'Notes', path: '/notes' },
+      ],
+    };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.nav-header {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--primary-color);
+.container {
+  position: relative;
 
-  span {
-    color: $font-color;
+  .menu {
+    padding: 20px 40px 0px 50px;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+
+      li a {
+        margin-bottom: 20px;
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 22px;
+        line-height: 1;
+        font-family: 'Jost';
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #000;
+        font-weight: 700;
+      }
+    }
   }
-}
-.nav-link {
-  color: var(--primary-color);
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
 
-  &:hover,
-  &:active {
-    color: $font-color;
-  }
-}
-.sidenav {
-  z-index: 10000;
-  background-color: var(--bg);
-  text-align: center;
-  transition: all 0.5s ease 0s;
-}
-.slide-side-enter-active,
-.slide-side-leave-active {
-  transition: all 0.3s ease-out;
-}
-.slide-side-enter,
-.slide-side-leave-to {
-  transform: translateX(-100%);
-}
-.close-menu {
-  cursor: pointer;
+  .line-block {
+    left: 30px;
+    top: 0;
+    opacity: 1;
+    position: absolute;
+    bottom: -15px;
+    width: 2px;
+    background: #000;
+    z-index: 3;
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.3, 0, 0.3, 1);
+    -webkit-transition: all 0.5s cubic-bezier(0.3, 0, 0.3, 1);
 
-  .v-icon {
-    color: var(--font-color) !important;
+    &:before {
+      content: '';
+      position: absolute;
+      left: -15px;
+      top: -15px;
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 30px;
+      box-shadow: 5px 5px rgb(0 0 0/20%);
+      z-index: 1;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: -15px;
+      bottom: -15px;
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 30px;
+      box-shadow: 5px 5px rgb(0 0 0/20%);
+      z-index: 1;
+    }
+
+    span {
+      position: absolute;
+      top: -137px;
+      bottom: auto;
+      left: -116px;
+      width: 200px;
+      height: 200px;
+      background-image: url(//luique.bslthemes.com/wp-content/themes/luique/assets/images/pat-1.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
 }
 </style>

@@ -1,50 +1,48 @@
+<script setup>
+import { onMounted } from 'vue';
+
+const bg = ref('transparent');
+
+// state
+const showDrawer = useState('navbar.showDrawer', () => false);
+
+// methods
+const toggleDrawer = () => (showDrawer.value = !showDrawer.value);
+const changeColor = () => {
+  bg.value = document.documentElement.scrollTop > 200 ? '#ffffff90' : 'transparent';
+};
+
+onMounted(() => {
+  window.onscroll = () => {
+    changeColor();
+  };
+});
+</script>
+
 <template>
-  <div id="nav">
-    <v-app-bar flat fixed class="navbar">
-      <span class="d-md-none">
-        <v-app-bar-nav-icon
-          aria-label="Menu"
-          @click="$store.dispatch('nav/toggleSidebar')"
-        ></v-app-bar-nav-icon>
-      </span>
+  <div id="navbar">
+    <v-app-bar flat fixed class="navbar" :color="bg">
+      <v-app-bar-nav-icon class="d-sm-none" @click="toggleDrawer()" />
 
-      <v-toolbar-title class="navbar-title" tag="span">
-        <router-link :to="localePath('/')" custom>
-          <strong><span>Mauro</span> Cunsolo</strong>
-        </router-link>
-      </v-toolbar-title>
-
-      <!-- <theme-switch /> -->
+      <v-app-bar-title class="navbar-title" tag="span">
+        <v-btn plain to="/" variant="plain"> Mauro Cunsolo </v-btn>
+      </v-app-bar-title>
 
       <v-spacer></v-spacer>
 
-      <v-toolbar-items class="d-none d-md-flex">
-        <div class="d-flex align-center">
+      <template #append>
+        <div class="d-none d-sm-flex">
           <v-btn
             v-for="item in menuItems"
             :key="item.title"
-            plain
-            :to="localePath(item.path)"
-            class="nav-item py-6"
-            :aria-label="item.title"
-            small
+            :to="item.path"
+            class="nav-item"
+            variant="plain"
           >
             {{ item.title }}
           </v-btn>
         </div>
-      </v-toolbar-items>
-
-      <!--
-      <v-btn
-        v-for="locale in oppositeLocales"
-        :key="locale"
-        plain
-        color="black"
-        :to="switchLocalePath(locale)"
-        :aria-label="locale"
-        >{{ locale }}</v-btn
-      >
-      -->
+      </template>
     </v-app-bar>
 
     <app-sidebar />
@@ -56,47 +54,31 @@ export default {
   data() {
     return {
       menuItems: [
-        { title: 'Resume', path: '/resume' },
-        { title: 'Works', path: '/works' },
+        { title: 'About', path: '/about' },
+        { title: 'Projects', path: '/projects' },
         { title: 'Notes', path: '/notes' },
-        { title: 'Contact', path: '/contact' },
       ],
     };
-  },
-  computed: {
-    oppositeLocales() {
-      return this.$i18n.locales.filter((locale) => locale !== this.$i18n.locale);
-    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-#nav {
-  transition: all 0.4s;
-  background-color: var(--bg) !important;
-
-  .v-app-bar--is-scrolled {
-    box-shadow: $shadow !important;
-  }
-
+#navbar {
   .navbar-title {
     a {
-      font-weight: 600;
-      color: var(--primary-color);
-      text-decoration: none;
-    }
+      font-weight: 800;
 
-    span {
-      color: $font-color;
+      &:hover {
+        color: #29a587;
+      }
     }
   }
 
   .nav-item {
     &:hover,
     &.nav-item.v-btn--active {
-      color: var(--primary-color);
-      font-weight: 600;
+      color: #29a587;
     }
   }
 }

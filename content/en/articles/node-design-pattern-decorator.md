@@ -1,13 +1,16 @@
 ---
 title: Structural Pattern Design - Decorator
-description: Structural design pattern that allows you to "decorate" an object by extending its functionality in a dynamic way.
-img: /articles/images/design-pattern-decorator.webp
+img: /img/articles/design-pattern-decorator.webp
 tags:
   - javascript
   - design-pattern
-  - structural-patterns
+  - structural-pattern
 published: true
 ---
+
+Discover the versatility of the Decorator design pattern in Node.js with this informative article. Explore how to dynamically add functionality to objects, without modifying their original structure. Learn practical examples and implementation techniques to leverage the Decorator pattern in your Node.js applications, enhancing code reusability and flexibility.
+
+<!--more-->
 
 The pattern is similar to the classic inheritance but unlike the latter the new features are not added to all objects of the same class but only to those instances that have been explicitly "decorated".
 

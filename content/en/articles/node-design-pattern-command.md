@@ -1,13 +1,16 @@
 ---
 title: Behavioral Design Patterns - Command
-description: Behavioral design pattern that allows you to transform a request in the form of an object containing all the information necessary to execute the request in the future.
-img: /articles/images/design-pattern-command.webp
+img: /img/articles/design-pattern-command.webp
 tags:
   - javascript
   - design-pattern
-  - structural-patterns
+  - structural-pattern
 published: true
 ---
+
+Dive into the Command design pattern in Node.js with this comprehensive article. Explore how to encapsulate requests as objects, decouple sender and receiver, and implement undo/redo functionality. Learn practical examples and techniques to leverage the Command pattern in your Node.js applications for improved modularity and extensibility.
+
+<!--more-->
 
 The implementation of this pattern usually revolves around 4 main components:
 

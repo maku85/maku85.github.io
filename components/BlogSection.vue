@@ -1,62 +1,114 @@
-<template>
-  <v-container id="blog" class="section">
-    <div class="section-blog__title">{{ $t('Latest notes') }}</div>
+<script setup lang="ts">
+import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
 
-    <div v-if="articles.length === 0" class="mt-4">
-      <div class="text-center font-weight-light">{{ $t('no-notes') }}</div>
-    </div>
-
-    <div v-if="articles.length > 0" class="mt-4">
-      <div v-for="article of articles" :key="article.id">
-        <BlogHPostPreview :post="article" />
-      </div>
-
-      <div class="text-center">
-        <v-btn class="blog-btn" :to="localePath('/notes')" aria-label="Notes">
-          <span>{{ $t('Go to notes') }} <v-icon>mdi-chevron-right</v-icon></span>
-        </v-btn>
-      </div>
-    </div>
-  </v-container>
-</template>
-
-<script>
-export default {
-  props: { articles: { type: Array, default: () => [] } },
-};
+const query: QueryBuilderParams = { path: '/en/articles', where: [{ published: true }], limit: 6, sort: [{ date: -1 }] }
 </script>
 
+<template>
+  <PageSection id="blog">
+    <PageTitle text="Latest notes" subtitle=" Articles and Advice" />
+
+    <ContentList :query="query" v-slot="{ list }">
+      <v-row v-if="list.length > 0" cols="12" class="articles-list mt-4 mb-8">
+        <v-col v-for="article of list" :key="article._path" xs="12" sm="6" md="4">
+          <blog-section-post-item :post="article" />
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-btn class="blog-load-more" :to="'/notes'" variant="plain"><span>View notes</span></v-btn>
+      </v-row>
+    </ContentList>
+
+    <div class="bgtitle"><span>Notes</span></div>
+  </PageSection>
+</template>
+
 <style lang="scss">
+@import '../assets/sass/variables';
+
 #blog {
-  max-width: 1200px;
+  .blog-load-more {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    z-index: 2;
+    padding: 0 40px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 13px;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    height: 56px;
+    line-height: 52px;
+    text-decoration: none;
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
+    -webkit-transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
+    border: 2px solid #000;
+    background: 0 0;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 56px;
+    -webkit-border-radius: 56px;
 
-  .section-blog__title {
-    color: var(--title-color);
+    &:hover {
+      &:before {
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        opacity: 1;
+        filter: blur(0px);
+      }
+    }
 
-    &:after {
+    &:before {
       content: '';
-      width: 100px;
-      height: 2px;
-      background: var(--primary-color);
-      display: block;
-      margin-top: 4px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      background: #29a587;
+      transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
+      -webkit-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      border-radius: 56px;
+      -webkit-border-radius: 56px;
+      opacity: 0;
+      z-index: -1;
+      filter: blur(10px);
+    }
+
+    .span {
+      position: relative;
+      z-index: 2;
     }
   }
 
-  .post-content {
-    width: 100%;
+  .bgtitle {
+    position: relative;
+    top: -50px;
+    left: -50%;
+    width: 200%;
+    font-size: 180px;
+    font-family: "Caveat";
+    color: rgba(0,0,0,.02);
+    font-weight: 700;
+    line-height: 1px;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
   }
+}
 
-  .blog-btn {
-    background: var(--primary-color) !important;
-    color: #fff !important;
-    transition: all 0.7s ease;
-
-    &:hover {
-      background: none !important;
-      background-color: transparent !important;
-      color: var(--primary-color) !important;
-      box-shadow: $shadow;
+@media screen and (max-width: 767px) {
+  #blog {
+    .bgtitle {
+      font-size: 120px;
     }
   }
 }
