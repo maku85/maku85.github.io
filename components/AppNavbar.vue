@@ -9,7 +9,7 @@ const showDrawer = useState('navbar.showDrawer', () => false);
 // methods
 const toggleDrawer = () => (showDrawer.value = !showDrawer.value);
 const changeColor = () => {
-  bg.value = document.documentElement.scrollTop > 200 ? '#ffffff90' : 'transparent';
+  bg.value = document.documentElement.scrollTop > 200 ? '#ffffff95' : 'transparent';
 };
 
 onMounted(() => {
@@ -25,7 +25,7 @@ onMounted(() => {
       <v-app-bar-nav-icon class="d-sm-none" @click="toggleDrawer()" />
 
       <v-app-bar-title class="navbar-title" tag="span">
-        <v-btn plain to="/" variant="plain"> Mauro Cunsolo </v-btn>
+        <v-btn plain to="/" variant="plain">Mauro Cunsolo</v-btn>
       </v-app-bar-title>
 
       <v-spacer></v-spacer>
@@ -64,13 +64,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/sass/variables';
+
 #navbar {
   .navbar-title {
     a {
       font-weight: 800;
 
       &:hover {
-        color: #29a587;
+        color: $primary-color;
       }
     }
   }
@@ -78,7 +80,7 @@ export default {
   .nav-item {
     &:hover,
     &.nav-item.v-btn--active {
-      color: #29a587;
+      color: $primary-color;
     }
   }
 }

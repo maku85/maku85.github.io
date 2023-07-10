@@ -41,11 +41,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/sass/variables';
+
 .container {
   position: relative;
 
   .menu {
-    padding: 20px 40px 0px 50px;
+    padding: 10px 40px 0px 45px;
 
     ul {
       margin: 0;
@@ -60,11 +62,10 @@ export default {
         vertical-align: top;
         font-size: 22px;
         line-height: 1;
-        font-family: 'Jost';
         text-decoration: none;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        color: #000;
+        color: $title-color;
         font-weight: 700;
       }
     }
@@ -109,18 +110,6 @@ export default {
       border-radius: 30px;
       box-shadow: 5px 5px rgb(0 0 0/20%);
       z-index: 1;
-    }
-
-    span {
-      position: absolute;
-      top: -137px;
-      bottom: auto;
-      left: -116px;
-      width: 200px;
-      height: 200px;
-      background-image: url(//luique.bslthemes.com/wp-content/themes/luique/assets/images/pat-1.png);
-      background-repeat: no-repeat;
-      background-size: contain;
     }
   }
 }

@@ -3,16 +3,14 @@
     <div class="card align-items-center d-flex">
       <v-row cols="12" class="content">
         <v-col sm="8" class="titles">
-          <div class="subtitle">
-            <span>Hello, <b>my name is</b></span>
-          </div>
+          <div class="subtitle"><span>Hello, <b>my name is</b></span></div>
           <h1 class="d-xs-none title"><b>Mauro</b> Cunsolo</h1>
           <div class="subtitle">I am <strong>Backend Developer</strong></div>
 
           <div class="description">
             <p>
-              From France, Paris. I have rich experience in web design, also I am good at wordpress.
-              I love to talk with you about our unique.
+              Experienced Node.js back-end developer but deeply passionate about all the latest back-end, front-end and mobile technologies.
+I'm curious, love challenges but I hate monotony.
             </p>
 
             <div class="d-flex flex-column">
@@ -21,23 +19,21 @@
           </div>
         </v-col>
 
-        <v-col sm="4" class="d-none d-sm-flex flex-row align-center image-container">
+        <v-col sm="4" class="d-none d-sm-flex flex-row align-center">
           <v-img
             height="300"
-            width="300"
+            width="200"
             src="https://www.maurocunsolo.com/img_avatar.webp"
-            class="profile-picture"
+            class="profile-picture img-circle"
             cover
           ></v-img>
         </v-col>
       </v-row>
     </div>
-
-    <div class="bgtitle"><span>Backend Developer</span></div>
   </PageSection>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/sass/variables';
 
 #about {
@@ -48,7 +44,6 @@
     z-index: 1;
 
     .title {
-      font-family: '"Jost",sans-serif';
       font-size: 90px;
       line-height: 1.2;
       color: #fff;
@@ -59,20 +54,20 @@
       text-shadow: 2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000,
         5px 5px 0px rgba(0, 0, 0, 0.2);
 
-        b {
-        color: #29a587;
+      b {
+        color: $primary-color;
       }
     }
 
     .subtitle {
       font-size: 15px;
       font-weight: 700;
-      color: #000;
+      color: $subtitle-color;
       text-transform: uppercase;
       letter-spacing: 0.05em;
 
       b {
-        color: #29a587;
+        color: $primary-color;
       }
 
       strong {
@@ -82,42 +77,18 @@
         letter-spacing: 0;
         text-transform: none;
         margin-left: 2px;
-        color: #000;
       }
     }
 
     .description {
-      padding: 40px 0;
+      padding-top: 40px;
       font-size: 18px;
       max-width: 520px;
 
       .social-links {
-        position: relative;
         margin-top: 30px;
-        line-height: 1;
       }
     }
-
-    .profile-picture {
-      border-radius: 50%;
-      background-size: cover;
-      background-position: 0px -10px;
-    }
-  }
-
-  .bgtitle {
-    position: relative;
-    top: -50px;
-    left: -50%;
-    width: 200%;
-    font-size: 180px;
-    font-family: "Caveat";
-    color: rgba(0,0,0,.02);
-    font-weight: 700;
-    line-height: 1px;
-    text-align: center;
-    white-space: nowrap;
-    pointer-events: none;
   }
 }
 
@@ -131,10 +102,6 @@
           font-size: 50px;
         }
       }
-    }
-
-    .bgtitle {
-      font-size: 60px;
     }
   }
 }

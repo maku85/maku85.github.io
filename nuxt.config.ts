@@ -30,6 +30,8 @@ export default defineNuxtConfig({
     },
   ],
 
+  buildModules: ['@nuxtjs/google-fonts'],
+
   // auto import components
   components: true,
 
@@ -42,6 +44,13 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+
+  googleFonts: {
+    families: {
+      Roboto: true,
+      'Jost': true,
+    }
   },
 
   // app config

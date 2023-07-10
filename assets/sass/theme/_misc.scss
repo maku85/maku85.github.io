@@ -65,35 +65,6 @@ a:link {
   background: #555;
 }
 
-.social-icon {
-  font-size: 32px !important;
-  transition: color 1s;
-
-  &:hover {
-    color: var(--primary-color);
-  }
-}
-.social-linkedin {
-  color: $social-linkedin !important;
-}
-.social-github {
-  color: $social-github !important;
-}
-.social-codepen {
-  color: $social-codepen !important;
-}
-
 .primary-color {
   color: var(--primary-color);
-}
-
-.section {
-  padding: 0 0 180px;
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  .section {
-    padding: 0 0 90px;
-  }
 }
