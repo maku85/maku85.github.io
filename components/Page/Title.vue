@@ -27,7 +27,9 @@ defineProps({
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import '../assets/sass/variables';
+
 .page-titles {
   text-align: center;
   margin-top: 0;
@@ -36,10 +38,9 @@ defineProps({
   .page-title {
     margin-top: 0;
     margin-bottom: 10px;
-    font-family: 'Jost';
     font-size: 44px;
     line-height: 1.3;
-    color: #000;
+    color: $title-color;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -54,12 +55,12 @@ defineProps({
     text-transform: uppercase;
 
     span {
-      color: #29a587;
+      color: $primary-color;
     }
 
     b {
       font-family: 'Caveat';
-      color: #000;
+      color: $title-color;
       font-size: 30px;
       font-weight: 700;
       letter-spacing: 0;

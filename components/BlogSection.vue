@@ -19,8 +19,6 @@ const query: QueryBuilderParams = { path: '/en/articles', where: [{ published: t
         <v-btn class="blog-load-more" :to="'/notes'" variant="plain"><span>View notes</span></v-btn>
       </v-row>
     </ContentList>
-
-    <div class="bgtitle"><span>Notes</span></div>
   </PageSection>
 </template>
 
@@ -38,7 +36,7 @@ const query: QueryBuilderParams = { path: '/en/articles', where: [{ published: t
     display: inline-block;
     vertical-align: top;
     font-size: 13px;
-    color: #000;
+    color: $title-color;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -71,7 +69,7 @@ const query: QueryBuilderParams = { path: '/en/articles', where: [{ published: t
       top: 50%;
       width: 0;
       height: 0;
-      background: #29a587;
+      background: $primary-color;
       transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
       -webkit-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
       transform: translate(-50%, -50%);
@@ -86,29 +84,6 @@ const query: QueryBuilderParams = { path: '/en/articles', where: [{ published: t
     .span {
       position: relative;
       z-index: 2;
-    }
-  }
-
-  .bgtitle {
-    position: relative;
-    top: -50px;
-    left: -50%;
-    width: 200%;
-    font-size: 180px;
-    font-family: "Caveat";
-    color: rgba(0,0,0,.02);
-    font-weight: 700;
-    line-height: 1px;
-    text-align: center;
-    white-space: nowrap;
-    pointer-events: none;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  #blog {
-    .bgtitle {
-      font-size: 120px;
     }
   }
 }

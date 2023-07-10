@@ -59,7 +59,7 @@ defineProps({
         font-size: 13px;
         font-weight: 500;
         letter-spacing: 0.05em;
-        color: #29a587;
+        color: $primary-color;
       }
 
       .title {
@@ -80,7 +80,7 @@ defineProps({
           display: inline-block;
           vertical-align: top;
           font-size: 16px;
-          color: #000;
+          color: $title-color;
           font-weight: 700;
           text-decoration: none;
         }

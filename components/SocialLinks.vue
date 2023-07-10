@@ -5,7 +5,7 @@ const { data: settings } = await useAsyncData('/', () => queryContent('/').findO
 <template>
   <div>
     <v-btn
-      v-for="(social, index) of settings.socials"
+      v-for="(social, index) of settings?.socials"
       :key="index"
       icon
       small
@@ -22,3 +22,21 @@ const { data: settings } = await useAsyncData('/', () => queryContent('/').findO
     </v-btn>
   </div>
 </template>
+
+<style lang="scss" scoped>
+@import '../assets/sass/variables';
+
+.social-icon {
+  font-size: 32px !important;
+  transition: color 1s;
+}
+.social-linkedin {
+  color: $social-linkedin !important;
+}
+.social-github {
+  color: $social-github !important;
+}
+.social-codepen {
+  color: $social-codepen !important;
+}
+</style>

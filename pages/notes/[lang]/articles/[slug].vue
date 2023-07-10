@@ -60,6 +60,7 @@ const mapTags = (tags: string[]) => joinWith(tags, ', ');
     
     <v-row class="content">
       <v-col cols="12" sm="12">
+        <v-container>
         <ContentRenderer :value="data.article" />
 
         <div class="categories d-flex flex-wrap">
@@ -74,6 +75,7 @@ const mapTags = (tags: string[]) => joinWith(tags, ', ');
             <span></span>
           </div>
         </div>
+        </v-container>
       </v-col>
     </v-row>
 
@@ -186,23 +188,65 @@ const mapTags = (tags: string[]) => joinWith(tags, ', ');
       font-family: "Jost",sans-serif;
     }
 
-    pre {
-      background-color: #0d1117;
-      border-radius: 0.375rem;
-      overflow-x: auto;
-      margin-top: 0px;
+    ul {
+      list-style: disc;
+      margin-top: 30px;
       margin-bottom: 30px;
+      padding-left: 0;
+      list-style-position: inside
+    }
+
+    ol {
+      list-style: decimal;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      padding-left: 20px;
+    }
+
+    ol li {
+      counter-increment: list-number;
+      margin-bottom: 0;
+      margin-top: 0;
+      min-height: 28px;
+      line-height: 1.7;
+    }
+
+    ul ul,ol ol,ul ol,ol ul {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      margin-left: 15px
+    }
+
+    pre {
+      border-radius: 0.375rem;
       display: flex;
       padding: 10px;
-      font-size: .875rem;
       line-height: 2;
-      font-family: monospace;
+      margin: 30px 0;
+      max-width: 100%;
+      overflow: auto;
+      white-space: pre;
+      font-size: 14px
+    }
 
-      code {
-        padding: 1.25rem;
-        color: #555!important;
-        width: 100%;
-      }
+    pre code {
+      background-color: #0d1117;
+      width: 100%;
+      padding: 15px 25px;
+      font-family: monospace;
+    }
+
+    code {
+      background-color: #ddd;
+      padding: 0 4px;
+      font-family: 'italic';
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+      vertical-align: middle;
+      overflow: auto;
+      max-width: 100%;
+      white-space: nowrap
     }
   }
 
