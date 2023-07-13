@@ -61,20 +61,28 @@ const mapTags = (tags: string[]) => joinWith(tags, ', ');
     <v-row class="content">
       <v-col cols="12" sm="12">
         <v-container>
-        <ContentRenderer :value="data.article" />
+          <v-row>
+            <v-col cols="12" sm="3" class="order-first order-md-last">
+              <blog-toc class="toc pl-4 pb-4" :links="data?.article?.body?.toc?.links" />
+            </v-col>
 
-        <div class="categories d-flex flex-wrap">
-          <span>Tags:</span>
-          <NuxtLink v-for="tag of data?.article.tags" :key="tag" :to="'/notes/categories/' + tag">
-            {{ tag }}
-          </NuxtLink>
-        </div>
+            <v-col cols="12" sm="9" class="order-last order-md-first">
+              <ContentRenderer :value="data?.article" />
 
-        <div class="line-left line-top">
-          <div class="line-block">
-            <span></span>
-          </div>
-        </div>
+              <div class="categories d-flex flex-wrap">
+                <span>Tags:</span>
+                <NuxtLink v-for="tag of data?.article.tags" :key="tag" :to="'/notes/categories/' + tag">
+                  {{ tag }}
+                </NuxtLink>
+              </div>
+
+              <div class="line-left line-top">
+                <div class="line-block">
+                  <span></span>
+                </div>
+              </div>
+            </v-col>
+          </v-row>
         </v-container>
       </v-col>
     </v-row>
