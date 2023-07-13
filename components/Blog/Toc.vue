@@ -1,6 +1,12 @@
 <script setup>
-defineProps(["links"]);
+defineProps({
+    links: {
+        type: Array,
+        required: true
+    }
+});
 
+// flatten TOC links nested arrays to one array
 const flattenLinks = (links) => {
   let _links = links
     .map((link) => {
@@ -19,16 +25,53 @@ const flattenLinks = (links) => {
 </script>
 <template>
   <nav class="toc">
-    <header class="toc-header">
-      <h3 class="text-xl font-bold">Table of contents</h3>
+    <header class="header">
+      <h2 class="title">Table of contents</h2>
     </header>
-    <ul class="toc-links">
+    <ol class="links">
       <!-- render each link with depth class -->
-      <li v-for="link of flattenLinks(links)" :key="link.id" :class=```toc-link _${link.depth}`">
-        <a :href=```#${link.id}`">
+      <li v-for="link of flattenLinks(links)" :key="link.id" :class="`link link _${link.depth}`">
+        <a :href="`#${link.id}`">
           {{ link.text }}
         </a>
       </li>
-    </ul>
+    </ol>
   </nav>
 </template>
+
+<style lang="scss" scoped>
+@import '../assets/sass/variables';
+
+.title {
+  margin-top: 0 !important;
+  margin-bottom: 50px !important;
+  font-size: 18px !important;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    width: 30px;
+    height: 4px;
+    background: #29a587;
+  }
+}
+
+.links {
+  margin: 2rem 0;
+  padding: 0;
+
+  .link {
+    line-height: 1.4;
+    margin-bottom: 10px;
+
+    a {
+      font-weight: 400;
+    }
+  }
+}
+</style>

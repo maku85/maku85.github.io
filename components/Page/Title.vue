@@ -32,12 +32,9 @@ defineProps({
 
 .page-titles {
   text-align: center;
-  margin-top: 0;
-  margin-bottom: 50px;
+  margin: 0 0 50px 0;
 
   .page-title {
-    margin-top: 0;
-    margin-bottom: 10px;
     font-size: 44px;
     line-height: 1.3;
     color: $title-color;
