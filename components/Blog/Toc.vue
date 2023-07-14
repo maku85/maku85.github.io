@@ -8,7 +8,7 @@ defineProps({
 
 // flatten TOC links nested arrays to one array
 const flattenLinks = (links) => {
-  let _links = links
+  let _links = (links || [])
     .map((link) => {
       let _link = [link];
       if (link.children) {
@@ -28,14 +28,14 @@ const flattenLinks = (links) => {
     <header class="header">
       <h2 class="title">Table of contents</h2>
     </header>
-    <ol class="links">
+    <ul class="links">
       <!-- render each link with depth class -->
-      <li v-for="link of flattenLinks(links)" :key="link.id" :class="`link link _${link.depth}`">
+      <li v-for="link of flattenLinks(links)" :key="link.id" :class="`link link_${link.depth}`">
         <a :href="`#${link.id}`">
           {{ link.text }}
         </a>
       </li>
-    </ol>
+    </ul>
   </nav>
 </template>
 
@@ -64,6 +64,9 @@ const flattenLinks = (links) => {
 .links {
   margin: 2rem 0;
   padding: 0;
+  list-style-type: disc;
+  padding-inline-start: 2ch;
+
 
   .link {
     line-height: 1.4;
@@ -72,6 +75,21 @@ const flattenLinks = (links) => {
     a {
       font-weight: 400;
     }
+  }
+
+  .link_2 {
+    margin-top: 25px;
+    color: $primary-color
+  }
+
+  .link_3 {
+    margin-left: 2ch;
+    list-style-type: circle;
+  }
+
+  .link_4 {
+    margin-left: 4ch;
+    list-style-type: square;
   }
 }
 </style>

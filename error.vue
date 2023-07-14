@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div class="space">
     <div class="stars"></div>
     <div class="central-body">
@@ -11,11 +11,11 @@
     </div>
 
     <div class="objects">
-      <img class="rocket" src="/rocket.svg" width="40px" />
-      <img class="earth" src="/earth.svg" width="100px" />
-      <img class="moon" src="/moon.svg" width="80px" />
+      <img class="rocket" src="/img/rocket.svg" width="40px" />
+      <img class="earth" src="/img/earth.svg" width="100px" />
+      <img class="moon" src="/img/moon.svg" width="80px" />
       <div class="astronaut-box">
-        <img class="astronaut" src="/astronaut.svg" width="140px" />
+        <img class="astronaut" src="/img/astronaut.svg" width="140px" />
       </div>
 
       <div class="glowing-stars">
@@ -29,33 +29,21 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'ErrorLayout',
-  layout: 'empty',
-  props: {
-    error: {
-      type: Object,
-      default: null,
-    },
-  },
-  data() {
-    return {
-      pageNotFound: 'Looks like you are lost in space',
-      otherError: 'Houston, we have a problem',
-      errorTitle: '',
-    };
-  },
-  head() {
-    this.errorTitle = this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
-    return {
-      title: this.errorTitle,
-    };
-  },
-};
+<script setup>
+const props = defineProps({
+  error: Object
+})
+
+const pageNotFound = 'Looks like you are lost in space';
+const otherError = 'Houston, we have a problem';
+
+useHead({
+  // title: this.error.statusCode === 404 ? this.pageNotFound : this.otherError,
+});
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import '../assets/sass/variables';
 .space {
   background: linear-gradient(to top, #283e51, #0a2342);
   height: 100vh;
@@ -246,4 +234,5 @@ export default {
     border-radius: 999999px;
   }
 }
-</style> -->
+</style>
+
