@@ -22,6 +22,7 @@ export default defineNuxtConfig({
   // modules
   modules: [
     '@nuxt/content',
+    '@nuxt/image',
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) =>
         // @ts-ignore
@@ -34,6 +35,12 @@ export default defineNuxtConfig({
 
   // auto import components
   components: true,
+
+  image: {
+    dir: 'img',
+    format: ['webp'],
+    quality: 80,
+  },
 
   // vite plugins
   vite: {
@@ -49,8 +56,8 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       Roboto: true,
-      'Jost': true,
-    }
+      Jost: true,
+    },
   },
 
   // app config
@@ -76,18 +83,14 @@ export default defineNuxtConfig({
         },
       ],
     },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
 
   // content
   content: {
     documentDriven: true,
-    markdown: {
-      mdc: true,
-      prism: {
-        theme: 'prism-themes/themes/prism-material-oceanic.css',
-      },
-    },
-    highlight: { theme: 'github-dark' },
+    markdown: { mdc: true },
+    highlight: { theme: 'material-default' },
   },
 
   // target: 'static',

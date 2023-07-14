@@ -1,4 +1,8 @@
 /*     General overwrite     */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: rgb(254, 244, 183);
   background: linear-gradient(
@@ -9,7 +13,6 @@ body {
     69.5853%,
     rgb(253, 248, 255) 100%
   );
-
   color: $font-color;
   font-size: $font-size;
   transition: background-color 0.3s;

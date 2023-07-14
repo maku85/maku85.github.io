@@ -1,10 +1,10 @@
 <template>
-  <v-app full-height>
+  <v-app>
     <slot name="header">
       <app-navbar />
     </slot>
 
-    <v-container fluid>
+    <v-container fluid class="fill-height">
       <v-main>
         <slot />
       </v-main>

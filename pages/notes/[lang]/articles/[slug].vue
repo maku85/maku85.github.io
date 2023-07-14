@@ -12,86 +12,91 @@ const { data } = await useAsyncData(`article-${slug}`, async () => {
     surround: await surround,
   };
 });
-const article = data.value.article || {};
-const [prev, next] = data.value.surround;
+const article = data?.value?.article || {};
+const [prev, next] = data?.value?.surround || [];
 
 useHead({
-  title: data.value.article.title,
+  title: data?.value?.article.title,
   meta: [
-    { name: "description", content: data.value.article.description },
+    { name: "description", content: data?.value?.article.description },
     {
       hid: "og:image",
       property: "og:image",
-      content: `https://site.com/${data.value.article.img}`,
+      content: `https://site.com/${data?.value?.article.img}`,
     },
   ],
 });
-
-// methods
-const joinWith = (parts = [], separator = ' ') => parts.filter(Boolean).join(separator).trim();
-const mapTags = (tags: string[]) => joinWith(tags, ', ');
 </script>
+
 
 <template>
   <v-container id="article" fluid>
-    <v-row class="header">
-      <v-col cols="12" sm="12">
+    <ContentRenderer :value="data?.article">
+      <template #empty>
+        <p>No content found.</p>
+      </template>
+
+      <div class="header">
         <div class="titles">
           <div class="categories animate">
-            <NuxtLink class="category" v-for="tag of data?.article.tags" :key="tag" :to="'/notes/categories/' + tag">
-              #{{ tag }},
+            <NuxtLink class="category" v-for="(tag, index) of data?.article.tags" :key="tag" :to="'/notes/categories/' + tag">
+              #{{ tag.toUpperCase() }}{{ index < data?.article.tags.length - 1 ? ',' : '' }}&nbsp
             </NuxtLink>
           </div>
-          <h1 class="title">{{ article.title }}</h1>
+          <h1 class="title">{{ data.article.title }}</h1>
+
+          <p class="description">
+            <ContentRendererMarkdown :value="data?.article.excerpt" />
+          </p>
         </div>
-      </v-col>
-    </v-row>
+      </div>
 
-    <div class="image">
-      <v-responsive>
-        <v-parallax height="740" :lazy-src="article.img || 'https://source.unsplash.com/random'" :src="article.img || 'https://source.unsplash.com/random'"></v-parallax>
-      </v-responsive>
-      <div
-          v-if="article.credits"
-          class="text-center caption pt-2 text--secondary"
-          v-html="article.credits"
-        ></div>
-    </div>
-    
-    <v-row class="content">
-      <v-col cols="12" sm="12">
-        <v-container>
-          <v-row>
-            <v-col cols="12" sm="3" class="order-first order-md-last">
-              <blog-toc class="toc pl-4 pb-4" :links="data?.article?.body?.toc?.links" />
-            </v-col>
+      <div class="image">
+        <v-responsive>
+          <v-parallax height="740" :lazy-src="article.img || 'https://source.unsplash.com/random'" :src="article.img || 'https://source.unsplash.com/random'"></v-parallax>
+        </v-responsive>
+        <div
+            v-if="article.credits"
+            class="text-center caption pt-2 text--secondary"
+            v-html="article.credits"
+          ></div>
+      </div>
 
-            <v-col cols="12" sm="9" class="order-last order-md-first">
-              <ContentRenderer :value="data?.article" />
+      <v-row class="content">
+        <v-col cols="12" sm="12">
+          <v-container>
+            <v-row>
+              <v-col v-if="data?.article?.body?.toc?.links.length" cols="12" sm="3" class="order-first order-md-last">
+                <blog-toc class="toc pl-4 pb-4" :links="data?.article?.body?.toc?.links" />
+              </v-col>
 
-              <div class="categories d-flex flex-wrap">
-                <span>Tags:</span>
-                <NuxtLink v-for="tag of data?.article.tags" :key="tag" :to="'/notes/categories/' + tag">
-                  {{ tag }}
-                </NuxtLink>
-              </div>
+              <v-col cols="12" sm="9" class="article order-last order-md-first">
+                <ContentRendererMarkdown :value="data?.article"/>
 
-              <div class="line-left line-top">
-                <div class="line-block">
-                  <span></span>
+                <div class="categories d-flex flex-wrap" v-if="data?.article.tags.length">
+                  <span>Tags:</span>
+                  <NuxtLink v-for="tag of data?.article.tags" :key="tag" :to="'/notes/categories/' + tag">
+                    {{ tag }}
+                  </NuxtLink>
                 </div>
-              </div>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-col>
-    </v-row>
 
-    <div class="page-navigation">
-      <v-container>
-        <blog-prev-next :prev="prev" :next="next"></blog-prev-next>
-      </v-container>
-    </div>
+                <div class="line-left line-top">
+                  <div class="line-block">
+                    <span></span>
+                  </div>
+                </div>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-col>
+      </v-row>
+
+      <div class="page-navigation">
+        <v-container>
+          <blog-prev-next :prev="prev" :next="next"></blog-prev-next>
+        </v-container>
+      </div>
+    </ContentRenderer>
   </v-container>
 </template>
 
@@ -113,8 +118,10 @@ const mapTags = (tags: string[]) => joinWith(tags, ', ');
 
   .titles {
     text-align: center;
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+    max-width: 48rem;
+    margin: auto;
 
     .categories {
       animation: translate;
@@ -132,12 +139,23 @@ const mapTags = (tags: string[]) => joinWith(tags, ', ');
       margin: 20px auto 0 auto;
       text-align: center;
       max-width: 900px;
-      font-size: 54px;
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+    }
+
+    .description {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.5rem;
     }
   }
 
   .content {
     padding-bottom: 100px;
+    max-width: 1320px;
+    margin: auto;
+    position: relative;
 
     .categories {
       padding-top: 30px;
@@ -165,35 +183,43 @@ const mapTags = (tags: string[]) => joinWith(tags, ', ');
     }
   }
 
-  ::v-deep .content {
+  :deep(.article) {
     padding-top: 50px;
     padding-bottom: 100px;
-    max-width: 1320px;
-    margin: auto;
-    position: relative;
-    font-family: "Jost",sans-serif;
 
     h2 {
-      font-size: 38px;
-      margin-bottom: 30px;
+      font-size: 1.5rem;
+      margin-bottom: .5em;
+      margin-top: 1.25em;
       color: #000;
-      line-height: 1.3;
-      font-weight: 700;
+      line-height: 1.375;
+      letter-spacing: -.025em;
+
+      a {
+        font-weight: 700;
+      }
     }
 
     h3 {
-      font-size: 38px;
-      margin-bottom: 30px;
+      font-size: 1.25rem;
+      margin-bottom: .5em;
+      margin-top: 1.25em;
+      line-height: 1.375;
+      letter-spacing: -.025em;
+
+      a {
+        font-weight: 600;
+      }
     }
 
     p {
       padding: 0px;
-      margin: 30px 0;
+      margin: 0;
       font-size: 16px;
       color: #262626;
-      line-height: 1.7;
-      font-weight: 400;
-      font-family: "Jost",sans-serif;
+      line-height: 1.625;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
 
     ul {
@@ -226,11 +252,11 @@ const mapTags = (tags: string[]) => joinWith(tags, ', ');
     }
 
     pre {
-      border-radius: 0.375rem;
+      border-radius: .5rem;
       display: flex;
-      padding: 10px;
-      line-height: 2;
-      margin: 30px 0;
+      line-height: 1.5;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
       max-width: 100%;
       overflow: auto;
       white-space: pre;
@@ -242,6 +268,10 @@ const mapTags = (tags: string[]) => joinWith(tags, ', ');
       width: 100%;
       padding: 15px 25px;
       font-family: monospace;
+
+      font-weight: 400;
+      font-size: .875rem;
+      line-height: 1.625rem;
     }
 
     code {
@@ -336,7 +366,7 @@ const mapTags = (tags: string[]) => joinWith(tags, ', ');
       }
     }
 
-    ::v-deep .content {
+    :deep(.article) {
       h3 {
         font-size: 28px;
       }
