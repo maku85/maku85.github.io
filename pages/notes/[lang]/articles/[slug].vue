@@ -64,30 +64,28 @@ useHead({
 
       <v-row class="content">
         <v-col cols="12" sm="12">
-          <v-container>
-            <v-row>
-              <v-col v-if="data?.article?.body?.toc?.links.length" cols="12" sm="3" class="order-first order-md-last">
-                <blog-toc class="toc pl-4 pb-4" :links="data?.article?.body?.toc?.links" />
-              </v-col>
+          <v-row>
+            <v-col v-if="data?.article?.body?.toc?.links.length" cols="12" sm="3" class="order-first order-md-last">
+              <blog-toc class="toc pl-4 pb-4" :links="data?.article?.body?.toc?.links" />
+            </v-col>
 
-              <v-col cols="12" sm="9" class="article order-last order-md-first">
-                <ContentRendererMarkdown :value="data?.article"/>
+            <v-col cols="12" sm="9" class="article order-last order-md-first">
+              <ContentRendererMarkdown :value="data?.article"/>
 
-                <div class="categories d-flex flex-wrap" v-if="data?.article.tags.length">
-                  <span>Tags:</span>
-                  <NuxtLink v-for="tag of data?.article.tags" :key="tag" :to="'/notes/categories/' + tag">
-                    {{ tag }}
-                  </NuxtLink>
+              <div class="categories d-flex flex-wrap" v-if="data?.article.tags.length">
+                <span>Tags:</span>
+                <NuxtLink v-for="tag of data?.article.tags" :key="tag" :to="'/notes/categories/' + tag">
+                  {{ tag }}
+                </NuxtLink>
+              </div>
+
+              <div class="line-left line-top">
+                <div class="line-block">
+                  <span></span>
                 </div>
-
-                <div class="line-left line-top">
-                  <div class="line-block">
-                    <span></span>
-                  </div>
-                </div>
-              </v-col>
-            </v-row>
-          </v-container>
+              </div>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
 
@@ -342,6 +340,8 @@ useHead({
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   #article {
+    padding: 0;
+
     .titles {
       padding-top: 30px;
       padding-bottom: 50px;

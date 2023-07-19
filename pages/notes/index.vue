@@ -29,23 +29,23 @@ function refetch(pageNumber: number) {
   <PageSection id="notes">
     <PageTitle text="Notes" subtitle=" Articles and Advice" />
 
-    <v-container>
-      <v-row cols="12" class="articles-list mt-4 mb-8">
-        <v-col md="12" lg="8">
-          <v-row v-for="article in articles" :key="article.id" class="articles-list mt-4 mb-8" >
-            <v-col>
+    <v-container class="notes-container">
+      <v-row>
+        <v-col cols="12" md="12" lg="8" class="articles-list-wrapper mt-5">
+          <div class="article-list mb-5">
+            <div class="article-wrapper" v-for="article in articles" :key="article.id">
               <blog-list-post-item :post="article" />
-            </v-col>
-          </v-row>
+            </div>
+          </div>
 
           <div class="pager d-flex justify-center" align-center>
             <v-btn v-if="page > 0" color="#29a587" @click="refetch(-5)" variant="flat" theme="dark">prev</v-btn>
-            <v-span class="ml-5"></v-span>
+            <span class="ml-5"></span>
             <v-btn v-if="page + limit < total" color="#29a587" @click="refetch(5)" variant="flat" theme="dark">next</v-btn>
           </div>
         </v-col>
 
-        <v-col md="12" lg="4">
+        <v-col>
           <div class="sidebar">
             <aside>
               <section>
@@ -63,7 +63,7 @@ function refetch(pageNumber: number) {
               <section>
                 <h2 class="heading">Categories</h2>
                 <ul class="wp-block-latest-posts__list wp-block-latest-posts">
-                  <li v-for="category of settings.notes.categories" :key="category.path">
+                  <li v-for="category of settings?.notes?.categories" :key="category.path">
                     <NuxtLink :to="'/notes/categories/' + category.path">
                       {{ category.title }}
                     </NuxtLink>
@@ -80,6 +80,13 @@ function refetch(pageNumber: number) {
 
 <style lang="scss" scoped>
 @import '../assets/sass/variables';
+  .notes-container{
+    padding: 0;
+
+    .article-wrapper {
+      margin: 0 0 70px;
+    }
+  }
 
 .sidebar {
   border-left: 1px solid #999;
@@ -93,7 +100,6 @@ function refetch(pageNumber: number) {
       margin-bottom: 50px;
       padding: 0;
       position: relative;
-      font-family: 'Jost';
       font-size: 18px;
       text-transform: uppercase;
 
@@ -119,6 +125,15 @@ function refetch(pageNumber: number) {
           font-weight: 400;
         }
       }
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .notes-container{
+    .article-wrapper {
+      margin: 0 0 30px;
     }
   }
 }
