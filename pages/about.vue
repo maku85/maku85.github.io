@@ -6,13 +6,13 @@ const { data: settings } = await useAsyncData('/', () => queryContent('/').findO
   <Page id="about">
     <PageTitle text="About me" subtitle=" Story" />
 
-    <v-row cols="12">
-      <v-col xs="6" class="history-container">
+    <v-row>
+      <v-col cols="12" xs="6" md="6" class="history-container">
         <h5 class="history-title">Experience</h5>
 
         <div class="history-items">
           <div
-            v-for="(experience, index) of settings.experiences"
+            v-for="(experience, index) of settings?.experiences"
             :key="index"
             class="history-item"
           >
@@ -37,7 +37,7 @@ const { data: settings } = await useAsyncData('/', () => queryContent('/').findO
         <h5 class="history-title">Skills</h5>
 
         <div class="skills-items">
-          <div v-for="(expertise, index) of settings.expertises" :key="index" class="skills-item">
+          <div v-for="(expertise, index) of settings?.expertises" :key="index" class="skills-item">
             <h6 class="name">{{ expertise.title }}</h6>
             <div class="text">
               <p>{{ expertise.description }}</p>
@@ -205,6 +205,16 @@ const { data: settings } = await useAsyncData('/', () => queryContent('/').findO
 @media only screen and (max-width: 600px) {
   .history-container {
     padding: 10px;
+
+    .history-items {
+      .history-item {
+        border-right: none;
+      }
+
+      .name:after {
+        display: none;
+      }
+    }
   }
 }
 </style>

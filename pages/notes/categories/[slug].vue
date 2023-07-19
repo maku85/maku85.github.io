@@ -40,7 +40,7 @@ function refetch(pageNumber: number) {
 
           <div class="pager d-flex justify-center" align-center>
             <v-btn v-if="page > 0" color="#29a587" @click="refetch(-5)" variant="flat" theme="dark">prev</v-btn>
-            <v-span class="ml-5"></v-span>
+            <span class="ml-5"></span>
             <v-btn v-if="page + limit < total" color="#29a587" @click="refetch(5)" variant="flat" theme="dark">next</v-btn>
           </div>
         </v-col>

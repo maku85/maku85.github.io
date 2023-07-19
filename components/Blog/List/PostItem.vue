@@ -10,10 +10,10 @@ defineProps({
 
 <template>
   <NuxtLink :to="'/notes' + post._path">
-    <div class="card blog-post">
-      <div class="wrapper d-flex flex-column">
+    <div class="card note">
+      <div class="wrapper">
         <v-img
-          class="image flex-grow-0"
+          class="image"
           :aspect-ratio="1"
           height="480px"
           :lazy-src="post.img || 'https://source.unsplash.com/random'"
@@ -21,12 +21,12 @@ defineProps({
           cover
         />
 
-        <div class="content d-flex flex-column flex-grow-1">
+        <div class="content">
           <div class="categories">
             <span v-for="tag in post.tags" :key="tag" class="category pr-3">{{ tag }}</span>
           </div>
-          <h5 class="title flex-grow-1">{{ post.title }}</h5>
-          <div class="text flex-grow-1">
+          <h5 class="title">{{ post.title }}</h5>
+          <div class="text">
             <p>{{ post.description }}</p>
           </div>
         </div>
@@ -38,7 +38,7 @@ defineProps({
 <style lang="scss" scoped>
 @import '../assets/sass/variables';
 
-.blog-post {
+.note {
   height: 100%;
   padding: 0 20px;
   transition: all 2s ease;
@@ -48,7 +48,6 @@ defineProps({
     height: 100%;
 
     .image {
-      margin: 0 0 30px;
       border-radius: $border-radius;
       filter: grayscale(90%);
     }
@@ -63,7 +62,6 @@ defineProps({
         font-weight: 700;
         letter-spacing: 0.05em;
         color: $primary-color;
-        word-wrap: break-word;
       }
 
       .title {
@@ -87,7 +85,7 @@ defineProps({
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .blog-post {
+  .note {
     padding: 0px;
   }
 }
