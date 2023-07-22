@@ -13,7 +13,7 @@ const query: QueryBuilderParams = {
   <PageSection id="blog">
     <PageTitle text="Latest notes" subtitle=" Articles and Advice" />
 
-    <ContentList :query="query" v-slot="{ list }">
+    <ContentList v-slot="{ list }" :query="query">
       <v-row v-if="list.length > 0" cols="12" class="articles-list mt-4 mb-8">
         <v-col v-for="article of list" :key="article._path" xs="12" sm="6" md="4">
           <blog-section-post-item :post="article" />
