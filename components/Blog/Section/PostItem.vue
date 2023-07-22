@@ -53,7 +53,7 @@ defineProps({
         font-size: 13px;
         font-weight: 500;
         letter-spacing: 0.05em;
-        color: $primary-color;
+        color: $primary;
       }
     }
 

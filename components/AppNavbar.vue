@@ -72,7 +72,7 @@ export default {
       font-weight: 800;
 
       &:hover {
-        color: $primary-color;
+        color: $primary;
       }
     }
   }
@@ -80,7 +80,7 @@ export default {
   .nav-item {
     &:hover,
     &.nav-item.v-btn--active {
-      color: $primary-color;
+      color: $primary;
     }
   }
 }

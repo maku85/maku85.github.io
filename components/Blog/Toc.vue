@@ -79,7 +79,7 @@ const flattenLinks = (links) => {
 
   .link_2 {
     margin-top: 25px;
-    color: $primary-color
+    color: $primary
   }
 
   .link_3 {

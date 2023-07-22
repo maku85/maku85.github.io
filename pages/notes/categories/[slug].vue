@@ -26,62 +26,63 @@ function refetch(pageNumber: number) {
 </script>
 
 <template>
-  <PageSection id="notes">
+  <PageSection id="articles">
     <PageTitle :text="category + ' Notes'" subtitle=" Articles and Advice" />
 
     <v-container>
-      <v-row cols="12" class="articles-list mt-4 mb-8">
-        <v-col md="12" lg="8">
-          <v-row v-for="article in articles" :key="article.id" class="articles-list mt-4 mb-8" >
+      <v-row>
+        <v-col cols="12" md="12" lg="8">
+          <v-row v-for="article in articles" :key="article.id" class="articles__list mt-4 mb-8">
             <v-col>
               <blog-list-post-item :post="article" />
             </v-col>
           </v-row>
 
-          <div class="pager d-flex justify-center" align-center>
-            <v-btn v-if="page > 0" color="#29a587" @click="refetch(-5)" variant="flat" theme="dark">prev</v-btn>
+          <div class="articles__pager">
+            <v-btn class="articles__button" v-if="page > 0" @click="refetch(-5)" variant="flat">prev</v-btn>
             <span class="ml-5"></span>
-            <v-btn v-if="page + limit < total" color="#29a587" @click="refetch(5)" variant="flat" theme="dark">next</v-btn>
+            <v-btn class="articles__button" v-if="page + limit < total" @click="refetch(5)" variant="flat">next</v-btn>
           </div>
         </v-col>
 
         <v-col md="12" lg="4">
-          <div class="sidebar">
+          <div class="articles__sidebar">
             <aside>
-              <section>
-                <h2 class="heading">Recent Posts</h2>
+              <section class="articles__section">
+                <h2 class="articles__heading">Recent Posts</h2>
                 <ContentList :query="recentPosts">
+                  <template #not-found>
+                    <p>No articles found.</p>
+                  </template>
+
                   <template #default="{ list }">
-                    <ul>
-                      <li v-for="article of list" :key="article._path">
-                        <NuxtLink :to="'/notes' + article._path">
+                    <ul class="articles__items">
+                      <li class="articles__item__wrapper" v-for="article of list" :key="article._path">
+                        <NuxtLink class="articles__item" :to="'/notes' + article._path">
                           {{article.title}}
                         </NuxtLink>
                       </li>
                     </ul>
                   </template>
-
-                  <template #not-found>
-                    <p>No articles found.</p>
-                </template>
                 </ContentList>
               </section>
-              <section>
-                <h2 class="heading">Categories</h2>
+
+              <section class="articles__section">
+                <h2 class="articles__heading">Categories</h2>
                 <ContentList :query="recentPosts">
+                  <template #not-found>
+                      <p>No categories found.</p>
+                  </template>
+
                   <template #default="{ list }">
-                    <ul>
-                      <li v-for="category of settings.notes.categories" :key="category.path">
-                        <NuxtLink :to="'/notes/categories/' + category.path">
+                    <ul class="articles__items">
+                      <li class="articles__item__wrapper" v-for="category of settings?.notes.categories" :key="category.path">
+                        <NuxtLink class="articles__item" :to="'/notes/categories/' + category.path">
                           {{ category.title }}
                         </NuxtLink>
                       </li>
                     </ul>
                     </template>
-
-                  <template #not-found>
-                      <p>No categories found.</p>
-                  </template>
                 </ContentList>
               </section>
             </aside>
@@ -91,49 +92,3 @@ function refetch(pageNumber: number) {
     </v-container>
   </PageSection>
 </template>
-
-<style lang="scss" scoped>
-@import '../assets/sass/variables';
-
-.sidebar {
-  border-left: 1px solid #999;
-
-  section {
-    margin-bottom: 0;
-    padding: 25px 0 25px 50px;
-
-    h2 {
-      margin-top: 0;
-      margin-bottom: 50px;
-      padding: 0;
-      position: relative;
-      font-family: 'Jost';
-      font-size: 18px;
-      text-transform: uppercase;
-
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -20px;
-        width: 30px;
-        height: 4px;
-        background: #29a587;
-      }
-    }
-
-    ul {
-      padding-left: 0;
-
-      li {
-        margin-bottom: 15px;
-        color: #000;
-
-        a {
-          font-weight: 400;
-        }
-      }
-    }
-  }
-}
-</style>

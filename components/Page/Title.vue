@@ -37,7 +37,7 @@ defineProps({
   .page-title {
     font-size: 44px;
     line-height: 1.3;
-    color: $title-color;
+    color: $title;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -52,12 +52,12 @@ defineProps({
     text-transform: uppercase;
 
     span {
-      color: $primary-color;
+      color: $primary;
     }
 
     b {
       font-family: 'Caveat';
-      color: $title-color;
+      color: $title;
       font-size: 30px;
       font-weight: 700;
       letter-spacing: 0;

@@ -36,7 +36,7 @@ const query: QueryBuilderParams = { path: '/en/articles', where: [{ published: t
     display: inline-block;
     vertical-align: top;
     font-size: 13px;
-    color: $title-color;
+    color: $title;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -69,7 +69,7 @@ const query: QueryBuilderParams = { path: '/en/articles', where: [{ published: t
       top: 50%;
       width: 0;
       height: 0;
-      background: $primary-color;
+      background: $primary;
       transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
       -webkit-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
       transform: translate(-50%, -50%);

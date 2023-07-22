@@ -31,12 +31,12 @@ const { data: settings } = await useAsyncData('/', () => queryContent('/').findO
   transition: color 1s;
 }
 .social-linkedin {
-  color: $social-linkedin !important;
+  color: $linkedin !important;
 }
 .social-github {
-  color: $social-github !important;
+  color: $github !important;
 }
 .social-codepen {
-  color: $social-codepen !important;
+  color: $codepen !important;
 }
 </style>

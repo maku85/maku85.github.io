@@ -6,7 +6,6 @@ $font-family: 'Jost', 'Helvetica', Arial, sans-serif;
 
 @import 'variables';
 
-@import 'reset';
 @import 'transitions';
 
 // Core CSS
@@ -16,3 +15,9 @@ $font-family: 'Jost', 'Helvetica', Arial, sans-serif;
 // components
 @import 'theme/images';
 @import 'theme/cards';
+
+// pages
+@import 'pages/notes/article';
+@import 'pages/notes/article-list';
+@import 'pages/about';
+@import 'pages/projects';
