@@ -8,7 +8,6 @@ let page = 0;
 const limit = 5;
 const query = { published: true };
 if (category) Object.assign(query, { tags: { $contains: category } });
-console.log({ query });
 const total = (await queryContent('en/articles').only([]).where(query).find()).length;
 const { data: articles, refresh } = await useAsyncData('posts', () =>
   queryContent('en/articles').where(query).sort({ date: -1 }).skip(page).limit(limit).find(),
@@ -45,15 +44,15 @@ function refetch(pageNumber: number) {
           </v-row>
 
           <div class="articles__pager">
-            <v-btn class="articles__button" v-if="page > 0" @click="refetch(-5)" variant="flat"
+            <v-btn v-if="page > 0" class="articles__button" variant="flat" @click="refetch(-5)"
               >prev</v-btn
             >
             <span class="ml-5"></span>
             <v-btn
-              class="articles__button"
               v-if="page + limit < total"
-              @click="refetch(5)"
+              class="articles__button"
               variant="flat"
+              @click="refetch(5)"
               >next</v-btn
             >
           </div>
@@ -72,9 +71,9 @@ function refetch(pageNumber: number) {
                   <template #default="{ list }">
                     <ul class="articles__items">
                       <li
-                        class="articles__item__wrapper"
                         v-for="article of list"
                         :key="article._path"
+                        class="articles__item__wrapper"
                       >
                         <NuxtLink class="articles__item" :to="'/notes' + article._path">
                           {{ article.title }}
@@ -95,9 +94,9 @@ function refetch(pageNumber: number) {
                   <template #default="{ list }">
                     <ul class="articles__items">
                       <li
-                        class="articles__item__wrapper"
                         v-for="category of settings?.notes.categories"
                         :key="category.path"
+                        class="articles__item__wrapper"
                       >
                         <NuxtLink class="articles__item" :to="'/notes/categories/' + category.path">
                           {{ category.title }}

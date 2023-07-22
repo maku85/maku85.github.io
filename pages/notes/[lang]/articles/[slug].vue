@@ -36,11 +36,11 @@ useSeoMeta({
 
       <div class="article__header">
         <div class="article__titles">
-          <div class="article__categories_container" v-if="article?.tags.length">
+          <div v-if="article?.tags.length" class="article__categories_container">
             <NuxtLink
-              class="article__category"
               v-for="(tag, index) of article.tags"
               :key="tag"
+              class="article__category"
               :to="'/notes/categories/' + tag"
             >
               #{{ tag.toUpperCase() }}{{ index < article.tags.length - 1 ? ',' : '' }}&nbsp
@@ -81,14 +81,14 @@ useSeoMeta({
               <ContentRendererMarkdown class="article__content" :value="article || {}" />
 
               <div
-                class="article__categories_container d-flex flex-wrap"
                 v-if="article?.tags.length"
+                class="article__categories_container d-flex flex-wrap"
               >
                 <span class="article__categories_label">Tags:</span>
                 <NuxtLink
-                  class="article__category"
                   v-for="tag of article.tags"
                   :key="tag"
+                  class="article__category"
                   :to="'/notes/categories/' + tag"
                 >
                   {{ tag }}

@@ -8,12 +8,12 @@ defineProps({
 
 // flatten TOC links nested arrays to one array
 const flattenLinks = (links) => {
-  let _links = (links || [])
+  const _links = (links || [])
     .map((link) => {
       let _link = [link];
       if (link.children) {
         // recursively flatten children links
-        let flattened = flattenLinks(link.children);
+        const flattened = flattenLinks(link.children);
         _link = [link, ...flattened];
       }
       return _link;

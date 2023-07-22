@@ -4,13 +4,13 @@ defineProps(['prev', 'next']);
 
 <template>
   <v-row>
-    <v-col cols="12" xs="12" class="prev" v-if="prev?.title">
+    <v-col v-if="prev?.title" cols="12" xs="12" class="prev">
       <NuxtLink :to="'/notes' + prev?._path">
         <div class="label"><v-icon>mdi-arrow-left</v-icon> Previous article</div>
         <div class="title">{{ prev?.title }}</div>
       </NuxtLink>
     </v-col>
-    <v-col cols="12" xs="12" class="next" v-if="next?.title">
+    <v-col v-if="next?.title" cols="12" xs="12" class="next">
       <NuxtLink :to="'/notes' + next._path">
         <div class="label">Next article <v-icon>mdi-arrow-right</v-icon></div>
         <div class="title">{{ next.title }}</div>

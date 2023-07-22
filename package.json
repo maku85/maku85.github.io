@@ -13,9 +13,11 @@
     "export": "nuxt export",
     "serve": "nuxt serve",
     "generate": "nuxt generate",
-    "format": "prettier --write .",
-    "lint": "eslint --ext .ts,.js,.vue .",
-    "precommit": "npm run lint"
+    "lint:js": "eslint --ext .ts,.vue --ignore-path .gitignore",
+    "lint:prettier": "prettier --check .",
+    "lint": "npm run lint:js && npm run lint:prettier",
+    "lint:fix": "prettier --write --list-different . && npm run lint:js --fix",
+    "precommit": "npm run lint:fix"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --cache",
@@ -31,14 +33,14 @@
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/critters": "^0.5.0",
-    "@nuxtjs/eslint-config": "^12.0.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/google-fonts": "^3.0.2",
     "@types/node": "^20.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-vue": "^9.15.1",
     "husky": "8.0.3",
@@ -46,8 +48,8 @@
     "nuxt": "^3.6.5",
     "nuxt-purgecss": "^2.0.0",
     "prettier": "^3.0.0",
-    "prism-themes": "^1.9.0",
     "sass": "^1.64.1",
+    "typescript": "^5.1.6",
     "vuetify": "^3.3.9"
   }
 }

@@ -35,7 +35,13 @@ export default defineNuxtConfig({
   debug: false,
 
   // modules extensions
-  modules: ['@nuxt/content', '@nuxtjs/critters', '@nuxt/image', 'nuxt-purgecss'],
+  modules: [
+    '@nuxt/content',
+    '@nuxtjs/critters',
+    '@nuxtjs/eslint-module',
+    '@nuxt/image',
+    'nuxt-purgecss',
+  ],
 
   // disable server side rendering
   ssr: false,
