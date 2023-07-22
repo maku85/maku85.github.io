@@ -6,7 +6,10 @@ const { data } = await useAsyncData(`article-${slug}`, async () => {
     .where({ _path: `/${lang}/articles/${slug}` })
     .findOne();
 
-  const surround = queryContent().only(["_path", "title", "description"]).sort({ date: 1 }).findSurround(`/${lang}/articles/${slug}`);
+  const surround = queryContent()
+    .only(['_path', 'title', 'description'])
+    .sort({ date: 1 })
+    .findSurround(`/${lang}/articles/${slug}`);
   return {
     article: await article,
     surround: await surround,
@@ -20,10 +23,9 @@ useSeoMeta({
   ogTitle: article?.title,
   description: article?.description,
   ogDescription: article?.description,
-  ogImage: `https://site.com/${article?.img}`
-})
+  ogImage: `https://site.com/${article?.img}`,
+});
 </script>
-
 
 <template>
   <v-container id="article" fluid>
@@ -35,7 +37,12 @@ useSeoMeta({
       <div class="article__header">
         <div class="article__titles">
           <div class="article__categories_container" v-if="article?.tags.length">
-            <NuxtLink class="article__category" v-for="(tag, index) of article.tags" :key="tag" :to="'/notes/categories/' + tag">
+            <NuxtLink
+              class="article__category"
+              v-for="(tag, index) of article.tags"
+              :key="tag"
+              :to="'/notes/categories/' + tag"
+            >
               #{{ tag.toUpperCase() }}{{ index < article.tags.length - 1 ? ',' : '' }}&nbsp
             </NuxtLink>
           </div>
@@ -47,29 +54,43 @@ useSeoMeta({
 
       <div class="article__image_container">
         <v-responsive class="article__image_wrapper">
-          <v-parallax class="article__image" height="740" :lazy-src="article?.img || 'https://source.unsplash.com/random'" :src="article?.img || 'https://source.unsplash.com/random'"></v-parallax>
+          <v-parallax
+            class="article__image"
+            height="740"
+            :lazy-src="article?.img || 'https://source.unsplash.com/random'"
+            :src="article?.img || 'https://source.unsplash.com/random'"
+          ></v-parallax>
         </v-responsive>
 
-        <div
-            v-if="article?.credits"
-            class="article__image__credits"
-            v-html="article.credits"
-          ></div>
+        <div v-if="article?.credits" class="article__image__credits" v-html="article.credits"></div>
       </div>
 
       <v-row class="article__container">
         <v-col cols="12" sm="12">
           <v-row>
-            <v-col v-if="article?.body?.toc?.links.length" cols="12" sm="3" class="order-first order-md-last">
+            <v-col
+              v-if="article?.body?.toc?.links.length"
+              cols="12"
+              sm="3"
+              class="order-first order-md-last"
+            >
               <blog-toc class="toc pl-4 pb-4" :links="article?.body?.toc?.links" />
             </v-col>
 
             <v-col cols="12" sm="9" class="order-last order-md-first">
-              <ContentRendererMarkdown class="article__content" :value="article || {}"/>
+              <ContentRendererMarkdown class="article__content" :value="article || {}" />
 
-              <div class="article__categories_container d-flex flex-wrap" v-if="article?.tags.length">
+              <div
+                class="article__categories_container d-flex flex-wrap"
+                v-if="article?.tags.length"
+              >
                 <span class="article__categories_label">Tags:</span>
-                <NuxtLink class="article__category" v-for="tag of article.tags" :key="tag" :to="'/notes/categories/' + tag">
+                <NuxtLink
+                  class="article__category"
+                  v-for="tag of article.tags"
+                  :key="tag"
+                  :to="'/notes/categories/' + tag"
+                >
                   {{ tag }}
                 </NuxtLink>
               </div>

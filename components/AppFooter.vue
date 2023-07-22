@@ -2,7 +2,9 @@
   <footer class="footer">
     <v-container>
       <v-row class="body">
-        <v-col cols="12" sm="12" md="6" class="d-flex justify-center align-center"><div><social-links /></div></v-col>
+        <v-col cols="12" sm="12" md="6" class="d-flex justify-center align-center"
+          ><div><social-links /></div
+        ></v-col>
         <v-col cols="12" sm="12" md="6" class="d-flex justify-center align-center">
           <p class="copyright-text">&copy; Mauro 2021 | All Right Reserved</p>
         </v-col>

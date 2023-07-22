@@ -1,5 +1,5 @@
 <script setup>
-defineProps(["prev", "next"]);
+defineProps(['prev', 'next']);
 </script>
 
 <template>
@@ -31,7 +31,7 @@ defineProps(["prev", "next"]);
   color: $title;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
 }
 
 .title {
@@ -42,15 +42,14 @@ defineProps(["prev", "next"]);
   color: $title;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .05em;
-
+  letter-spacing: 0.05em;
 }
 
 .next {
   .label,
   .title {
     text-align: right;
-    }
+  }
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -65,7 +64,7 @@ defineProps(["prev", "next"]);
   }
 
   .next {
-    margin-top: 15px
+    margin-top: 15px;
   }
 }
 </style>

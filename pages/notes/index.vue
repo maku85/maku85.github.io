@@ -1,26 +1,32 @@
 <script setup lang="ts">
-import { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
+import { QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
 
 const route = useRoute();
-const category = route.query.category
+const category = route.query.category;
 
 let page = 0;
 const limit = 5;
 const query = { published: true };
-if (category) Object.assign(query, { tags: category })
-console.log({query})
-const total = (await queryContent('en/articles').only([]).where(query).find()).length
+if (category) Object.assign(query, { tags: category });
+console.log({ query });
+const total = (await queryContent('en/articles').only([]).where(query).find()).length;
 const { data: articles, refresh } = await useAsyncData('posts', () =>
-  queryContent('en/articles').where(query).sort({date: -1}).skip(page).limit(limit).find())
+  queryContent('en/articles').where(query).sort({ date: -1 }).skip(page).limit(limit).find(),
+);
 
-const recentPosts: QueryBuilderParams = { path: '/en/articles', where: [query], limit: 15, sort: [{ date: -1 }] }
+const recentPosts: QueryBuilderParams = {
+  path: '/en/articles',
+  where: [query],
+  limit: 15,
+  sort: [{ date: -1 }],
+};
 
 const { data: settings } = await useAsyncData('/', () => queryContent('/').findOne());
 
 // methods
 function refetch(pageNumber: number) {
   page += pageNumber;
-  refresh()
+  refresh();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
@@ -41,9 +47,17 @@ function refetch(pageNumber: number) {
           </div>
 
           <div class="articles__pager">
-            <v-btn class="articles__button" v-if="page > 0" @click="refetch(-5)" variant="flat">prev</v-btn>
+            <v-btn class="articles__button" v-if="page > 0" @click="refetch(-5)" variant="flat"
+              >prev</v-btn
+            >
             <span class="ml-5"></span>
-            <v-btn class="articles__button" v-if="page + limit < total" @click="refetch(5)" variant="flat">next</v-btn>
+            <v-btn
+              class="articles__button"
+              v-if="page + limit < total"
+              @click="refetch(5)"
+              variant="flat"
+              >next</v-btn
+            >
           </div>
         </v-col>
 
@@ -61,7 +75,7 @@ function refetch(pageNumber: number) {
                     <ul class="articles__items">
                       <li v-for="article of list" :key="article._path">
                         <NuxtLink class="articles__item" :to="'/notes' + article._path">
-                          {{article.title}}
+                          {{ article.title }}
                         </NuxtLink>
                       </li>
                     </ul>
@@ -73,18 +87,22 @@ function refetch(pageNumber: number) {
                 <h2 class="articles__heading">Categories</h2>
                 <ContentList :query="recentPosts">
                   <template #not-found>
-                      <p>No categories found.</p>
+                    <p>No categories found.</p>
                   </template>
 
                   <template #default="{ list }">
                     <ul class="articles__items">
-                      <li class="articles__item__wrapper" v-for="category of settings?.notes.categories" :key="category.path">
+                      <li
+                        class="articles__item__wrapper"
+                        v-for="category of settings?.notes.categories"
+                        :key="category.path"
+                      >
                         <NuxtLink class="articles__item" :to="'/notes/categories/' + category.path">
                           {{ category.title }}
                         </NuxtLink>
                       </li>
                     </ul>
-                    </template>
+                  </template>
                 </ContentList>
               </section>
             </aside>

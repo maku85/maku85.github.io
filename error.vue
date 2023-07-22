@@ -31,8 +31,8 @@
 
 <script setup>
 const props = defineProps({
-  error: Object
-})
+  error: Object,
+});
 
 const pageNotFound = 'Looks like you are lost in space';
 const otherError = 'Houston, we have a problem';
@@ -235,4 +235,3 @@ useHead({
   }
 }
 </style>
-

@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
+import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
 
-const query: QueryBuilderParams = { path: '/en/articles', where: [{ published: true }], limit: 6, sort: [{ date: -1 }] }
+const query: QueryBuilderParams = {
+  path: '/en/articles',
+  where: [{ published: true }],
+  limit: 6,
+  sort: [{ date: -1 }],
+};
 </script>
 
 <template>
