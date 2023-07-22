@@ -65,7 +65,7 @@ export default {
         text-decoration: none;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        color: $title-color;
+        color: $title;
         font-weight: 700;
       }
     }

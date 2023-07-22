@@ -43,13 +43,13 @@ onMounted(() => {
   line-height: 45px;
   cursor: pointer;
   border-radius: 50%;
-  background: $secondary-color;
+  background: $secondary;
   text-align: center;
   color: #fff;
   transition: all 0.5s ease;
 
   &:hover {
-    background: $primary-color;
+    background: $primary;
   }
 }
 </style>

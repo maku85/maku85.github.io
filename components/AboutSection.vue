@@ -55,19 +55,19 @@ I'm curious, love challenges but I hate monotony.
         5px 5px 0px rgba(0, 0, 0, 0.2);
 
       b {
-        color: $primary-color;
+        color: $primary;
       }
     }
 
     .subtitle {
       font-size: 15px;
       font-weight: 700;
-      color: $subtitle-color;
+      color: $subtitle;
       text-transform: uppercase;
       letter-spacing: 0.05em;
 
       b {
-        color: $primary-color;
+        color: $primary;
       }
 
       strong {

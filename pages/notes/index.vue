@@ -26,49 +26,66 @@ function refetch(pageNumber: number) {
 </script>
 
 <template>
-  <PageSection id="notes">
+  <PageSection id="articles">
     <PageTitle text="Notes" subtitle=" Articles and Advice" />
 
-    <v-container class="notes-container">
+    <v-container>
       <v-row>
-        <v-col cols="12" md="12" lg="8" class="articles-list-wrapper mt-5">
+        <v-col cols="12" md="12" lg="8">
           <div class="article-list mb-5">
-            <div class="article-wrapper" v-for="article in articles" :key="article.id">
-              <blog-list-post-item :post="article" />
-            </div>
+            <v-row v-for="article in articles" :key="article.id" class="articles__list mt-4 mb-8">
+              <v-col>
+                <blog-list-post-item :post="article" />
+              </v-col>
+            </v-row>
           </div>
 
-          <div class="pager d-flex justify-center" align-center>
-            <v-btn v-if="page > 0" color="#29a587" @click="refetch(-5)" variant="flat" theme="dark">prev</v-btn>
+          <div class="articles__pager">
+            <v-btn class="articles__button" v-if="page > 0" @click="refetch(-5)" variant="flat">prev</v-btn>
             <span class="ml-5"></span>
-            <v-btn v-if="page + limit < total" color="#29a587" @click="refetch(5)" variant="flat" theme="dark">next</v-btn>
+            <v-btn class="articles__button" v-if="page + limit < total" @click="refetch(5)" variant="flat">next</v-btn>
           </div>
         </v-col>
 
-        <v-col>
-          <div class="sidebar">
+        <v-col md="12" lg="4">
+          <div class="articles__sidebar">
             <aside>
-              <section>
-                <h2 class="heading">Recent Posts</h2>
-                <ul class="wp-block-latest-posts__list wp-block-latest-posts">
-                  <ContentList :query="recentPosts" v-slot="{ list }">
-                    <li v-for="article of list" :key="article._path">
-                      <NuxtLink :to="'/notes' + article._path">
-                        {{article.title}}
-                      </NuxtLink>
-                    </li>
-                  </ContentList>
-                </ul>
+              <section class="articles__section">
+                <h2 class="articles__heading">Recent Posts</h2>
+                <ContentList :query="recentPosts">
+                  <template #not-found>
+                    <p>No articles found.</p>
+                  </template>
+
+                  <template #default="{ list }">
+                    <ul class="articles__items">
+                      <li v-for="article of list" :key="article._path">
+                        <NuxtLink class="articles__item" :to="'/notes' + article._path">
+                          {{article.title}}
+                        </NuxtLink>
+                      </li>
+                    </ul>
+                  </template>
+                </ContentList>
               </section>
-              <section>
-                <h2 class="heading">Categories</h2>
-                <ul class="wp-block-latest-posts__list wp-block-latest-posts">
-                  <li v-for="category of settings?.notes?.categories" :key="category.path">
-                    <NuxtLink :to="'/notes/categories/' + category.path">
-                      {{ category.title }}
-                    </NuxtLink>
-                  </li>
-                </ul>
+
+              <section class="articles__section">
+                <h2 class="articles__heading">Categories</h2>
+                <ContentList :query="recentPosts">
+                  <template #not-found>
+                      <p>No categories found.</p>
+                  </template>
+
+                  <template #default="{ list }">
+                    <ul class="articles__items">
+                      <li class="articles__item__wrapper" v-for="category of settings?.notes.categories" :key="category.path">
+                        <NuxtLink class="articles__item" :to="'/notes/categories/' + category.path">
+                          {{ category.title }}
+                        </NuxtLink>
+                      </li>
+                    </ul>
+                    </template>
+                </ContentList>
               </section>
             </aside>
           </div>
@@ -77,64 +94,3 @@ function refetch(pageNumber: number) {
     </v-container>
   </PageSection>
 </template>
-
-<style lang="scss" scoped>
-@import '../assets/sass/variables';
-  .notes-container{
-    padding: 0;
-
-    .article-wrapper {
-      margin: 0 0 70px;
-    }
-  }
-
-.sidebar {
-  border-left: 1px solid #999;
-
-  section {
-    margin-bottom: 0;
-    padding: 25px 0 25px 50px;
-
-    h2 {
-      margin-top: 0;
-      margin-bottom: 50px;
-      padding: 0;
-      position: relative;
-      font-size: 18px;
-      text-transform: uppercase;
-
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -20px;
-        width: 30px;
-        height: 4px;
-        background: #29a587;
-      }
-    }
-
-    ul {
-      padding-left: 0;
-
-      li {
-        margin-bottom: 15px;
-        color: #000;
-
-        a {
-          font-weight: 400;
-        }
-      }
-    }
-  }
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  .notes-container{
-    .article-wrapper {
-      margin: 0 0 30px;
-    }
-  }
-}
-</style>

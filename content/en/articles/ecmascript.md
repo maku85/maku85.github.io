@@ -20,16 +20,16 @@ ECMAScript 2022 is the 13th edition of the ECMAScript standard, it was released 
 
 Now the await can be used at the top level of a module and can be super handy when initializing imports and creating fallbacks.
 
-```javascript
-// the old behavior
+```js
 import { get } from 'axios';
+
+// the old behavior
 (async () => {
   const response = await get('https://api.github.com/users/username');
   const data = await response.json();
 })();
 
 // the new behavior
-import { get } from 'axios';
 const response = await get('https://api.github.com/users/username');
 const data = await response.json();
 ```
@@ -38,7 +38,7 @@ const data = await response.json();
 
 With ES2022 was added as new features as private instance fields, methods, and accessors. We need to add just # at the beginning of the method name and in that way will be declared as private.
 
-```javascript
+```js
 class Person {
   // private field
   #name = 'John Doe';

@@ -61,7 +61,7 @@ defineProps({
         font-size: 13px;
         font-weight: 700;
         letter-spacing: 0.05em;
-        color: $primary-color;
+        color: $primary;
       }
 
       .title {

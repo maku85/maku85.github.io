@@ -97,7 +97,7 @@ useHead({
       border-radius: 10px;
 
       &:hover {
-        background-color: $primary-color;
+        background-color: $primary;
         transform: scale(1.05);
         box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1);
       }
