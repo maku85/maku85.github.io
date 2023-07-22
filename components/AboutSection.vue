@@ -3,14 +3,17 @@
     <div class="card align-items-center d-flex">
       <v-row cols="12" class="content">
         <v-col sm="8" class="titles">
-          <div class="subtitle"><span>Hello, <b>my name is</b></span></div>
+          <div class="subtitle">
+            <span>Hello, <b>my name is</b></span>
+          </div>
           <h1 class="d-xs-none title"><b>Mauro</b> Cunsolo</h1>
           <div class="subtitle">I am <strong>Backend Developer</strong></div>
 
           <div class="description">
             <p>
-              Experienced Node.js back-end developer but deeply passionate about all the latest back-end, front-end and mobile technologies.
-I'm curious, love challenges but I hate monotony.
+              Experienced Node.js back-end developer but deeply passionate about all the latest
+              back-end, front-end and mobile technologies. I'm curious, love challenges but I hate
+              monotony.
             </p>
 
             <div class="d-flex flex-column">
@@ -51,7 +54,11 @@ I'm curious, love challenges but I hate monotony.
       margin: 15px 0 0;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      text-shadow: 2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000,
+      text-shadow:
+        2px 2px #000,
+        -2px 2px #000,
+        2px -2px #000,
+        -2px -2px #000,
         5px 5px 0px rgba(0, 0, 0, 0.2);
 
       b {

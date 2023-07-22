@@ -1,9 +1,9 @@
 <script setup>
 defineProps({
-    links: {
-        type: Array,
-        required: true
-    }
+  links: {
+    type: Array,
+    required: true,
+  },
 });
 
 // flatten TOC links nested arrays to one array
@@ -21,7 +21,6 @@ const flattenLinks = (links) => {
     .flat(1);
   return _links;
 };
-
 </script>
 <template>
   <nav class="toc">
@@ -47,7 +46,7 @@ const flattenLinks = (links) => {
   margin-bottom: 50px !important;
   font-size: 18px !important;
   text-transform: uppercase;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   position: relative;
 
   &:before {
@@ -67,7 +66,6 @@ const flattenLinks = (links) => {
   list-style-type: disc;
   padding-inline-start: 2ch;
 
-
   .link {
     line-height: 1.4;
     margin-bottom: 10px;
@@ -79,7 +77,7 @@ const flattenLinks = (links) => {
 
   .link_2 {
     margin-top: 25px;
-    color: $primary
+    color: $primary;
   }
 
   .link_3 {

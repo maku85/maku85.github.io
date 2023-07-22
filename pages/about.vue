@@ -14,11 +14,7 @@ const expertises = computed(() => data?.value?.expertises || []);
         <h5 class="about__history-title">Experience</h5>
 
         <div class="about__history-items">
-          <div
-            v-for="(experience, index) of experiences"
-            :key="index"
-            class="about__history-item"
-          >
+          <div v-for="(experience, index) of experiences" :key="index" class="about__history-item">
             <h6 class="about__name">
               <span>{{ experience.title }}</span>
             </h6>
