@@ -1,0 +1,1 @@
+import{p as e,r as t,o as r,f as c,w as s,C as _}from"./entry.22b055fe.js";const a={};function l(n,f){const o=t("v-container");return r(),c(o,null,{default:s(()=>[_(n.$slots,"default")]),_:3})}const i=e(a,[["render",l]]);export{i as _};
