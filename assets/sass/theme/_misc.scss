@@ -22,6 +22,16 @@ body {
   background-color: var(--bg) !important;
 }
 
+a {
+  color: $font;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $font;
+  }
+}
+
 //  scrollbar
 ::-webkit-scrollbar {
   height: 8px;

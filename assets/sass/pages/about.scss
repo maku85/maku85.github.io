@@ -1,155 +1,168 @@
 #about {
-  .about__history-container {
-    padding: 40px;
-  }
+  .about-container {
+    .about__history-container {
+      padding: 40px;
+    }
 
-  .about__history-title {
-    line-height: 1;
-    margin: 0;
-    padding: 0 0 30px;
-    text-align: center;
-  }
+    .about__history-title {
+      line-height: 1;
+      margin: 0;
+      padding: 0 0 30px;
+      text-align: center;
+    }
 
-  .about__history-items {
-    position: relative;
-
-    .about__history-item {
-      border-bottom: 2px solid #000;
-      border-right: 2px solid;
+    .about__history-items {
       position: relative;
 
-      .about__name {
-        padding: 30px;
+      .about__history-item {
+        border-bottom: 2px solid #000;
+        border-right: 2px solid;
+        position: relative;
 
-        &:after {
-          background: #fff;
-          border: 2px solid #000;
-          border-radius: 50%;
-          bottom: -24px;
-          box-shadow: 5px 5px rgb(0 0 0/20%);
-          content: '';
-          font-size: 30px;
-          font-weight: 400;
-          height: 48px;
-          line-height: 40px;
-          position: absolute;
-          right: -24px;
-          text-align: center;
-          transition: all 1.2s cubic-bezier(0.3, 0, 0.3, 1);
-          width: 48px;
-          z-index: 2;
+        .about__name {
+          padding: 30px;
+
+          &:after {
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 50%;
+            bottom: -24px;
+            box-shadow: 5px 5px rgb(0 0 0/20%);
+            content: '';
+            font-size: 30px;
+            font-weight: 400;
+            height: 48px;
+            line-height: 40px;
+            position: absolute;
+            right: -24px;
+            text-align: center;
+            transition: all 1.2s cubic-bezier(0.3, 0, 0.3, 1);
+            width: 48px;
+            z-index: 2;
+          }
+        }
+
+        .about__content {
+          padding: 0 50px 0 30px;
+
+          .about__subname {
+            float: left;
+            font-family: 'Caveat';
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 40px;
+            width: 70%;
+          }
+
+          .about__date {
+            float: right;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            line-height: 46px;
+            text-transform: uppercase;
+
+            b {
+              color: $primary;
+            }
+          }
+
+          .about__text {
+            clear: both;
+            padding: 15px 0 30px;
+          }
         }
       }
+    }
 
-      .about__content {
-        padding: 0 50px 0 30px;
+    .about__skills-items {
+      padding-top: 20px;
 
-        .about__subname {
-          float: left;
-          font-family: 'Caveat';
-          font-size: 28px;
-          font-weight: 700;
-          line-height: 40px;
-          width: 70%;
-        }
+      .about__skills-item {
+        margin-bottom: 70px;
+        position: relative;
 
-        .about__date {
-          float: right;
-          font-size: 13px;
-          font-weight: 700;
-          letter-spacing: 0.05em;
-          line-height: 46px;
-          text-transform: uppercase;
-
-          b {
-            color: $primary;
-          }
+        .about__name {
+          line-height: 20px;
+          margin: 0 30px 20px;
         }
 
         .about__text {
-          clear: both;
-          padding: 15px 0 30px;
+          margin: 0 30px 30px;
         }
-      }
-    }
-  }
 
-  .about__skills-items {
-    padding-top: 20px;
-
-    .about__skills-item {
-      margin-bottom: 70px;
-      position: relative;
-
-      .about__name {
-        line-height: 20px;
-        margin: 0 30px 20px;
-      }
-
-      .about__text {
-        margin: 0 30px 30px;
-      }
-
-      .about__dots {
-        background: rgba(0, 0, 0, 0.1);
-        height: 2px;
-        position: relative;
-
-        .about__dot {
-          background: #000;
-          display: block;
+        .about__dots {
+          background: rgba(0, 0, 0, 0.1);
           height: 2px;
           position: relative;
-          transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
-          width: 0;
 
-          span {
-            border: 2px solid #000;
-            border-radius: 50%;
-            background-color: #29a587;
-            box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
-            position: absolute;
-            right: 0;
-            top: -12px;
-            width: 25px;
-            height: 25px;
+          .about__dot {
+            background: #000;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
+            width: 0;
+
+            span {
+              border: 2px solid #000;
+              border-radius: 50%;
+              background-color: #29a587;
+              box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+              position: absolute;
+              right: 0;
+              top: -12px;
+              width: 25px;
+              height: 25px;
+            }
           }
         }
-      }
 
-      .about__value {
-        position: absolute;
-        right: 30px;
-        top: 0;
+        .about__value {
+          position: absolute;
+          right: 30px;
+          top: 0;
 
-        .about__num {
-          color: #000;
-          display: inline-block;
-          font-weight: 700;
-          height: 20px;
-          line-height: 20px;
-          vertical-align: top;
+          .about__num {
+            color: #000;
+            display: inline-block;
+            font-weight: 700;
+            height: 20px;
+            line-height: 20px;
+            vertical-align: top;
 
-          span {
-            color: $primary;
+            span {
+              color: $primary;
+            }
           }
         }
       }
     }
-  }
 
-  /* Extra small devices (phones, 600px and down) */
-  @media only screen and (max-width: 600px) {
-    .about__history-container {
-      padding: 10px;
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+      .about__history-container {
+        padding: 10px;
 
-      .about__history-items {
-        .about__history-item {
-          border-right: none;
+        .about__history-items {
+          .about__history-item {
+            border-right: none;
+          }
+
+          .about__name:after {
+            display: none;
+          }
         }
+      }
+    }
 
-        .about__name:after {
-          display: none;
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+      #about {
+        .about__container {
+          .about__content {
+            text-align: center;
+          }
         }
       }
     }

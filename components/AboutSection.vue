@@ -2,11 +2,11 @@
   <PageSection id="about">
     <v-container>
       <v-row class="card about__container">
-        <v-col cols="12" sm="8" class="about__content">
+        <v-col cols="12" xs="12" md="8" class="about__content">
           <div class="about__subtitle">
             <span>Hello, <b>my name is</b></span>
           </div>
-          <h1 class="d-xs-none about__title"><b>Mauro</b> Cunsolo</h1>
+          <h1 class="about__title"><b>Mauro</b> Cunsolo</h1>
           <div class="about__subtitle">I am <strong>Backend Developer</strong></div>
 
           <div class="about__description">
@@ -20,7 +20,7 @@
           </div>
         </v-col>
 
-        <v-col cols="12" sm="4" class="d-none d-sm-flex about__img-container">
+        <v-col cols="12" sm="4" class="d-none d-md-flex about__img-container">
           <v-img
             height="300"
             width="200"

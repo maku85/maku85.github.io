@@ -2,12 +2,12 @@
 import { QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
 
 const route = useRoute();
-const category = route.params.slug;
+const categoryParam = route.params.slug;
 
 let page = 0;
 const limit = 5;
 const query = { published: true };
-if (category) Object.assign(query, { tags: { $contains: category } });
+if (categoryParam) Object.assign(query, { tags: { $contains: categoryParam } });
 const total = (await queryContent('en/articles').only([]).where(query).find()).length;
 const { data: articles, refresh } = await useAsyncData('posts', () =>
   queryContent('en/articles').where(query).sort({ date: -1 }).skip(page).limit(limit).find(),
@@ -20,7 +20,8 @@ const recentPosts: QueryBuilderParams = {
   sort: [{ date: -1 }],
 };
 
-const { data: settings } = await useAsyncData('settings', () => queryContent('/').findOne());
+const { data } = await useAsyncData('settings', () => queryContent('/').findOne());
+const categories = computed(() => data?.value?.notes.categories || []);
 
 // methods
 function refetch(pageNumber: number) {
@@ -32,7 +33,7 @@ function refetch(pageNumber: number) {
 
 <template>
   <PageSection id="articles">
-    <PageTitle :text="category + ' Notes'" subtitle=" Articles and Advice" />
+    <PageTitle :text="categoryParam + ' Notes'" subtitle=" Articles and Advice" />
 
     <v-container>
       <v-row>
@@ -91,10 +92,10 @@ function refetch(pageNumber: number) {
                     <p>No categories found.</p>
                   </template>
 
-                  <template #default="{ list }">
+                  <template #default>
                     <ul class="articles__items">
                       <li
-                        v-for="category of settings?.notes.categories"
+                        v-for="category of categories"
                         :key="category.path"
                         class="articles__item__wrapper"
                       >
