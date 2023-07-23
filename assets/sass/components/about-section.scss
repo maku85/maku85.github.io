@@ -1,0 +1,79 @@
+#about {
+  max-width: 1000px;
+
+  .about__container {
+    position: relative;
+    z-index: 1;
+
+    .about__content {
+      .about__title {
+        color: #fff;
+        font-size: 90px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        line-height: 1.2;
+        margin: 15px 0 0;
+        text-shadow:
+          2px 2px #000,
+          -2px 2px #000,
+          2px -2px #000,
+          -2px -2px #000,
+          5px 5px 0px rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+
+        b {
+          color: $primary;
+        }
+      }
+
+      .about__subtitle {
+        color: $subtitle;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+
+        b {
+          color: $primary;
+        }
+
+        strong {
+          font-family: 'Caveat';
+          font-size: 30px;
+          font-weight: 700;
+          letter-spacing: 0;
+          text-transform: none;
+          margin-left: 2px;
+        }
+      }
+
+      .about__description {
+        font-size: 18px;
+        max-width: 520px;
+        padding-top: 40px;
+
+        .social-links {
+          margin-top: 30px;
+        }
+      }
+    }
+
+    .about__img-container {
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #about {
+    .about__container {
+      .about__content {
+        text-align: center;
+
+        .about__title {
+          font-size: 50px;
+        }
+      }
+    }
+  }
+}

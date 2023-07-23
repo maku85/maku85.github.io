@@ -14,5 +14,3 @@ node_modules
 
 # Other files
 .env
-static/sw.js
-

@@ -1,0 +1,14 @@
+.section {
+  margin: auto;
+  max-width: 1320px;
+  padding: 0 0 180px;
+  padding-top: 60px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .section {
+    padding: 0 0 90px;
+    padding-top: 30px;
+  }
+}

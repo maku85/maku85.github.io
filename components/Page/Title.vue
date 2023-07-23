@@ -12,75 +12,17 @@ defineProps({
 </script>
 
 <template>
-  <div class="page-titles">
-    <div class="page-title">
+  <div class="titles">
+    <div class="titles__title">
       <slot>
         <h2>{{ text }}</h2>
       </slot>
     </div>
 
-    <div class="page-subtitle">
+    <div class="titles__subtitle">
       <slot
         ><span>My</span><b>{{ subtitle }}</b></slot
       >
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-@import '../assets/sass/variables';
-
-.page-titles {
-  text-align: center;
-  margin: 0 0 50px 0;
-
-  .page-title {
-    font-size: 44px;
-    line-height: 1.3;
-    color: $title;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .page-subtitle {
-    position: relative;
-    font-size: 14px;
-    line-height: 1;
-    font-weight: 700;
-    z-index: 2;
-    text-transform: uppercase;
-
-    span {
-      color: $primary;
-    }
-
-    b {
-      font-family: 'Caveat';
-      color: $title;
-      font-size: 30px;
-      font-weight: 700;
-      letter-spacing: 0;
-      text-transform: none;
-      margin-left: 2px;
-      line-height: 0;
-    }
-  }
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  .page-titles {
-    margin-bottom: 0px;
-
-    .page-title {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-
-    .page-subtitle b {
-      font-size: 24px;
-    }
-  }
-}
-</style>

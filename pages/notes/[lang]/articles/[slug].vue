@@ -74,7 +74,7 @@ useSeoMeta({
               sm="3"
               class="order-first order-md-last"
             >
-              <blog-toc class="toc pl-4 pb-4" :links="article?.body?.toc?.links" />
+              <note-article-toc class="toc pl-4 pb-4" :links="article?.body?.toc?.links" />
             </v-col>
 
             <v-col cols="12" sm="9" class="order-last order-md-first">
@@ -107,7 +107,7 @@ useSeoMeta({
 
       <div class="articles__navigation">
         <v-container>
-          <blog-prev-next :prev="prev" :next="next"></blog-prev-next>
+          <note-prev-next :prev="prev" :next="next" />
         </v-container>
       </div>
     </ContentRenderer>

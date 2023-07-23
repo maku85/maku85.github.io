@@ -2,6 +2,6 @@
   <v-container>
     <about-section />
 
-    <blog-section />
+    <notes-section />
   </v-container>
 </template>
