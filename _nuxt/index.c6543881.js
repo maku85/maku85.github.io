@@ -1,0 +1,1 @@
+import{_ as o,o as s,g as t,y as n}from"./entry.59ba0d85.js";const c={},_={class:"section"};function r(e,a){return s(),t("section",_,[n(e.$slots,"default")])}const f=o(c,[["render",r]]);export{f as _};

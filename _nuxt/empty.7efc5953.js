@@ -1,0 +1,1 @@
+import{_ as t,r as o,g as n,e as s,o as a}from"./entry.59ba0d85.js";const c={name:"EmptyLayout"},r={id:"app"};function p(_,m,d,i,u,f){const e=o("Nuxt");return a(),n("div",r,[s(e)])}const x=t(c,[["render",p]]);export{x as default};
