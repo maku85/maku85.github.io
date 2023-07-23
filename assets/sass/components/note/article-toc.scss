@@ -1,0 +1,53 @@
+.toc {
+  .toc__header {
+    .toc__title {
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      margin-bottom: 50px;
+      margin-top: 0;
+      position: relative;
+      text-transform: uppercase;
+
+      &:before {
+        background: $primary;
+        bottom: -20px;
+        content: '';
+        height: 4px;
+        left: 0;
+        position: absolute;
+        width: 30px;
+      }
+    }
+  }
+
+  .toc__links-container {
+    list-style-type: disc;
+    margin: 2rem 0;
+    padding: 0;
+    padding-inline-start: 2ch;
+
+    .toc__link-wrapper {
+      line-height: 1.4;
+      margin-bottom: 10px;
+
+      .toc__link {
+        font-weight: 400;
+      }
+    }
+
+    .toc__link-wrapper--2 {
+      margin-top: 25px;
+      color: $primary;
+    }
+
+    .toc__link-wrapper--3 {
+      margin-left: 2ch;
+      list-style-type: circle;
+    }
+
+    .toc__link-wrapper--4 {
+      margin-left: 4ch;
+      list-style-type: square;
+    }
+  }
+}

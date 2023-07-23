@@ -22,35 +22,6 @@ body {
   background-color: var(--bg) !important;
 }
 
-a {
-  color: var(--primary-color);
-
-  &:hover,
-  &:focus {
-    color: var(--secondary-color);
-    text-decoration: none;
-  }
-}
-
-hr {
-  border-color: var(--primary-color);
-}
-
-a:focus,
-a:active,
-button::-moz-focus-inner,
-input[type='reset']::-moz-focus-inner,
-input[type='button']::-moz-focus-inner,
-input[type='submit']::-moz-focus-inner,
-select::-moz-focus-inner,
-input[type='file'] > input[type='button']::-moz-focus-inner {
-  outline: 0;
-}
-
-a:link {
-  text-decoration: none;
-}
-
 //  scrollbar
 ::-webkit-scrollbar {
   height: 8px;
@@ -66,8 +37,4 @@ a:link {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-.primary-color {
-  color: var(--primary-color);
 }

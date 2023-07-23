@@ -1,0 +1,55 @@
+.note {
+  height: 100%;
+  padding: 0 20px;
+  transition: all 2s ease;
+
+  .note__container {
+    height: 100%;
+    padding: 20px;
+
+    .note__image {
+      border-radius: $border-radius;
+      filter: grayscale(90%);
+    }
+
+    .note__content {
+      padding-top: 30px;
+
+      .note__categories-container {
+        margin-bottom: 15px;
+
+        .note__category {
+          color: $primary;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.05em;
+          margin-right: 10px;
+          text-transform: uppercase;
+        }
+      }
+
+      .note__title {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      .note__text {
+        opacity: 0.8;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &:hover {
+    .note__image {
+      filter: saturate(120%);
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .note {
+    padding: 0px;
+  }
+}

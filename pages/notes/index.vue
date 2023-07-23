@@ -41,7 +41,7 @@ function refetch(pageNumber: number) {
           <div class="article-list mb-5">
             <v-row v-for="article in articles" :key="article.id" class="articles__list mt-4 mb-8">
               <v-col>
-                <blog-list-post-item :post="article" />
+                <note-list-article-item :article="article" />
               </v-col>
             </v-row>
           </div>

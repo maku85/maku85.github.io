@@ -1,0 +1,15 @@
+.social {
+  .social__icon {
+    font-size: 32px;
+  }
+
+  .social__icon--codepen {
+    color: $codepen;
+  }
+  .social__icon--github {
+    color: $github;
+  }
+  .social__icon--linkedin {
+    color: $linkedin;
+  }
+}

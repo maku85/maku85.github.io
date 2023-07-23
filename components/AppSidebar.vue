@@ -1,4 +1,10 @@
 <script setup>
+const menuItems = [
+  { title: 'About', path: '/about' },
+  { title: 'Projects', path: '/projects' },
+  { title: 'Notes', path: '/notes' },
+];
+
 // state
 const showDrawer = useState('navbar.showDrawer', () => false);
 
@@ -7,16 +13,16 @@ const closeSidebar = () => (showDrawer.value = !showDrawer.value);
 </script>
 
 <template>
-  <v-navigation-drawer v-model="showDrawer" temporary location="bottom" class="d-flex">
-    <div class="pt-2 pr-2 text-right close-menu" @click="closeSidebar()">
+  <v-navigation-drawer v-model="showDrawer" temporary location="bottom" class="sidebar">
+    <div class="sidebar__close-menu" @click="closeSidebar()">
       <v-icon>mdi-close</v-icon>
     </div>
 
-    <v-container class="container">
-      <div class="menu">
-        <ul>
-          <li v-for="item in menuItems" :key="item.title" :to="item.path" class="nav-item">
-            <NuxtLink :to="item.path">{{ item.title }}</NuxtLink>
+    <v-container class="sidebar__container">
+      <div class="sidebar__menu">
+        <ul class="sidebar__list">
+          <li v-for="item in menuItems" :key="item.title" :to="item.path">
+            <NuxtLink class="sidebar__item" :to="item.path">{{ item.title }}</NuxtLink>
           </li>
         </ul>
       </div>
@@ -25,92 +31,3 @@ const closeSidebar = () => (showDrawer.value = !showDrawer.value);
     </v-container>
   </v-navigation-drawer>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      menuItems: [
-        { title: 'About', path: '/about' },
-        { title: 'Projects', path: '/projects' },
-        { title: 'Notes', path: '/notes' },
-      ],
-    };
-  },
-};
-</script>
-
-<style lang="scss" scoped>
-@import '../assets/sass/variables';
-
-.container {
-  position: relative;
-
-  .menu {
-    padding: 10px 40px 0px 45px;
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      text-align: left;
-
-      li a {
-        margin-bottom: 20px;
-        position: relative;
-        display: inline-block;
-        vertical-align: top;
-        font-size: 22px;
-        line-height: 1;
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: $title;
-        font-weight: 700;
-      }
-    }
-  }
-
-  .line-block {
-    left: 30px;
-    top: 0;
-    opacity: 1;
-    position: absolute;
-    bottom: -15px;
-    width: 2px;
-    background: #000;
-    z-index: 3;
-    pointer-events: none;
-    transition: all 0.5s cubic-bezier(0.3, 0, 0.3, 1);
-    -webkit-transition: all 0.5s cubic-bezier(0.3, 0, 0.3, 1);
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: -15px;
-      top: -15px;
-      width: 30px;
-      height: 30px;
-      background: #fff;
-      border: 2px solid #000;
-      border-radius: 30px;
-      box-shadow: 5px 5px rgb(0 0 0/20%);
-      z-index: 1;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      left: -15px;
-      bottom: -15px;
-      width: 30px;
-      height: 30px;
-      background: #fff;
-      border: 2px solid #000;
-      border-radius: 30px;
-      box-shadow: 5px 5px rgb(0 0 0/20%);
-      z-index: 1;
-    }
-  }
-}
-</style>

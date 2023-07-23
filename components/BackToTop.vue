@@ -30,26 +30,3 @@ onMounted(() => {
     <v-icon>mdi-chevron-up</v-icon>
   </span>
 </template>
-
-<style lang="scss" scoped>
-@import '../assets/sass/variables';
-
-#back-top {
-  position: fixed;
-  bottom: 40px;
-  right: 20px;
-  height: 50px;
-  width: 50px;
-  line-height: 45px;
-  cursor: pointer;
-  border-radius: 50%;
-  background: $secondary;
-  text-align: center;
-  color: #fff;
-  transition: all 0.5s ease;
-
-  &:hover {
-    background: $primary;
-  }
-}
-</style>

@@ -1,0 +1,43 @@
+.item__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.item__title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.item--next {
+  .item__label,
+  .item__title {
+    text-align: right;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .item--next {
+    margin-top: 15px;
+  }
+
+  .item__label {
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+
+  .item__title {
+    font-size: 18px;
+  }
+}

@@ -2,6 +2,11 @@
 import { onMounted } from 'vue';
 
 const bg = ref('transparent');
+const menuItems = [
+  { title: 'About', path: '/about' },
+  { title: 'Projects', path: '/projects' },
+  { title: 'Notes', path: '/notes' },
+];
 
 // state
 const showDrawer = useState('navbar.showDrawer', () => false);
@@ -20,12 +25,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="navbar">
+  <div>
     <v-app-bar flat fixed class="navbar" :color="bg">
       <v-app-bar-nav-icon class="d-sm-none" @click="toggleDrawer()" />
 
-      <v-app-bar-title class="navbar-title" tag="span">
-        <v-btn plain to="/" variant="plain">Mauro Cunsolo</v-btn>
+      <v-app-bar-title class="navbar__title" tag="span">
+        <NuxtLink class="navbar__logo" to="/">Mauro Cunsolo</NuxtLink>
       </v-app-bar-title>
 
       <v-spacer></v-spacer>
@@ -36,7 +41,7 @@ onMounted(() => {
             v-for="item in menuItems"
             :key="item.title"
             :to="item.path"
-            class="nav-item"
+            class="navbar__item"
             variant="plain"
           >
             {{ item.title }}
@@ -48,40 +53,3 @@ onMounted(() => {
     <app-sidebar />
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      menuItems: [
-        { title: 'About', path: '/about' },
-        { title: 'Projects', path: '/projects' },
-        { title: 'Notes', path: '/notes' },
-      ],
-    };
-  },
-};
-</script>
-
-<style lang="scss" scoped>
-@import '../assets/sass/variables';
-
-#navbar {
-  .navbar-title {
-    a {
-      font-weight: 800;
-
-      &:hover {
-        color: $primary;
-      }
-    }
-  }
-
-  .nav-item {
-    &:hover,
-    &.nav-item.v-btn--active {
-      color: $primary;
-    }
-  }
-}
-</style>

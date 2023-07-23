@@ -12,9 +12,24 @@ $font-family: 'Jost', 'Helvetica', Arial, sans-serif;
 @import 'theme/misc';
 @import 'theme/typography';
 
-// components
+// common components
 @import 'theme/images';
 @import 'theme/cards';
+
+// components
+@import 'components/note/list/article-item';
+@import 'components/note/section/article-item';
+@import 'components/note/article-toc';
+@import 'components/note/prev-next';
+@import 'components/page/section';
+@import 'components/page/title';
+@import 'components/about-section';
+@import 'components/back-to-top';
+@import 'components/footer';
+@import 'components/navbar';
+@import 'components/notes-section';
+@import 'components/sidebar';
+@import 'components/social-links';
 
 // pages
 @import 'pages/notes/article';
