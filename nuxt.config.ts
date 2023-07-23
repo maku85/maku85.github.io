@@ -26,10 +26,15 @@ export default defineNuxtConfig({
     analyze: {
       analyzerMode: 'static',
     },
+    transpile: ['vuetify'],
   },
 
   // css files
-  css: ['@/assets/sass/app.scss', '@mdi/font/css/materialdesignicons.min.css'],
+  css: [
+    'vuetify/lib/styles/main.sass',
+    '@mdi/font/css/materialdesignicons.min.css',
+    '@/assets/sass/app.scss',
+  ],
 
   // enable debug mode
   debug: false,
@@ -51,9 +56,10 @@ export default defineNuxtConfig({
 
   // content
   content: {
-    // documentDriven: true,
-    markdown: { mdc: true },
+    documentDriven: true,
+    experimental: { clientDB: true },
     highlight: { theme: 'material-theme' },
+    markdown: { mdc: true },
   },
 
   critters: {
