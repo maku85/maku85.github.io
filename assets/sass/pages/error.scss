@@ -1,0 +1,212 @@
+.space {
+  background: linear-gradient(to top, #283e51, #0a2342);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+
+  .space__stars {
+    background: url('/stars.png') repeat top center;
+    bottom: 0;
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+  }
+
+  .space__central-body {
+    align-items: center;
+    background-color: #fff9;
+    border-radius: 10px;
+    color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 10px 20px;
+    overflow: hidden;
+    text-align: center;
+    z-index: 100;
+
+    h1 {
+      font-size: 9rem;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 0;
+      max-width: 33vw;
+      text-transform: uppercase;
+    }
+
+    .space__message {
+      background-color: rgba(255, 0, 0, 0.4);
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .space__btn {
+      background-color: transparent;
+      border-radius: 10px;
+
+      &:hover {
+        background-color: $primary;
+        box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1);
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .space__objects {
+    .space__rocket {
+      animation: rocket-movement 200s linear infinite both running;
+      pointer-events: none;
+      position: absolute;
+      top: 75%;
+      transform: translateX(-50px);
+      z-index: 8;
+    }
+
+    .space__earth {
+      animation: spin-earth 200s infinite linear both running;
+      left: 15%;
+      position: absolute;
+      top: 20%;
+      transition: ease 200s !important;
+      z-index: 5;
+    }
+
+    .space__moon {
+      left: 25%;
+      pointer-events: none;
+      position: absolute;
+      top: 12%;
+      z-index: 5;
+    }
+
+    .space__astronaut-box {
+      animation: move-astronaut 50s infinite linear both alternate;
+      position: absolute;
+      top: 60%;
+      right: 20%;
+      will-change: transform;
+      z-index: 10;
+
+      .space__astronaut {
+        animation: rotate-astronaut 200s infinite linear both alternate;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .space__glowing-stars {
+    .space__star {
+      background-color: #fff;
+      border-radius: 100%;
+      box-shadow: 0px 0px 18px 2px white;
+      height: 2px;
+      opacity: 0.5;
+      position: absolute;
+      width: 2px;
+      will-change: opacity;
+    }
+
+    .space__star:nth-child(1) {
+      animation: glow-star 2s infinite ease-in-out alternate 1s;
+      left: 25%;
+      top: 80%;
+    }
+    .space__star:nth-child(2) {
+      animation: glow-star 2s infinite ease-in-out alternate 3s;
+      left: 40%;
+      top: 20%;
+    }
+    .space__star:nth-child(3) {
+      animation: glow-star 2s infinite ease-in-out alternate 5s;
+      left: 25%;
+      top: 25%;
+    }
+    .space__star:nth-child(4) {
+      animation: glow-star 2s infinite ease-in-out alternate 7s;
+      left: 80%;
+      top: 75%;
+    }
+    .space__star:nth-child(5) {
+      animation: glow-star 2s infinite ease-in-out alternate 9s;
+      left: 50%;
+      top: 90%;
+    }
+    .space__star:nth-child(6) {
+      animation: glow-star 2s infinite ease-in-out alternate 12s;
+      left: 60%;
+      top: 80%;
+    }
+    .space__star:nth-child(7) {
+      animation: glow-star 2s infinite ease-in-out alternate 15s;
+      left: 80%;
+      top: 20%;
+    }
+    .space__star:nth-child(8) {
+      animation: glow-star 2s infinite ease-in-out alternate 18s;
+      left: 60%;
+      top: 10%;
+    }
+    .space__star:nth-child(9) {
+      animation: glow-star 2s infinite ease-in-out alternate 8s;
+      left: 95%;
+      top: 40%;
+    }
+    .space__star:nth-child(10) {
+      animation: glow-star 2s infinite ease-in-out alternate 10s;
+      left: 10%;
+      top: 40%;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .space__astronaut-box {
+    top: 70%;
+  }
+
+  .space__central-body {
+    padding-top: 25%;
+  }
+}
+
+@keyframes rocket-movement {
+  100% {
+    transform: translate(1200px, -600px);
+  }
+}
+@keyframes spin-earth {
+  100% {
+    transform: rotate(-360deg);
+    transition: transform 20s;
+  }
+}
+@keyframes move-astronaut {
+  100% {
+    transform: translate(-160px, -160px);
+  }
+}
+@keyframes rotate-astronaut {
+  100% {
+    transform: rotate(-720deg);
+  }
+}
+@keyframes glow-star {
+  40% {
+    opacity: 0.3;
+  }
+  90%,
+  100% {
+    border-radius: 999999px;
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
