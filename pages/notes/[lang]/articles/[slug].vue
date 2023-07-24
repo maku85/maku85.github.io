@@ -43,7 +43,7 @@ useSeoMeta({
               class="article__category"
               :to="'/notes/categories/' + tag"
             >
-              #{{ tag.toUpperCase() }}{{ index < article.tags.length - 1 ? ',' : '' }}&nbsp
+              #{{ tag.toUpperCase() }}{{ index < article.tags.length - 1 ? ',' : '' }}&nbsp;
             </NuxtLink>
           </div>
           <h1 class="article__title">{{ article?.title }}</h1>

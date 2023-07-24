@@ -23,7 +23,7 @@ defineProps({
     </v-col>
     <v-col v-if="next?.title" cols="12" xs="12" class="item item--next">
       <NuxtLink :to="'/notes' + next._path">
-        <div class="item__label">Next article <v-icon>mdi-arrow-right</v-icon></div>
+        <div class="item__label">Next article <v-icon icon="mdi-arrow-right" /></div>
         <div class="item__title">{{ next.title }}</div>
       </NuxtLink>
     </v-col>

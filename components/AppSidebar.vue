@@ -15,7 +15,7 @@ const closeSidebar = () => (showDrawer.value = !showDrawer.value);
 <template>
   <v-navigation-drawer v-model="showDrawer" temporary location="bottom" class="sidebar">
     <div class="sidebar__close-menu" @click="closeSidebar()">
-      <v-icon>mdi-close</v-icon>
+      <v-icon icon="mdi-close" />
     </div>
 
     <v-container class="sidebar__container">

@@ -1,3 +1,5 @@
+import vuetify from 'vite-plugin-vuetify';
+
 export default defineNuxtConfig({
   // app configuration
   app: {
@@ -45,7 +47,14 @@ export default defineNuxtConfig({
     '@nuxtjs/critters',
     '@nuxtjs/eslint-module',
     '@nuxt/image',
-    'nuxt-purgecss',
+    // 'nuxt-purgecss',
+
+    /* Treeshaking: https://next.vuetifyjs.com/en/features/treeshaking/ */
+    (_options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', (config) => {
+        config?.plugins?.push(vuetify());
+      });
+    },
   ],
 
   // disable server side rendering

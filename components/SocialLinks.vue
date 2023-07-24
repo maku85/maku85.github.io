@@ -18,9 +18,10 @@ const socials = computed(() => data?.value?.socials || []);
       class="social__btn"
       target="_blank"
     >
-      <v-icon :class="{ social__icon: true, ['social__icon--' + social.type]: true }"
-        >mdi-{{ social.type }}</v-icon
-      >
+      <v-icon
+        :class="{ social__icon: true, ['social__icon--' + social.type]: true }"
+        :icon="'mdi-' + social.type"
+      />
     </v-btn>
   </div>
 </template>

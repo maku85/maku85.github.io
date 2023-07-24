@@ -27,6 +27,6 @@ onMounted(() => {
 
 <template>
   <span id="back-top" class="d-none" @click="scrollToTop()">
-    <v-icon>mdi-chevron-up</v-icon>
+    <v-icon icon="mdi-chevron-up" />
   </span>
 </template>
