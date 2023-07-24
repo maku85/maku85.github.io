@@ -33,8 +33,6 @@ onMounted(() => {
         <NuxtLink class="navbar__logo" to="/">Mauro Cunsolo</NuxtLink>
       </v-app-bar-title>
 
-      <v-spacer></v-spacer>
-
       <template #append>
         <div class="d-none d-sm-flex">
           <v-btn

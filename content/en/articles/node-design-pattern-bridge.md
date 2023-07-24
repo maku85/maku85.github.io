@@ -1,6 +1,6 @@
 ---
 title: Structural Design Pattern - Bridge
-img: /img/articles/design-pattern-bridge.jpg
+img: /design-pattern-bridge.jpg
 tags:
   - javascript
   - design-pattern

@@ -1,6 +1,6 @@
 ---
 title: Structural Pattern Design - Adapter
-img: /img/articles/design-pattern-adapter.webp
+img: /design-pattern-adapter.webp
 tags:
   - javascript
   - design-pattern

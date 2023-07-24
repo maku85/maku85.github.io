@@ -54,12 +54,12 @@ useSeoMeta({
 
       <div class="article__image_container">
         <v-responsive class="article__image_wrapper">
-          <v-parallax
+          <nuxt-img
             class="article__image"
-            height="740"
-            :lazy-src="article?.img || 'https://source.unsplash.com/random'"
-            :src="article?.img || 'https://source.unsplash.com/random'"
-          ></v-parallax>
+            sizes="xs:320px sm:640px md:768px lg:1024px xl:1280px xxl:1536px"
+            :src="'/articles' + article?.img"
+            preload
+          />
         </v-responsive>
 
         <div v-if="article?.credits" class="article__image__credits" v-html="article.credits"></div>

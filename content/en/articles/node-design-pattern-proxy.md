@@ -1,6 +1,6 @@
 ---
 title: Structural Design Pattern - Proxy
-img: /img/articles/design-pattern-proxy.webp
+img: /design-pattern-proxy.webp
 tags:
   - javascript
   - design-pattern

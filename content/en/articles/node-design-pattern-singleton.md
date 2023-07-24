@@ -1,6 +1,6 @@
 ---
 title: Creational Design Patterns - Singleton
-img: /img/articles/design-pattern-singleton.webp
+img: /design-pattern-singleton.webp
 tags:
   - javascript
   - design-pattern

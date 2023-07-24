@@ -1,6 +1,6 @@
 ---
 title: Node.js serverless
-img: /img/articles/node-serverless.webp
+img: /node-serverless.webp
 tags:
   - javascript
   - nodejs

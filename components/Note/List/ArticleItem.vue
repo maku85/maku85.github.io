@@ -12,14 +12,14 @@ defineProps({
   <NuxtLink :to="'/notes' + article._path">
     <div class="card note">
       <div class="note__container">
-        <v-img
-          class="note__image"
-          :aspect-ratio="1"
-          height="480px"
-          :lazy-src="article.img || 'https://source.unsplash.com/random'"
-          :src="article.img || 'https://source.unsplash.com/random'"
-          cover
-        />
+        <v-responsive class="note__image_wrapper">
+          <nuxt-img
+            class="note__image"
+            sizes="xs:230px sm:640px md:768px lg:800px xl:800px xxl:800px"
+            :src="'/articles' + article?.img"
+            preload
+          />
+        </v-responsive>
 
         <div class="note__content">
           <div class="note__categories-container">

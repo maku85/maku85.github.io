@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     // base path of application
     baseURL: '/',
     head: {
+      htmlAttrs: { lang: 'en' },
       title: 'Mauro Cunsolo - Back-end Developer',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -85,7 +86,7 @@ export default defineNuxtConfig({
   // },
 
   image: {
-    dir: 'img',
+    dir: 'assets/images',
     format: ['webp'],
     quality: 80,
   },

@@ -47,10 +47,23 @@
   }
 
   .article__image_container {
+    .article__image_wrapper {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      max-height: 740px;
+
+      .article__image__credits {
+        text-align: center;
+        padding-top: 10px;
+        opacity: 0.7;
+      }
+    }
+
     .article__image__credits {
+      opacity: 0.8;
+      padding: 5px 0;
       text-align: center;
-      padding-top: 10px;
-      opacity: 0.7;
     }
   }
 

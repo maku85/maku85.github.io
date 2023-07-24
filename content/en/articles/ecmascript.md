@@ -1,6 +1,6 @@
 ---
 title: ECMAScript (aka ES)
-img: /img/articles/ecmascript.webp
+img: /ecmascript.webp
 credits: Photo by <a href="https://unsplash.com/photos/cvBBO4PzWPg" target="_blank">Markus Spiske</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a>
 tags:
   - javascript

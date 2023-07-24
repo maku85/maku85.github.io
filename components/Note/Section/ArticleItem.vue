@@ -27,14 +27,7 @@ defineProps({
           <p class="note__text">{{ article.description }}</p>
         </div>
 
-        <v-img
-          class="note__image"
-          :aspect-ratio="1"
-          height="180px"
-          :lazy-src="article.img || 'https://source.unsplash.com/random'"
-          :src="article.img || 'https://source.unsplash.com/random'"
-          cover
-        />
+        <nuxt-img class="note__image" sizes="xs:300px" :src="'/articles' + article.img" preload />
       </div>
     </div>
   </NuxtLink>
