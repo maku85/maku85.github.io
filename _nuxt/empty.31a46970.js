@@ -1,1 +1,0 @@
-import{p as t,r as o,c as n,b as s,o as c}from"./entry.22b055fe.js";const a={name:"EmptyLayout"},p={id:"app"};function r(_,m,d,i,u,f){const e=o("Nuxt");return c(),n("div",p,[s(e)])}const x=t(a,[["render",r]]);export{x as default};
