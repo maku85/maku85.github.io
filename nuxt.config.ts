@@ -61,15 +61,14 @@ export default defineNuxtConfig({
     },
   ],
 
-  loading: false,
-
   nitro: {
     routeRules: {
-      '/_ipx/**': { cache: { maxAge: 60 * 10 } },
       '/_nuxt/**': { cache: { maxAge: 60 * 10 } },
       '/img/**': { cache: { maxAge: 60 * 10 } },
     },
   },
+
+  spaLoadingTemplate: false,
 
   // disable server side rendering
   ssr: false,
