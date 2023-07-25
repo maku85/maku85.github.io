@@ -26,6 +26,7 @@
             width="200"
             src="/img/img_avatar.webp"
             class="about__img img-circle"
+            alt="Avatar"
             cover
           ></v-img>
         </v-col>

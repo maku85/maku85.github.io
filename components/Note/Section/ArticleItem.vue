@@ -23,11 +23,19 @@ defineProps({
               #{{ tag }}
             </NuxtLink>
           </div>
-          <h5 class="note__title">{{ article.title }}</h5>
+          <h1 class="note__title">{{ article.title }}</h1>
           <p class="note__text">{{ article.description }}</p>
         </div>
 
-        <nuxt-img class="note__image" sizes="xs:300px" :src="'/articles' + article.img" preload />
+        <v-responsive class="note__image_wrapper" max-height="200px">
+          <nuxt-img
+            class="note__image"
+            sizes="xs:300px"
+            :alt="article.title"
+            :src="'/articles' + article.img"
+            preload
+          />
+        </v-responsive>
       </div>
     </div>
   </NuxtLink>

@@ -16,6 +16,7 @@ defineProps({
           <nuxt-img
             class="note__image"
             sizes="xs:230px sm:640px md:768px lg:800px xl:800px xxl:800px"
+            :alt="article.title"
             :src="'/articles' + article?.img"
             preload
           />
@@ -23,9 +24,9 @@ defineProps({
 
         <div class="note__content">
           <div class="note__categories-container">
-            <span v-for="tag in article.tags" :key="tag" class="note__categoty">{{ tag }}</span>
+            <span v-for="tag in article.tags" :key="tag" class="note__category">{{ tag }}</span>
           </div>
-          <h5 class="note__title">{{ article.title }}</h5>
+          <h1 class="note__title">{{ article.title }}</h1>
           <p class="note__text">{{ article.description }}</p>
         </div>
       </div>

@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       title: 'Mauro Cunsolo - Back-end Developer',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'Mauro Cunsolo - Back-end Developer' },
         { charset: 'utf-8' },
       ],
       link: [
@@ -32,12 +33,18 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
 
+  bundleSourceMaps: true,
+
   // css files
   css: [
     'vuetify/lib/styles/main.sass',
     '@mdi/font/css/materialdesignicons.min.css',
     '@/assets/sass/app.scss',
   ],
+
+  experimental: {
+    payloadExtraction: false,
+  },
 
   // enable debug mode
   debug: false,
@@ -48,6 +55,7 @@ export default defineNuxtConfig({
     '@nuxtjs/critters',
     '@nuxtjs/eslint-module',
     '@nuxt/image',
+    '@nuxtjs/robots',
     // 'nuxt-purgecss',
 
     /* Treeshaking: https://next.vuetifyjs.com/en/features/treeshaking/ */
@@ -57,6 +65,14 @@ export default defineNuxtConfig({
       });
     },
   ],
+
+  nitro: {
+    routeRules: {
+      '/img/**': { headers: { 'cache-control': 'public,max-age=600,s-600' } },
+      '/_ipx/**': { headers: { 'cache-control': 'public,max-age=600,s-600' } },
+      '/_nuxt/**': { headers: { 'cache-control': 'public,max-age=600,s-maxage=600' } },
+    },
+  },
 
   // disable server side rendering
   ssr: false,

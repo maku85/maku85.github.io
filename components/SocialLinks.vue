@@ -17,6 +17,7 @@ const socials = computed(() => data?.value?.socials || []);
       rel="noreferrer"
       class="social__btn"
       target="_blank"
+      :aria-label="social.type + ' social link'"
     >
       <v-icon
         :class="{ social__icon: true, ['social__icon--' + social.type]: true }"
