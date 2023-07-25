@@ -1,1 +1,0 @@
-import{m as t,o as e,f as n,w as r,C as s}from"./entry.a93f6831.js";import{b as a}from"./VRow.58a53774.js";const _={};function c(o,f){return e(),n(a,null,{default:r(()=>[s(o.$slots,"default")]),_:3})}const i=t(_,[["render",c]]);export{i as _};
