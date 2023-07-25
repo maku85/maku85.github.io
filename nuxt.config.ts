@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
 
-  bundleSourceMaps: true,
+  sourcemap: { client: true },
 
   // css files
   css: [
@@ -48,9 +48,9 @@ export default defineNuxtConfig({
   // modules extensions
   modules: [
     '@nuxt/content',
+    '@nuxt/image',
     '@nuxtjs/critters',
     '@nuxtjs/eslint-module',
-    '@nuxt/image',
     '@nuxtjs/robots',
 
     /* Treeshaking: https://next.vuetifyjs.com/en/features/treeshaking/ */
@@ -63,6 +63,7 @@ export default defineNuxtConfig({
 
   nitro: {
     routeRules: {
+      '/_ipx/**': { cache: { maxAge: 60 * 10 } },
       '/_nuxt/**': { cache: { maxAge: 60 * 10 } },
       '/img/**': { cache: { maxAge: 60 * 10 } },
     },
@@ -79,7 +80,10 @@ export default defineNuxtConfig({
   // content
   content: {
     documentDriven: true,
-    experimental: { clientDB: true },
+    experimental: {
+      clientDB: true,
+      stripQueryParameters: false,
+    },
     highlight: { theme: 'material-theme' },
     markdown: { mdc: true },
   },
@@ -89,13 +93,6 @@ export default defineNuxtConfig({
       preload: 'swap',
     },
   },
-
-  // googleFonts: {
-  //   families: {
-  //     Roboto: true,
-  //     Jost: true,
-  //   },
-  // },
 
   image: {
     dir: 'assets/images',

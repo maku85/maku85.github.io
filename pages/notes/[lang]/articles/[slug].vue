@@ -57,11 +57,9 @@ useSeoMeta({
           <nuxt-img
             class="article__image"
             sizes="xs:320px sm:640px md:768px lg:1024px xl:1280px xxl:1536px"
-            height="auto"
-            width="100%"
             :alt="article?.title"
             :src="'/articles' + article?.img"
-            preload
+            loading="lazy"
           />
         </v-responsive>
 
