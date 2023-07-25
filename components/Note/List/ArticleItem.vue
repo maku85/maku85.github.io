@@ -14,6 +14,8 @@ defineProps({
       <div class="note__container">
         <v-responsive class="note__image_wrapper">
           <nuxt-img
+            height="auto"
+            width="100%"
             class="note__image"
             sizes="xs:230px sm:640px md:768px lg:800px xl:800px xxl:800px"
             :alt="article.title"

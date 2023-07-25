@@ -9,9 +9,9 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en' },
       title: 'Mauro Cunsolo - Back-end Developer',
       meta: [
+        { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: 'Mauro Cunsolo - Back-end Developer' },
-        { charset: 'utf-8' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -52,7 +52,6 @@ export default defineNuxtConfig({
     '@nuxtjs/eslint-module',
     '@nuxt/image',
     '@nuxtjs/robots',
-    // 'nuxt-purgecss',
 
     /* Treeshaking: https://next.vuetifyjs.com/en/features/treeshaking/ */
     (_options, nuxt) => {
@@ -62,11 +61,13 @@ export default defineNuxtConfig({
     },
   ],
 
+  loading: false,
+
   nitro: {
     routeRules: {
-      '/img/**': { headers: { 'cache-control': 'public,max-age=600,s-600' } },
-      '/_ipx/**': { headers: { 'cache-control': 'public,max-age=600,s-600' } },
-      '/_nuxt/**': { headers: { 'cache-control': 'public,max-age=600,s-maxage=600' } },
+      '/_ipx/**': { cache: { maxAge: 60 * 10 } },
+      '/_nuxt/**': { cache: { maxAge: 60 * 10 } },
+      '/img/**': { cache: { maxAge: 60 * 10 } },
     },
   },
 

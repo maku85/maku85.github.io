@@ -4,15 +4,19 @@
   transition: all 2s ease;
 
   .note__container {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     padding: 20px;
 
     .note__image {
       border-radius: $border-radius;
       filter: grayscale(90%);
+      width: 100%;
     }
 
     .note__content {
+      flex-grow: 1;
       padding-top: 30px;
 
       .note__categories-container {
@@ -41,7 +45,7 @@
   }
 
   &:hover {
-    .note__image {
+    .note__container .note__image {
       filter: saturate(120%);
     }
   }
