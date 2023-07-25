@@ -26,10 +26,6 @@ export default defineNuxtConfig({
 
   // shared build configuration
   build: {
-    // bundle analyzer
-    analyze: {
-      analyzerMode: 'static',
-    },
     transpile: ['vuetify'],
   },
 
