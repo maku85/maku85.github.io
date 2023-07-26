@@ -1,0 +1,1 @@
+{"version":3,"file":"ProseTh.7de5a317.js","sources":["../../../../node_modules/@nuxt/content/dist/runtime/components/Prose/ProseTh.vue"],"sourcesContent":["<template>\n  <th>\n    <slot />\n  </th>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"qFAGOA,EAAA,QADKC,EAAA,EAAAC,EAAA,KAAA,KAAA","x_google_ignoreList":[0]}

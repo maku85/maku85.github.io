@@ -1,1 +1,0 @@
-{"version":3,"file":"index.658f0e71.js","sources":["../../../../components/Page/index.vue"],"sourcesContent":["<template>\n  <v-container>\n    <slot />\n  </v-container>\n</template>\n"],"names":["_createBlock","_component_v_container","_withCtx"],"mappings":"+IAEI,EAAQA,EAAAC,EAAA,KAAA,SAAAC,EAAA,IAAA"}
