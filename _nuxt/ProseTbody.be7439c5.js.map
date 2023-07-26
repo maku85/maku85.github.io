@@ -1,0 +1,1 @@
+{"version":3,"file":"ProseTbody.be7439c5.js","sources":["../../../../node_modules/@nuxt/content/dist/runtime/components/Prose/ProseTbody.vue"],"sourcesContent":["<template>\n  <tbody>\n    <slot />\n  </tbody>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"qFAGUA,EAAA,QADEC,EAAA,EAAAC,EAAA,QAAA,KAAA","x_google_ignoreList":[0]}

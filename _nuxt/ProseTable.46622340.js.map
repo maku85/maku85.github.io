@@ -1,1 +1,0 @@
-{"version":3,"file":"ProseTable.46622340.js","sources":["../../../../node_modules/@nuxt/content/dist/runtime/components/Prose/ProseTable.vue"],"sourcesContent":["<template>\n  <table>\n    <slot />\n  </table>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"qFAGUA,EAAA,QADEC,EAAA,EAAAC,EAAA,QAAA,KAAA","x_google_ignoreList":[0]}
