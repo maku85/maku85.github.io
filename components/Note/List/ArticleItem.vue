@@ -13,13 +13,7 @@ defineProps({
     <div class="card note">
       <div class="note__container">
         <v-responsive class="note__image_wrapper">
-          <nuxt-img
-            class="note__image"
-            sizes="xs:230px sm:640px md:768px lg:800px xl:800px xxl:800px"
-            :alt="article.title"
-            :src="'/articles' + article?.img"
-            loading="lazy"
-          />
+          <img class="note__image" :alt="article.title" :src="'/img/articles' + article?.img" />
         </v-responsive>
 
         <div class="note__content">

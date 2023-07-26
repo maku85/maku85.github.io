@@ -48,7 +48,6 @@ export default defineNuxtConfig({
   // modules extensions
   modules: [
     '@nuxt/content',
-    '@nuxt/image',
     '@nuxtjs/critters',
     '@nuxtjs/eslint-module',
     '@nuxtjs/robots',
@@ -92,11 +91,5 @@ export default defineNuxtConfig({
     config: {
       preload: 'swap',
     },
-  },
-
-  image: {
-    dir: 'assets/images',
-    format: ['webp'],
-    quality: 80,
   },
 });

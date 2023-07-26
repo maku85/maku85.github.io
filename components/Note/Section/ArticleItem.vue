@@ -28,12 +28,11 @@ defineProps({
         </div>
 
         <v-responsive class="note__image_wrapper" max-height="200px">
-          <nuxt-img
+          <img
             class="note__image"
             sizes="xs:300px"
             :alt="article.title"
-            :src="'/articles' + article.img"
-            loading="lazy"
+            :src="'/img/articles' + article.img"
           />
         </v-responsive>
       </div>
