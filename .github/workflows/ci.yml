@@ -22,27 +22,26 @@ jobs:
         uses: actions/checkout@master
 
       - name: Setup node env 🏗
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
-          check-latest: true
-
-      - name: Cache node_modules 📦
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
       - name: Install dependencies 👨🏻‍💻
-        run: npm ci --prefer-offline --no-audit
+        run: pnpm install
 
       - name: Run linter 👀
-        run: npm run lint
+        run: pnpm run lint
 
       - name: Generate
-        run: npm run generate
+        run: pnpm run generate
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
