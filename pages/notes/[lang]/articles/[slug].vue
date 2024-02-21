@@ -52,14 +52,6 @@ useSeoMeta({
         </div>
       </div>
 
-      <div class="article__image_container">
-        <v-responsive class="article__image_wrapper" min-width="100%" max-height="740px">
-          <img class="article__image" :alt="article?.title" :src="'/img/articles' + article?.img" />
-        </v-responsive>
-
-        <div v-if="article?.credits" class="article__image__credits" v-html="article.credits"></div>
-      </div>
-
       <v-row class="article__container">
         <v-col cols="12" sm="12">
           <v-row>

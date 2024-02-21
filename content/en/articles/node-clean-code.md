@@ -1,7 +1,5 @@
 ---
 title: Clean code in Node.js
-img: /node-clean-code.webp
-credits: Photo by <a href="https://unsplash.com/it/foto/9gzU1mtTzWM" target="_blank">Crystal de Passillé-Chabot</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a>
 tags:
   - javascript
   - nodejs

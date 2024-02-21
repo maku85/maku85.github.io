@@ -1,4 +1,4 @@
-#about {
+#about-page {
   .about-container {
     .about__history-container {
       padding: 40px;
@@ -70,6 +70,10 @@
           .about__text {
             clear: both;
             padding: 15px 0 30px;
+
+            ul {
+              padding-left: 24px;
+            }
           }
         }
       }
@@ -158,7 +162,7 @@
 
     /* Small devices (portrait tablets and large phones, 600px and up) */
     @media only screen and (min-width: 600px) {
-      #about {
+      #about-page {
         .about__container {
           .about__content {
             text-align: center;

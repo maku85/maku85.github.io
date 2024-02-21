@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
+import type { QueryBuilderParams } from '@nuxt/content/types';
 
 const route = useRoute();
 const categoryParam = route.query.category;
@@ -39,14 +39,14 @@ function refetch(pageNumber: number) {
       <v-row>
         <v-col cols="12" md="12" lg="8">
           <div class="article-list">
-            <v-row v-for="article in articles" :key="article.id" class="articles__list mt-4 mb-8">
+            <v-row v-for="article in articles" :key="article.id" class="articles__list">
               <v-col>
                 <note-list-article-item :article="article" />
               </v-col>
             </v-row>
           </div>
 
-          <div class="articles__pager">
+          <div class="articles__pager mt-4">
             <v-btn v-if="page > 0" class="articles__button" variant="flat" @click="refetch(-5)"
               >prev</v-btn
             >

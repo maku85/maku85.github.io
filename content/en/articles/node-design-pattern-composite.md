@@ -1,6 +1,5 @@
 ---
 title: Structural Design Pattern - Composite
-img: /design-pattern-composite.webp
 tags:
   - javascript
   - design-pattern

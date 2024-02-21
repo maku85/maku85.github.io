@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
+import type { QueryBuilderParams } from '@nuxt/content/types';
 
 const route = useRoute();
 const categoryParam = route.params.slug;
@@ -38,7 +38,7 @@ function refetch(pageNumber: number) {
     <v-container>
       <v-row>
         <v-col cols="12" md="12" lg="8">
-          <v-row v-for="article in articles" :key="article.id" class="articles__list mt-4 mb-8">
+          <v-row v-for="article in articles" :key="article.id" class="articles__list">
             <v-col>
               <note-list-article-item :article="article" />
             </v-col>

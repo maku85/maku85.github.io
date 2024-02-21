@@ -1,6 +1,5 @@
 ---
 title: URL shortener with Node.js, Express and MongoDB
-img: /node-custom-url-shortener.webp
 tags:
   - javascript
   - nodejs

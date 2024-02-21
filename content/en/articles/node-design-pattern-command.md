@@ -1,6 +1,5 @@
 ---
 title: Behavioral Design Patterns - Command
-img: /design-pattern-command.webp
 tags:
   - javascript
   - design-pattern

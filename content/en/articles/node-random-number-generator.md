@@ -1,6 +1,5 @@
 ---
 title: Random number generator with Node.js
-img: /random-number-generator.webp
 tags:
   - javascript
 published: true

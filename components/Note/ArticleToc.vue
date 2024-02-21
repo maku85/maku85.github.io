@@ -30,7 +30,6 @@ const flattenLinks = (links) => {
     </header>
 
     <ul class="toc__links-container">
-      <!-- render each link with depth class -->
       <li
         v-for="link of flattenLinks(links)"
         :key="link.id"

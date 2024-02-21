@@ -6,10 +6,10 @@ const expertises = computed(() => data?.value?.expertises || []);
 </script>
 
 <template>
-  <Page id="about">
+  <Page id="about-page">
     <PageTitle text="About me" subtitle=" Story" />
 
-    <v-container>
+    <v-container class="card">
       <v-row class="about-container">
         <v-col cols="12" xs="7" md="7" class="about__history-container">
           <h5 class="about__history-title">Experience</h5>

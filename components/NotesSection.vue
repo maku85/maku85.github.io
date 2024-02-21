@@ -15,7 +15,7 @@ const query: QueryBuilderParams = {
 
     <ContentList v-slot="{ list }" :query="query">
       <v-row v-if="list.length > 0" cols="12" class="notes__list mt-4 mb-8">
-        <v-col v-for="article of list" :key="article._path" cols="12" xs="12" sm="6" md="4">
+        <v-col v-for="article of list" :key="article._path" cols="12" xs="12" sm="6" md="6" lg="4">
           <note-section-article-item :article="article" />
         </v-col>
       </v-row>

@@ -1,6 +1,5 @@
 ---
 title: Creational design patterns - Factory
-img: /design-pattern-factory.webp
 tags:
   - javascript
   - design-pattern

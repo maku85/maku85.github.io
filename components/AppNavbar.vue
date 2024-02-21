@@ -3,6 +3,7 @@ import { onMounted } from 'vue';
 
 const bg = ref('transparent');
 const menuItems = [
+  { title: 'Home', path: '/' },
   { title: 'About', path: '/about' },
   { title: 'Projects', path: '/projects' },
   { title: 'Notes', path: '/notes' },
@@ -25,29 +26,23 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <v-app-bar flat fixed class="navbar" :color="bg">
-      <v-app-bar-nav-icon class="d-sm-none" @click="toggleDrawer()" />
+  <v-app-bar flat fixed class="navbar" :color="bg">
+    <v-app-bar-nav-icon class="d-sm-none" @click="toggleDrawer()" />
 
-      <v-app-bar-title class="navbar__title" tag="span">
-        <NuxtLink class="navbar__logo" to="/">Mauro Cunsolo</NuxtLink>
-      </v-app-bar-title>
+    <template #append>
+      <div class="d-none d-sm-flex">
+        <v-btn
+          v-for="item in menuItems"
+          :key="item.title"
+          :to="item.path"
+          class="navbar__item"
+          variant="plain"
+        >
+          {{ item.title }}
+        </v-btn>
+      </div>
+    </template>
+  </v-app-bar>
 
-      <template #append>
-        <div class="d-none d-sm-flex">
-          <v-btn
-            v-for="item in menuItems"
-            :key="item.title"
-            :to="item.path"
-            class="navbar__item"
-            variant="plain"
-          >
-            {{ item.title }}
-          </v-btn>
-        </div>
-      </template>
-    </v-app-bar>
-
-    <app-sidebar />
-  </div>
+  <app-sidebar />
 </template>

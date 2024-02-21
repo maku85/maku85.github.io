@@ -1,7 +1,6 @@
 <template>
   <v-container>
-    <about-section />
-
-    <notes-section />
+    <AboutSection />
+    <NotesSection />
   </v-container>
 </template>

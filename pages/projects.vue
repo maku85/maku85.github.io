@@ -14,7 +14,7 @@ const works = computed(() => data?.value?.works || []);
 
     <v-container>
       <v-row v-if="works.length > 0" class="projects__list">
-        <v-col v-for="work of works" :key="work.id" cols="12" sm="6" md="4" xl="3">
+        <v-col v-for="work of works" :key="work.id" cols="12" sm="6" md="6" lg="4" xl="3">
           <NuxtLink :to="work.url" target="_blank">
             <div class="card projects__item">
               <div class="projects__container">

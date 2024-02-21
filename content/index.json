@@ -30,16 +30,9 @@
   "experiences": [
     {
       "title": "Node.js back-end developer",
-      "startDate": "01-2019",
+      "startDate": "08-2018",
       "company": "Artshell srl",
       "description": "Artshell is a software for the complete management of collections of works of art, designed for gallery owners, collectors and artists.<br /><br />As a back-end developer I take care of the maintenance, design and implementation of the new API functionalities of the application and of the releases on the cloud platform.<br /><br /><strong>Technologies and tools used:</strong> NodeJS, Express, GraphQL, Elasticsearch, AWS Visual Studio Code, Git, npm, Docker."
-    },
-    {
-      "title": "Node.js back-end developer",
-      "startDate": "08-2018",
-      "endDate": "12-2018",
-      "company": "LinkMe srl",
-      "description": "echnologies and tools used: NodeJS, Express, GraphQL, Elasticsearch, AWS Visual Studio Code, Git, npm, Docker."
     },
     {
       "title": "Full-stack developer",

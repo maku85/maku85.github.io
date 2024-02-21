@@ -1,6 +1,5 @@
 ---
 title: Node.js Stream
-img: /node-stream.webp
 tags:
   - nodejs
 published: true

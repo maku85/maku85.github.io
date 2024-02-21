@@ -1,6 +1,5 @@
 ---
 title: Structural Pattern Design - Decorator
-img: /design-pattern-decorator.webp
 tags:
   - javascript
   - design-pattern

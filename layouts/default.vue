@@ -4,7 +4,7 @@
       <app-navbar />
     </slot>
 
-    <v-container fluid class="fill-height">
+    <v-container class="fill-height">
       <v-main>
         <slot />
       </v-main>

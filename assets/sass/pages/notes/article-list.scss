@@ -18,7 +18,7 @@
 
       .articles__heading {
         font-size: 18px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         margin-top: 0;
         padding: 0;
         position: relative;
@@ -26,12 +26,12 @@
 
         &:before {
           background: $primary;
-          bottom: -20px;
+          bottom: -10px;
           content: '';
           height: 4px;
           left: 0;
           position: absolute;
-          width: 30px;
+          width: 80px;
         }
       }
 
@@ -39,7 +39,9 @@
         padding-left: 0;
 
         .articles__item__wrapper {
-          margin-bottom: 15px;
+          line-height: 1.4;
+          margin-top: 0;
+          margin-left: 20px;
 
           .articles__item {
             font-weight: 400;
