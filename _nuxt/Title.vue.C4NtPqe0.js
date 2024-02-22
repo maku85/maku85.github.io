@@ -1,0 +1,2 @@
+import{d as a,o as i,c as n,j as t,y as l,t as o}from"./entry.BnmiL985.js";const c={class:"titles"},d={class:"titles__title"},_={class:"titles__subtitle"},r=t("span",null,"My",-1),f=a({__name:"Title",props:{text:{type:String,default:""},subtitle:{type:String,default:""}},setup(e){return(s,u)=>(i(),n("div",c,[t("div",d,[l(s.$slots,"default",{},()=>[t("h2",null,o(e.text),1)])]),t("div",_,[l(s.$slots,"default",{},()=>[r,t("b",null,o(e.subtitle),1)])])]))}});export{f as _};
+//# sourceMappingURL=Title.vue.C4NtPqe0.js.map
