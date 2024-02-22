@@ -10,6 +10,118 @@ ECMAScript is a standard for scripting languages, such as JavaScript, JScript, a
 
 <!--more-->
 
+## ECMAScript 2023 aka ES14
+
+ECMAScript 2023 is the 14th edition of the ECMAScript standard, it was released on June, 2023 and has been implemented by major web browsers.
+
+### Object.groupBy()
+
+The `Object.groupBy` method is a new method that allows you to group an array of objects by a specific key.
+
+```javascript
+const data = [
+  { type: 'dog', name: 'Spot' },
+  { type: 'cat', name: 'Whiskers' },
+  { type: 'dog', name: 'Rover' },
+  { type: 'cat', name: 'Fluffy' },
+];
+
+const groupedData = Object.groupBy(data, (item) => item.type);
+console.log(groupedData);
+
+// Output
+// {
+//   dog: [
+//     { type: 'dog', name: 'Spot' },
+//     { type: 'dog', name: 'Rover' }
+//   ],
+//   cat: [
+//     { type: 'cat', name: 'Whiskers' },
+//     { type: 'cat', name: 'Fluffy' }
+//   ]
+// }
+```
+
+### Array.toSpliced()
+
+The `Array.toSpliced` method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place, like the `Array.splice` method, but it returns a new array with the spliced elements.
+
+```javascript
+const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const slicedData = data.toSliced(3);
+console.log(slicedData);
+
+// Output
+// [1, 2, 3]
+```
+
+### Array.toSorted()
+
+The `Array.toSorted` method returns a new array with the elements sorted.
+
+```javascript
+const data = [3, 1, 2, 4, 5];
+const sortedData = data.toSorted();
+console.log(sortedData);
+
+// Output
+// [1, 2, 3, 4, 5]
+```
+
+### Array.toReversed()
+
+The `Array.toReversed` method returns a new array with the elements reversed.
+
+```javascript
+const data = [1, 2, 3, 4, 5];
+const reversedData = data.toReversed();
+console.log(reversedData);
+
+// Output
+// [5, 4, 3, 2, 1]
+```
+
+### Array.findLast()
+
+The `findLast` method returns the last element in the array that satisfies the provided testing function.
+
+```javascript
+const data = [1, 2, 3, 4, 5];
+const last = data.findLast((item) => item > 3);
+console.log(last);
+
+// Output
+// 5
+```
+
+### Array.findLastIndex()
+
+The `findLastIndex` method returns the index of the last element in the array that satisfies the provided testing function.
+
+```javascript
+const data = [1, 2, 3, 4, 5];
+const lastIndex = data.findLastIndex((item) => item > 3);
+console.log(lastIndex);
+
+// Output
+// 4
+```
+
+### Array.with()
+
+The `with` method is a new method that allows you to change the value of a given index. It returns a new array with the element at the given index replaced with the given value.
+
+```javascript
+const data = [1, 2, 3, 4, 5];
+const newData = data.with(2, 10);
+console.log(newData);
+console.log(data);
+
+// Output
+// [1, 2, 10, 4, 5]
+// [1, 2, 3, 4, 5]
+```
+
 ## ECMAScript 2022 aka ES13
 
 ECMAScript 2022 is the 13th edition of the ECMAScript standard, it was released on June, 2022 and has been implemented by major web browsers.
