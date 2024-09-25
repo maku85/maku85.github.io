@@ -49,7 +49,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxtjs/critters',
-    '@nuxtjs/eslint-module',
     '@nuxtjs/robots',
 
     /* Treeshaking: https://next.vuetifyjs.com/en/features/treeshaking/ */
@@ -83,7 +82,10 @@ export default defineNuxtConfig({
       clientDB: true,
       stripQueryParameters: false,
     },
-    highlight: { theme: 'material-theme' },
+    highlight: {
+      theme: 'material-theme',
+      langs: ['javascript', 'typescript', 'json', 'bash', 'python'],
+    },
     markdown: { mdc: true },
   },
 

@@ -1,15 +1,17 @@
 <script setup>
 const menuItems = [
-  { title: 'About', path: '/about' },
-  { title: 'Projects', path: '/projects' },
-  { title: 'Notes', path: '/notes' },
+  { title: "About", path: "/about" },
+  { title: "Projects", path: "/projects" },
+  { title: "Notes", path: "/notes" },
 ];
 
 // state
-const showDrawer = useState('navbar.showDrawer', () => false);
+const showDrawer = useState("navbar.showDrawer", () => false);
 
 // methods
-const closeSidebar = () => (showDrawer.value = !showDrawer.value);
+const closeSidebar = () => {
+  showDrawer.value = !showDrawer.value;
+};
 </script>
 
 <template>
@@ -28,7 +30,9 @@ const closeSidebar = () => (showDrawer.value = !showDrawer.value);
       <div class="sidebar__menu">
         <ul class="sidebar__list">
           <li v-for="item in menuItems" :key="item.title" :to="item.path">
-            <NuxtLink class="sidebar__item" :to="item.path">{{ item.title }}</NuxtLink>
+            <NuxtLink class="sidebar__item" :to="item.path">{{
+              item.title
+            }}</NuxtLink>
           </li>
         </ul>
       </div>

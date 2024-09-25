@@ -1,9 +1,0 @@
-/.git
-/.github
-/.nuxt
-/.vscode
-/dist
-/static
-**/node_modules
-jsconfig.json
-pnpm-lock.yaml
