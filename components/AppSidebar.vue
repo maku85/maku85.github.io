@@ -1,12 +1,12 @@
 <script setup>
 const menuItems = [
-  { title: "About", path: "/about" },
-  { title: "Projects", path: "/projects" },
-  { title: "Notes", path: "/notes" },
+  { title: 'About', path: '/about' },
+  { title: 'Projects', path: '/projects' },
+  { title: 'Notes', path: '/notes' },
 ];
 
 // state
-const showDrawer = useState("navbar.showDrawer", () => false);
+const showDrawer = useState('navbar.showDrawer', () => false);
 
 // methods
 const closeSidebar = () => {

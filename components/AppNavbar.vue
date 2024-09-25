@@ -1,24 +1,23 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted } from 'vue';
 
-const bg = ref("transparent");
+const bg = ref('transparent');
 const menuItems = [
-  { title: "Home", path: "/" },
-  { title: "About", path: "/about" },
-  { title: "Projects", path: "/projects" },
-  { title: "Notes", path: "/notes" },
+  { title: 'Home', path: '/' },
+  { title: 'About', path: '/about' },
+  { title: 'Projects', path: '/projects' },
+  { title: 'Notes', path: '/notes' },
 ];
 
 // state
-const showDrawer = useState("navbar.showDrawer", () => false);
+const showDrawer = useState('navbar.showDrawer', () => false);
 
 // methods
 const toggleDrawer = () => {
   showDrawer.value = !showDrawer.value;
 };
 const changeColor = () => {
-  bg.value =
-    document.documentElement.scrollTop > 200 ? "#ffffff95" : "transparent";
+  bg.value = document.documentElement.scrollTop > 200 ? '#ffffff95' : 'transparent';
 };
 
 onMounted(() => {
