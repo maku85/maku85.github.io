@@ -5,10 +5,8 @@ const menuItems = [
   { title: 'Notes', path: '/notes' },
 ];
 
-// state
 const showDrawer = useState('navbar.showDrawer', () => false);
 
-// methods
 const closeSidebar = () => {
   showDrawer.value = !showDrawer.value;
 };

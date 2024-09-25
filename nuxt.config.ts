@@ -1,16 +1,14 @@
 import vuetify from 'vite-plugin-vuetify';
 
 export default defineNuxtConfig({
-  // app configuration
   app: {
-    // base path of application
     baseURL: '/',
     head: {
       htmlAttrs: { lang: 'en' },
       title: 'Mauro Cunsolo - Back-end Developer',
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
         { name: 'description', content: 'Mauro Cunsolo - Back-end Developer' },
       ],
       link: [
@@ -24,17 +22,15 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
   },
 
-  // shared build configuration
   build: {
     transpile: ['vuetify'],
   },
 
   sourcemap: { client: true },
 
-  // css files
   css: [
-    'vuetify/lib/styles/main.sass',
     '@mdi/font/css/materialdesignicons.min.css',
+    '@/assets/css/main.css',
     '@/assets/sass/app.scss',
   ],
 
@@ -42,10 +38,8 @@ export default defineNuxtConfig({
     payloadExtraction: false,
   },
 
-  // enable debug mode
   debug: false,
 
-  // modules extensions
   modules: [
     '@nuxt/content',
     '@nuxtjs/critters',
@@ -89,9 +83,18 @@ export default defineNuxtConfig({
     markdown: { mdc: true },
   },
 
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+
   critters: {
     config: {
       preload: 'swap',
     },
   },
+
+  compatibilityDate: '2024-09-25',
 });

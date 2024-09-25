@@ -6,12 +6,10 @@ defineProps({
   },
 });
 
-// flatten TOC links nested arrays to one array
 const flattenLinks = (links) => {
   const _links = (links || []).flatMap((link) => {
     let _link = [link];
     if (link.children) {
-      // recursively flatten children links
       const flattened = flattenLinks(link.children);
       _link = [link, ...flattened];
     }
@@ -22,9 +20,9 @@ const flattenLinks = (links) => {
 </script>
 
 <template>
-  <nav class="toc">
-    <header class="toc__header">
-      <h2 class="toc__title">Table of contents</h2>
+  <nav>
+    <header>
+      <h2 class="toc__title uppercase">Table of contents</h2>
     </header>
 
     <ul class="toc__links-container">

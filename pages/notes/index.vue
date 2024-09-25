@@ -23,7 +23,6 @@ const recentPosts: QueryBuilderParams = {
 const { data } = await useAsyncData('/', () => queryContent('/').findOne());
 const categories = computed(() => data?.value?.notes.categories || []);
 
-// methods
 function refetch(pageNumber: number) {
   page += pageNumber;
   refresh();
@@ -32,28 +31,30 @@ function refetch(pageNumber: number) {
 </script>
 
 <template>
-  <PageSection id="articles">
+  <PageSection>
     <PageTitle text="Notes" subtitle=" Articles and Advice" />
 
     <v-container>
       <v-row>
         <v-col cols="12" md="12" lg="8">
-          <div class="article-list">
-            <v-row v-for="article in articles" :key="article.id" class="articles__list">
-              <v-col>
-                <note-list-article-item :article="article" />
-              </v-col>
-            </v-row>
-          </div>
+          <v-row v-for="article in articles" :key="article.id">
+            <v-col>
+              <note-list-article-item :article="article" />
+            </v-col>
+          </v-row>
 
-          <div class="articles__pager mt-4">
-            <v-btn v-if="page > 0" class="articles__button" variant="flat" @click="refetch(-5)"
+          <div class="text-center mt-8">
+            <v-btn
+              v-if="page > 0"
+              variant="flat"
+              class="bg-white"
+              @click="refetch(-5)"
               >prev</v-btn
             >
             <span class="ml-5"></span>
             <v-btn
               v-if="page + limit < total"
-              class="articles__button"
+              class="bg-white"
               variant="flat"
               @click="refetch(5)"
               >next</v-btn
@@ -62,51 +63,45 @@ function refetch(pageNumber: number) {
         </v-col>
 
         <v-col md="12" lg="4">
-          <div class="articles__sidebar">
-            <aside>
-              <section class="articles__section">
-                <h2 class="articles__heading">Recent Posts</h2>
-                <ContentList :query="recentPosts">
-                  <template #not-found>
-                    <p>No articles found.</p>
-                  </template>
+          <aside class="border-l-2 border-[rgba(0,0,0,.1)] pl-4">
+            <section class="pb-10">
+              <h2 class="uppercase">Recent Posts</h2>
+              <ContentList :query="recentPosts">
+                <template #not-found>
+                  <p>No articles found.</p>
+                </template>
 
-                  <template #default="{ list }">
-                    <ul class="articles__items">
-                      <li v-for="article of list" :key="article._path">
-                        <NuxtLink class="articles__item" :to="'/notes' + article._path">
-                          {{ article.title }}
-                        </NuxtLink>
-                      </li>
-                    </ul>
-                  </template>
-                </ContentList>
-              </section>
+                <template #default="{ list }">
+                  <ul>
+                    <li v-for="article of list" :key="article._path">
+                      <NuxtLink :to="'/notes' + article._path">
+                        {{ article.title }}
+                      </NuxtLink>
+                    </li>
+                  </ul>
+                </template>
+              </ContentList>
+            </section>
 
-              <section class="articles__section">
-                <h2 class="articles__heading">Categories</h2>
-                <ContentList :query="recentPosts">
-                  <template #not-found>
-                    <p>No categories found.</p>
-                  </template>
+            <section class="pb-10">
+              <h2 class="uppercase">Categories</h2>
+              <ContentList :query="recentPosts">
+                <template #not-found>
+                  <p>No categories found.</p>
+                </template>
 
-                  <template #default>
-                    <ul class="articles__items">
-                      <li
-                        v-for="category of categories"
-                        :key="category.path"
-                        class="articles__item__wrapper"
-                      >
-                        <NuxtLink class="articles__item" :to="'/notes/categories/' + category.path">
-                          {{ category.title }}
-                        </NuxtLink>
-                      </li>
-                    </ul>
-                  </template>
-                </ContentList>
-              </section>
-            </aside>
-          </div>
+                <template #default>
+                  <ul>
+                    <li v-for="category of categories" :key="category.path">
+                      <NuxtLink :to="'/notes/categories/' + category.path">
+                        {{ category.title }}
+                      </NuxtLink>
+                    </li>
+                  </ul>
+                </template>
+              </ContentList>
+            </section>
+          </aside>
         </v-col>
       </v-row>
     </v-container>

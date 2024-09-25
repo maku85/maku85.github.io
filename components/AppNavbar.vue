@@ -9,10 +9,8 @@ const menuItems = [
   { title: 'Notes', path: '/notes' },
 ];
 
-// state
 const showDrawer = useState('navbar.showDrawer', () => false);
 
-// methods
 const toggleDrawer = () => {
   showDrawer.value = !showDrawer.value;
 };
@@ -28,7 +26,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-app-bar flat fixed class="navbar" :color="bg">
+  <v-app-bar flat fixed :color="bg" app>
     <v-app-bar-nav-icon class="d-sm-none" @click="toggleDrawer()" />
 
     <template #append>
@@ -37,7 +35,6 @@ onMounted(() => {
           v-for="item in menuItems"
           :key="item.title"
           :to="item.path"
-          class="navbar__item"
           variant="plain"
         >
           {{ item.title }}
@@ -46,5 +43,35 @@ onMounted(() => {
     </template>
   </v-app-bar>
 
-  <app-sidebar />
+  <v-navigation-drawer
+    v-model="showDrawer"
+    temporary
+    location="bottom"
+    class="py-5 px-5"
+    color="white"
+  >
+    <div class="flex flex-col align-end" @click="toggleDrawer()">
+      <v-icon icon="mdi-close" />
+    </div>
+
+    <v-container class="relative">
+      <ul class="ml-10">
+        <li
+          v-for="item in menuItems"
+          :key="item.title"
+          :to="item.path"
+          class="py-3"
+        >
+          <NuxtLink
+            :to="item.path"
+            class="uppercase font-bold text-bleck hover:text-gray-400"
+          >
+            {{ item.title }}
+          </NuxtLink>
+        </li>
+      </ul>
+
+      <div class="line-block"><span></span></div>
+    </v-container>
+  </v-navigation-drawer>
 </template>

@@ -5,24 +5,27 @@ const socials = computed(() => data?.value?.socials || []);
 </script>
 
 <template>
-  <div class="social">
-    <v-btn
-      v-for="(social, index) of socials"
-      :key="index"
-      icon
-      small
-      flat
-      color="transparent"
-      :href="social.link"
-      rel="noreferrer"
-      class="social__btn"
-      target="_blank"
-      :aria-label="social.type + ' social link'"
-    >
-      <v-icon
-        :class="{ social__icon: true, ['social__icon--' + social.type]: true }"
-        :icon="'mdi-' + social.type"
-      />
-    </v-btn>
-  </div>
+  <NuxtLink
+    v-for="(social, index) of socials"
+    :key="index"
+    :to="social.link"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <v-icon
+      v-if="social.type === 'linkedin'"
+      class="text-blue-700 hover:text-blue-900"
+      :icon="'mdi-' + social.type"
+    />
+    <v-icon
+      v-if="social.type === 'github'"
+      class="text-gray-800 hover:text-gray-900"
+      :icon="'mdi-' + social.type"
+    />
+    <v-icon
+      v-if="social.type === 'codepen'"
+      class="text-gray-800 hover:text-gray-900"
+      :icon="'mdi-' + social.type"
+    />
+  </NuxtLink>
 </template>

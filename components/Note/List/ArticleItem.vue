@@ -10,14 +10,17 @@ defineProps({
 
 <template>
   <NuxtLink :to="'/notes' + article._path">
-    <div class="card note">
-      <div class="note__content">
-        <div class="note__categories-container">
-          <span v-for="tag in article.tags" :key="tag" class="note__category">#{{ tag }}</span>
-        </div>
-        <h2 class="note__title">{{ article.title }}</h2>
-        <p class="note__text">{{ article.description }}</p>
+    <div class="card px-7 py-5">
+      <div class="mb-2">
+        <span
+          v-for="tag in article.tags"
+          :key="tag"
+          class="uppercase mr-2 text-emerald-600 font-light"
+          >#{{ tag }}</span
+        >
       </div>
+      <h2 class="text-xl">{{ article.title }}</h2>
+      <p>{{ article.description }}</p>
     </div>
   </NuxtLink>
 </template>

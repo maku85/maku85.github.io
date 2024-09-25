@@ -1,39 +1,28 @@
-$font-family: 'Jost', 'Helvetica', Arial, sans-serif;
+$font-family: "Jost", "Helvetica", Arial, sans-serif;
 
-@use 'vuetify' with (
+@use "vuetify" with (
   $body-font-family: $font-family
 );
 
-@import 'variables';
+@import "variables";
 
-@import 'transitions';
+@import "transitions";
 
 // Core CSS
-@import 'theme/misc';
-@import 'theme/typography';
+@import "theme/misc";
+@import "theme/typography";
 
 // common components
-@import 'theme/images';
-@import 'theme/cards';
+@import "theme/images";
+@import "theme/cards";
 
 // components
-@import 'components/note/list/article-item';
-@import 'components/note/section/article-item';
-@import 'components/note/article-toc';
-@import 'components/note/prev-next';
-@import 'components/page/section';
-@import 'components/page/title';
-@import 'components/about-section';
-@import 'components/back-to-top';
-@import 'components/footer';
-@import 'components/navbar';
-@import 'components/notes-section';
-@import 'components/sidebar';
-@import 'components/social-links';
+@import "components/note/article-toc";
+@import "components/about-section";
+@import "components/notes-section";
+@import "components/sidebar";
 
 // pages
-@import 'pages/notes/article';
-@import 'pages/notes/article-list';
-@import 'pages/about';
-@import 'pages/error';
-@import 'pages/projects';
+@import "pages/notes/article";
+@import "pages/about";
+@import "pages/error";
