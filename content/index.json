@@ -100,7 +100,7 @@
       "description": "Immerse yourself in the world of Rick and Morty with this captivating web app built in Vue.js.",
       "image": "https://github.com/maku85/rick-and-morty-vue-app/raw/master/preview.webp",
       "tags": ["HTML5", "CSS3", "Javascript", "Web app", "Vue.js"],
-      "url": "https://www.maurocunsolo.com/rick-and-morty-vue-app/"
+      "url": "https://maku85.github.io/rick-and-morty-vue-app/"
     },
     {
       "title": "Verba",
@@ -108,7 +108,7 @@
       "description": "A simple single page app in Nuxt.js",
       "image": "https://github.com/maku85/verba/raw/main/preview.png",
       "tags": ["Javascript", "Web app", "Nuxt.js"],
-      "url": "https://www.maurocunsolo.com/verba/"
+      "url": "https://maku85.github.io/verba/"
     }
   ],
   "notes": {
