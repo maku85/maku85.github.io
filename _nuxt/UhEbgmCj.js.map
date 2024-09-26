@@ -1,1 +1,0 @@
-{"version":3,"file":"UhEbgmCj.js","sources":["../../../../components/Page/index.vue"],"sourcesContent":["<template>\n  <v-container>\n    <slot />\n  </v-container>\n</template>\n"],"names":["_openBlock","_createBlock","_component_v_container","_withCtx"],"mappings":"2HAAA,OAAAA,EAEI,EAAQC,EAAAC,EAAA,KAAA,SAAAC,EAAA,IAAA,uBAFZ"}

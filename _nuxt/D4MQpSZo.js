@@ -1,2 +1,0 @@
-import{B as a,C as i,af as l,D as r,ag as m,ah as c,ai as u,e as d}from"./1I5RK2Em.js";const f=a({tag:{type:String,default:"div"}},"tag"),C=a({fluid:{type:Boolean,default:!1},...i(),...l(),...f()},"VContainer"),p=r()({name:"VContainer",props:C(),setup(e,s){let{slots:t}=s;const{rtlClasses:n}=m(),{dimensionStyles:o}=c(e);return u(()=>d(e.tag,{class:["v-container",{"v-container--fluid":e.fluid},n.value,e.class],style:[o.value,e.style]},t)),{}}});export{p as V,f as m};
-//# sourceMappingURL=D4MQpSZo.js.map
