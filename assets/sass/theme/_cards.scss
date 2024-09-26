@@ -1,5 +1,4 @@
 .card {
-  padding: 30px 40px;
   position: relative;
 
   &:after {
@@ -7,18 +6,11 @@
     border: 2px solid hsla(0, 0%, 100%, 0.9);
     border-radius: $border-radius;
     bottom: 0;
-    content: '';
+    content: "";
     left: 0;
     position: absolute;
     top: 0;
     width: 100%;
     z-index: -1;
-  }
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  .card {
-    padding: 25px 15px;
   }
 }

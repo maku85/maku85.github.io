@@ -11,6 +11,7 @@ const socials = computed(() => data?.value?.socials || []);
     :to="social.link"
     rel="noreferrer"
     target="_blank"
+    class="text-2xl"
   >
     <v-icon
       v-if="social.type === 'linkedin'"

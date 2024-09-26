@@ -26,7 +26,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-app-bar flat fixed :color="bg" app>
+  <v-toolbar flat :color="bg" app>
     <v-app-bar-nav-icon class="d-sm-none" @click="toggleDrawer()" />
 
     <template #append>
@@ -41,7 +41,7 @@ onMounted(() => {
         </v-btn>
       </div>
     </template>
-  </v-app-bar>
+  </v-toolbar>
 
   <v-navigation-drawer
     v-model="showDrawer"

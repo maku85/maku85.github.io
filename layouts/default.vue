@@ -1,13 +1,17 @@
 <template>
   <v-app>
-    <slot name="header">
-      <app-navbar />
-    </slot>
+    <v-container>
+      <v-row>
+        <v-col>
+          <slot name="header">
+            <app-navbar />
+          </slot>
 
-    <v-container class="fill-height">
-      <v-main>
-        <slot />
-      </v-main>
+          <v-main>
+            <slot />
+          </v-main>
+        </v-col>
+      </v-row>
     </v-container>
 
     <slot name="footer">

@@ -30,8 +30,8 @@ export default defineNuxtConfig({
 
   css: [
     '@mdi/font/css/materialdesignicons.min.css',
-    '@/assets/css/main.css',
     '@/assets/sass/app.scss',
+    '@/assets/css/main.css',
   ],
 
   experimental: {

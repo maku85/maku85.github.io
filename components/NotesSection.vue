@@ -10,21 +10,30 @@ const query: QueryBuilderParams = {
 </script>
 
 <template>
-  <PageSection id="notes">
+  <PageSection>
     <PageTitle text="Latest notes" subtitle=" Articles and Advice" />
 
     <ContentList v-slot="{ list }" :query="query">
-      <v-row v-if="list.length > 0" cols="12" class="notes__list mt-4 mb-8">
-        <v-col v-for="article of list" :key="article._path" cols="12" xs="12" sm="6" md="6" lg="4">
-          <note-section-article-item :article="article" />
-        </v-col>
-      </v-row>
+      <div class="columns-1 md:columns-3 xl:columns-4 gap-6 space-y-6">
+        <div v-for="article in list" :key="article._path">
+          <NuxtLink :to="'/notes' + article._path">
+            <div class="card">
+              <div class="px-8 py-10">
+                <h1 class="font-mono text-3xl font-bold pb-6">
+                  {{ article.title }}
+                </h1>
+                <p class="font-mono text-gray-800">{{ article.description }}</p>
+              </div>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
 
-      <v-row>
-        <v-btn class="notes__load-more" :to="'/notes'" variant="plain"
+      <div class="text-center mt-4">
+        <v-btn :to="'/notes'" variant="outlined" color="primary"
           ><span>View notes</span></v-btn
         >
-      </v-row>
+      </div>
     </ContentList>
   </PageSection>
 </template>
