@@ -15,9 +15,15 @@ const query: QueryBuilderParams = {
 
     <ContentList v-slot="{ list }" :query="query">
       <div class="columns-1 md:columns-3 xl:columns-4 gap-6 space-y-6">
-        <div v-for="article in list" :key="article._path">
+        <div
+          v-for="article in list"
+          :key="article._path"
+          class="shadow-[5px_5px_rgb(0_0_0/20%)]"
+        >
           <NuxtLink :to="'/notes' + article._path">
-            <div class="card">
+            <div
+              class="px-2 py-4 relative after:bg-white after:absolute after:bottom-0 after:left-0 after:w-full after:top-0 after:border-2 after:border-gray-100 after:z-[-99] after:opacity-35 rounded-md"
+            >
               <div class="px-8 py-10">
                 <h1 class="font-mono text-3xl font-bold pb-6">
                   {{ article.title }}

@@ -1,18 +1,14 @@
 <template>
   <v-app>
-    <v-container>
-      <v-row>
-        <v-col>
-          <slot name="header">
-            <app-navbar />
-          </slot>
+    <div class="container mx-auto">
+      <slot name="header">
+        <app-navbar />
+      </slot>
 
-          <v-main>
-            <slot />
-          </v-main>
-        </v-col>
-      </v-row>
-    </v-container>
+      <main class="mb-10 mt-8">
+        <slot />
+      </main>
+    </div>
 
     <slot name="footer">
       <app-footer />

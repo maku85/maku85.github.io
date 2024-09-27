@@ -71,7 +71,7 @@ export default defineNuxtConfig({
 
   // content
   content: {
-    documentDriven: true,
+    documentDriven: false,
     experimental: {
       clientDB: true,
       stripQueryParameters: false,

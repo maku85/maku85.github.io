@@ -1,6 +1,6 @@
 <template>
-  <v-container>
+  <div>
     <AboutSection />
     <NotesSection />
-  </v-container>
+  </div>
 </template>

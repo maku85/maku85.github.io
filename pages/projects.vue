@@ -12,21 +12,14 @@ const works = computed(() => data?.value?.works || []);
       <div class="text-center font-light">No works yet :(</div>
     </div>
 
-    <v-container>
-      <v-row v-if="works.length > 0">
-        <v-col
-          v-for="work of works"
-          :key="work.id"
-          cols="12"
-          sm="6"
-          md="6"
-          lg="4"
-          xl="3"
-        >
+    <div>
+      <div v-if="works.length > 0" class="grid grid-cols-3 gap-8">
+        <div v-for="work of works" :key="work.id">
           <NuxtLink :to="work.url" target="_blank">
-            <div class="card">
+            <div
+              class="px-8 py-10 relative after:bg-white after:absolute after:bottom-0 after:left-0 after:w-full after:top-0 after:border-2 after:border-gray-100 after:z-[-99] after:opacity-35 rounded-md shadow-[5px_5px_rgb(0_0_0/20%)]"
+            >
               <v-img
-                class="projects__image"
                 :aspect-ratio="1"
                 height="240px"
                 :lazy-src="work.image || 'https://source.unsplash.com/random'"
@@ -35,16 +28,16 @@ const works = computed(() => data?.value?.works || []);
               />
 
               <div class="px-2 py-8">
-                <span class="uppercase text-emerald-600 font-light">{{
+                <span class="uppercase text-sm text-emerald-600 font-light">{{
                   work.category
                 }}</span>
-                <h5>{{ work.title }}</h5>
+                <h5 class="text-2xl font-semibold mb-4">{{ work.title }}</h5>
                 <p>{{ work.description }}</p>
               </div>
             </div>
           </NuxtLink>
-        </v-col>
-      </v-row>
-    </v-container>
+        </div>
+      </div>
+    </div>
   </Page>
 </template>

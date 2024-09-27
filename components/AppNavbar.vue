@@ -54,7 +54,7 @@ onMounted(() => {
       <v-icon icon="mdi-close" />
     </div>
 
-    <v-container class="relative">
+    <div class="container mx-auto relative">
       <ul class="ml-10">
         <li
           v-for="item in menuItems"
@@ -72,6 +72,6 @@ onMounted(() => {
       </ul>
 
       <div class="line-block"><span></span></div>
-    </v-container>
+    </div>
   </v-navigation-drawer>
 </template>

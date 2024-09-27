@@ -22,16 +22,28 @@ const flattenLinks = (links) => {
 <template>
   <nav>
     <header>
-      <h2 class="toc__title uppercase">Table of contents</h2>
+      <h2
+        class="mb-6 text-lg uppercase relative before:bg-emerald-600 before:bottom-[-10px] before:h-1 before:absolute before:w-[80px]"
+      >
+        Table of contents
+      </h2>
     </header>
 
-    <ul class="toc__links-container">
+    <ul class="list-disc text-md">
       <li
         v-for="link of flattenLinks(links)"
         :key="link.id"
-        :class="`toc__link-wrapper toc__link-wrapper--${link.depth}`"
+        :class="{
+          'text-emerald-600': link.depth === 2,
+          'mb-2': link.depth === 2,
+          'mt-6': link.depth === 2,
+          'ml-4': link.depth === 3,
+          'list-[circle]': link.depth === 3,
+          'ml-8': link.depth === 4,
+          'list-[square]': link.depth === 4,
+        }"
       >
-        <NuxtLink class="toc__link" :to="'#' + link.id">{{
+        <NuxtLink class="font-normal" :to="'#' + link.id">{{
           link.text
         }}</NuxtLink>
       </li>

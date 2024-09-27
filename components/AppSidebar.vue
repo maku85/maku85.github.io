@@ -24,7 +24,7 @@ const closeSidebar = () => {
       <v-icon icon="mdi-close" />
     </div>
 
-    <v-container class="sidebar__container">
+    <div class="sidebar__container container mx-auto">
       <div class="sidebar__menu">
         <ul class="sidebar__list">
           <li v-for="item in menuItems" :key="item.title" :to="item.path">
@@ -36,6 +36,6 @@ const closeSidebar = () => {
       </div>
 
       <div class="line-block"><span></span></div>
-    </v-container>
+    </div>
   </v-navigation-drawer>
 </template>

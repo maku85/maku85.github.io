@@ -1,12 +1,6 @@
-@import 'theme/colors';
-
-// borders
-$border-radius: 15px;
+@import "theme/colors";
 
 // text
-$font-family: 'Jost', sans-serif;
+$font-family: "Jost", sans-serif;
 $font-weight: 300 !default;
 $font-size: 16px !default;
-
-// misc
-$shadow: -11.31px 11.31px 17px 0px rgba(138, 131, 124, 0.23);

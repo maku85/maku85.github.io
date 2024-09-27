@@ -28,7 +28,7 @@ onMounted(() => {
 <template>
   <span
     id="back-top"
-    class="fixed bottom-5 right-5 bg-emerald-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-emerald-700 focus:outline-none scroll-up-btn opacity-0 z-50"
+    class="fixed bottom-5 right-5 bg-emerald-600 text-white p-4 rounded-full hover:cursor-pointer hover:bg-emerald-700 focus:outline-none scroll-up-btn opacity-0 z-50 shadow-[5px_5px_rgb(0_0_0/20%)]"
     @click="scrollToTop()"
     aria-label="Torna su"
   >

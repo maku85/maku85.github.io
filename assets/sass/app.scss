@@ -12,16 +12,7 @@ $font-family: "Jost", "Helvetica", Arial, sans-serif;
 @import "theme/misc";
 @import "theme/typography";
 
-// common components
-@import "theme/images";
-@import "theme/cards";
-
-// components
-@import "components/note/article-toc";
-
 // pages
-@import "pages/notes/article";
-@import "pages/about";
 @import "pages/error";
 
 /* About section */
