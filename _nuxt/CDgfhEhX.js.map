@@ -1,1 +1,0 @@
-{"version":3,"file":"CDgfhEhX.js","sources":["../../../../node_modules/.pnpm/@nuxtjs+mdc@0.8.3/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseLi.vue"],"sourcesContent":["<template>\n  <li><slot /></li>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"+EACmBA,EAAA,QAALC,EAAA,EAAAC,EAAA,KAAA,KAAA","x_google_ignoreList":[0]}
