@@ -10,10 +10,10 @@ const expertises = computed(() => data?.value?.expertises || []);
     <PageTitle text="About me" subtitle=" Story" />
 
     <div
-      class="px-8 py-10 relative after:bg-white after:absolute after:bottom-0 after:left-0 after:w-full after:top-0 after:border-2 after:border-gray-100 after:z-[-99] after:opacity-35 rounded-md shadow-[5px_5px_rgb(0_0_0/20%)] grid grid-cols-2"
+      class="mx-4 md:px-8 py-10 relative after:bg-white after:absolute after:bottom-0 after:left-0 after:w-full after:top-0 after:border-2 after:border-gray-100 after:z-[-99] after:opacity-35 rounded-md shadow-[5px_5px_rgb(0_0_0/20%)] grid md:grid-cols-2"
     >
       <div class="px-8 py-8">
-        <h5 class="text-2xl font-bold text-center">Experience</h5>
+        <h5 class="text-3xl font-bold text-center">Experience</h5>
 
         <div class="relative">
           <div
@@ -43,7 +43,7 @@ const expertises = computed(() => data?.value?.expertises || []);
       </div>
 
       <div class="px-8 py-8">
-        <h5 class="text-2xl font-bold text-center">Skills</h5>
+        <h5 class="text-3xl font-bold text-center">Skills</h5>
 
         <div class="pt-8">
           <div

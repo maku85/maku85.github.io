@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <div>
     <div class="container mx-auto">
       <slot name="header">
         <app-navbar />
@@ -15,5 +15,5 @@
     </slot>
 
     <back-to-top />
-  </v-app>
+  </div>
 </template>

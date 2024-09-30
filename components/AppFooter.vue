@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="text-gray bg-transparent">
+  <footer class="text-gray bg-transparent">
     <div
       class="border-t-2 border-[rgba(0,0,0,.1)] w-full px-4 py-6 container mx-auto"
     >
@@ -21,5 +21,5 @@
         </div>
       </div>
     </div>
-  </v-footer>
+  </footer>
 </template>

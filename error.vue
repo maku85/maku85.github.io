@@ -34,19 +34,11 @@ const otherError = 'Houston, we have a problem';
     </div>
 
     <div class="space__objects">
-      <v-img
-        class="space__rocket top-[75%]"
-        src="/img/rocket.svg"
-        width="40px"
-      />
-      <v-img class="space__earth" src="/img/earth.svg" width="100px" />
-      <v-img class="space__moon" src="/img/moon.svg" width="80px" />
+      <img class="space__rocket top-[75%]" src="/img/rocket.svg" width="40px" />
+      <img class="space__earth" src="/img/earth.svg" width="100px" />
+      <img class="space__moon" src="/img/moon.svg" width="80px" />
       <div class="space__astronaut-box absolute right-[20%] top-[60%]">
-        <v-img
-          class="space__astronaut"
-          src="/img/astronaut.svg"
-          width="140px"
-        />
+        <img class="space__astronaut" src="/img/astronaut.svg" width="140px" />
       </div>
 
       <div class="space__glowing-stars">

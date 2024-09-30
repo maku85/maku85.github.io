@@ -27,14 +27,16 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
+  <div class="w-full">
     <ContentRenderer :value="article">
       <template #empty>
         <p>No content found.</p>
       </template>
 
-      <div class="mx-auto max-w-[1320px] relative flex gap-4">
-        <div class="order-first order-md-last w-1/3 mt-10">
+      <div
+        class="mx-auto relative flex flex-col md:flex-row gap-4 mx-4 md:mx-8"
+      >
+        <div class="order-1 md:order-last min-w-[200px] px-4 mt-12">
           <div v-if="article?.body?.toc?.links.length">
             <note-article-toc
               class="toc pl-4 pb-4"
@@ -43,8 +45,10 @@ useSeoMeta({
           </div>
         </div>
 
-        <div class="order-last order-md-first">
-          <div class="text-center mx-auto max-w-[850px]">
+        <div
+          class="order-last md:order-1 px-8 py-12 relative after:bg-white after:absolute after:bottom-0 after:left-0 after:w-full after:top-0 after:border-2 after:border-gray-100 after:z-[-99] after:opacity-35 rounded-md shadow-[5px_5px_rgb(0_0_0/20%)]"
+        >
+          <div class="text-center mx-auto">
             <h1 class="text-4xl my-6">{{ article?.title }}</h1>
 
             <ContentRendererMarkdown :value="article?.excerpt" />
@@ -57,13 +61,13 @@ useSeoMeta({
 
           <div
             v-if="article?.tags.length"
-            class="pt-8 d-flex flex-wrap align-center gap-3"
+            class="pt-8 d-flex flex-wrap align-center"
           >
-            <span>Tags:</span>
+            <span class="mr-2">Tags:</span>
             <NuxtLink
               v-for="tag of article.tags"
               :key="tag"
-              class="border-2 border-emerald-600 text-emerald-600 px-2 py-1"
+              class="border-2 border-emerald-600 text-emerald-600 px-2 py-1 mr-2"
               :to="'/notes/categories/' + tag"
             >
               {{ tag }}

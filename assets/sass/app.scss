@@ -1,9 +1,5 @@
 $font-family: "Jost", "Helvetica", Arial, sans-serif;
 
-@use "vuetify" with (
-  $body-font-family: $font-family
-);
-
 @import "variables";
 
 @import "transitions";
@@ -14,12 +10,6 @@ $font-family: "Jost", "Helvetica", Arial, sans-serif;
 
 // pages
 @import "pages/error";
-
-/* About section */
-.about__title {
-  text-shadow: 2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000,
-    5px 5px 0px rgba(0, 0, 0, 0.2);
-}
 
 /* Sidebar */
 .line-block {
@@ -61,4 +51,8 @@ $font-family: "Jost", "Helvetica", Arial, sans-serif;
     width: 30px;
     z-index: 1;
   }
+}
+
+.router-link-exact-active {
+  @apply text-emerald-600 border-b-2 border-emerald-600;
 }

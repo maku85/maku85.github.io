@@ -38,37 +38,39 @@ function refetch(pageNumber: number) {
       subtitle=" Articles and Advice"
     />
 
-    <div class="container flex gap-8">
-      <div class="flex flex-col gap-4">
-        <note-list-article-item
-          v-for="article in articles"
-          :key="article.id"
-          :article="article"
-        />
+    <div class="container flex flex-col md:flex-row px-4 gap-8">
+      <div>
+        <div class="flex flex-col gap-4">
+          <note-list-article-item
+            v-for="article in articles"
+            :key="article.id"
+            :article="article"
+          />
+        </div>
 
         <div class="text-center mt-8">
-          <v-btn
+          <button
             v-if="page > 0"
-            class="bg-white"
-            variant="flat"
+            class="bg-white py-2 px-4 rounded"
             @click="refetch(-5)"
-            >prev</v-btn
           >
+            prev
+          </button>
           <span class="ml-5"></span>
-          <v-btn
+          <button
             v-if="page + limit < total"
-            class="bg-white"
-            variant="flat"
+            class="bg-white py-2 px-4 rounded"
             @click="refetch(5)"
-            >next</v-btn
           >
+            next
+          </button>
         </div>
       </div>
 
-      <div class="w-1/2">
+      <div class="min-w-[300px]">
         <aside class="border-l-2 border-[rgba(0,0,0,.1)] pl-4">
           <section class="pb-10">
-            <h2 class="uppercase text-emerald-600">Recent Posts</h2>
+            <h2 class="uppercase text-emerald-600 mb-4">Recent Posts</h2>
             <ContentList :query="recentPosts">
               <template #not-found>
                 <p>No articles found.</p>
@@ -94,8 +96,12 @@ function refetch(pageNumber: number) {
               </template>
 
               <template #default>
-                <ul>
-                  <li v-for="category of categories" :key="category.path">
+                <ul class="mt-4">
+                  <li
+                    v-for="category of categories"
+                    :key="category.path"
+                    class="uppercase"
+                  >
                     <NuxtLink :to="'/notes/categories/' + category.path">
                       {{ category.title }}
                     </NuxtLink>

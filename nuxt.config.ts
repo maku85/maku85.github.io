@@ -1,5 +1,3 @@
-import vuetify from 'vite-plugin-vuetify';
-
 export default defineNuxtConfig({
   app: {
     baseURL: '/',
@@ -22,10 +20,6 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
   },
 
-  build: {
-    transpile: ['vuetify'],
-  },
-
   sourcemap: { client: true },
 
   css: [
@@ -40,18 +34,7 @@ export default defineNuxtConfig({
 
   debug: false,
 
-  modules: [
-    '@nuxt/content',
-    '@nuxtjs/critters',
-    '@nuxtjs/robots',
-
-    /* Treeshaking: https://next.vuetifyjs.com/en/features/treeshaking/ */
-    (_options, nuxt) => {
-      nuxt.hooks.hook('vite:extendConfig', (config) => {
-        config?.plugins?.push(vuetify());
-      });
-    },
-  ],
+  modules: ['@nuxt/content', '@nuxtjs/critters', '@nuxtjs/robots'],
 
   nitro: {
     routeRules: {

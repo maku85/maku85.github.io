@@ -28,10 +28,10 @@ onMounted(() => {
 <template>
   <span
     id="back-top"
-    class="fixed bottom-5 right-5 bg-emerald-600 text-white p-4 rounded-full hover:cursor-pointer hover:bg-emerald-700 focus:outline-none scroll-up-btn opacity-0 z-50 shadow-[5px_5px_rgb(0_0_0/20%)]"
+    class="fixed bottom-5 right-5 bg-emerald-600 text-xl text-white px-5 py-4 rounded-full hover:cursor-pointer hover:bg-emerald-700 focus:outline-none scroll-up-btn opacity-0 z-50 shadow-[5px_5px_rgb(0_0_0/20%)]"
     @click="scrollToTop()"
     aria-label="Torna su"
   >
-    <v-icon icon="mdi-chevron-up" />
+    <i class="mdi mdi-chevron-up" />
   </span>
 </template>
