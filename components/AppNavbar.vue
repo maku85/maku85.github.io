@@ -28,13 +28,20 @@ onMounted(() => {
 <template>
   <nav>
     <div
-      class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      class="max-w-screen-xl flex items-center justify-end mx-auto px-4 py-6"
     >
-      <i class="d-sm-none" @click="toggleDrawer()" />
+      <div class="hidden md:block w-full" id="navbar-default">
+        <ul class="flex justify-end mt-4">
+          <li v-for="item in menuItems" :key="item.title">
+            <NuxtLink class="py-2 px-4" :to="item.path">{{
+              item.title
+            }}</NuxtLink>
+          </li>
+        </ul>
+      </div>
+
       <button
-        data-collapse-toggle="navbar-default"
-        type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        class="md:hidden w-10 h-10 text-gray-500 flex items-center justify-center"
         @click="toggleDrawer()"
       >
         <span class="sr-only">Open main menu</span>
@@ -54,46 +61,23 @@ onMounted(() => {
           />
         </svg>
       </button>
-      <div class="hidden md:block w-full" id="navbar-default">
-        <ul class="flex justify-end mt-4">
-          <li v-for="item in menuItems" :key="item.title">
-            <NuxtLink class="py-2 px-4" :to="item.path">{{
-              item.title
-            }}</NuxtLink>
-          </li>
-        </ul>
-      </div>
     </div>
   </nav>
 
-  <transition
-    enter-class="opacity-0"
-    enter-active-class="ease-out transition-medium"
-    enter-to-class="opacity-100"
-    leave-class="opacity-100"
-    leave-active-class="ease-out transition-medium"
-    leave-to-class="opacity-0"
-  >
+  <div v-show="showDrawer" class="z-10 fixed inset-0">
     <div
-      @keydown.esc="showDrawer = false"
-      v-show="showDrawer"
-      class="z-10 fixed inset-0 transition-opacity"
-    >
-      <div
-        @click="showDrawer = false"
-        class="absolute inset-0 bg-black opacity-50"
-        tabindex="0"
-      ></div>
-    </div>
-  </transition>
+      @click="showDrawer = false"
+      class="absolute inset-0 bg-black opacity-50"
+    ></div>
+  </div>
 
   <div
     :class="showDrawer ? 'translate-y-0' : 'hidden'"
-    class="py-5 px-5 transform bottom-0 left-0 right-0 h-45 bg-white fixed w-full overflow-y-auto ease-in-out transition-all duration-300 z-30 transform-none"
+    class="py-6 px-8 bottom-0 left-0 right-0 h-45 bg-white fixed w-full overflow-y-auto z-30"
   >
     <div class="flex justify-end">
       <button @click="toggleDrawer()">
-        <i class="text-3xl mdi mdi-close" />
+        <i class="text-2xl mdi mdi-close" />
       </button>
     </div>
 
@@ -115,7 +99,9 @@ onMounted(() => {
         </li>
       </ul>
 
-      <div class="line-block"><span></span></div>
+      <div
+        class="bg-black w-[2px] absolute bottom-[10px] left-[15px] top-[10px] before:bg-white before:border-2 before:border-black before:rounded-full before:w-[30px] before:h-[30px] before:absolute before:top-0 before:left-[-15px] before:shadow-[5px_5px_rgb(0_0_0/20%)] after:bg-white after:border-2 after:border-black after:rounded-full after:w-[30px] after:h-[30px] after:absolute after:bottom-0 after:left-[-15px] after:shadow-[5px_5px_rgb(0_0_0/20%)]"
+      ></div>
     </div>
   </div>
 </template>

@@ -8,7 +8,7 @@ const { data } = await useAsyncData(`article-${slug}`, async () => {
 
   const surround = queryContent()
     .only(['_path', 'title', 'description'])
-    .sort({ date: 1 })
+    .sort({ title: 1 })
     .findSurround(`/${lang}/articles/${slug}`);
   return {
     article: await article,
@@ -27,47 +27,40 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="w-full">
-    <ContentRenderer :value="article">
-      <template #empty>
-        <p>No content found.</p>
-      </template>
-
-      <div
-        class="mx-auto relative flex flex-col md:flex-row gap-4 mx-4 md:mx-8"
-      >
-        <div class="order-1 md:order-last min-w-[200px] px-4 mt-12">
-          <div v-if="article?.body?.toc?.links.length">
-            <note-article-toc
-              class="toc pl-4 pb-4"
-              :links="article?.body?.toc?.links"
-            />
-          </div>
+  <Page>
+    <div class="flex flex-col lg:flex-row gap-10">
+      <div class="lg:w-2/3">
+        <div class="text-center mx-auto px-4">
+          <h1
+            class="font-mono text-gray-800 text-3xl lg:text-4xl xl:text-4xl my-8 mb-12"
+          >
+            {{ article?.title }}
+          </h1>
         </div>
 
         <div
-          class="order-last md:order-1 px-8 py-12 relative after:bg-white after:absolute after:bottom-0 after:left-0 after:w-full after:top-0 after:border-2 after:border-gray-100 after:z-[-99] after:opacity-35 rounded-md shadow-[5px_5px_rgb(0_0_0/20%)]"
+          v-if="article?.body?.toc?.links.length"
+          class="lg:hidden mb-12 px-4"
         >
-          <div class="text-center mx-auto">
-            <h1 class="text-4xl my-6">{{ article?.title }}</h1>
+          <note-article-toc :links="article?.body?.toc?.links" />
+        </div>
 
-            <ContentRendererMarkdown :value="article?.excerpt" />
-          </div>
-
+        <div
+          class="px-6 py-10 relative after:bg-white after:absolute after:bottom-0 after:left-0 after:w-full after:top-0 after:border-2 after:border-gray-100 after:z-[-99] after:opacity-35 rounded-md shadow-[5px_5px_rgb(0_0_0/20%)]"
+        >
           <ContentRendererMarkdown
-            class="article__content"
-            :value="article || {}"
+            class="article__content font-mono text-gray-600"
+            :value="article.body || {}"
           />
 
           <div
             v-if="article?.tags.length"
-            class="pt-8 d-flex flex-wrap align-center"
+            class="mt-12 flex flex-wrap align-center gap-1"
           >
-            <span class="mr-2">Tags:</span>
             <NuxtLink
               v-for="tag of article.tags"
               :key="tag"
-              class="border-2 border-emerald-600 text-emerald-600 px-2 py-1 mr-2"
+              class="border-2 border-emerald-600 text-emerald-600 px-2 py-1"
               :to="'/notes/categories/' + tag"
             >
               {{ tag }}
@@ -82,46 +75,55 @@ useSeoMeta({
         </div>
       </div>
 
-      <div class="border-t-2 border-gray-300 mt-8">
-        <note-prev-next :prev="prev" :next="next" />
+      <div class="hidden lg:block min-w-[200px]">
+        <div v-if="article?.body?.toc?.links.length">
+          <note-article-toc
+            class="toc pl-4 pb-4"
+            :links="article?.body?.toc?.links"
+          />
+        </div>
       </div>
-    </ContentRenderer>
-  </div>
+    </div>
+
+    <div class="border-t-2 border-gray-300 mt-8">
+      <note-prev-next :prev="prev" :next="next" />
+    </div>
+  </Page>
 </template>
 
 <style lang="scss">
 .article__content {
+  @apply font-mono text-gray-800;
+
   h2 {
-    font-size: 1.5rem;
-    letter-spacing: -0.025em;
-    line-height: 1.375;
-    margin-bottom: 0.5em;
-    margin-top: 1.25em;
+    @apply text-2xl mt-12 mb-6;
 
     a {
-      font-weight: 700;
+      @apply font-bold;
     }
   }
 
   h3 {
-    font-size: 1.25rem;
-    letter-spacing: -0.025em;
-    line-height: 1.375;
-    margin-bottom: 0.5em;
-    margin-top: 1.25em;
+    @apply text-xl mt-12 mb-6;
 
     a {
-      font-weight: 600;
+      @apply font-semibold;
     }
   }
 
   p {
-    font-size: 16px;
-    line-height: 1.625;
-    margin: 0;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 0px;
+    @apply mt-4 mb-4;
+  }
+
+  b,
+  strong {
+    @apply font-bold;
+  }
+
+  em,
+  code,
+  italic {
+    @apply italic text-gray-600 bg-gray-200 p-1;
   }
 
   ol {
@@ -131,20 +133,24 @@ useSeoMeta({
     padding-left: 20px;
   }
 
-  ul {
-    list-style: disc;
-    list-style-position: inside;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding-left: 0;
-  }
-
   ol li {
     counter-increment: list-number;
     line-height: 1.7;
     margin-bottom: 0;
     margin-top: 0;
     min-height: 28px;
+  }
+
+  ul {
+    list-style: disc;
+    list-style-position: inside;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 20px;
+  }
+
+  ul li {
+    line-height: 1.7;
   }
 
   ul ul,
@@ -157,24 +163,16 @@ useSeoMeta({
   }
 
   pre {
-    border-radius: 0.5rem;
+    @apply mt-4 mb-6 rounded-md;
     display: flex;
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
     max-width: 100%;
     overflow: auto;
     white-space: pre;
   }
 
   pre code {
-    background-color: #0d1117;
-    font-family: monospace;
-    font-weight: 400;
+    @apply px-8 py-6 w-full bg-gray-900 font-mono;
     overflow: auto;
-    padding: 15px 25px;
-    width: 100%;
   }
 }
 </style>

@@ -1,23 +1,22 @@
 <template>
-  <footer class="text-gray bg-transparent">
-    <div
-      class="border-t-2 border-[rgba(0,0,0,.1)] w-full px-4 py-6 container mx-auto"
-    >
+  <footer class="text-gray-400 bg-transparent">
+    <div class="border-t-2 border-gray-200 w-full px-4 py-6 container mx-auto">
       <div
-        class="container mx-auto flex flex-col md:flex-row justify-between items-center"
+        class="container mx-auto flex flex-col gap-1 md:flex-row justify-center items-center"
       >
         <div class="text-center md:text-left">
           <p class="text-sm uppercase">
-            &copy Mauro 2021 | Tutti i diritti riservati
+            &copy Mauro 2021 | All rights reserved
           </p>
         </div>
-        <div class="flex flex-col md:flex-row items-center">
-          <p class="text-sm">
-            Realizzato con <span class="text-red-500">❤</span> e
-            <a href="https://nuxtjs.org" target="_blank" class="text-blue-500"
-              >Nuxt</a
-            >
-          </p>
+        <div class="text-sm flex gap-1 justify-center">
+          Made with <span class="text-red-500 animate-pulse">❤</span> and
+          <a
+            href="https://nuxtjs.org"
+            target="_blank"
+            class="font-bold text-blue-400"
+            >Nuxt</a
+          >
         </div>
       </div>
     </div>

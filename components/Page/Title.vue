@@ -15,14 +15,14 @@ defineProps({
   <div class="text-center mb-12 font-bold">
     <div>
       <slot>
-        <h2 class="text-4xl uppercase">{{ text }}</h2>
+        <h2 class="text-3xl uppercase">{{ text }}</h2>
       </slot>
     </div>
 
-    <div class="text-sm">
+    <div>
       <slot
-        ><span class="uppercase font-extrabold text-xl">My</span
-        ><b class="font-[Caveat] text-emerald-600 text-3xl">{{
+        ><span class="uppercase text-lg">My</span
+        ><b class="font-[Caveat] text-emerald-600 text-2xl">{{
           subtitle
         }}</b></slot
       >

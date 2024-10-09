@@ -1,5 +1,5 @@
 <template>
-  <section class="pb-24 mx-auto">
+  <section class="pb-20 mx-auto">
     <slot />
   </section>
 </template>

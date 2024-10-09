@@ -10,14 +10,14 @@ const query = { published: true };
 if (categoryParam) Object.assign(query, { tags: categoryParam });
 const total = (await queryContent('en/articles').only([]).where(query).find()).length;
 const { data: articles, refresh } = await useAsyncData('posts', () =>
-  queryContent('en/articles').where(query).sort({ date: -1 }).skip(page).limit(limit).find(),
+  queryContent('en/articles').where(query).sort({ title: 1 }).skip(page).limit(limit).find(),
 );
 
 const recentPosts: QueryBuilderParams = {
   path: '/en/articles',
   where: [query],
   limit: 15,
-  sort: [{ date: -1 }],
+  sort: [{ title: 1 }],
 };
 
 const { data } = await useAsyncData('/', () => queryContent('/').findOne());
@@ -34,9 +34,9 @@ function refetch(pageNumber: number) {
   <PageSection>
     <PageTitle text="Notes" subtitle=" Articles and Advice" />
 
-    <div class="container flex flex-col md:flex-row px-4 gap-8">
+    <div class="flex flex-col md:flex-row gap-10">
       <div>
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col">
           <note-list-article-item
             v-for="article in articles"
             :key="article.id"
@@ -47,7 +47,7 @@ function refetch(pageNumber: number) {
         <div class="text-center mt-8">
           <button
             v-if="page > 0"
-            class="bg-white py-2 px-4 rounded"
+            class="uppercase bg-white py-2 px-4 rounded"
             @click="refetch(-5)"
           >
             prev
@@ -55,7 +55,7 @@ function refetch(pageNumber: number) {
           <span class="ml-5"></span>
           <button
             v-if="page + limit < total"
-            class="bg-white py-2 px-4 rounded"
+            class="uppercase bg-white py-2 px-4 rounded"
             variant="flat"
             @click="refetch(5)"
           >
@@ -65,19 +65,21 @@ function refetch(pageNumber: number) {
       </div>
 
       <div class="min-w-[300px]">
-        <aside class="border-l-2 border-[rgba(0,0,0,.1)] pl-4">
+        <aside class="border-l-2 border-[rgba(0,0,0,.1)] px-6">
           <section class="pb-10">
-            <h2 class="uppercase text-emerald-600 mb-4">Recent Posts</h2>
+            <h2 class="text-lg font-bold uppercase text-emerald-600 mb-4">
+              Other Notes
+            </h2>
             <ContentList :query="recentPosts">
               <template #not-found>
-                <p>No articles found.</p>
+                <p>No notes found.</p>
               </template>
 
               <template #default="{ list }">
                 <ul>
-                  <li v-for="article of list" :key="article._path">
+                  <li v-for="article of list" :key="article._path" class="mb-1">
                     <NuxtLink :to="'/notes' + article._path">
-                      {{ article.title }}
+                      <h5>- {{ article.title }}</h5>
                     </NuxtLink>
                   </li>
                 </ul>
@@ -86,7 +88,9 @@ function refetch(pageNumber: number) {
           </section>
 
           <section class="pb-10">
-            <h2 class="uppercase text-emerald-600">Categories</h2>
+            <h2 class="text-lg font-bold uppercase text-emerald-600">
+              Categories
+            </h2>
             <ContentList :query="recentPosts">
               <template #not-found>
                 <p>No categories found.</p>
@@ -97,10 +101,10 @@ function refetch(pageNumber: number) {
                   <li
                     v-for="category of categories"
                     :key="category.path"
-                    class="uppercase"
+                    class="uppercase mb-1"
                   >
                     <NuxtLink :to="'/notes/categories/' + category.path">
-                      {{ category.title }}
+                      #{{ category.title }}
                     </NuxtLink>
                   </li>
                 </ul>
