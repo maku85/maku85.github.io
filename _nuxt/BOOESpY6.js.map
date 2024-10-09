@@ -1,1 +1,0 @@
-{"version":3,"file":"BOOESpY6.js","sources":["../../../../components/Page/Section/index.vue"],"sourcesContent":["<template>\n  <section class=\"pb-24 mx-auto\">\n    <slot />\n  </section>\n</template>\n"],"names":["_sfc_render","_ctx","_cache","_openBlock","_createElementBlock","_hoisted_1"],"mappings":"4FACE,SAAAA,EAAAC,EAAAC,EAAA,QACUC,EAAA,EAAAC,EAAA,UAAAC,EAAA"}
