@@ -20,14 +20,12 @@ const flattenLinks = (links) => {
 </script>
 
 <template>
-  <nav>
-    <header>
-      <h2
-        class="mb-6 text-lg uppercase relative before:bg-emerald-600 before:bottom-[-10px] before:h-1 before:absolute before:w-[80px]"
-      >
-        Table of contents
-      </h2>
-    </header>
+  <div class="py-5">
+    <h2
+      class="mb-6 text-lg uppercase relative before:bg-emerald-600 before:bottom-[-10px] before:h-1 before:absolute before:w-[80px]"
+    >
+      Table of contents
+    </h2>
 
     <ul class="ml-4 list-disc">
       <li
@@ -50,5 +48,5 @@ const flattenLinks = (links) => {
         </NuxtLink>
       </li>
     </ul>
-  </nav>
+  </div>
 </template>

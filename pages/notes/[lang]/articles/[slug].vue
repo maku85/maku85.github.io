@@ -75,14 +75,14 @@ useSeoMeta({
         </div>
       </div>
 
-      <div class="hidden lg:block min-w-[200px]">
-        <div v-if="article?.body?.toc?.links.length">
+      <aside class="relative hidden lg:block min-w-[200px]">
+        <div v-if="article?.body?.toc?.links.length" class="fixed">
           <note-article-toc
             class="toc pl-4 pb-4"
             :links="article?.body?.toc?.links"
           />
         </div>
-      </div>
+      </aside>
     </div>
 
     <div class="border-t-2 border-gray-300 mt-8">

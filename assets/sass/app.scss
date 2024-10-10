@@ -1,16 +1,7 @@
-$font-family: "Jost", "Helvetica", Arial, sans-serif;
-
-@import "variables";
-
 @import "transitions";
 
 // Core CSS
 @import "theme/misc";
-@import "theme/typography";
 
 // pages
 @import "pages/error";
-
-.router-link-exact-active {
-  @apply text-emerald-600 border-b-2 border-emerald-600;
-}

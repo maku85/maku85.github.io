@@ -15,29 +15,16 @@ body {
   );
 }
 
-a {
-  color: $font;
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    color: $font;
-  }
-}
-
 //  scrollbar
 ::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
+  @apply w-2;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 2px;
+  @apply bg-gray-100 rounded-sm;
 }
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 3px;
+  @apply bg-emerald-600 rounded-sm;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  @apply bg-emerald-700;
 }

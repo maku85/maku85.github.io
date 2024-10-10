@@ -31,11 +31,13 @@ onMounted(() => {
       class="max-w-screen-xl flex items-center justify-end mx-auto px-4 py-6"
     >
       <div class="hidden md:block w-full" id="navbar-default">
-        <ul class="flex justify-end mt-4">
+        <ul class="flex justify-end gap-2">
           <li v-for="item in menuItems" :key="item.title">
-            <NuxtLink class="py-2 px-4" :to="item.path">{{
-              item.title
-            }}</NuxtLink>
+            <NuxtLink
+              class="font-mono transition ease-in-out py-2 px-4 font-bold hover:rounded hover:border-b-4 hover:border-emerald-600 hover:text-emerald-600"
+              :to="item.path"
+              >{{ item.title }}</NuxtLink
+            >
           </li>
         </ul>
       </div>
@@ -105,3 +107,9 @@ onMounted(() => {
     </div>
   </div>
 </template>
+
+<style lang="scss">
+nav li .router-link-exact-active {
+  @apply font-[Caveat] text-xl font-bold text-white bg-emerald-600 rounded hover:text-white hover:border-0;
+}
+</style>

@@ -1,27 +1,13 @@
 <script setup lang="ts">
 import type { QueryBuilderParams } from '@nuxt/content/types';
 
-const route = useRoute();
-const categoryParam = route.query.category;
-
 let page = 0;
 const limit = 5;
 const query = { published: true };
-if (categoryParam) Object.assign(query, { tags: categoryParam });
 const total = (await queryContent('en/articles').only([]).where(query).find()).length;
 const { data: articles, refresh } = await useAsyncData('posts', () =>
   queryContent('en/articles').where(query).sort({ title: 1 }).skip(page).limit(limit).find(),
 );
-
-const recentPosts: QueryBuilderParams = {
-  path: '/en/articles',
-  where: [query],
-  limit: 15,
-  sort: [{ title: 1 }],
-};
-
-const { data } = await useAsyncData('/', () => queryContent('/').findOne());
-const categories = computed(() => data?.value?.notes.categories || []);
 
 function refetch(pageNumber: number) {
   page += pageNumber;
@@ -66,51 +52,8 @@ function refetch(pageNumber: number) {
 
       <div class="min-w-[300px]">
         <aside class="border-l-2 border-[rgba(0,0,0,.1)] px-6">
-          <section class="pb-10">
-            <h2 class="text-lg font-bold uppercase text-emerald-600 mb-4">
-              Other Notes
-            </h2>
-            <ContentList :query="recentPosts">
-              <template #not-found>
-                <p>No notes found.</p>
-              </template>
-
-              <template #default="{ list }">
-                <ul>
-                  <li v-for="article of list" :key="article._path" class="mb-1">
-                    <NuxtLink :to="'/notes' + article._path">
-                      <h5>- {{ article.title }}</h5>
-                    </NuxtLink>
-                  </li>
-                </ul>
-              </template>
-            </ContentList>
-          </section>
-
-          <section class="pb-10">
-            <h2 class="text-lg font-bold uppercase text-emerald-600">
-              Categories
-            </h2>
-            <ContentList :query="recentPosts">
-              <template #not-found>
-                <p>No categories found.</p>
-              </template>
-
-              <template #default>
-                <ul class="mt-4">
-                  <li
-                    v-for="category of categories"
-                    :key="category.path"
-                    class="uppercase mb-1"
-                  >
-                    <NuxtLink :to="'/notes/categories/' + category.path">
-                      #{{ category.title }}
-                    </NuxtLink>
-                  </li>
-                </ul>
-              </template>
-            </ContentList>
-          </section>
+          <note-list-categories />
+          <note-list-random-notes />
         </aside>
       </div>
     </div>
