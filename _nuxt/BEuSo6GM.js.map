@@ -1,0 +1,1 @@
+{"version":3,"file":"BEuSo6GM.js","sources":["../../../../node_modules/.pnpm/@nuxtjs+mdc@0.8.3/node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseTd.vue"],"sourcesContent":["<template>\n  <td>\n    <slot />\n  </td>\n</template>\n"],"names":["_cache","_openBlock","_createElementBlock"],"mappings":"+EAGOA,EAAA,QADKC,EAAA,EAAAC,EAAA,KAAA,KAAA","x_google_ignoreList":[0]}
